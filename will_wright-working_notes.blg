@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: working_notes-will_wright.aux
+The top-level auxiliary file: will_wright-working_notes.aux
 The style file: amsalpha-fi-arxlast.bst
 Database file #1: DissertationBibliography.bib
 Warning--entry type for "Guizar-Sicairos" isn't style-file defined
@@ -18,45 +18,45 @@ in BibTeX entry type `book'
 Warning--missing pages in jiang2017robust
 Warning--missing pages in katkovnik2017phase
 Warning--missing journal name in sorensen1997implicitly
-You've used 72 entries,
+You've used 71 entries,
             2674 wiz_defined-function locations,
-            1017 strings with 17506 characters,
-and the built_in function-call counts, 28769 in all, are:
-= -- 2667
-> -- 1495
+            1011 strings with 17357 characters,
+and the built_in function-call counts, 28360 in all, are:
+= -- 2626
+> -- 1476
 < -- 25
-+ -- 522
-- -- 512
-* -- 2562
-:= -- 4717
-add.period$ -- 72
-call.type$ -- 72
-change.case$ -- 473
-chr.to.int$ -- 71
-cite$ -- 83
-duplicate$ -- 1034
-empty$ -- 2229
-format.name$ -- 593
-if$ -- 5771
++ -- 515
+- -- 506
+* -- 2524
+:= -- 4651
+add.period$ -- 71
+call.type$ -- 71
+change.case$ -- 467
+chr.to.int$ -- 70
+cite$ -- 82
+duplicate$ -- 1021
+empty$ -- 2197
+format.name$ -- 586
+if$ -- 5689
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 82
-newline$ -- 227
-num.names$ -- 214
-pop$ -- 442
+missing$ -- 81
+newline$ -- 224
+num.names$ -- 211
+pop$ -- 438
 preamble$ -- 1
-purify$ -- 542
+purify$ -- 535
 quote$ -- 0
-skip$ -- 838
+skip$ -- 827
 stack$ -- 0
-substring$ -- 1671
-swap$ -- 130
+substring$ -- 1638
+swap$ -- 129
 text.length$ -- 25
 text.prefix$ -- 17
 top$ -- 1
-type$ -- 525
+type$ -- 517
 warning$ -- 12
-while$ -- 287
-width$ -- 78
-write$ -- 777
+while$ -- 282
+width$ -- 77
+write$ -- 766
 (There were 13 warnings)

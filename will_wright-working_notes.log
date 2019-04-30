@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  29 APR 2019 14:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  30 APR 2019 12:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**working_notes-will_wright.tex
-(./working_notes-will_wright.tex
+**will_wright-working_notes.tex
+(./will_wright-working_notes.tex
 LaTeX2e <2015/10/01> patch level 2
 Babel <3.9n> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/report.cls
@@ -775,8 +775,8 @@ Extension to Epic and LaTeX. Version 1.1e - Released Dec 21, 1999
 )
 \c@thm=\count157
 \c@theorem=\count158
- (./working_notes-will_wright.aux)
-\openout1 = `working_notes-will_wright.aux'.
+ (./will_wright-working_notes.aux)
+\openout1 = `will_wright-working_notes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 230.
 LaTeX Font Info:    ... okay on input line 230.
@@ -871,9 +871,9 @@ LaTeX Info: Redefining \ref on input line 230.
 LaTeX Info: Redefining \pageref on input line 230.
 LaTeX Info: Redefining \nameref on input line 230.
 
-(./working_notes-will_wright.out) (./working_notes-will_wright.out)
+(./will_wright-working_notes.out) (./will_wright-working_notes.out)
 \@outlinefile=\write4
-\openout4 = `working_notes-will_wright.out'.
+\openout4 = `will_wright-working_notes.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -889,7 +889,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./working_notes-will_wright.tocpdfTeX warning (ext4): destination with the sam
+(./will_wright-working_notes.tocpdfTeX warning (ext4): destination with the sam
 e identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -898,7 +898,7 @@ l.26 ... matrix eigenvalue problem}{70}{chapter.6}
 
 ])
 \tf@toc=\write5
-\openout5 = `working_notes-will_wright.toc'.
+\openout5 = `will_wright-working_notes.toc'.
 
  [2] (./Introduction.tex
 Chapter 1.
@@ -1198,8 +1198,8 @@ File: term_crit-dual_obj.png Graphic file (type png)
 <use term_crit-dual_obj.png>
 Package pdftex.def Info: term_crit-dual_obj.png used on input line 93.
 (pdftex.def)             Requested size: 534.19987pt x 235.48155pt.
- [111]) [112 <./term_crit-dual_obj.png (PNG copy)>] (./working_notes-will_wrigh
-t.bbl [113
+ [111]) [112 <./term_crit-dual_obj.png (PNG copy)>] (./will_wright-working_note
+s.bbl [113
 
 ] [114] [115] [116] [117]
 Missing character: There is no â in font cmti10!
@@ -1209,19 +1209,19 @@ Missing character: There is no ” in font cmti10!
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 310.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 310.
 
-(./working_notes-will_wright.aux)
+(./will_wright-working_notes.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 310.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 310.
-Package rerunfilecheck Info: File `working_notes-will_wright.out' has not chang
+Package rerunfilecheck Info: File `will_wright-working_notes.out' has not chang
 ed.
 (rerunfilecheck)             Checksum: B499B8040165C063A1F1F21B2E99FDCC;3061.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 310.
  ) 
 Here is how much of TeX's memory you used:
- 22272 strings out of 493054
- 433368 string characters out of 6134760
- 542556 words of memory out of 5000000
- 24745 multiletter control sequences out of 15000+600000
+ 22270 strings out of 493054
+ 433321 string characters out of 6134760
+ 543511 words of memory out of 5000000
+ 24744 multiletter control sequences out of 15000+600000
  19877 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,19n,67p,1590b,997s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1247,10 +1247,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf
 dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on working_notes-will_wright.pdf (119 pages, 1637464 bytes).
+Output written on will_wright-working_notes.pdf (119 pages, 1636871 bytes).
 PDF statistics:
- 2877 PDF objects out of 2984 (max. 8388607)
- 2579 compressed objects within 26 object streams
- 605 named destinations out of 1000 (max. 500000)
+ 2876 PDF objects out of 2984 (max. 8388607)
+ 2578 compressed objects within 26 object streams
+ 604 named destinations out of 1000 (max. 500000)
  399 words of extra memory for PDF output out of 10000 (max. 10000000)
 

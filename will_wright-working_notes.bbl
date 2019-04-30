@@ -162,11 +162,6 @@ G.~H. Golub and Q.~Ye, \emph{An inverse free preconditioned krylov subspace
 R.~W. Harrison, \emph{Phase problem in crystallography}, JOSA a \textbf{10}
   (1993), no.~5, 1046--1055.
 
-\bibitem[HR00]{helmberg2000spectral}
-C.~Helmberg and F.~Rendl, \emph{A spectral bundle method for semidefinite
-  programming}, SIAM Journal on Optimization \textbf{10} (2000), no.~3,
-  673--696.
-
 \bibitem[HS52]{hestenes1952methods}
 M.~R. Hestenes and E.~Stiefel, \emph{Methods of conjugate gradients for solving
   linear systems}, vol.~49, NBS Washington, DC, 1952.
