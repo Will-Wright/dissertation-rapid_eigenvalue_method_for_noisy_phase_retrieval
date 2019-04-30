@@ -1,0 +1,39 @@
+\chapter{Proof of PhaseLift-$l_1$ gauge duality} 	\label{Sec:Appx-PL-l1}
+
+In this appendix we show that the following pair of PhaseLift-$l_1$ models discussed in Section \ref{Subsubsec:phase_retrieval-why_optimize_PLGD_model} are a primal and gauge dual pair
+\begin{equation}				\label{Eqn:PhaseLift_l-1_norm_model_gauge_dual}
+\begin{array}{llllll}
+	&\min
+	& ||\caA(X) - b||_1
+		&&\min\limits_{y}
+			&	||y||_\infty
+		\\
+\textnormal{(PLP-}l_1) &	\st
+	&	X \succeq 0
+		& \textnormal{(PLGD-}l_1)		
+		&	\st
+			&	-\caA^*y \succeq 0
+		\\
+	&&&&&	\langle b, y \rangle \geq 1.
+\end{array}
+\end{equation}
+
+To determine the gauge dual of PLP-$l_1$, first note that the objective function $f(X) = ||\caA(X) - b||_1$ is not a gauge function, as $f$ is not positively homogeneous.  Using the substitution $z = b - \caA(X)$ and extending the linear operator $\caA$, we may restate PLP-$l_1$ as
+\begin{equation} 		\label{Eqn:PhaseLift_l-1_norm_model_general}
+\begin{array}{ll}
+\min\limits_{X, z}
+	&	\kappa(X, z) := ||z||_1 + \delta_{\succeq 0}(X)
+		\\
+\st
+	&	\overline{\caA}(X, z) := \caA(X) + z = b,
+\end{array}
+\end{equation}
+which is now in the form of (\ref{Eqn:PhaseLift_P_GD_inequality_form}).  The gauge functions $\kappa_1(z) = ||z||_1$ and $\kappa_2(X) = \delta_{\succeq 0}(X)$ have polars $\kappa_1^\circ(w) = ||w||_\infty$ and $\kappa_2^\circ(V) = \delta_{\succeq 0}(-V)$.  Thus, by Proposition \ref{Prop:P-GD-polar_of_sum_of_gauges}, $\kappa$ has the polar
+\begin{equation}
+\kappa^\circ(V, w) = \max \{ ||w||_\infty, \ \delta_{\succeq 0}(-V) \} = ||w||_\infty + \delta_{\succeq 0}(-V).
+\end{equation}
+Additionally, the adjoint of $\overline{\caA}$ is $\overline{\caA}^*y = (\caA^*y, y)$, giving
+\begin{equation}
+\kappa^\circ(\overline{\caA}^*y) = ||y||_\infty + \delta_{\succeq 0}(-\caA^*y).
+\end{equation}
+Passing $\delta_{\succeq 0}(-\caA^*y)$ into the constraint set, we see that PLGD-$l_1$ is the gauge dual of PLP-$l_1$.

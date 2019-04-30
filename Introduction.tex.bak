@@ -1,0 +1,133 @@
+
+\section{Introduction}  \label{Sec:Intro}			\label{Sec:intro}
+
+
+
+\subsection{Introduction and contributions} 		\label{Subsec:intro-contributions}
+
+Phase retrieval has a wide range of solution methods, yet few exist for handling noisy observations without imposing additional restrictions such as signal sparsity.  One recent noisy phase retrieval model which requires no underlying assumptions is the gauge dual of the PhaseLift model (PLGD) first introduced and analyzed in \cite{DBLP:journals/siamsc/FriedlanderM16},
+\begin{equation} \label{Eqn:PhaseLift-GD}
+\begin{array}{lll}
+	&	\min\limits_{\substack{y}}
+		&	\lambda_1(\caA^* y)
+		\\
+\textnormal{(PLGD)}
+	&	\st
+		&	\langle b, y \rangle - \epsilon ||y|| \geq 1.
+\end{array}
+\end{equation}
+
+The PLGD model is based on the PhaseLift method \cite{DBLP:journals/siamis/CandesESV13} in which a desired signal of $n$ elements (e.g., pixels) is lifted into the space of $n \times n$ positive semidefinite matrices, creating a very large-scale recovery problem.  The PLGD model (\ref{Eqn:PhaseLift-GD}) maintains the convergence guarantees of the convex PhaseLift model, yet also allows for efficient first-order methods such as Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}.
+
+In \cite[Section 5]{DBLP:journals/siamsc/FriedlanderM16}, the authors demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than an alternate method for optimizing the PhaseLift model.  This algorithm also returns signals with greater accuracy than wflow, another method for phase retrieval (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details regarding wflow).  Yet Algorithm \ref{Alg:PGD} faces two significant challenges for noisy phase retrieval.  Computationally, this algorithm requires a large-scale eigenvalue problem to be solved at each step, leading to significant runtime for modest-sized signal recovery.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} often stagnate before converging.
+
+
+This dissertation offers two main contributions.  First, we address the algorithmic stagnation of Algorithm \ref{Alg:PGD} for noisy phase retrieval.   We establish new termination conditions for Algorithm \ref{Alg:PGD} which correspond to stagnation of signal recovery progress.  Second, we examine the eigenvalue problem in Algorithm \ref{Alg:PGD}, the computational bottleneck of this algorithm.  We examine the structure of this problem and develop an adaptive method for handling this problem which decreases the computational costs and overall runtime of Algorithm \ref{Alg:PGD} by about $70-90\%$.
+
+
+This dissertation is organized in the following manner.  Chapter \ref{Sec:phase_retrieval} introduces the phase retrieval problem and provides a survey of phase retrieval methods.  
+We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow method (the primary competitor method for unstructured phase retrieval).
+Chapter \ref{Sec:PLGD} examines the PLGD model (\ref{Eqn:PhaseLift-GD}) and presents the gauge duality theory necessary for examining this model.  Chapter \ref{Sec:PLGD_algo} then develops Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this method for noiseless phase retrieval.
+
+Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically fails to converge for noisy phase retrieval and establishes new termination conditions for this algorithm.  Chapter \ref{Sec:evol_mats}  demonstrates that the evolving matrix eigenvalue problem (EMEP) in Algorithm \ref{Alg:PGD} is the main computational bottleneck.  This chapter examines the structure of the EMEP in Algorithm \ref{Alg:PGD} and reviews a few common eigenvalue methods for handling the EMEP.  Chapter \ref{Sec:Numerics} presents numerical results for the eigenvalue methods applied to the EMEP and develops an efficient, adaptive method for handling the EMEP.  Finally, Chapter \ref{Sec:Revised_method} presents a revised algorithm for optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
+
+
+
+\subsection{Notation} 		\label{Subsec:intro-notation}
+
+
+This dissertation uses the following notation.  Additional notation and definitions related to gauge duality are stated in Sections \ref{Subsec:PLGD-models_intro}.  The $(i,j)$ entry of a matrix $A$ is denoted $[A]_{i,j}$ or $A(i,j)$, and the $i$-th component of a vector $a$ is denoted $a_i$ or $[a]_i$.  Vector norms are the standard $p$-norms, with $||\cdot|| \equiv || \cdot ||_2$.   Matrix norms for $A \in \bbC^{m \times n}$ are Schatten $p$-norms, which apply the  $p$-norm to the vector of singular values, i.e.,
+\begin{equation}  \label{Def:shatten_norms}
+||A||_p  = \left( \sum_{\substack{i = 1}}^{\substack{\min\{m, n \}}} \sigma_i^p(A) \right)^{\frac{1}{p}}.
+\end{equation}
+The special case of $p = 2$ gives the Frobenius norm
+\begin{equation} 	\label{Def:Frobenius_norm}
+||A||_F = \sqrt{\sum_{\substack{i = 1}}^{\substack{\min\{m, n \}}} \sigma_i^2(A)}.
+\end{equation}
+Schatten norms are essential to the multiplicative nature of gauge duality as it is used to develop the PLGD model.  In contrast, the EMEP requires measurements with the vector-induced $2$-norm.  Thus we define the generic \textit{matrix norm} as
+\begin{equation} 		\label{Def:matrix_norm}
+||A|| = \sup_{\substack{||v||_2 = 1}} ||Av||_2 = \sigma_{\max}(A).
+\end{equation}
+The standard basis vector is denoted $e_i$, where $[e_i]_i = 1$ and all other components are zero.  
+Given a vector $d$ in $\bbR^n$ or $\bbC^n$ with components $d_1, d_2, \ldots, d_n$, the \textit{diagonal operator} is defined as
+\begin{equation}
+Diag(d) = Diag(d_1, d_2, \ldots, d_n)_{ij} = 
+	\begin{cases}
+		d_i 		&		\text{if } i = j	\\
+		0		&	\text{else}.
+	\end{cases}
+\end{equation}
+
+Given $\caS$, a subset of a finite-dimensional Euclidean space $\caX$, the \textit{indicator} function of $\caS$ is defined as
+\begin{equation}  			\label{Def:indicator_function}
+\delta_\caS(x) =
+	\begin{cases}
+		0		&	x \in \caS		\\
+		+\infty		&	x \notin \caS.
+	\end{cases}
+\end{equation}
+It is easily seen that if $\caS$ is convex, then $\delta_\caS$ will be convex.  Thus the indicator function is useful for tasks like embedding a domain constraint of an optimization model into the objective function and computing the gauge dual of the model (see Chapter \ref{Sec:PLGD}).
+
+If $\caC$ is a convex subset of a finite-dimensional Euclidean space, then the \textit{normal cone} of $\caC$ at $y_0 \in \caC$ is defined as
+\begin{equation} 			\label{Def:normal_cone}
+N_\caC(y_0) = \left\{ g \in \caX \ | \ \langle g, y - y_0 \rangle \leq 0 \ \ \forall y \in \caC \right\}.
+\end{equation}
+By convention, if $y_0$ is not in $\caC$, then $N_\caC(y_0)$ is the empty set.
+
+Given a subspace $S$ of $\bbR^n$ or $\bbC^n$, the \textit{orthogonal complement} of $S$ is defined as
+\begin{equation}
+S^\perp = \{ v \ | \ \langle v, w \rangle = 0 \ \text{for all} \ w \in S \}.
+\end{equation}
+
+
+Given a symmetric (or Hermitian) matrix $A$ in $\bbR^{n \times n}$ (or $\bbC^{n \times n}$), its eigenvalues are ordered
+\begin{equation}			\label{Def:eigenvalues}
+\lambda_1(A) \geq \lambda_2(A) \geq \ldots \geq \lambda_n(A),
+\end{equation}
+where $\lambda_1(A)$ or simply $\lambda_1$ is the largest algebraic eigenvalue of $A$, and $\lambda_n(A)$ or $\lambda_n$ is the smallest algebraic eigenvalue.  The \textit{spectrum} of $A$ is the set of all of its eigenvalues $\Lambda = \{ \lambda_1, \lambda_2, \ldots, \lambda_n\}$.
+If $S$ is a subspace of $\bbR^n$ (or $\bbC^n$) then $(\theta, u)$ is a \textit{Ritz pair for $A$ with respect to $S$} if 
+\begin{equation} 			\label{Def:Ritz_pair_val_vec}
+\langle w, (Au-\theta u) \rangle = 0 \hspace{1cm} \forall w \in S.
+\end{equation}
+Likewise, $\theta$ is a \textit{Ritz value} and $u$ the corresponding \textit{Ritz vector for $A$ with respect to $S$}.
+
+For a pair of matrices $A, B \in \bbC^{n \times n}$, their inner product is that induced by the trace
+\begin{equation}			\label{Def:trace_inner_product}
+\langle A, B \rangle := \tr(A^*B) = \sum_{i=1}^n \sigma_i(A^*B).
+\end{equation}
+For a convex set $\caC$, define the projection onto this set as $\Pi_\caC(y)$.  Since the PLGD objective function $f(y) = \lambda_1(\caA^*y)$ is not generally differentiable, we consider the subdifferential of $f$.  Given a convex function $f : \caU \rightarrow \bbR$ defined on an open, convex subset $\caU$ of a finite-dimensional Euclidean space $\caX$, the \textit{subdifferential} of $f$ at $y_0$ is defined as
+\begin{equation}
+	\label{Def:subdifferential}
+	\partial f(y_0) = \left\{  g \in \caX \ | \ f(y) \geq f(y_0) + \langle g, y - y_0 \rangle \ \ \forall y \in \caU	\right\},
+\end{equation}
+and each element of $\partial f(y_0)$ is a \textit{subgradient} of $f$.
+
+Given a linear operator $\caA : \caX \rightarrow \caY$ over finite-dimensional Euclidean spaces $\caX$ and $\caY$, its \textit{adjoint} $\caA^* : \caY \rightarrow \caX$ is defined as the operator which satisfies 
+\begin{equation}			\label{Def:adjoint_operator}
+\langle \caA x, y \rangle = \langle x, \caA^* y \rangle \hspace{5pt} \text{for all } x \in \caX, y \in \caY. 
+\end{equation} 
+Since $\caX$ and $\caY$ are finite and $\caA$ is linear, $\caA$ is also continuous.  Thus the Riesz representation theorem guarantees that there will exist a unique linear operator $\caA^*$ \cite[Section 6.2]{reed1980functional}.  In this dissertation, we will be concerned specifically with linear operators $\caA: \caH \rightarrow \bbR^m$, where $\caH$ is the set of $n \times n$ Hermitian matrices.  It is easily shown that all such linear operators $\caA$ will have the form
+\begin{equation}
+\caA(X) = \begin{bmatrix}
+\langle A_1, X \rangle	\\
+\vdots	\\
+\langle A_m, X \rangle
+\end{bmatrix},
+\end{equation}
+where each $A_i$ is some matrix in $\caH$.  In this case, the adjoint of $\caA$ is given by 
+\begin{equation}
+\langle \caA(X), y \rangle  	= \sum_{i=1}^m \langle A_i, X \rangle y_i	  = \sum_{i=1}^m \langle y_iA_i, X \rangle   = \langle X, \sum_{i=1}^m  y_iA_i \rangle = \langle X, \caA^*y \rangle.
+\end{equation}
+Thus we have $\caA^*y = \sum_{i=1}^m  y_iA_i$.
+
+
+The \textit{Gaussian distribution} (or \textit{normal distribution}) $\caN(\mu, \sigma^2)$ is the distribution defined by the probability density function
+\begin{equation} 			\label{Def:Gaussian_distribution}
+f\left(x \ | \ \mu, \sigma^2\right) = \frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},
+\end{equation}
+where $\mu$ is the mean and $\sigma^2$ the variance of the distribution.  A real vector has Gaussian distribution $\nu \sim \caN(\mu, \sigma^2)$ if all its elements have Gaussian distribution.  Unless otherwise specified, the Gaussian distribution refers specifically to the \textit{standard Gaussian distribution}, where $\mu = 0$ and $\sigma^2 = 1$.  The \textit{complex standard Gaussian distribution} is defined by the probability density function
+\begin{equation} 			\label{Def:Gaussian_distribution_complex}
+f(z) = \frac{1}{\pi}e^{-|z|^2}.
+\end{equation}
+
+

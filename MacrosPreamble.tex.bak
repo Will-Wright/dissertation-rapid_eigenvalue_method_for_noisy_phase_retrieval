@@ -1,0 +1,153 @@
+% Use this file to load additional packages or define macro
+% commands that will be used in the dissertation.
+%
+
+\usepackage{graphicx}
+\usepackage{caption} %%% optional but probably necessary
+\usepackage{subcaption} %%% optional but probably necessary
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{amsthm}
+\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{url,tabularx,array,geometry,amsmath,amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows, positioning}
+
+\newtheorem{thm}{Theorem}[section]
+ \newtheorem{cor}[thm]{Corollary}
+ \newtheorem{prop}[thm]{Proposition}
+ \newtheorem{conj}[thm]{Conjecture}
+ \theoremstyle{definition}
+ \newtheorem{defn}[thm]{Definition}
+ \theoremstyle{remark}
+ \newtheorem{rem}[thm]{Remark}
+ \newtheorem*{ex}{Example}
+ \newtheorem{assumption}[thm]{Assumption}
+ 
+ \newcommand{\const}{\mathrm{const}}
+\newcommand{\bR}{{\mathbb R}}
+\newcommand{\bC}{{\mathbb C}}
+\newcommand{\bN}{{\mathbb N}}
+\newcommand{\bZ}{{\mathbb Z}}
+\newcommand{\cA}{{\mathcal A}}
+\newcommand{\cB}{{\mathcal B}}
+\newcommand{\cH}{{\mathcal H}}
+\newcommand{\rd}{{\rm d}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cL}{{\mathcal L}}
+
+%Sven's macros
+\newcommand{\caA}{{\mathcal A}}
+\newcommand{\caB}{{\mathcal B}}
+\newcommand{\caC}{{\mathcal C}}
+\newcommand{\caD}{{\mathcal D}}
+\newcommand{\caE}{{\mathcal E}}
+\newcommand{\caF}{{\mathcal F}}
+\newcommand{\caG}{{\mathcal G}}
+\newcommand{\caH}{{\mathcal H}}
+\newcommand{\caI}{{\mathcal I}}
+\newcommand{\caJ}{{\mathcal J}}
+\newcommand{\caK}{{\mathcal K}}
+\newcommand{\caL}{{\mathcal L}}
+\newcommand{\caM}{{\mathcal M}}
+\newcommand{\caN}{{\mathcal N}}
+\newcommand{\caO}{{\mathcal O}}
+\newcommand{\caP}{{\mathcal P}}
+\newcommand{\caQ}{{\mathcal Q}}
+\newcommand{\caR}{{\mathcal R}}
+\newcommand{\caS}{{\mathcal S}}
+\newcommand{\caT}{{\mathcal T}}
+\newcommand{\caU}{{\mathcal U}}
+\newcommand{\caV}{{\mathcal V}}
+\newcommand{\caW}{{\mathcal W}}
+\newcommand{\caX}{{\mathcal X}}
+\newcommand{\caY}{{\mathcal Y}}
+\newcommand{\caZ}{{\mathcal Z}}
+\newcommand{\cah}{{\mathcal h}}
+
+
+\newcommand{\bbA}{{\mathbb A}}
+\newcommand{\bbB}{{\mathbb B}}
+\newcommand{\bbC}{{\mathbb C}}
+\newcommand{\bbD}{{\mathbb D}}
+\newcommand{\bbE}{{\mathbb E}}
+\newcommand{\bbF}{{\mathbb F}}
+\newcommand{\bbG}{{\mathbb G}}
+\newcommand{\bbH}{{\mathbb H}}
+\newcommand{\bbI}{{\mathbb I}}
+\newcommand{\bbJ}{{\mathbb J}}
+\newcommand{\bbK}{{\mathbb K}}
+\newcommand{\bbL}{{\mathbb L}}
+\newcommand{\bbM}{{\mathbb M}}
+\newcommand{\bbN}{{\mathbb N}}
+\newcommand{\bbO}{{\mathbb O}}
+\newcommand{\bbP}{{\mathbb P}}
+\newcommand{\bbQ}{{\mathbb Q}}
+\newcommand{\bbR}{{\mathbb R}}
+\newcommand{\bbS}{{\mathbb S}}
+\newcommand{\bbT}{{\mathbb T}}
+\newcommand{\bbU}{{\mathbb U}}
+\newcommand{\bbV}{{\mathbb V}}
+\newcommand{\bbW}{{\mathbb W}}
+\newcommand{\bbX}{{\mathbb X}}
+\newcommand{\bbY}{{\mathbb Y}}
+\newcommand{\bbZ}{{\mathbb Z}}
+
+\newcommand{\cf}{{\it cf.\/} }
+\newcommand{\etal}{{\it et.\/ al.\/} }
+\newcommand{\ie}{{\it i.e.\/} }
+\newcommand{\eg}{{\it e.g.\/} }
+
+\renewcommand{\Re}{\mathrm{Re}}
+
+\newcommand{\Ran}[1]{\mathrm{Ran}\, #1 }
+\newcommand{\Ker}[1]{\mathrm{Ker}\, #1 }
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\iu}{\mathrm{i}}
+\newcommand{\Id}{1}
+\newcommand{\alg}[1]{\mathcal{A}(#1)}
+\newcommand{\idtytyeal}[1]{\mathcal{I}_{ #1 }}
+\newcommand{\str}{^{*}}
+\newcommand{\ep}[1]{\mathrm{e}^{#1}}
+\newcommand{\hilb}{\mathcal{H}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\T}{\mathrm{T}\,}
+\newcommand{\Emean}[1]{\mathbb{E}(#1)}
+\newcommand{\Tstr}{\mathrm{T}^*\,}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\braket}[2]{\left\langle #1 , #2\right\rangle}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+%
+\newcommand{\teop}{\hfill$\square$}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\argmin}{\text{argmin}}
+\newcommand{\argmax}{\text{argmax}}
+\newcommand{\epi}{\text{epi}}
+\newcommand{\nul}{\text{null}}
+\newcommand{\prox}{\text{prox}}
+\newcommand{\ran}{\text{ran}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\st}{\text{s.t.}}
+\newcommand{\wh}{\widehat}
+\newcommand{\Awh}{\widehat{A}}
+\newcommand{\yh}{\hat{y}}
+
+%Bruno's macros
+%
+\newcommand{\ketbra}[1]{\vert #1\rangle\langle #1\vert}
+\newcommand{\kettbra}[2]{\vert #1\rangle\langle #2\vert}
+\newcommand{\bra}[1]{\langle #1 \vert} 
+\newcommand{\Ket}[1]{\big\vert #1 \big\rangle}
+\newcommand{\ket}[1]{\vert #1 \rangle}
+\newcommand{\sign}{\text{sign}}
+
+
+

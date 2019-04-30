@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: working_notes-will_wright.aux
+The style file: amsalpha-fi-arxlast.bst
+Database file #1: DissertationBibliography.bib
+Warning--entry type for "Guizar-Sicairos" isn't style-file defined
+--line 413 of file DissertationBibliography.bib
+Warning--missing pages in aravkin2017foundations
+Warning--missing pages in bahmani2016phase
+Warning--missing pages in elser2017benchmark
+Warning--missing pages in DBLP:journals/corr/abs-1211-0872
+Warning--missing pages in DBLP:journals/siamsc/FriedlanderM16
+Warning--missing journal name in grigorieff1991note
+Warning--missing pages in grigorieff1991note
+Warning--missing pages in goldstein2018phasemax
+Warning--can't use both volume and number if series info is missing
+in BibTeX entry type `book'
+Warning--missing pages in jiang2017robust
+Warning--missing pages in katkovnik2017phase
+Warning--missing journal name in sorensen1997implicitly
+You've used 72 entries,
+            2674 wiz_defined-function locations,
+            1017 strings with 17506 characters,
+and the built_in function-call counts, 28769 in all, are:
+= -- 2667
+> -- 1495
+< -- 25
++ -- 522
+- -- 512
+* -- 2562
+:= -- 4717
+add.period$ -- 72
+call.type$ -- 72
+change.case$ -- 473
+chr.to.int$ -- 71
+cite$ -- 83
+duplicate$ -- 1034
+empty$ -- 2229
+format.name$ -- 593
+if$ -- 5771
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 82
+newline$ -- 227
+num.names$ -- 214
+pop$ -- 442
+preamble$ -- 1
+purify$ -- 542
+quote$ -- 0
+skip$ -- 838
+stack$ -- 0
+substring$ -- 1671
+swap$ -- 130
+text.length$ -- 25
+text.prefix$ -- 17
+top$ -- 1
+type$ -- 525
+warning$ -- 12
+while$ -- 287
+width$ -- 78
+write$ -- 777
+(There were 13 warnings)

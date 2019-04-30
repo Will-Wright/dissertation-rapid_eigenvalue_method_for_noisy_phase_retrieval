@@ -1,0 +1,963 @@
+%% Saved with string encoding Western (ASCII) 
+%
+% In TEXMAKER use F11 to compile BiBTeX file
+%
+
+@article{DBLP:journals/tit/AhmedRR14,
+  author    = {Ali Ahmed and
+               Benjamin Recht and
+               Justin K. Romberg},
+  title     = {Blind Deconvolution Using Convex Programming},
+  journal   = {{IEEE} Trans. Information Theory},
+  volume    = {60},
+  number    = {3},
+  pages     = {1711--1732},
+  year      = {2014},
+  url       = {https://doi.org/10.1109/TIT.2013.2294644},
+  doi       = {10.1109/TIT.2013.2294644},
+  timestamp = {Wed, 14 Jun 2017 20:31:01 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/tit/AhmedRR14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{aravkin2017foundations,
+  title={Foundations of gauge and perspective duality},
+  author={Aravkin, Alexandre Y and Burke, James V and Drusvyatskiy, Dmitriy and Friedlander, Michael P and MacPhee, Kellie},
+  journal={arXiv preprint arXiv:1702.08649},
+  year={2017}
+}
+
+@article{bahmani2016phase,
+  title={Phase retrieval meets statistical learning theory: A flexible convex relaxation},
+  author={Bahmani, Sohail and Romberg, Justin},
+  journal={arXiv preprint arXiv:1610.04210},
+  year={2016}
+}
+
+@article{barzilai1988twopoint,
+author = {Barzilai, Jonathan and Borwein, Jonathan M.},
+title = {Two-Point Step Size Gradient Methods},
+journal = {IMA Journal of Numerical Analysis},
+volume = {8},
+number = {1},
+pages = {141-148},
+year = {1988}
+}
+
+@article{bauschke2002,
+  title={Phase retrieval, error reduction algorithm, and Fienup variants: a view from convex optimization},
+  author={Bauschke, Heinz H and Combettes, Patrick L and Luke, D Russell},
+  journal={JOSA A},
+  volume={19},
+  number={7},
+  pages={1334--1345},
+  year={2002},
+  publisher={Optical Society of America}
+}
+
+@article{becker2011templates,
+  title={Templates for convex cone problems with applications to sparse signal recovery},
+  author={Becker, Stephen R and Cand{\`e}s, Emmanuel J and Grant, Michael C},
+  journal={Mathematical programming computation},
+  volume={3},
+  number={3},
+  pages={165},
+  year={2011},
+  publisher={Springer}
+}
+
+@book{ben2001lectures,
+  title={Lectures on modern convex optimization: analysis, algorithms, and engineering applications},
+  author={Ben-Tal, Ahron and Nemirovski, Arkadi},
+  volume={2},
+  year={2001},
+  publisher={Siam}
+}
+
+@BOOK{bertsekas2016nonlinear,
+  TITLE = {Nonlinear Programming},
+  SUBTITLE = {},
+  EDITION = {third},
+  AUTHOR = {Bertsekas, Dimitri P.},
+  YEAR = {2016},
+  PUBLISHER = {Athena Scientific},
+}
+
+@book{boyd2004convex,
+  title={Convex optimization},
+  author={Boyd, Stephen and Vandenberghe, Lieven},
+  year={2004},
+  publisher={Cambridge university press}
+}
+
+@book{bracewell1986fourier,
+  title={The Fourier transform and its applications},
+  author={Bracewell, Ronald Newbold and Bracewell, Ronald N},
+  volume={31999},
+  edition={third},
+  year={1986},
+  publisher={McGraw-Hill New York}
+}
+
+@article{bunk2007diffractive,
+  title={Diffractive imaging for periodic samples: retrieving one-dimensional concentration profiles across microfluidic channels},
+  author={Bunk, Oliver and Diaz, Ana and Pfeiffer, Franz and David, Christian and Schmitt, Bernd and Satapathy, Dillip K and van der Veen, J Friso},
+  journal={Acta Crystallographica Section A: Foundations of Crystallography},
+  volume={63},
+  number={4},
+  pages={306--314},
+  year={2007},
+  publisher={International Union of Crystallography}
+}
+
+@article{cai2016optimal,
+  title={Optimal rates of convergence for noisy sparse phase retrieval via thresholded Wirtinger flow},
+  author={Cai, T Tony and Li, Xiaodong and Ma, Zongming and others},
+  journal={The Annals of Statistics},
+  volume={44},
+  number={5},
+  pages={2221--2251},
+  year={2016},
+  publisher={Institute of Mathematical Statistics}
+}
+
+@article{DBLP:journals/siamis/CandesESV13,
+  author    = {Emmanuel J. Cand{\`{e}}s and
+               Yonina C. Eldar and
+               Thomas Strohmer and
+               Vladislav Voroninski},
+  title     = {Phase Retrieval via Matrix Completion},
+  journal   = {{SIAM} J. Imaging Sciences},
+  volume    = {6},
+  number    = {1},
+  pages     = {199--225},
+  year      = {2013},
+  url       = {https://doi.org/10.1137/110848074},
+  doi       = {10.1137/110848074},
+  timestamp = {Sat, 20 May 2017 00:26:12 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/siamis/CandesESV13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{candes2014solving,
+  title={Solving quadratic equations via PhaseLift when there are about as many equations as unknowns},
+  author={Cand{\`e}s, Emmanuel J and Li, Xiaodong},
+  journal={Foundations of Computational Mathematics},
+  volume={14},
+  number={5},
+  pages={1017--1026},
+  year={2014},
+  publisher={Springer}
+}
+
+@article{DBLP:journals/tit/CandesLS15,
+  author    = {Emmanuel J. Cand{\`{e}}s and
+               Xiaodong Li and
+               Mahdi Soltanolkotabi},
+  title     = {Phase Retrieval via Wirtinger Flow: Theory and Algorithms},
+  journal   = {{IEEE} Trans. Information Theory},
+  volume    = {61},
+  number    = {4},
+  pages     = {1985--2007},
+  year      = {2015},
+  url       = {https://doi.org/10.1109/TIT.2015.2399924},
+  doi       = {10.1109/TIT.2015.2399924},
+  timestamp = {Sun, 28 May 2017 13:18:32 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/tit/CandesLS15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{candes2009exact,
+  title={Exact matrix completion via convex optimization},
+  author={Cand{\`e}s, Emmanuel J and Recht, Benjamin},
+  journal={Foundations of Computational mathematics},
+  volume={9},
+  number={6},
+  pages={717},
+  year={2009},
+  publisher={Springer}
+}
+
+@article{candes2006stable,
+  title={Stable signal recovery from incomplete and inaccurate measurements},
+  author={Candes, Emmanuel J and Romberg, Justin K and Tao, Terence},
+  journal={Communications on pure and applied mathematics},
+  volume={59},
+  number={8},
+  pages={1207--1223},
+  year={2006},
+  publisher={Wiley Online Library}
+}
+
+@article{candes2013phaselift,
+  title={Phaselift: Exact and stable signal recovery from magnitude measurements via convex programming},
+  author={Candes, Emmanuel J and Strohmer, Thomas and Voroninski, Vladislav},
+  journal={Communications on Pure and Applied Mathematics},
+  volume={66},
+  number={8},
+  pages={1241--1274},
+  year={2013},
+  publisher={Wiley Online Library}
+}
+
+@article{candes2010power,
+  title={The power of convex relaxation: Near-optimal matrix completion},
+  author={Cand{\`e}s, Emmanuel J and Tao, Terence},
+  journal={IEEE Transactions on Information Theory},
+  volume={56},
+  number={5},
+  pages={2053--2080},
+  year={2010},
+  publisher={IEEE}
+}
+
+@article{chai2010array,
+  title={Array imaging using intensity-only measurements},
+  author={Chai, Anwei and Moscoso, Miguel and Papanicolaou, George},
+  journal={Inverse Problems},
+  volume={27},
+  number={1},
+  pages={015005},
+  year={2010},
+  publisher={IOP Publishing}
+}
+
+@article{chen2001atomic,
+  title={Atomic decomposition by basis pursuit},
+  author={Chen, Scott Shaobing and Donoho, David L and Saunders, Michael A},
+  journal={SIAM review},
+  volume={43},
+  number={1},
+  pages={129--159},
+  year={2001},
+  publisher={SIAM}
+}
+
+@article{dai2002r,
+  title={R-linear convergence of the Barzilai and Borwein gradient method},
+  author={Dai, Yu-Hong and Liao, Li-Zhi},
+  journal={IMA Journal of Numerical Analysis},
+  volume={22},
+  number={1},
+  pages={1--10},
+  year={2002},
+  publisher={Oxford University Press}
+}
+
+@incollection{duadi2011digital,
+  title={Digital holography and phase retrieval},
+  author={Duadi, Hamootal and Margalit, Ofer and Mico, Vicente and Rodrigo, Jos{\'e} A and Alieva, Tatiana and Garcia, Javier and Zalevsky, Zeev},
+  booktitle={Holography, Research and Technologies},
+  year={2011},
+  publisher={InTech}
+}
+
+@book{dummit2004abstract,
+  title={Abstract algebra},
+  author={Dummit, David Steven and Foote, Richard M},
+  volume={3},
+  year={2004},
+  publisher={Wiley Hoboken}
+}
+
+@article{DBLP:journals/corr/abs-1211-0872,
+  author    = {Yonina C. Eldar and
+               Shahar Mendelson},
+  title     = {Phase Retrieval: Stability and Recovery Guarantees},
+  journal   = {CoRR},
+  volume    = {abs/1211.0872},
+  year      = {2012},
+  url       = {http://arxiv.org/abs/1211.0872},
+  archivePrefix = {arXiv},
+  eprint    = {1211.0872},
+  timestamp = {Wed, 07 Jun 2017 14:42:21 +0200},
+  biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1211-0872},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{elser2017benchmark,
+  title={Benchmark problems for phase retrieval},
+  author={Elser, Veit and Lan, Ti-Yen and Bendory, Tamir},
+  journal={arXiv preprint arXiv:1706.00399},
+  year={2017}
+}
+
+@article{Fienup82,
+author = {J. R. Fienup},
+journal = {Appl. Opt.},
+keywords = {},
+number = {15},
+pages = {2758--2769},
+publisher = {OSA},
+title = {Phase retrieval algorithms: a comparison},
+volume = {21},
+month = {Aug},
+year = {1982},
+url = {http://ao.osa.org/abstract.cfm?URI=ao-21-15-2758},
+doi = {10.1364/AO.21.002758},
+abstract = {Iterative algorithms for phase retrieval from intensity data are compared to gradient search methods. Both the problem of phase retrieval from two intensity measurements (in electron microscopy or wave front sensing) and the problem of phase retrieval from a single intensity measurement plus a non-negativity constraint (in astronomy) are considered, with emphasis on the latter. It is shown that both the error-reduction algorithm for the problem of a single intensity measurement and the Gerchberg-Saxton algorithm for the problem of two intensity measurements converge. The error-reduction algorithm is also shown to be closely related to the steepest-descent method. Other algorithms, including the input--output algorithm and the conjugate-gradient method, are shown to converge in practice much faster than the error-reduction algorithm. Examples are shown.},
+}
+
+@article{fienup1987phase,
+  title={Phase retrieval and image reconstruction for astronomy},
+  author={Fienup, C and Dainty, J},
+  journal={Image Recovery: Theory and Application},
+  volume={231},
+  pages={275},
+  year={1987},
+  publisher={Academic}
+}
+
+@article{fletcher1964function,
+  title={Function minimization by conjugate gradients},
+  author={Fletcher, Reeves and Reeves, Colin M},
+  journal={The computer journal},
+  volume={7},
+  number={2},
+  pages={149--154},
+  year={1964},
+  publisher={Oxford University Press}
+}
+
+@article{DBLP:journals/mp/Freund87,
+  author    = {Robert M. Freund},
+  title     = {Dual gauge programs, with applications to quadratic programming and
+               the minimum-norm problem},
+  journal   = {Math. Program.},
+  volume    = {38},
+  number    = {1},
+  pages     = {47--67},
+  year      = {1987},
+  url       = {https://doi.org/10.1007/BF02591851},
+  doi       = {10.1007/BF02591851},
+  timestamp = {Sat, 27 May 2017 14:25:34 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/mp/Freund87},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/siamjo/FriedlanderMP14,
+  author    = {Michael P. Friedlander and
+               Ives Macedo and
+               Ting Kei Pong},
+  title     = {Gauge Optimization and Duality},
+  journal   = {{SIAM} Journal on Optimization},
+  volume    = {24},
+  number    = {4},
+  pages     = {1999--2022},
+  year      = {2014},
+  url       = {https://doi.org/10.1137/130940785},
+  doi       = {10.1137/130940785},
+  timestamp = {Sat, 27 May 2017 14:23:01 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/siamjo/FriedlanderMP14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/siamsc/FriedlanderM16,
+  author    = {Michael P. Friedlander and
+               Ives Macedo},
+  title     = {Low-Rank Spectral Optimization via Gauge Duality},
+  journal   = {{SIAM} J. Scientific Computing},
+  volume    = {38},
+  number    = {3},
+  year      = {2016},
+  url       = {https://doi.org/10.1137/15M1034283},
+  doi       = {10.1137/15M1034283},
+  timestamp = {Sat, 27 May 2017 14:24:54 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/siamsc/FriedlanderM16},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{GS72,
+author = {R. W. Gerchberg and W. O. Saxton},
+year = {1972},
+month = {11},
+pages = {237-250},
+title = {A practical algorithm for the determination of phase from image and diffraction plane pictures},
+volume = {35},
+journal = {Optik}
+}
+
+@article{goldstein2018phasemax,
+  title={PhaseMax: Convex phase retrieval via basis pursuit},
+  author={Goldstein, Tom and Studer, Christoph},
+  journal={IEEE Transactions on Information Theory},
+  year={2018},
+  publisher={IEEE}
+}
+
+@article{golub2002inverse,
+  title={An inverse free preconditioned Krylov subspace method for symmetric generalized eigenvalue problems},
+  author={Golub, Gene H and Ye, Qiang},
+  journal={SIAM Journal on Scientific Computing},
+  volume={24},
+  number={1},
+  pages={312--334},
+  year={2002},
+  publisher={SIAM}
+}
+
+@book{golub2012matrix,
+  title={Matrix computations},
+  author={Golub, Gene H and Van Loan, Charles F},
+  edition={4},
+  year={2012},
+  publisher={JHU Press}
+}
+
+@article{grigorieff1991note,
+  title={A note on von Neumann's trace inequalitv},
+  author={Grigorieff, Rolf Dieter},
+  year = 1991
+}
+
+@online{Guizar-Sicairos,
+  author = {Manuel Guizar-Sicairos},
+  title = {Phase retrieval for x-ray coherent lensless imaging},
+  year = 2018,
+  url = {http://www2.optics.rochester.edu/workgroups/fienup/Manuel/manuel_research2.html},
+  urldate = {2018-06-06}
+}
+
+@article{harrison1993phase,
+  title={Phase problem in crystallography},
+  author={Harrison, Robert W},
+  journal={JOSA a},
+  volume={10},
+  number={5},
+  pages={1046--1055},
+  year={1993},
+  publisher={Optical Society of America}
+}
+
+@article{helmberg2000spectral,
+  title={A spectral bundle method for semidefinite programming},
+  author={Helmberg, Christoph and Rendl, Franz},
+  journal={SIAM Journal on Optimization},
+  volume={10},
+  number={3},
+  pages={673--696},
+  year={2000},
+  publisher={SIAM}
+}
+
+@book{hestenes1952methods,
+  title={Methods of conjugate gradients for solving linear systems},
+  author={Hestenes, Magnus Rudolph and Stiefel, Eduard},
+  volume={49},
+  number={1},
+  year={1952},
+  publisher={NBS Washington, DC}
+}
+
+@book{hiriart2012fundamentals,
+  title={Fundamentals of convex analysis},
+  author={Hiriart-Urruty, Jean-Baptiste and Lemar{\'e}chal, Claude},
+  year={2012},
+  publisher={Springer Science \& Business Media}
+}
+
+@inproceedings{DBLP:conf/isit/JaganathanOH12,
+  author    = {Kishore Jaganathan and
+               Samet Oymak and
+               Babak Hassibi},
+  title     = {Recovery of sparse 1-D signals from the magnitudes of their Fourier
+               transform},
+  booktitle = {Proceedings of the 2012 {IEEE} International Symposium on Information
+               Theory, {ISIT} 2012, Cambridge, MA, USA, July 1-6, 2012},
+  pages     = {1473--1477},
+  year      = {2012},
+  url       = {https://doi.org/10.1109/ISIT.2012.6283508},
+  doi       = {10.1109/ISIT.2012.6283508},
+  timestamp = {Wed, 24 May 2017 08:29:42 +0200},
+  biburl    = {http://dblp.org/rec/bib/conf/isit/JaganathanOH12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+% This crossref was dead in article above
+%   crossref  = {DBLP:conf/isit/2012},
+
+@article{DBLP:journals/corr/JaganathanEH15a,
+  author    = {Kishore Jaganathan and
+               Yonina C. Eldar and
+               Babak Hassibi},
+  title     = {Phase Retrieval: An Overview of Recent Developments},
+  journal   = {CoRR},
+  volume    = {abs/1510.07713},
+  pages = {1--24},
+  year      = {2015},
+  url       = {http://arxiv.org/abs/1510.07713},
+  archivePrefix = {arXiv},
+  eprint    = {1510.07713},
+  timestamp = {Wed, 07 Jun 2017 14:43:02 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/JaganathanEH15a},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{jiang2017robust,
+  title={Robust Phase Retrieval via ADMM with Outliers},
+  author={Jiang, Xue and So, Hing-Cheung and Liu, Xingzhao},
+  journal={arXiv preprint arXiv:1702.06157},
+  year={2017}
+}
+
+@article{katkovnik2017phase,
+  title={Phase retrieval from noisy data based on sparse approximation of object phase and amplitude},
+  author={Katkovnik, Vladimir},
+  journal={arXiv preprint arXiv:1709.01071},
+  year={2017}
+}
+
+@article{knyazev1987convergence,
+  title={Convergence rate estimates for iterative methods for a mesh symmetric eigenvalue problem},
+  author={Knyazev, Andrew V},
+  journal={Russian Journal of Numerical Analysis and Mathematical Modelling},
+  volume={2},
+  number={5},
+  pages={371--396},
+  year={1987},
+  publisher={Walter de Gruyter, Berlin/New York}
+}
+
+@article{knyazev2001toward,
+  title={Toward the optimal preconditioned eigensolver: Locally optimal block preconditioned conjugate gradient method},
+  author={Knyazev, Andrew V},
+  journal={SIAM journal on scientific computing},
+  volume={23},
+  number={2},
+  pages={517--541},
+  year={2001},
+  publisher={SIAM}
+}
+
+@book{lehoucq1998arpack,
+  title={ARPACK users' guide: solution of large-scale eigenvalue problems with implicitly restarted Arnoldi methods},
+  author={Lehoucq, Richard B and Sorensen, Danny C and Yang, Chao},
+  volume={6},
+  year={1998},
+  publisher={Siam}
+}
+
+@inproceedings{LeviS84,
+  author    = {Aharon Levi and
+               Henry Stark},
+  title     = {Image restoration by the method of generalized projections with application
+               to restoration from magnitude},
+  booktitle = {{IEEE} International Conference on Acoustics, Speech, and Signal Processing,
+               {ICASSP} '84, San Diego, California, USA, March 19-21, 1984},
+  pages     = {88--91},
+  year      = {1984},
+  url       = {https://doi.org/10.1109/ICASSP.1984.1172785},
+  doi       = {10.1109/ICASSP.1984.1172785},
+  timestamp = {Fri, 19 May 2017 01:25:37 +0200},
+  biburl    = {https://dblp.org/rec/bib/conf/icassp/LeviS84},
+   bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@incollection{li2015rayleigh,
+  title={Rayleigh quotient based optimization methods for eigenvalue problems},
+  author={Li, Ren-Cang},
+  booktitle={Matrix Functions and Matrix Equations},
+  pages={76--108},
+  year={2015},
+  publisher={World Scientific}
+}
+
+@book{luenberger1984linear,
+  title={Linear and nonlinear programming},
+  author={Luenberger, David G and Ye, Yinyu},
+  edition={third},
+  year={2008},
+  publisher={Springer}
+}
+
+@article{ma2016applications,
+  title={Applications of gauge duality in robust principal component analysis and semidefinite programming},
+  author={Ma, ShiQian and Yang, JunFeng},
+  journal={Science China Mathematics},
+  volume={59},
+  number={8},
+  pages={1579--1592},
+  year={2016},
+  publisher={Springer}
+}
+
+@article{marchesini2007,
+  title={Invited article: A unified evaluation of iterative projection algorithms for phase retrieval},
+  author={Marchesini, Stefano},
+  journal={Review of scientific instruments},
+  volume={78},
+  number={1},
+  pages={011301},
+  year={2007},
+  publisher={AIP}
+}
+
+@article{martin2012noise,
+  title={Noise-robust coherent diffractive imaging with a single diffraction pattern},
+  author={Martin, Andrew V and Wang, Fenglin and Loh, ND and Ekeberg, Tomas and Maia, Filipe RNC and Hantke, Max and van der Schot, Gijs and Hampton, Christina Y and Sierra, Raymond G and Aquila, Andrew and others},
+  journal={Optics Express},
+  volume={20},
+  number={15},
+  pages={16650--16661},
+  year={2012},
+  publisher={Optical Society of America}
+}
+
+@article{miao1999extending,
+  title={Extending the methodology of X-ray crystallography to allow imaging of micrometre-sized non-crystalline specimens},
+  author={Miao, Jianwei and Charalambous, Pambos and Kirz, Janos and Sayre, David},
+  journal={Nature},
+  volume={400},
+  number={6742},
+  pages={342},
+  year={1999},
+  publisher={Nature Publishing Group}
+}
+
+@article{miao2008extending,
+  title={Extending x-ray crystallography to allow the imaging of noncrystalline materials, cells, and single protein complexes},
+  author={Miao, Jianwei and Ishikawa, Tetsuya and Shen, Qun and Earnest, Thomas},
+  journal={Annu. Rev. Phys. Chem.},
+  volume={59},
+  pages={387--410},
+  year={2008},
+  publisher={Annual Reviews}
+}
+
+@article{millane1990phase,
+  title={Phase retrieval in crystallography and optics},
+  author={Millane, Rick P},
+  journal={JOSA A},
+  volume={7},
+  number={3},
+  pages={394--411},
+  year={1990},
+  publisher={Optical Society of America}
+}
+
+@article{misell1973method,
+  title={A method for the solution of the phase problem in electron microscopy},
+  author={Misell, DL},
+  journal={Journal of Physics D: Applied Physics},
+  volume={6},
+  number={1},
+  pages={L6},
+  year={1973},
+  publisher={IOP Publishing}
+}
+
+@article{money2005algorithm,
+  title={Algorithm 845: EIGIFP: a MATLAB program for solving large symmetric generalized eigenvalue problems},
+  author={Money, James H and Ye, Qiang},
+  journal={ACM Transactions on Mathematical Software (TOMS)},
+  volume={31},
+  number={2},
+  pages={270--279},
+  year={2005},
+  publisher={ACM}
+}
+
+@article{natarajan1995sparse,
+  title={Sparse approximate solutions to linear systems},
+  author={Natarajan, Balas Kausik},
+  journal={SIAM journal on computing},
+  volume={24},
+  number={2},
+  pages={227--234},
+  year={1995},
+  publisher={SIAM}
+}
+
+@article{DBLP:journals/tsp/Netrapalli0S15,
+  author    = {Praneeth Netrapalli and
+               Prateek Jain and
+               Sujay Sanghavi},
+  title     = {Phase Retrieval Using Alternating Minimization},
+  journal   = {{IEEE} Trans. Signal Processing},
+  volume    = {63},
+  number    = {18},
+  pages     = {4814--4826},
+  year      = {2015},
+  url       = {https://doi.org/10.1109/TSP.2015.2448516},
+  doi       = {10.1109/TSP.2015.2448516},
+  timestamp = {Thu, 18 May 2017 09:55:16 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/tsp/Netrapalli0S15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@book{nocedal2006numerical,
+  title={Numerical optimization 2nd},
+  author={Nocedal, Jorge and Wright, Stephen J},
+  year={2006},
+  publisher={Springer}
+}
+
+@article{parikh2014proximal,
+  title={Proximal algorithms},
+  author={Parikh, Neal and Boyd, Stephen and others},
+  journal={Foundations and Trends{\textregistered} in Optimization},
+  volume={1},
+  number={3},
+  pages={127--239},
+  year={2014},
+  publisher={Now Publishers, Inc.}
+}
+
+@article{polak1969note,
+  title = {Note on Convergence of Conjugate Direction Meters},
+  author = {Polak, Elijah and Ribiere, Gerard},
+  journal = {French Review of Computer Science and Operational Research. Red},
+  volume = {3},
+  number = {16},
+  pages = {35--43},
+  year = {1969},
+  publisher = {EDP Sciences}
+}
+
+@article{quillen2010block,
+  title={A block inverse-free preconditioned Krylov subspace method for symmetric generalized eigenvalue problems},
+  author={Quillen, Patrick and Ye, Qiang},
+  journal={Journal of computational and applied mathematics},
+  volume={233},
+  number={5},
+  pages={1298--1313},
+  year={2010},
+  publisher={Elsevier}
+}
+
+@article{recht2010guaranteed,
+  title={Guaranteed minimum-rank solutions of linear matrix equations via nuclear norm minimization},
+  author={Recht, Benjamin and Fazel, Maryam and Parrilo, Pablo A},
+  journal={SIAM review},
+  volume={52},
+  number={3},
+  pages={471--501},
+  year={2010},
+  publisher={SIAM}
+}
+
+@book{reed1980functional,
+  title={Functional Analysis, vol. I},
+  author={Reed, Michael and Simon, Barry},
+  year={1980},
+  publisher={Academic Press, San Diego}
+}
+
+@book{rockafellar1970convex,
+  title={Convex analysis},
+  author={Rockafellar, Ralph Tyrell},
+  year={1970},
+  publisher={Princeton university press}
+}
+
+@article{rodenburg2008ptychography,
+  title={Ptychography and related diffractive imaging methods},
+  author={Rodenburg, John M},
+  journal={Advances in Imaging and Electron Physics},
+  volume={150},
+  pages={87--184},
+  year={2008},
+  publisher={Elsevier}
+}
+
+@article{rodriguez2013oversampling,
+  title={Oversampling smoothness: an effective algorithm for phase retrieval of noisy diffraction intensities},
+  author={Rodriguez, Jose A and Xu, Rui and Chen, C-C and Zou, Yunfei and Miao, Jianwei},
+  journal={Journal of applied crystallography},
+  volume={46},
+  number={2},
+  pages={312--318},
+  year={2013},
+  publisher={International Union of Crystallography}
+}
+
+@book{saad2011numerical,
+  title={Numerical methods for large eigenvalue problems: revised edition},
+  author={Saad, Yousef},
+  volume={66},
+  year={2011},
+  publisher={Siam}
+}
+
+@article{saad2016analysis,
+  title={Analysis of subspace iteration for eigenvalue problems with evolving matrices},
+  author={Saad, Yousef},
+  journal={SIAM Journal on Matrix Analysis and Applications},
+  volume={37},
+  number={1},
+  pages={103--122},
+  year={2016},
+  publisher={SIAM}
+}
+
+@Misc{schmidt2005minFunc,
+author =   {Mark Schmidt},
+title =    {minFunc: unconstrained differentiable multivariate optimization in Matlab},
+howpublished = {\url{http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html}},
+year = {2005}
+}
+
+@Misc{schmidt2008minConf,
+author =   {Mark Schmidt},
+title =    {minConf: projection methods for optimization with simple constraints in Matlab},
+howpublished = {\url{http://www.cs.ubc.ca/~schmidtm/Software/minConf.html}},
+year = {2008}
+}
+@inproceedings{schmidt2009optimizing,
+  title={Optimizing costly functions with simple constraints: A limited-memory projected quasi-newton algorithm},
+  author={Schmidt, Mark and Berg, Ewout and Friedlander, Michael and Murphy, Kevin},
+  booktitle={Artificial Intelligence and Statistics},
+  pages={456--463},
+  year={2009}
+}
+
+@article{shechtman2014gespar,
+  title={GESPAR: Efficient phase retrieval of sparse signals},
+  author={Shechtman, Yoav and Beck, Amir and Eldar, Yonina C},
+  journal={IEEE transactions on signal processing},
+  volume={62},
+  number={4},
+  pages={928--938},
+  year={2014},
+  publisher={IEEE}
+}
+
+@article{DBLP:journals/spm/ShechtmanECCMS15,
+  author    = {Yoav Shechtman and
+               Yonina C. Eldar and
+               Oren Cohen and
+               Henry N. Chapman and
+               Jianwei Miao and
+               Mordechai Segev},
+  title     = {Phase Retrieval with Application to Optical Imaging: {A} contemporary
+               overview},
+  journal   = {{IEEE} Signal Process. Mag.},
+  volume    = {32},
+  number    = {3},
+  pages     = {87--109},
+  year      = {2015},
+  url       = {https://doi.org/10.1109/MSP.2014.2352673},
+  doi       = {10.1109/MSP.2014.2352673},
+  timestamp = {Fri, 26 May 2017 22:53:35 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/spm/ShechtmanECCMS15},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/corr/abs-1104-4406,
+  author    = {Yoav Shechtman and
+               Yonina C. Eldar and
+               Alexander Szameit and
+               Mordechai Segev},
+  title     = {Sparsity based sub-wavelength imaging with partially incoherent light
+               via quadratic compressed sensing},
+  journal   = {CoRR},
+  volume    = {abs/1104.4406},
+  year      = {2011},
+  pages = {1--16},
+  url       = {http://arxiv.org/abs/1104.4406},
+  archivePrefix = {arXiv},
+  eprint    = {1104.4406},
+  timestamp = {Wed, 07 Jun 2017 14:40:26 +0200},
+  biburl    = {http://dblp.org/rec/bib/journals/corr/abs-1104-4406},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{sorensen1992implicit,
+  title={Implicit application of polynomial filters in ak-step Arnoldi method},
+  author={Sorensen, Danny C},
+  journal={Siam journal on matrix analysis and applications},
+  volume={13},
+  number={1},
+  pages={357--385},
+  year={1992},
+  publisher={SIAM}
+}
+
+@article{sorensen1997implicitly,
+  title={Implicitly restarted Arnoldi/Lanczos methods for large scale eigenvalue calculations},
+  author={Sorensen, Danny C},
+  booktitle={Parallel Numerical Algorithms},
+  pages={119--165},
+  year={1997},
+  publisher={Springer}
+}
+
+@inproceedings{sun2016geometric,
+  title={A geometric analysis of phase retrieval},
+  author={Sun, Ju and Qu, Qing and Wright, John},
+  booktitle={Information Theory (ISIT), 2016 IEEE International Symposium on},
+  pages={2379--2383},
+  year={2016},
+  organization={IEEE}
+}
+
+@article{thibault2009probe,
+  title={Probe retrieval in ptychographic coherent diffractive imaging},
+  author={Thibault, Pierre and Dierolf, Martin and Bunk, Oliver and Menzel, Andreas and Pfeiffer, Franz},
+  journal={Ultramicroscopy},
+  volume={109},
+  number={4},
+  pages={338--343},
+  year={2009},
+  publisher={Elsevier}
+}
+
+@article{toh1999sdpt3,
+  title={SDPT3—a MATLAB software package for semidefinite programming, version 1.3},
+  author={Toh, Kim-Chuan and Todd, Michael J and T{\"u}t{\"u}nc{\"u}, Reha H},
+  journal={Optimization methods and software},
+  volume={11},
+  number={1-4},
+  pages={545--581},
+  year={1999},
+  publisher={Taylor \& Francis}
+}
+
+@article{trahan2013mitigating,
+  title={Mitigating the effect of noise in the hybrid input--output method of phase retrieval},
+  author={Trahan, Russell and Hyland, David},
+  journal={Applied optics},
+  volume={52},
+  number={13},
+  pages={3031--3037},
+  year={2013},
+  publisher={Optical Society of America}
+}
+
+@book{trefethen1997numerical,
+  title={Numerical linear algebra},
+  author={Trefethen, Lloyd N and Bau III, David},
+  volume={50},
+  year={1997},
+  publisher={Siam}
+}
+
+@article{walther1963question,
+  title={The question of phase retrieval in optics},
+  author={Walther, Adriaan},
+  journal={Optica Acta: International Journal of Optics},
+  volume={10},
+  number={1},
+  pages={41--49},
+  year={1963},
+  publisher={Taylor \& Francis}
+}
+
+@article{zhang2004nonmonotone,
+  title={A nonmonotone line search technique and its application to unconstrained optimization},
+  author={Zhang, Hongchao and Hager, William W},
+  journal={SIAM journal on Optimization},
+  volume={14},
+  number={4},
+  pages={1043--1056},
+  year={2004},
+  publisher={SIAM}
+}
+
+@inproceedings{zhang2017fast,
+  title={Fast Compressive Phase Retrieval under Bounded Noise.},
+  author={Zhang, Hongyang and You, Shan and Lin, Zhouchen and Xu, Chao},
+  booktitle={AAAI},
+  pages={2884--2890},
+  year={2017}
+}

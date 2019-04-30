@@ -1,0 +1,312 @@
+\documentclass[11pt]{report}
+\topmargin -2cm
+\textwidth 16cm
+\textheight 24cm
+\oddsidemargin -1.2cm
+\evensidemargin -1.2cm
+
+\usepackage{url,graphicx,tabularx,array,geometry,amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+%\usepackage{enumitem}
+\usepackage{float}
+\usepackage{dsfont}   % doublestroke package for unit indicator $\mathds{1}$
+
+\usepackage{tikz}
+\usetikzlibrary{trees,shapes,arrows, positioning}
+
+\usepackage{hyperref}
+\usepackage{makecell}
+
+\usepackage{algorithm}
+%\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\usepackage{subcaption}
+\usepackage{epsfig}  		% For postscript
+\usepackage{epic,eepic}       % For epic and eepic output from xfig
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{note}[thm]{Note}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+
+\numberwithin{equation}{section}
+
+
+	%%%	NEW COMMANDS	%%%
+
+\newcommand{\const}{\mathrm{const}}
+\newcommand{\bR}{{\mathbb R}}
+\newcommand{\bC}{{\mathbb C}}
+\newcommand{\bN}{{\mathbb N}}
+\newcommand{\bZ}{{\mathbb Z}}
+\newcommand{\cA}{{\mathcal A}}
+\newcommand{\cB}{{\mathcal B}}
+\newcommand{\cH}{{\mathcal H}}
+\newcommand{\rd}{{\rm d}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cL}{{\mathcal L}}
+
+%Sven's macros
+\newcommand{\caA}{{\mathcal A}}
+\newcommand{\caB}{{\mathcal B}}
+\newcommand{\caC}{{\mathcal C}}
+\newcommand{\caD}{{\mathcal D}}
+\newcommand{\caE}{{\mathcal E}}
+\newcommand{\caF}{{\mathcal F}}
+\newcommand{\caG}{{\mathcal G}}
+\newcommand{\caH}{{\mathcal H}}
+\newcommand{\caI}{{\mathcal I}}
+\newcommand{\caJ}{{\mathcal J}}
+\newcommand{\caK}{{\mathcal K}}
+\newcommand{\caL}{{\mathcal L}}
+\newcommand{\caM}{{\mathcal M}}
+\newcommand{\caN}{{\mathcal N}}
+\newcommand{\caO}{{\mathcal O}}
+\newcommand{\caP}{{\mathcal P}}
+\newcommand{\caQ}{{\mathcal Q}}
+\newcommand{\caR}{{\mathcal R}}
+\newcommand{\caS}{{\mathcal S}}
+\newcommand{\caT}{{\mathcal T}}
+\newcommand{\caU}{{\mathcal U}}
+\newcommand{\caV}{{\mathcal V}}
+\newcommand{\caW}{{\mathcal W}}
+\newcommand{\caX}{{\mathcal X}}
+\newcommand{\caY}{{\mathcal Y}}
+\newcommand{\caZ}{{\mathcal Z}}
+\newcommand{\cah}{{\mathcal h}}
+
+
+\newcommand{\bbA}{{\mathbb A}}
+\newcommand{\bbB}{{\mathbb B}}
+\newcommand{\bbC}{{\mathbb C}}
+\newcommand{\bbD}{{\mathbb D}}
+\newcommand{\bbE}{{\mathbb E}}
+\newcommand{\bbF}{{\mathbb F}}
+\newcommand{\bbG}{{\mathbb G}}
+\newcommand{\bbH}{{\mathbb H}}
+\newcommand{\bbI}{{\mathbb I}}
+\newcommand{\bbJ}{{\mathbb J}}
+\newcommand{\bbK}{{\mathbb K}}
+\newcommand{\bbL}{{\mathbb L}}
+\newcommand{\bbM}{{\mathbb M}}
+\newcommand{\bbN}{{\mathbb N}}
+\newcommand{\bbO}{{\mathbb O}}
+\newcommand{\bbP}{{\mathbb P}}
+\newcommand{\bbQ}{{\mathbb Q}}
+\newcommand{\bbR}{{\mathbb R}}
+\newcommand{\bbS}{{\mathbb S}}
+\newcommand{\bbT}{{\mathbb T}}
+\newcommand{\bbU}{{\mathbb U}}
+\newcommand{\bbV}{{\mathbb V}}
+\newcommand{\bbW}{{\mathbb W}}
+\newcommand{\bbX}{{\mathbb X}}
+\newcommand{\bbY}{{\mathbb Y}}
+\newcommand{\bbZ}{{\mathbb Z}}
+
+\newcommand{\cf}{{\it cf.\/} }
+\newcommand{\etal}{{\it et.\/ al.\/} }
+\newcommand{\ie}{{\it i.e.\/} }
+\newcommand{\eg}{{\it e.g.\/} }
+
+\renewcommand{\Re}{\mathrm{Re}}
+
+\newcommand{\Ran}[1]{\mathrm{Ran}\, #1 }
+\newcommand{\Ker}[1]{\mathrm{Ker}\, #1 }
+\newcommand{\rel}{\textnormal{rel}}
+\newcommand{\tol}{\textnormal{tol}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\iu}{\mathrm{i}}
+\newcommand{\Id}{1}
+\newcommand{\alg}[1]{\mathcal{A}(#1)}
+\newcommand{\idtytyeal}[1]{\mathcal{I}_{ #1 }}
+\newcommand{\str}{^{*}}
+\newcommand{\ep}[1]{\mathrm{e}^{#1}}
+\newcommand{\hilb}{\mathcal{H}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\T}{\mathrm{T}\,}
+\newcommand{\Emean}[1]{\mathbb{E}(#1)}
+\newcommand{\Tstr}{\mathrm{T}^*\,}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\braket}[2]{\left\langle #1 , #2\right\rangle}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+%
+\newcommand{\teop}{\hfill$\square$}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\prox}{\textnormal{prox}}
+\newcommand{\argmin}{\textnormal{argmin}}
+\newcommand{\argmax}{\textnormal{argmax}}
+\newcommand{\epi}{\textnormal{epi}}
+\newcommand{\ran}{\textnormal{ran}}
+
+%Bruno's macros
+%
+\newcommand{\ketbra}[1]{\vert #1\rangle\langle #1\vert}
+\newcommand{\kettbra}[2]{\vert #1\rangle\langle #2\vert}
+\newcommand{\bra}[1]{\langle #1 \vert}
+\newcommand{\Ket}[1]{\big\vert #1 \big\rangle}
+\newcommand{\ket}[1]{\vert #1 \rangle}
+\newcommand{\sign}{\textnormal{sign}}
+
+
+% Will's macros
+\newcommand{\saga}{\texttt{saga\_sd}}
+\newcommand{\sagafeas}{\texttt{saga\_sd-feas}}
+\newcommand{\eigs}{\texttt{eigs}}
+\newcommand{\eigifp}{\texttt{eigifp}}
+\newcommand{\LOPCG}{\texttt{LOPCG}}
+\newcommand{\wflow}{\texttt{wflow}}
+
+\newcommand{\nul}{\textnormal{null}}
+\newcommand{\st}{\textnormal{s.t.}}
+\newcommand{\wh}{\widehat}
+\newcommand{\Awh}{\widehat{A}}
+\newcommand{\yh}{\hat{y}}
+\newcommand{\halfspace}{\hspace{0.05cm}}
+\newcommand{\emep}{EMEP (\ref{Eqn:EMEP_PLGD})}
+\newcommand{\emeps}{EMEPs (\ref{Eqn:EMEP_PLGD})}
+\newcommand{\plgdgaussian}{PLGD model with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise})}
+
+\DeclareMathOperator{\dist}{dist} % The distance.
+
+\pagestyle{plain}      %Removes name from top of every page.
+
+
+%%
+%% The title of the paper goes here.  Edit to your title.
+%%
+
+\title{Working Notes: Noisy Phase Retrieval Based on Rapid Eigenvalue Computation of Evolving Matrices}
+
+%%
+%% Now edit the following to give your name and address:
+%%
+
+\author{Prepared by Will Wright}
+%\address{Department of Mathematics, University of California Davis, 95616}
+%\email{willwright@math.ucdavis.edu}
+%\urladdr{https://www.math.ucdavis.edu/$\sim$willwright} % Delete if not wanted.
+
+%%
+%% If there is another author uncomment and edit the following.
+%%
+
+%\author{Second Author}
+%\address{Department of Mathematics, University of South Carolina,
+%Columbia, SC 29208}
+%\email{second@math.sc.edu}
+%\urladdr{www.math.sc.edu/$\sim$second}
+
+%%
+%% If there are three of more authors they are added in the obvious
+%% way.
+%%
+
+%%%
+%%% The following is for the abstract.  The abstract is optional and
+%%% if not used just delete, or comment out, the following.
+%%%
+
+\begin{document}
+
+\maketitle
+
+%\begin{abstract}
+%The phase retrieval problem can be cast as an eigenvalue optimization problem.  This report
+%contains working notes regarding this eigenvalue problem and ways to solve it efficiently.
+%\end{abstract}
+
+%%
+%%  LaTeX will not make the title for the paper unless told to do so.
+%%  This is done by uncommenting the following.
+%%
+
+
+\tableofcontents
+
+
+\newpage
+
+\input{Introduction.tex}
+
+
+\newpage
+
+\input{ch2_noisy_phase_retrieval.tex}
+
+
+
+\newpage
+
+\input{ch3_gauge_duality.tex}
+
+
+
+\newpage
+
+\input{ch4_PLGD_algorithm.tex}
+
+
+
+\newpage
+
+\input{ch5_new_term_conds.tex}
+
+
+
+\newpage
+
+\input{ch6_eig_methods.tex} 
+
+
+
+\newpage
+
+\input{ch7_numerics.tex} 
+
+
+
+\newpage
+
+\input{ch8_new_algorithm.tex}
+
+\newpage
+
+
+\input{Appx-A_proof_of_PL1_gauge_duality.tex}
+
+\newpage
+
+
+
+\input{Appx-B_further_justification.tex}
+
+\newpage
+
+
+
+\bibliographystyle{amsalpha-fi-arxlast}
+\bibliography{DissertationBibliography}
+
+
+\end{document}
