@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  30 APR 2019 11:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  8 MAY 2019 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,7 +955,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Underfull \vbox (badness 4608) has occurred while \output is active []
+Underfull \vbox (badness 2478) has occurred while \output is active []
 
  [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -967,49 +967,45 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 (./ch2_noisy_phase_retrieval.tex [5]
 Chapter 2
 
-Overfull \hbox (8.72778pt too wide) in paragraph at lines 20--21
-[]\OT1/cmr/m/n/10.95 Each sens-ing vec-tor $\OML/cmm/m/it/10.95 a[] \OMS/cmsy/m
-/n/10.95 2 \U/msb/m/n/10.95 C[]$ \OT1/cmr/m/n/10.95 is typ-i-cally the con-ju-g
-ate of the $\OML/cmm/m/it/10.95 i$\OT1/cmr/m/n/10.95 th row of the $\OML/cmm/m/
-it/10.95 n\OMS/cmsy/m/n/10.95 ^^@$\OT1/cmr/m/n/10.95 dimensional
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6
 
 
 ]
-<phase_retrieval_depiction_mod.jpg, id=353, 526.96875pt x 333.245pt>
+Overfull \hbox (9.72601pt too wide) in paragraph at lines 40--41
+[]\OT1/cmr/m/n/10.95 CDI is a method for re-con-struct-ing $2$- or $3$-dimensio
+nal nano-structures (e.g., nan-otubes, nanocrys-
+ []
+
+<phase_retrieval_depiction_mod.jpg, id=357, 526.96875pt x 333.245pt>
 File: phase_retrieval_depiction_mod.jpg Graphic file (type jpg)
 
 <use phase_retrieval_depiction_mod.jpg>
-Package pdftex.def Info: phase_retrieval_depiction_mod.jpg used on input line 5
-7.
+Package pdftex.def Info: phase_retrieval_depiction_mod.jpg used on input line 4
+4.
 (pdftex.def)             Requested size: 352.31625pt x 222.81026pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-[8 <./phase_retrieval_depiction_mod.jpg>]
-<parrot_signal_iterates.png, id=398, 978.65625pt x 173.64874pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <./phase_retrieval_depiction_mod.jpg>]
+<parrot_signal_iterates.png, id=399, 978.65625pt x 173.64874pt>
 File: parrot_signal_iterates.png Graphic file (type png)
 
 <use parrot_signal_iterates.png>
-Package pdftex.def Info: parrot_signal_iterates.png used on input line 90.
+Package pdftex.def Info: parrot_signal_iterates.png used on input line 77.
 (pdftex.def)             Requested size: 538.2626pt x 95.5071pt.
+ [9 <./parrot_signal_iterates.png (PNG copy)>]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 113.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9 <./parrot_signal_iterates.png (PNG copy)>]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 130.
-
-Underfull \vbox (badness 3803) has occurred while \output is active []
-
  [10]
-Overfull \hbox (4.39432pt too wide) in paragraph at lines 174--175
+Overfull \hbox (4.39432pt too wide) in paragraph at lines 157--158
  [][] 
  []
 
@@ -1017,23 +1013,10 @@ Overfull \hbox (4.39432pt too wide) in paragraph at lines 174--175
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-[12]
-Underfull \vbox (badness 1097) has occurred while \output is active []
+Underfull \vbox (badness 3354) has occurred while \output is active []
 
- [13]
-Overfull \hbox (4.25339pt too wide) in paragraph at lines 239--240
-[]\OT1/cmr/m/n/10.95 Many meth-ods have been con-sid-ered for han-dling com-pre
-s-sive phase re-trieval. In [[]\OT1/cmr/bx/n/10.95 SESS11[]\OT1/cmr/m/n/10.95 ]
-,
- []
-
-
-Overfull \hbox (2.52316pt too wide) in paragraph at lines 248--249
-[]\OT1/cmr/m/n/10.95 The au-thors of [[]\OT1/cmr/bx/n/10.95 EM12[]\OT1/cmr/m/n/
-10.95 ] prove sig-nal unique-ness and sta-ble re-cov-ery (a prop-erty stronger
- []
-
-
+ [12]
+[13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
@@ -1047,110 +1030,61 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
 [18]
-Overfull \hbox (14.44643pt too wide) in paragraph at lines 429--430
-[]\OT1/cmr/m/n/10.95 The as-sump-tions of The-o-rem []2.3.1[] are met by the ex
--per-i-men-tal mod-els used in [[]\OT1/cmr/bx/n/10.95 CESV13[]\OT1/cmr/m/n/10.9
-5 ],
- []
+Underfull \vbox (badness 2903) has occurred while \output is active []
 
-[19]
-Overfull \hbox (13.8562pt too wide) in paragraph at lines 480--482
-\OT1/cmr/m/n/10.95 with the so-lu-tion $[]$. In-tu-itively, this ini-tial-iza-t
-ion can also be seen as max-i-miz-ing $\OMS/cmsy/m/n/10.95 hA\OT1/cmr/m/n/10.95
- (\OML/cmm/m/it/10.95 vv[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; b\OMS/cmsy/
-m/n/10.95 i \OT1/cmr/m/n/10.95 =
- []
-
-
+ [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [20]
-[21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1571) has occurred while \output is active []
+
+ [21]
+Underfull \vbox (badness 1270) has occurred while \output is active []
 
  [22]
-
-Package Fancyhdr Warning: \headheight is too small (13.0pt): 
- Make it at least 24.5042pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
 [23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package Fancyhdr Warning: \headheight is too small (13.0pt): 
- Make it at least 24.5042pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24]
+ [26]
 File: parrot_signal_iterates.png Graphic file (type png)
- <use parrot_signal_iterates.png>
-Package pdftex.def Info: parrot_signal_iterates.png used on input line 671.
+
+<use parrot_signal_iterates.png>
+Package pdftex.def Info: parrot_signal_iterates.png used on input line 734.
 (pdftex.def)             Requested size: 538.2626pt x 95.5071pt.
 
-<parrot_signal_relative_error_2.png, id=701, 925.4575pt x 206.7725pt>
+<parrot_signal_relative_error_2.png, id=742, 925.4575pt x 206.7725pt>
 File: parrot_signal_relative_error_2.png Graphic file (type png)
 
 <use parrot_signal_relative_error_2.png>
 Package pdftex.def Info: parrot_signal_relative_error_2.png used on input line 
-672.
+735.
 (pdftex.def)             Requested size: 555.2788pt x 124.06445pt.
 
-Underfull \vbox (badness 4266) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (13.0pt): 
- Make it at least 24.5042pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[25]
-
-Package Fancyhdr Warning: \headheight is too small (13.0pt): 
- Make it at least 24.5042pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[26 <./parrot_signal_relative_error_2.png (PNG copy)>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-Package Fancyhdr Warning: \headheight is too small (13.0pt): 
- Make it at least 24.5042pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (13.0pt): 
- Make it at least 24.5042pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28]) (./ch3_gauge_duality.tex
-
-Package Fancyhdr Warning: \headheight is too small (13.0pt): 
- Make it at least 24.5042pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[29]
+ [27])
+(./ch3_gauge_duality.tex [28 <./parrot_signal_relative_error_2.png (PNG copy)>]
 Chapter 3
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30
+ [29
 
 
 ]
+Overfull \hbox (1.41534pt too wide) in paragraph at lines 54--55
+[]\OT1/cmr/m/n/10.95 Following the con-ven-tion of these ma-jor the-o-ret-i-cal
+ ad-vances in gauge du-al-ity ( [[]\OT1/cmr/bx/n/10.95 Fre87[]\OT1/cmr/m/n/10.9
+5 ], [[]\OT1/cmr/bx/n/10.95 FM16[]\OT1/cmr/m/n/10.95 ],
+ []
+
+[30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [31]
@@ -1163,38 +1097,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34]
+[35] [36]
+Underfull \vbox (badness 1221) has occurred while \output is active []
+
+ [37]
+Overfull \hbox (4.62978pt too wide) in paragraph at lines 367--368
+[][][]\OT1/cmr/m/sc/10.95 Proposition \OT1/cmr/m/n/10.95 3.3.4\OT1/cmr/m/sc/10.
+95 . []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^T[]$ \OT1/cmr/m/it/10.95 
+and $\OML/cmm/m/it/10.95 ^^T[]$ \OT1/cmr/m/it/10.95 be gauges. Let $\OML/cmm/m/
+it/10.95 ^^T\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; x[]\OT1/cmr/m/n/10.95 
+) = \OML/cmm/m/it/10.95 ^^T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cm
+r/m/n/10.95 ) + \OML/cmm/m/it/10.95 ^^T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
+5 x[]\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 , $\OMS/cmsy/m/n/10.95 C[] \OT1/c
+mr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 z[] \OMS/cmsy/m/n/10.95
+ j \OML/cmm/m/it/10.95 ^^T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z[]\OT1/cmr
+/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^T
+ []
+
+[38]
+Underfull \vbox (badness 3679) has occurred while \output is active []
+
+ [39]
+Underfull \vbox (badness 7888) has occurred while \output is active []
+
+ [40]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]
-[36] [37] [38] [39]
-Overfull \hbox (11.91309pt too wide) in paragraph at lines 392--393
-[]\OT1/cmr/m/n/10.95 Proposition []3.3.4[] shows $\OML/cmm/m/it/10.95 ^^T$ \OT1
-/cmr/m/n/10.95 and its po-lar $\OML/cmm/m/it/10.95 ^^T[]$ \OT1/cmr/m/n/10.95 ar
-e gauges. Set-ting $\OMS/cmsy/m/n/10.95 C[] \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/
-10.95 f\OML/cmm/m/it/10.95 z[] \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 ^^T[]\
-OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10
-.95 ^^T
- []
-
-[40]
-Overfull \hbox (17.46783pt too wide) in paragraph at lines 436--438
-\OT1/cmr/m/n/10.95 Note that the value of $\OML/cmm/m/it/10.95 ^^N[]\OT1/cmr/m/
-n/10.95 (\OML/cmm/m/it/10.95 y; ^^\\OT1/cmr/m/n/10.95 )$ is ei-ther $0$ or $+\O
-MS/cmsy/m/n/10.95 1$\OT1/cmr/m/n/10.95 . If $\OML/cmm/m/it/10.95 ^^N[]\OT1/cmr/
-m/n/10.95 (\OML/cmm/m/it/10.95 y; ^^\\OT1/cmr/m/n/10.95 ) = 0$, then $\OMS/cmsy
-/m/n/10.95 h\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^[\OT1/cmr/m/n/10.95 )\
-OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y; ^^\\OT1/cmr/m/n
-/10.95 )\OMS/cmsy/m/n/10.95 i ^^T
- []
-
-[41]
-Underfull \vbox (badness 1303) has occurred while \output is active []
+ [41]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [42]
+[43]
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-Underfull \vbox (badness 1990) has occurred while \output is active []
 
  [44]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1204,29 +1138,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46]
 [47]
-Underfull \vbox (badness 5563) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [48]
-Overfull \hbox (13.30183pt too wide) in paragraph at lines 794--795
-[][][]\OT1/cmr/m/sc/10.95 Proposition \OT1/cmr/m/n/10.95 3.4.2\OT1/cmr/m/sc/10.
-95 . []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 f$ \OT1/cmr/m/it/10.95 be a
- con-vex, sub-d-if-fer-en-tiable func-tion over a finite-dimensional
- []
+[49]
+Underfull \vbox (badness 1496) has occurred while \output is active []
 
-
-Underfull \vbox (badness 2469) has occurred while \output is active []
-
- [49]
-[50]
-Underfull \vbox (badness 1460) has occurred while \output is active []
-
- [51])
-(./ch4_PLGD_algorithm.tex [52]
+ [50])
+(./ch4_PLGD_algorithm.tex [51]
 Chapter 4
-[53
+[52
 
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [54]
@@ -1236,25 +1163,26 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [56]
+[57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57]
-[58]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [59]
+ [58]
+[59]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
-[62]) (./ch5_new_term_conds.tex [63]
+ [61])
+(./ch5_new_term_conds.tex [62]
 Chapter 5
-[64
+[63
 
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [64]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [65]
@@ -1264,239 +1192,284 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [67]
-[68] [69]
-<noisy_random_signal_relative_errors_stagnate.png, id=1592, 869.2475pt x 182.68
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [68]
+<noisy_random_signal_relative_errors_stagnate.png, id=1537, 869.2475pt x 182.68
 25pt>
 File: noisy_random_signal_relative_errors_stagnate.png Graphic file (type png)
  <use noisy_random_signal_relative_errors_stagnate.png>
 Package pdftex.def Info: noisy_random_signal_relative_errors_stagnate.png used 
-on input line 283.
+on input line 267.
 (pdftex.def)             Requested size: 521.55252pt x 109.61034pt.
 
-Overfull \hbox (51.7975pt too wide) in paragraph at lines 283--284
+Overfull \hbox (51.7975pt too wide) in paragraph at lines 267--268
  [] 
  []
 
-[70 <./noisy_random_signal_relative_errors_stagnate.png (PNG copy)>] [71]
-<noisy_random_signal_DFP_vs_no_DFP.png, id=1676, 866.23625pt x 187.70125pt>
+
+Underfull \vbox (badness 1281) has occurred while \output is active []
+
+ [69 <./noisy_random_signal_relative_errors_stagnate.png (PNG copy)>] [70]
+<noisy_random_signal_DFP_vs_no_DFP.png, id=1622, 866.23625pt x 187.70125pt>
 File: noisy_random_signal_DFP_vs_no_DFP.png Graphic file (type png)
 
 <use noisy_random_signal_DFP_vs_no_DFP.png>
 Package pdftex.def Info: noisy_random_signal_DFP_vs_no_DFP.png used on input li
-ne 351.
+ne 335.
 (pdftex.def)             Requested size: 519.74577pt x 112.62161pt.
 
-Overfull \hbox (49.99075pt too wide) in paragraph at lines 351--352
+Overfull \hbox (49.99075pt too wide) in paragraph at lines 335--336
  [] 
  []
 
-[72 <./noisy_random_signal_DFP_vs_no_DFP.png (PNG copy)>] [73] [74]
-<term_crit-signal_err.png, id=1735, 884.30376pt x 504.88625pt>
+[71 <./noisy_random_signal_DFP_vs_no_DFP.png (PNG copy)>] [72]
+<term_crit-signal_err.png, id=1672, 884.30376pt x 504.88625pt>
 File: term_crit-signal_err.png Graphic file (type png)
 
 <use term_crit-signal_err.png>
-Package pdftex.def Info: term_crit-signal_err.png used on input line 414.
+Package pdftex.def Info: term_crit-signal_err.png used on input line 391.
 (pdftex.def)             Requested size: 530.58635pt x 302.93407pt.
- [75 <./term_crit-signal_err.png (PNG copy)>]
-<term_crit-pr_and_dual.png, id=1781, 884.30376pt x 754.82pt>
+ [73 <./term_crit-signal_err.png (PNG copy)>]
+<term_crit-pr_and_dual.png, id=1719, 884.30376pt x 754.82pt>
 File: term_crit-pr_and_dual.png Graphic file (type png)
 
 <use term_crit-pr_and_dual.png>
-Package pdftex.def Info: term_crit-pr_and_dual.png used on input line 486.
+Package pdftex.def Info: term_crit-pr_and_dual.png used on input line 463.
 (pdftex.def)             Requested size: 530.58635pt x 452.89551pt.
- [76] [77 <./term_crit-pr_and_dual.png (PNG copy)>] <term_crit-duality_gap.png,
- id=1823, 860.21375pt x 432.61626pt>
+ [74] [75 <./term_crit-pr_and_dual.png (PNG copy)>] <term_crit-duality_gap.png,
+ id=1760, 860.21375pt x 432.61626pt>
 File: term_crit-duality_gap.png Graphic file (type png)
 
 <use term_crit-duality_gap.png>
-Package pdftex.def Info: term_crit-duality_gap.png used on input line 513.
+Package pdftex.def Info: term_crit-duality_gap.png used on input line 490.
 (pdftex.def)             Requested size: 516.13223pt x 259.57176pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [78]
-<term_crit-model_term_for_tols.png, id=1847, 884.30376pt x 505.89pt>
+ [76]
+<term_crit-model_term_for_tols.png, id=1781, 884.30376pt x 505.89pt>
 File: term_crit-model_term_for_tols.png Graphic file (type png)
 
 <use term_crit-model_term_for_tols.png>
 Package pdftex.def Info: term_crit-model_term_for_tols.png used on input line 5
-35.
+12.
 (pdftex.def)             Requested size: 530.58635pt x 303.53633pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [79 <./term_crit-duality_gap.png (PNG copy)>]) (./ch6_eig_methods.tex [80 <./t
+ [77 <./term_crit-duality_gap.png (PNG copy)>]) (./ch6_eig_methods.tex [78 <./t
 erm_crit-model_term_for_tols.png (PNG copy)>]
 Chapter 6
-[81
+[79
 
 
 ]
+
+LaTeX Warning: Citation `comon1990tracking' on page 80 undefined on input line 
+46.
+
+
+LaTeX Warning: Citation `stewart1992updating' on page 80 undefined on input lin
+e 46.
+
+
+LaTeX Warning: Citation `yang1995projection' on page 80 undefined on input line
+ 46.
+
+
+LaTeX Warning: Citation `doukopoulos2008fast' on page 80 undefined on input lin
+e 46.
+
+
+LaTeX Warning: Citation `ngo2012scaled' on page 80 undefined on input line 46.
+
+
+LaTeX Warning: Citation `saad2010numerical' on page 80 undefined on input line 
+46.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [82]
+ [80]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [83]
-<EMEP_costs_num_mat_vecs.png, id=1937, 884.30376pt x 400.49625pt>
+ [81]
+<EMEP_costs_num_mat_vecs.png, id=1866, 884.30376pt x 400.49625pt>
 File: EMEP_costs_num_mat_vecs.png Graphic file (type png)
 
 <use EMEP_costs_num_mat_vecs.png>
-Package pdftex.def Info: EMEP_costs_num_mat_vecs.png used on input line 166.
+Package pdftex.def Info: EMEP_costs_num_mat_vecs.png used on input line 138.
 (pdftex.def)             Requested size: 530.58635pt x 240.29959pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [84]
-<EMEP_full_spectrum.png, id=1960, 874.26625pt x 483.8075pt>
+ [82]
+<EMEP_full_spectrum.png, id=1885, 874.26625pt x 483.8075pt>
 File: EMEP_full_spectrum.png Graphic file (type png)
 
 <use EMEP_full_spectrum.png>
-Package pdftex.def Info: EMEP_full_spectrum.png used on input line 186.
+Package pdftex.def Info: EMEP_full_spectrum.png used on input line 158.
 (pdftex.def)             Requested size: 524.5638pt x 290.28674pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85 <./EMEP_costs_num_mat_vecs.png (PNG copy)>]
-<EMEP_largest_eigvals.png, id=1980, 873.2625pt x 440.64626pt>
+ [83 <./EMEP_costs_num_mat_vecs.png (PNG copy)>]
+<EMEP_largest_eigvals.png, id=1903, 873.2625pt x 440.64626pt>
 File: EMEP_largest_eigvals.png Graphic file (type png)
 
 <use EMEP_largest_eigvals.png>
-Package pdftex.def Info: EMEP_largest_eigvals.png used on input line 207.
+Package pdftex.def Info: EMEP_largest_eigvals.png used on input line 179.
 (pdftex.def)             Requested size: 523.96153pt x 264.38979pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [86 <./EMEP_full_spectrum.png (PNG copy)>] [87 <./EMEP_largest_eigvals.png (PN
-G copy)>]
-[88] [89]
-Underfull \vbox (badness 1735) has occurred while \output is active []
+ [84 <./EMEP_full_spectrum.png (PNG copy)>]
+Underfull \vbox (badness 1708) has occurred while \output is active []
 
- [90]
+ [85 <./EMEP_largest_eigvals.png (PNG copy)>] [86] [87]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [91]
-[92] [93] [94]
+ [88]
+[89] [90] [91]
+Underfull \vbox (badness 3482) has occurred while \output is active []
+
+ [92]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [95]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [96]
-Underfull \vbox (badness 2302) has occurred while \output is active []
-
- [97]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [98]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [99]
-Overfull \hbox (4.76968pt too wide) in paragraph at lines 632--633
-[]\OT1/cmr/m/n/10.95 In this sec-tion we de-velop the \OT1/cmr/m/it/10.95 inver
-se-free pre-con-di-tioned Krylov sub-space method \OT1/cmr/m/n/10.95 (EIGIFP),
- []
-
-[100] [101]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [102]
-[103]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [104]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [105]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [106]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [107]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [108]
-Underfull \vbox (badness 2452) has occurred while \output is active []
-
- [109]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [110]
-[111]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [112]
-[113]) (./ch7_numerics.tex [114]
+ [93]
+[94] [95]) (./ch7_new_algorithm.tex [96]
 Chapter 7
-[115
+[97
 
 
 ]
+<Numerics-num_matvecs_orig_vs_optimal_params_1.png, id=2140, 746.79pt x 422.578
+75pt>
+File: Numerics-num_matvecs_orig_vs_optimal_params_1.png Graphic file (type png)
+
+ <use Numerics-num_matvecs_orig_vs_optimal_params_1.png>
+Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_1.png used
+ on input line 53.
+(pdftex.def)             Requested size: 448.07745pt x 253.5492pt.
+
+<Numerics-num_matvecs_orig_vs_optimal_params_2.png, id=2141, 821.0675pt x 198.7
+425pt>
+File: Numerics-num_matvecs_orig_vs_optimal_params_2.png Graphic file (type png)
+
+ <use Numerics-num_matvecs_orig_vs_optimal_params_2.png>
+Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_2.png used
+ on input line 54.
+(pdftex.def)             Requested size: 492.6443pt x 119.24641pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [116]
+ [98]
+[99 <./Numerics-num_matvecs_orig_vs_optimal_params_1.png (PNG copy)> <./Numeric
+s-num_matvecs_orig_vs_optimal_params_2.png (PNG copy)>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [117]
+ [100]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [118]
-[119]
-<Numerics-num_matvecs_ada_for_m_vals.png, id=2509, 867.24pt x 494.84875pt>
+ [101]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [102]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [103]
+<Numerics-num_matvecs_ada_for_m_vals.png, id=2236, 855.195pt x 563.10374pt>
 File: Numerics-num_matvecs_ada_for_m_vals.png Graphic file (type png)
 
 <use Numerics-num_matvecs_ada_for_m_vals.png>
 Package pdftex.def Info: Numerics-num_matvecs_ada_for_m_vals.png used on input 
-line 189.
-(pdftex.def)             Requested size: 520.34802pt x 296.91154pt.
+line 213.
+(pdftex.def)             Requested size: 513.12097pt x 337.86485pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [120]
-[121 <./Numerics-num_matvecs_ada_for_m_vals.png (PNG copy)>]
-<Numerics-num_eigs_req_ada_2_exps.png, id=2559, 839.135pt x 253.94875pt>
+ [104]
+[105 <./Numerics-num_matvecs_ada_for_m_vals.png (PNG copy)>]
+<Numerics-num_eigs_ada_vs_opt_1.png, id=2277, 858.20625pt x 259.97125pt>
+File: Numerics-num_eigs_ada_vs_opt_1.png Graphic file (type png)
+
+<use Numerics-num_eigs_ada_vs_opt_1.png>
+Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_1.png used on input line 
+268.
+(pdftex.def)             Requested size: 514.92773pt x 155.98395pt.
+
+<Numerics-num_eigs_ada_vs_opt_2.png, id=2278, 860.21375pt x 181.67876pt>
+File: Numerics-num_eigs_ada_vs_opt_2.png Graphic file (type png)
+
+<use Numerics-num_eigs_ada_vs_opt_2.png>
+Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_2.png used on input line 
+269.
+(pdftex.def)             Requested size: 516.13223pt x 109.00809pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [106]
+[107 <./Numerics-num_eigs_ada_vs_opt_1.png (PNG copy)> <./Numerics-num_eigs_ada
+_vs_opt_2.png (PNG copy)>]
+<Numerics-num_eigs_req_ada_2_exps.png, id=2312, 865.2325pt x 246.9225pt>
 File: Numerics-num_eigs_req_ada_2_exps.png Graphic file (type png)
 
 <use Numerics-num_eigs_req_ada_2_exps.png>
 Package pdftex.def Info: Numerics-num_eigs_req_ada_2_exps.png used on input lin
-e 249.
-(pdftex.def)             Requested size: 503.48488pt x 152.3704pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [122]
-<Numerics-surf_num_mvs_and_eig_diffs_1.png, id=2582, 668.4975pt x 740.7675pt>
+e 314.
+(pdftex.def)             Requested size: 519.14351pt x 148.15462pt.
+ [108 <./Numerics-num_eigs_req_ada_2_exps.png (PNG copy)>]
+<Numerics-surf_num_mvs_and_eig_diffs_1.png, id=2335, 678.535pt x 705.63625pt>
 File: Numerics-surf_num_mvs_and_eig_diffs_1.png Graphic file (type png)
 
 <use Numerics-surf_num_mvs_and_eig_diffs_1.png>
 Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_1.png used on inpu
-t line 270.
-(pdftex.def)             Requested size: 434.51822pt x 481.49316pt.
+t line 339.
+(pdftex.def)             Requested size: 441.04253pt x 458.65813pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [123 <./Numerics-num_eigs_req_ada_2_exps.png (PNG copy)>]
-<Numerics-surf_num_mvs_and_eig_diffs_2.png, id=2599, 665.48625pt x 740.7675pt>
+ [109]
+<Numerics-surf_num_mvs_and_eig_diffs_2.png, id=2352, 677.53125pt x 707.64375pt>
 File: Numerics-surf_num_mvs_and_eig_diffs_2.png Graphic file (type png)
-
 <use Numerics-surf_num_mvs_and_eig_diffs_2.png>
 Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_2.png used on inpu
-t line 280.
-(pdftex.def)             Requested size: 432.56093pt x 481.49316pt.
+t line 349.
+(pdftex.def)             Requested size: 440.39009pt x 459.963pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [124 <./Numerics-surf_num_mvs_and_eig_diffs_1.png (PNG copy)>]
+ [110 <./Numerics-surf_num_mvs_and_eig_diffs_1.png (PNG copy)>] [111 <./Numeric
+s-surf_num_mvs_and_eig_diffs_2.png (PNG copy)>]
+<Numerics-surf_mvs_for_m_vs_j_1.png, id=2383, 329.23pt x 396.48125pt>
+File: Numerics-surf_mvs_for_m_vs_j_1.png Graphic file (type png)
+
+<use Numerics-surf_mvs_for_m_vs_j_1.png>
+Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_1.png used on input line 
+377.
+(pdftex.def)             Requested size: 213.99695pt x 257.70975pt.
+
+<Numerics-surf_mvs_for_m_vs_j_2.png, id=2384, 328.22626pt x 396.48125pt>
+File: Numerics-surf_mvs_for_m_vs_j_2.png Graphic file (type png)
+
+<use Numerics-surf_mvs_for_m_vs_j_2.png>
+Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_2.png used on input line 
+378.
+(pdftex.def)             Requested size: 213.34453pt x 257.70975pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [125 <./Numerics-surf_num_mvs_and_eig_diffs_2.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [126])
-(./ch8_new_algorithm.tex [127]
+ [112]
+[113 <./Numerics-surf_mvs_for_m_vs_j_1.png (PNG copy)> <./Numerics-surf_mvs_for
+_m_vs_j_2.png (PNG copy)>]) (./ch8_revised_method.tex [114]
 Chapter 8
-) (./Appx-A_proof_of_PL1_gauge_duality.tex [128
+) (./ch9_conclusion.tex [115
+
+
+]
+Chapter 9
+) (./Appx-A_proof_of_PL1_gauge_duality.tex [116
 
 
 ]
@@ -1513,12 +1486,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1.
 
-) (./Appx-B_further_justification.tex [129
+) (./Appx-B_further_justification.tex [117
 
 
 ]
 Appendix B
-<term_crit-pr_err_fails.png, id=2686, 854.19125pt x 200.75pt>
+<term_crit-pr_err_fails.png, id=2458, 854.19125pt x 200.75pt>
 File: term_crit-pr_err_fails.png Graphic file (type png)
 
 <use term_crit-pr_err_fails.png>
@@ -1527,15 +1500,15 @@ Package pdftex.def Info: term_crit-pr_err_fails.png used on input line 25.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [130
+ [118
 
 
 ]
-[131 <./term_crit-pr_err_fails.png (PNG copy)>]
+[119 <./term_crit-pr_err_fails.png (PNG copy)>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [132]
-<term_crit-dual_obj.png, id=2741, 890.32625pt x 392.46625pt>
+ [120]
+<term_crit-dual_obj.png, id=2513, 890.32625pt x 392.46625pt>
 File: term_crit-dual_obj.png Graphic file (type png)
 
 <use term_crit-dual_obj.png>
@@ -1544,13 +1517,13 @@ Package pdftex.def Info: term_crit-dual_obj.png used on input line 93.
 
 Underfull \vbox (badness 2035) has occurred while \output is active []
 
- [133 <./term_crit-dual_obj.png (PNG copy)>]) [134] (./will_wright_dissertation
+ [121 <./term_crit-dual_obj.png (PNG copy)>]) [122] (./will_wright_dissertation
 .bbl
 Bibliography
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [135
+ [123
 
 
 
@@ -1558,43 +1531,47 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [136]
+ [124]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 240.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [137]
+ [125]
 Missing character: There is no â in font cmti9!
 Missing character: There is no € in font cmti9!
 Missing character: There is no ” in font cmti9!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [138])
+ [126])
 
 Package caption Warning: Unused \captionsetup[subfigure] on input line 20.
 See the caption package documentation for explanation.
 
-[139]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
+[127]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
  (./will_wright_dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
 Package rerunfilecheck Info: File `will_wright_dissertation.out' has not change
 d.
-(rerunfilecheck)             Checksum: C8CFAE67609908B41B4E1E564B3D7790;3185.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
+(rerunfilecheck)             Checksum: 5CAFC392981F87E5DFE1CDA80F7C90FC;3163.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  ) 
 Here is how much of TeX's memory you used:
- 22961 strings out of 493054
- 440866 string characters out of 6134760
- 549904 words of memory out of 5000000
- 25225 multiletter control sequences out of 15000+600000
+ 22833 strings out of 493054
+ 440420 string characters out of 6134760
+ 549346 words of memory out of 5000000
+ 25224 multiletter control sequences out of 15000+600000
  16028 words of font info for 62 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 57i,19n,67p,1592b,973s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,19n,67p,1592b,886s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -1619,10 +1596,10 @@ ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2015/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on will_wright_dissertation.pdf (146 pages, 1700160 bytes).
+Output written on will_wright_dissertation.pdf (134 pages, 1870317 bytes).
 PDF statistics:
- 3007 PDF objects out of 3580 (max. 8388607)
- 2679 compressed objects within 27 object streams
- 633 named destinations out of 1000 (max. 500000)
- 399 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2761 PDF objects out of 2984 (max. 8388607)
+ 2434 compressed objects within 25 object streams
+ 497 named destinations out of 1000 (max. 500000)
+ 437 words of extra memory for PDF output out of 10000 (max. 10000000)
 

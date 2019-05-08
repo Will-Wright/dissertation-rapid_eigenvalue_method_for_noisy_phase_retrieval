@@ -80,92 +80,47 @@
       \cfoot{\thepage}%%%
    }%
    
-%   \chapter{Introduction}
-%   \label{ch:IntroductionLabel}
    \input{Introduction.tex}
 
 
-   \chapter[% 
-      Short Title of 2nd Ch.
-   ]{% 
-      Phase Retrieval 
-   }%
-   \label{ch2_noisy_phase_retrieval}
+
    \input{ch2_noisy_phase_retrieval.tex}
 
 
-  \chapter[% 
-      Short Title of 3rd Ch.
-   ]{% 
-      Gauge duality and the PhaseLift dual problem
-   }%
-   \label{ch3_gauge_duality}
+
    \input{ch3_gauge_duality.tex}
 
 
-  \chapter[% 
-      Short Title of Ch. 4
-   ]{% 
-      Gauge duality and the PhaseLift dual problem
-   }%
-   \label{ch4_PLGD_algorithm}
+
    \input{ch4_PLGD_algorithm.tex}
    
    
-  \chapter[% 
-      Short Title of Ch. 5
-   ]{% 
-      Gauge duality and the PhaseLift dual problem
-   }%
-   \label{ch5_new_term_conds}
+
    \input{ch5_new_term_conds.tex}
    
    
-  \chapter[% 
-      Short Title of Ch. 6
-   ]{% 
-      Gauge duality and the PhaseLift dual problem
-   }%
-   \label{ch6_eig_methods}
+
    \input{ch6_eig_methods.tex}   
    
    
-  \chapter[% 
-      Short Title of Ch. 7
-   ]{% 
-      Gauge duality and the PhaseLift dual problem
-   }%
-   \label{ch7_numerics}
-   \input{ch7_numerics.tex}      
+
+   \input{ch7_new_algorithm.tex}      
    
    
-  \chapter[% 
-      Short Title of Ch. 8
-   ]{% 
-      Gauge duality and the PhaseLift dual problem
-   }%
-   \label{ch8_new_algorithm}
-   \input{ch8_new_algorithm.tex}   
+
+   \input{ch8_revised_method.tex}   
    
+
+	\input{ch9_conclusion.tex}
 
    
    \appendix
 
-   \chapter[%
-      Short Title of Appendix A
-   ]{%
-      Long Title of Appendix A
-   }%
-   \label{ch:Appx-A_proof_of_PL1_gauge_duality}
+
    \input{Appx-A_proof_of_PL1_gauge_duality.tex}
    
    
-   \chapter[%
-      Short Title of Appendix A
-   ]{%
-      Long Title of Appendix A
-   }%
-   \label{ch:Appx-B_further_justification}
+
    \input{Appx-B_further_justification.tex}
    
    

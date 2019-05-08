@@ -8,7 +8,7 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{Alternating projection methods}{section.2.3}% 8
 \BOOKMARK [2][-]{subsection.2.3.2}{Structured optimization methods}{section.2.3}% 9
 \BOOKMARK [2][-]{subsection.2.3.3}{Unstructured optimization methods}{section.2.3}% 10
-\BOOKMARK [1][-]{section.2.4}{Why the PLGD model? A comparison of methods for large-scale phase retrieval}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{Justification for optimizing the PLGD model}{chapter.2}% 11
 \BOOKMARK [0][-]{chapter.3}{Gauge duality theory and the PhaseLift gauge dual model}{}% 12
 \BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 13
 \BOOKMARK [1][-]{section.3.2}{Definitions and primal-dual pairs}{chapter.3}% 14
@@ -18,20 +18,21 @@
 \BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 18
 \BOOKMARK [1][-]{section.4.2}{Algorithm and implementation details}{chapter.4}% 19
 \BOOKMARK [1][-]{section.4.3}{Efficient recovery for noiseless phase retrieval}{chapter.4}% 20
-\BOOKMARK [0][-]{chapter.5}{New termination conditions for the first-order PLGD algorithm for noisy phase retrieval}{}% 21
+\BOOKMARK [0][-]{chapter.5}{New termination conditions for the first-order PLGD algorithm}{}% 21
 \BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 22
 \BOOKMARK [1][-]{section.5.2}{Experimental models and potential residuals}{chapter.5}% 23
 \BOOKMARK [1][-]{section.5.3}{Stagnation of the first-order PLGD algorithm}{chapter.5}% 24
 \BOOKMARK [1][-]{section.5.4}{New termination conditions}{chapter.5}% 25
-\BOOKMARK [0][-]{chapter.6}{Two methods for the evolving matrix eigenvalue problem}{}% 26
+\BOOKMARK [0][-]{chapter.6}{The evolving matrix eigenvalue problem}{}% 26
 \BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 27
 \BOOKMARK [1][-]{section.6.2}{The EMEP: computational costs and spectral properties}{chapter.6}% 28
 \BOOKMARK [1][-]{section.6.3}{The implicitly restarted Arnoldi method}{chapter.6}% 29
-\BOOKMARK [1][-]{section.6.4}{The inverse-free preconditioned Krylov subspace method}{chapter.6}% 30
-\BOOKMARK [0][-]{chapter.7}{Numerics}{}% 31
-\BOOKMARK [1][-]{section.7.1}{Experimental models and software}{chapter.7}% 32
-\BOOKMARK [1][-]{section.7.2}{Adaptive inner iteration method for the EMEP}{chapter.7}% 33
-\BOOKMARK [1][-]{section.7.3}{Results for the adaptive inner iteration method}{chapter.7}% 34
-\BOOKMARK [0][-]{chapter.8}{Revised eigenvalue method for the PLGD EMEP}{}% 35
-\BOOKMARK [0][-]{appendix.A}{Proof of PhaseLift-l1 gauge duality}{}% 36
-\BOOKMARK [0][-]{appendix.B}{Further justification of residuals established in Chapter 5}{}% 37
+\BOOKMARK [0][-]{chapter.7}{A new strategy for the EMEP}{}% 30
+\BOOKMARK [1][-]{section.7.1}{Introduction}{chapter.7}% 31
+\BOOKMARK [1][-]{section.7.2}{The adaptive inner iteration method for the EMEP}{chapter.7}% 32
+\BOOKMARK [1][-]{section.7.3}{Results for the adaptive inner iteration method}{chapter.7}% 33
+\BOOKMARK [1][-]{section.7.4}{Correlation between EMEP spectrum and IRAM behavior}{chapter.7}% 34
+\BOOKMARK [0][-]{chapter.8}{Revised eigenvalue method for the EMEP}{}% 35
+\BOOKMARK [0][-]{chapter.9}{Conclusion}{}% 36
+\BOOKMARK [0][-]{appendix.A}{Proof of PhaseLift-l1 gauge duality}{}% 37
+\BOOKMARK [0][-]{appendix.B}{Further justification of residuals established in Chapter 5}{}% 38

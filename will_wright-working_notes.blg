@@ -4,7 +4,7 @@ The top-level auxiliary file: will_wright-working_notes.aux
 The style file: amsalpha-fi-arxlast.bst
 Database file #1: DissertationBibliography.bib
 Warning--entry type for "Guizar-Sicairos" isn't style-file defined
---line 413 of file DissertationBibliography.bib
+--line 435 of file DissertationBibliography.bib
 Warning--missing pages in aravkin2017foundations
 Warning--missing pages in bahmani2016phase
 Warning--missing pages in elser2017benchmark
@@ -13,50 +13,48 @@ Warning--missing pages in DBLP:journals/siamsc/FriedlanderM16
 Warning--missing journal name in grigorieff1991note
 Warning--missing pages in grigorieff1991note
 Warning--missing pages in goldstein2018phasemax
-Warning--can't use both volume and number if series info is missing
-in BibTeX entry type `book'
 Warning--missing pages in jiang2017robust
 Warning--missing pages in katkovnik2017phase
 Warning--missing journal name in sorensen1997implicitly
-You've used 71 entries,
+You've used 67 entries,
             2674 wiz_defined-function locations,
-            1011 strings with 17357 characters,
-and the built_in function-call counts, 28360 in all, are:
-= -- 2626
-> -- 1476
-< -- 25
-+ -- 515
-- -- 506
-* -- 2524
-:= -- 4651
-add.period$ -- 71
-call.type$ -- 71
-change.case$ -- 467
-chr.to.int$ -- 70
-cite$ -- 82
-duplicate$ -- 1021
-empty$ -- 2197
-format.name$ -- 586
-if$ -- 5689
+            981 strings with 16520 characters,
+and the built_in function-call counts, 27077 in all, are:
+= -- 2520
+> -- 1406
+< -- 22
++ -- 493
+- -- 485
+* -- 2419
+:= -- 4430
+add.period$ -- 67
+call.type$ -- 67
+change.case$ -- 444
+chr.to.int$ -- 66
+cite$ -- 78
+duplicate$ -- 966
+empty$ -- 2087
+format.name$ -- 561
+if$ -- 5432
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 81
-newline$ -- 224
-num.names$ -- 211
-pop$ -- 438
+missing$ -- 74
+newline$ -- 212
+num.names$ -- 199
+pop$ -- 414
 preamble$ -- 1
-purify$ -- 535
+purify$ -- 508
 quote$ -- 0
-skip$ -- 827
+skip$ -- 787
 stack$ -- 0
-substring$ -- 1638
-swap$ -- 129
-text.length$ -- 25
+substring$ -- 1603
+swap$ -- 126
+text.length$ -- 22
 text.prefix$ -- 17
-top$ -- 1
-type$ -- 517
-warning$ -- 12
-while$ -- 282
-width$ -- 77
-write$ -- 766
-(There were 13 warnings)
+top$ -- 0
+type$ -- 496
+warning$ -- 11
+while$ -- 268
+width$ -- 73
+write$ -- 721
+(There were 12 warnings)

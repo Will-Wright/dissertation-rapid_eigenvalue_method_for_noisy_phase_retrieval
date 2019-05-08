@@ -23,12 +23,20 @@ To understand and exploit the convergence behavior of the IRAM, we develop this 
 
 \section{The EMEP: computational costs and spectral properties}		\label{Subsec:evol_mats-spectral_props}
 
+\begin{enumerate}
+
+
+
+
+\item
+
 
 In this section we examine the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD}, which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
 We see that the EMEP is the most computationally expensive subroutine in Algorithm \ref{Alg:PGD}, and this problem evolves both structurally and computationally from early to later iterates in Algorithm \ref{Alg:PGD}.  
 The high computational cost and changing structure of this EMEP lead us to examine a common eigenvalue method in the remainder of this chapter.
 
 
+\
 
 Generally speaking, we are concerned with a sequence of eigenvalue problems in which each eigenvalue problem is dependent on the results of the previous problems.  
 For each iterate $k$ in this sequence of problems, we have some Hermitian matrix iterate $A_k \in \caH^n$ and seek its $j$ algebraically largest eigenvalues $\Lambda^{(k)}_j$ and the matrix of corresponding eigenvectors $V^{(k)}_j$.  
@@ -75,6 +83,7 @@ where $\lambda^{(k)}_1$ and $\lambda^{(k)}_2$ are the two algebraically largest 
 
 
 
+\item
 
 Next, we examine the computational costs of the \emep.
 As discussed in Section \ref{Subsec:PLGD_algo-algo}, the main computational costs in Algorithm \ref{Alg:PGD} are the EMEP (step 2, 6, and 14), the primal refinement (step 11), and the dual refinement (step 13).  
@@ -128,7 +137,7 @@ The results in Table \ref{Tab:EMEP_costs} demonstrate the essential computationa
 
 
 
-
+\item
 
 
 Figure \ref{Fig:EMEP_costs_num_mat_vecs} depicts the number of matrix-vector products $[\caA^*y_k]x$ in the \emep \ for each of the six smaller models from Table \ref{Tab:EMEP_costs}. 
@@ -147,7 +156,7 @@ Figure \ref{Fig:EMEP_costs_num_mat_vecs} demonstrates that the number of matrix-
 
 
 
-
+\item
 
 To understand why the number of matrix-vector products increases as the \emep \ progresses, we must examine the evolving structure of these eigenvalue problems.  In Section \ref{Subsec:evol_mats-IRAM} we will discuss the impact the spectrum of a matrix has on the (theoretic or empirically expected) convergence rate of a few eigenvalue method.  For now, we will briefly examine how the spectrum varies for the matrix iterates in the \emep.  Figure \ref{Fig:EMEP_full_spectrum} depicts the spectrum of earlier and later iterates for a particular model from Table \ref{Tab:EMEP_costs}.
 
@@ -194,7 +203,7 @@ Thus the two algebraically largest eigenvalues $\lambda_1^{(k)}$ and $\lambda_2^
 
 
 
-
+\item
 
 
 Given the high computational cost of the \emep \ and the evolving structure of this problem, we now proceed to develop a common method for handling large-scale eigenvalue problems.  The convergence behavior and the strengths and weaknesses of this method will help us develop more efficient ways of handling the \emep \ in Chapter \ref{Sec:Numerics}. 
@@ -202,10 +211,23 @@ Given the high computational cost of the \emep \ and the evolving structure of t
 
 
 
+\end{enumerate}
+
+
+
+
+
+
+
+
+\newpage
 
 \section{The implicitly restarted Arnoldi method}		\label{Subsec:evol_mats-IRAM}
 
+\begin{enumerate}
 
+
+\item
 
 % See following as references:
 % http://www.cs.cornell.edu/~bindel/class/cs6210-f09/lec34.pdf
@@ -244,7 +266,7 @@ This section follows the treatment found in \cite[Chapters 8, 10]{golub2012matri
 
 
 
-
+\item
 
 The first method we consider is the \textit{power method}, a method for determining the largest magnitude eigenvalue $\lambda_1$ and corresponding eigenvector $v_1$ of a Hermitian matrix $A$.  The power method is based on the property that if $\lambda_1$ is strictly larger in magnitude than the next largest magnitude eigenvalue and the initial vector $q^{(0)}$ has a nonzero component in the direction of $v_1$ (i.e., $v_1^*q^{(0)} \neq 0$), then the sequence
 \[
@@ -305,7 +327,7 @@ and $|\sin(\theta_i)|$ in (\ref{Eqn:power_method_conv_rate_1}) may decreases ver
 
 
 
-
+\item
 
 
 
@@ -429,7 +451,7 @@ Table \ref{Tab:Lanczos_vs_power_method} demonstrates that the use of the Krylov 
 
 
 
-
+\item
 
 To take advantage of the convergence rate of Algorithm \ref{Alg:Arnoldi_iteration} for larger eigenvalue problems, the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) may be restarted with the \textit{$p$-step shifted QR iteration} developed by \cite{sorensen1992implicit} and discussed in \cite[Sections 10.5.2-3]{golub2012matrix}.  To develop this algorithm, assume we are seeking the $j$ algebraically largest eigenvalues of a Hermitian matrix $A \in \bbC^{n \times n}$ and we require that the $m$-step Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) $AQ_m = Q_m H_m + r_m e_m^*$ has a fixed size $m > j$.  First we run Algorithm \ref{Alg:Arnoldi_iteration} with the initial vector $q_1$ to obtain $AQ_m = Q_m H_m + r_m e_m^*$.  Next, recall that the matrix $H_m$ may be used to identify the desired Ritz pairs $\{(\theta_i, u_i)\}_{i=1}^j$ for $A$ with respect to $\caK_m(A, q_1)$, as described in (\ref{Eqn:Arnoldi_decomp_Ritz_pairs}).  Yet $H_m$ also contains Ritz values $\theta_{j+1}, \ldots, \theta_m$ which correspond to unwanted eigenvalues of $A$.  To damp these unwanted Ritz values, we may select an appropriate degree $p = m-j$ filter polynomial $p(\lambda)$.  The $p$-step shifted QR iteration uses the filter polynomial
 \begin{equation} 			\label{Eqn:filter_poly}
@@ -534,7 +556,7 @@ and we may resume Algorithm \ref{Alg:Arnoldi_iteration} at step $j+1$.
 
 
 
-
+\item
 
 Combining Algorithms \ref{Alg:Arnoldi_iteration} and \ref{Alg:shifted_QR_iteration} as described above, we have Algorithm \ref{Alg:IRAM} as presented in \cite[Section 10.5.3]{golub2012matrix}.
 
@@ -567,6 +589,9 @@ However, when $\lambda_j \approx \lambda_{j+1}$ and the Arnoldi decomposition si
 
 
 Note that the numerical software package \texttt{ARPACK} (the ARnoldi PACKage) is an implementation of IRAM in FORTRAN 77 \cite{lehoucq1998arpack}.  Many numerical computing environments include large-scale eigenvalue methods which having bindings to ARPACK, including \texttt{eigs} in MATLAB, \texttt{eigs} and \texttt{eigsh} in the Python package SciPy, \texttt{eigs} in R, and \texttt{eigs} in the Julia package Arpack.jl. 
+
+
+\end{enumerate}
 
 
 

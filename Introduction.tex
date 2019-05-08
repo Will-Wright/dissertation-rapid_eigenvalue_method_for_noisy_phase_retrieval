@@ -22,14 +22,21 @@ The PLGD model is based on the PhaseLift method \cite{DBLP:journals/siamis/Cande
 In \cite[Section 5]{DBLP:journals/siamsc/FriedlanderM16}, the authors demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than an alternate method for optimizing the PhaseLift model.  This algorithm also returns signals with greater accuracy than wflow, another method for phase retrieval (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details regarding wflow).  Yet Algorithm \ref{Alg:PGD} faces two significant challenges for noisy phase retrieval.  Computationally, this algorithm requires a large-scale eigenvalue problem to be solved at each step, leading to significant runtime for modest-sized signal recovery.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} often stagnate before converging.
 
 
-This dissertation offers two main contributions.  First, we address the algorithmic stagnation of Algorithm \ref{Alg:PGD} for noisy phase retrieval.   We establish new termination conditions for Algorithm \ref{Alg:PGD} which correspond to stagnation of signal recovery progress.  Second, we examine the eigenvalue problem in Algorithm \ref{Alg:PGD}, the computational bottleneck of this algorithm.  We examine the structure of this problem and develop an adaptive method for handling this problem which decreases the computational costs and overall runtime of Algorithm \ref{Alg:PGD} by about $50-80\%$.
+This dissertation offers two main contributions.  First, we address the algorithmic stagnation of Algorithm \ref{Alg:PGD} for noisy phase retrieval.   We establish new termination conditions for Algorithm \ref{Alg:PGD} which correspond to stagnation of signal recovery progress.  Second, we examine the eigenvalue problem in Algorithm \ref{Alg:PGD}, the computational bottleneck of this algorithm.  We examine the structure of this problem and develop an adaptive method for handling this problem which decreases the computational costs and overall runtime of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
 
 
 This dissertation is organized in the following manner.  Chapter \ref{Sec:phase_retrieval} introduces the phase retrieval problem and provides a survey of phase retrieval methods.  
 We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow method (the primary competitor method for unstructured phase retrieval).
 Chapter \ref{Sec:PLGD} examines the PLGD model (\ref{Eqn:PhaseLift-GD}) and presents the gauge duality theory necessary for examining this model.  Chapter \ref{Sec:PLGD_algo} then develops Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this method for noiseless phase retrieval.
 
-Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically fails to converge for noisy phase retrieval and establishes new termination conditions for this algorithm.  Chapter \ref{Sec:evol_mats}  demonstrates that the evolving matrix eigenvalue problem (EMEP) in Algorithm \ref{Alg:PGD} is the main computational bottleneck.  This chapter examines the structure of the EMEP in Algorithm \ref{Alg:PGD} and reviews a few common eigenvalue methods for handling the EMEP.  Chapter \ref{Sec:Numerics} presents numerical results for the eigenvalue methods applied to the EMEP and develops an efficient, adaptive method for handling the EMEP.  Finally, Chapter \ref{Sec:Revised_method} presents a revised algorithm for optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
+Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically fails to converge for noisy phase retrieval and establishes new termination conditions for this algorithm.  
+Chapter \ref{Sec:evol_mats}  demonstrates that the evolving matrix eigenvalue problem (EMEP) in Algorithm \ref{Alg:PGD} is the main computational bottleneck.  
+This chapter examines the structure of the EMEP as well as the eigenvalue method used for handling the EMEP.  
+Chapter \ref{Sec:Numerics} develops Algorithm \ref{Alg:adaptive_IRAM}, an efficient, adaptive strategy for handling the EMEP.
+This chapter presents numerical results demonstrating the effectiveness Algorithm \ref{Alg:adaptive_IRAM} and explores the correlation between the behavior of this algorithm and the evolving spectrum between earlier and later matrices in the EMEP.
+Chapter \ref{Sec:Revised_method} and demonstrates the effectiveness of the new strategy for a variety of noisy phase retrieval problems.
+
+summarizes the results of this dissertation
 
 
 
@@ -84,7 +91,7 @@ Given a symmetric (or Hermitian) matrix $A$ in $\bbR^{n \times n}$ (or $\bbC^{n 
 \begin{equation}			\label{Def:eigenvalues}
 \lambda_1(A) \geq \lambda_2(A) \geq \ldots \geq \lambda_n(A),
 \end{equation}
-where $\lambda_1(A)$ or simply $\lambda_1$ is the largest algebraic eigenvalue of $A$, and $\lambda_n(A)$ or $\lambda_n$ is the smallest algebraic eigenvalue.  The \textit{spectrum} of $A$ is the set of all of its eigenvalues $\Lambda = \{ \lambda_1, \lambda_2, \ldots, \lambda_n\}$.
+where $\lambda_1(A)$ or simply $\lambda_1$ is the algebraically largest eigenvalue of $A$, and $\lambda_n(A)$ or $\lambda_n$ is the smallest algebraic eigenvalue.  The \textit{spectrum} of $A$ is the set of all of its eigenvalues $\Lambda = \{ \lambda_1, \lambda_2, \ldots, \lambda_n\}$.
 If $S$ is a subspace of $\bbR^n$ (or $\bbC^n$) then $(\theta, u)$ is a \textit{Ritz pair for $A$ with respect to $S$} if 
 \begin{equation} 			\label{Def:Ritz_pair_val_vec}
 \langle w, (Au-\theta u) \rangle = 0 \hspace{1cm} \forall w \in S.
@@ -106,7 +113,7 @@ Given a linear operator $\caA : \caX \rightarrow \caY$ over finite-dimensional E
 \begin{equation}			\label{Def:adjoint_operator}
 \langle \caA x, y \rangle = \langle x, \caA^* y \rangle \hspace{5pt} \text{for all } x \in \caX, y \in \caY. 
 \end{equation} 
-Since $\caX$ and $\caY$ are finite and $\caA$ is linear, $\caA$ is also continuous.  Thus the Riesz representation theorem guarantees that there will exist a unique linear operator $\caA^*$ \cite[Section 6.2]{reed1980functional}.  In this dissertation, we will be concerned specifically with linear operators $\caA: \caH \rightarrow \bbR^m$, where $\caH$ is the set of $n \times n$ Hermitian matrices.  It is easily shown that all such linear operators $\caA$ will have the form
+Since $\caX$ and $\caY$ are finite and $\caA$ is linear, $\caA$ is also continuous.  Thus the Riesz representation theorem guarantees that there will exist a unique linear operator $\caA^*$ \cite[Section 6.2]{reed1980functional}.  In this dissertation, we will be concerned specifically with linear operators $\caA: \caH^n \rightarrow \bbR^m$, where $\caH^n$ is the set of $n \times n$ Hermitian matrices.  It is easily shown that all such linear operators $\caA$ will have the form
 \begin{equation}
 \caA(X) = \begin{bmatrix}
 \langle A_1, X \rangle	\\
@@ -114,7 +121,7 @@ Since $\caX$ and $\caY$ are finite and $\caA$ is linear, $\caA$ is also continuo
 \langle A_m, X \rangle
 \end{bmatrix},
 \end{equation}
-where each $A_i$ is some matrix in $\caH$.  In this case, the adjoint of $\caA$ is given by 
+where each $A_i$ is some matrix in $\caH^n$.  In this case, the adjoint of $\caA$ is given by 
 \begin{equation}
 \langle \caA(X), y \rangle  	= \sum_{i=1}^m \langle A_i, X \rangle y_i	  = \sum_{i=1}^m \langle y_iA_i, X \rangle   = \langle X, \sum_{i=1}^m  y_iA_i \rangle = \langle X, \caA^*y \rangle.
 \end{equation}

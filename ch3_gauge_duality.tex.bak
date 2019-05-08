@@ -1,7 +1,7 @@
-\section{Gauge duality theory and the PhaseLift gauge dual model}	\label{Sec:PLGD}
+\chapter{Gauge duality theory and the PhaseLift gauge dual model}	\label{Sec:PLGD}
 
 
-\subsection{Introduction} 	\label{Subsec:PLGD-intro}
+\section{Introduction} 	\label{Subsec:PLGD-intro}
 
 This chapter examines the PLGD model for solving the phase retrieval problem (\ref{Eqn:phase_retrieval}) and presents the gauge duality theory necessary for examining this model.  The PLGD model is the following constrained eigenvalue optimization problem
 \begin{equation}
@@ -23,7 +23,7 @@ All of the following gauge properties and gauge duality results were previously 
 Our contribution is to provide a self-contained, comprehensive treatment of gauge duality theory focused solely on establishing the duality theorem and optimality conditions for the PLP-PLGD pair.  Prior to this treatment, the following results were spread throughout the original texts (\cite{rockafellar1970convex}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}), occasionally with differing notation or style.  In this chapter, we present a single notation and style (Section \ref{Subsec:PLGD_algo-intro}) which we use to develop gauge duality theory (Section \ref{Subsec:PLGD-theory}) and then apply this theory to the PLP-PLGD pair (Section \ref{Subsec:PLGD-opt_conds_primal_recovery}).  The results of this chapter provide the theoretical foundation for developing a first-order optimization method for the PLGD model in Chapter \ref{Sec:PLGD_algo}.
 
 
-\subsection{Definitions and primal-dual pairs}		\label{Subsec:PLGD-models_intro}
+\section{Definitions and primal-dual pairs}		\label{Subsec:PLGD-models_intro}
 
 \begin{enumerate}
 
@@ -245,7 +245,7 @@ general nonnegative convex functions.
 
 
 
-\subsection{Theory for linearly and nonlinearly constrained models} 			\label{Subsec:PLGD-theory}
+\section{Theory for linearly and nonlinearly constrained models} 			\label{Subsec:PLGD-theory}
 
 \begin{enumerate}
 
@@ -697,7 +697,7 @@ and thus $\frac{1}{\epsilon}(b - Ax) \in \partial \rho^\circ(\cdot) (y)$.
 
 
 
-\subsection{Optimality conditions and primal recovery for the PLGD model}   \label{Subsec:PLGD-opt_conds_primal_recovery}
+\section{Optimality conditions and primal recovery for the PLGD model}   \label{Subsec:PLGD-opt_conds_primal_recovery}
 
 
 \begin{enumerate}

@@ -233,6 +233,17 @@ year = {1988}
   publisher={SIAM}
 }
 
+@article{comon1990tracking,
+  title={Tracking a few extreme singular values and vectors in signal processing},
+  author={Comon, Pierre and Golub, Gene H},
+  journal={Proceedings of the IEEE},
+  volume={78},
+  number={8},
+  pages={1327--1343},
+  year={1990},
+  publisher={IEEE}
+}
+
 @article{dai2002r,
   title={R-linear convergence of the Barzilai and Borwein gradient method},
   author={Dai, Yu-Hong and Liao, Li-Zhi},
@@ -242,6 +253,17 @@ year = {1988}
   pages={1--10},
   year={2002},
   publisher={Oxford University Press}
+}
+
+@article{doukopoulos2008fast,
+  title={Fast and stable subspace tracking},
+  author={Doukopoulos, Xenofon G and Moustakides, George V},
+  journal={IEEE Transactions on Signal Processing},
+  volume={56},
+  number={4},
+  pages={1452--1465},
+  year={2008},
+  publisher={IEEE}
 }
 
 @incollection{duadi2011digital,
@@ -684,6 +706,14 @@ journal = {Optik}
   bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
+@inproceedings{ngo2012scaled,
+  title={Scaled gradients on Grassmann manifolds for matrix completion},
+  author={Ngo, Thanh and Saad, Yousef},
+  booktitle={Advances in Neural Information Processing Systems},
+  pages={1412--1420},
+  year={2012}
+}
+
 @book{nocedal2006numerical,
   title={Numerical optimization 2nd},
   author={Nocedal, Jorge and Wright, Stephen J},
@@ -768,6 +798,17 @@ journal = {Optik}
   pages={312--318},
   year={2013},
   publisher={International Union of Crystallography}
+}
+
+@article{saad2010numerical,
+  title={Numerical methods for electronic structure calculations of materials},
+  author={Saad, Yousef and Chelikowsky, James R and Shontz, Suzanne M},
+  journal={SIAM review},
+  volume={52},
+  number={1},
+  pages={3--54},
+  year={2010},
+  publisher={SIAM}
 }
 
 @book{saad2011numerical,
@@ -882,6 +923,17 @@ year = {2008}
   publisher={Springer}
 }
 
+@article{stewart1992updating,
+  title={An updating algorithm for subspace tracking},
+  author={Stewart, Gilbert W},
+  journal={IEEE Transactions on Signal Processing},
+  volume={40},
+  number={6},
+  pages={1535--1541},
+  year={1992},
+  publisher={IEEE}
+}
+
 @inproceedings{sun2016geometric,
   title={A geometric analysis of phase retrieval},
   author={Sun, Ju and Qu, Qing and Wright, John},
@@ -941,6 +993,17 @@ year = {2008}
   pages={41--49},
   year={1963},
   publisher={Taylor \& Francis}
+}
+
+@article{yang1995projection,
+  title={Projection approximation subspace tracking},
+  author={Yang, Bin},
+  journal={IEEE Transactions on Signal processing},
+  volume={43},
+  number={1},
+  pages={95--107},
+  year={1995},
+  publisher={IEEE}
 }
 
 @article{zhang2004nonmonotone,
