@@ -5,7 +5,7 @@
 
 \section{Introduction and contributions} 		\label{Subsec:intro-contributions}
 
-Phase retrieval has a wide range of solution methods, yet few exist for handling noisy observations without imposing additional restrictions such as signal sparsity.  One recent noisy phase retrieval model which requires no underlying assumptions is the gauge dual of the PhaseLift model (PLGD) first introduced and analyzed in \cite{DBLP:journals/siamsc/FriedlanderM16},
+Phase retrieval has a wide range of solution methods, yet few exist for handling noisy observations without imposing additional restrictions such as signal sparsity.  One recent noisy phase retrieval model which requires no underlying assumptions is the gauge dual of the PhaseLift model (PLGD)
 \begin{equation} \label{Eqn:PhaseLift-GD}
 \begin{array}{lll}
 	&	\min\limits_{\substack{y}}
@@ -16,27 +16,38 @@ Phase retrieval has a wide range of solution methods, yet few exist for handling
 		&	\langle b, y \rangle - \epsilon ||y|| \geq 1.
 \end{array}
 \end{equation}
-
-The PLGD model is based on the PhaseLift method \cite{DBLP:journals/siamis/CandesESV13} in which a desired signal of $n$ elements (e.g., pixels) is lifted into the space of $n \times n$ positive semidefinite matrices, creating a very large-scale recovery problem.  The PLGD model (\ref{Eqn:PhaseLift-GD}) maintains the convergence guarantees of the convex PhaseLift model, yet also allows for efficient first-order methods such as Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}.
-
-In \cite[Section 5]{DBLP:journals/siamsc/FriedlanderM16}, the authors demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than an alternate method for optimizing the PhaseLift model.  This algorithm also returns signals with greater accuracy than wflow, another method for phase retrieval (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details regarding wflow).  Yet Algorithm \ref{Alg:PGD} faces two significant challenges for noisy phase retrieval.  Computationally, this algorithm requires a large-scale eigenvalue problem to be solved at each step, leading to significant runtime for modest-sized signal recovery.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} often stagnate before converging.
+First introduced and analyzed in \cite{DBLP:journals/siamsc/FriedlanderM16}, the PLGD model (\ref{Eqn:PhaseLift-GD}) is based on the PhaseLift method \cite{DBLP:journals/siamis/CandesESV13} in which a desired signal of $n$ elements (e.g., pixels) is lifted into the space of $n \times n$ positive semidefinite matrices, creating a convex, large-scale recovery problem.  
+The PLGD model (\ref{Eqn:PhaseLift-GD}) maintains the convergence guarantees of the convex PhaseLift model, yet also allows for efficient first-order methods.
 
 
-This dissertation offers two main contributions.  First, we address the algorithmic stagnation of Algorithm \ref{Alg:PGD} for noisy phase retrieval.   We establish new termination conditions for Algorithm \ref{Alg:PGD} which correspond to stagnation of signal recovery progress.  Second, we examine the eigenvalue problem in Algorithm \ref{Alg:PGD}, the computational bottleneck of this algorithm.  We examine the structure of this problem and develop an adaptive method for handling this problem which decreases the computational costs and overall runtime of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
+To optimize the PLGD model (\ref{Eqn:PhaseLift-GD}) we use the first-order method proposed in \cite[Section 4.4]{DBLP:journals/siamsc/FriedlanderM16}, which we restate in Section \ref{Subsec:PLGD_algo-algo} as Algorithm \ref{Alg:PGD}.
+The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than an alternate method for optimizing the PhaseLift model and returns signals with greater accuracy than wflow, another method for phase retrieval (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details regarding PhaseLift and wflow).  Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant runtime for large signals.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically stagnate before converging.
 
 
-This dissertation is organized in the following manner.  Chapter \ref{Sec:phase_retrieval} introduces the phase retrieval problem and provides a survey of phase retrieval methods.  
-We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow method (the primary competitor method for unstructured phase retrieval).
-Chapter \ref{Sec:PLGD} examines the PLGD model (\ref{Eqn:PhaseLift-GD}) and presents the gauge duality theory necessary for examining this model.  Chapter \ref{Sec:PLGD_algo} then develops Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this method for noiseless phase retrieval.
+This dissertation offers two main contributions.  
+First, we address the algorithmic stagnation of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate stagnation of signal recovery progress.  
+Second, we develop a new strategy for handling the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} which decreases the computational cost and overall runtime of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
 
-Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically fails to converge for noisy phase retrieval and establishes new termination conditions for this algorithm.  
-Chapter \ref{Sec:evol_mats}  demonstrates that the evolving matrix eigenvalue problem (EMEP) in Algorithm \ref{Alg:PGD} is the main computational bottleneck.  
-This chapter examines the structure of the EMEP as well as the eigenvalue method used for handling the EMEP.  
-Chapter \ref{Sec:Numerics} develops Algorithm \ref{Alg:adaptive_IRAM}, an efficient, adaptive strategy for handling the EMEP.
-This chapter presents numerical results demonstrating the effectiveness Algorithm \ref{Alg:adaptive_IRAM} and explores the correlation between the behavior of this algorithm and the evolving spectrum between earlier and later matrices in the EMEP.
-Chapter \ref{Sec:Revised_method} and demonstrates the effectiveness of the new strategy for a variety of noisy phase retrieval problems.
 
-summarizes the results of this dissertation
+This dissertation is organized in the following manner.  
+Chapter \ref{Sec:phase_retrieval} introduces the phase retrieval problem and provides a survey of phase retrieval methods.  
+We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow method.
+Chapter \ref{Sec:PLGD} presents the gauge duality theory necessary for analyzing and optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
+Chapter \ref{Sec:PLGD_algo} then develops Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this algorithm for noiseless phase retrieval.
+
+Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically stagnates prior to converging for noisy phase retrieval problems. 
+We then identify the cause of this stagnation and establish new termination conditions for Algorithm \ref{Alg:PGD}.
+Chapter \ref{Sec:evol_mats} defines the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} as the \textit{evolving matrix eigenvalue problem} (EMEP).
+We see that the EMEP is the computational bottleneck of Algorithm \ref{Alg:PGD}.
+The spectrum of these eigenvalue problems evolves in a predictable way, with the algebraically largest eigenvalues clustering for later EMEP iterates.
+This clustering causes later EMEP iterates to have more difficult eigenvalue problems.
+We close Chapter \ref{Sec:evol_mats} with a review of the \textit{implicitly restarted Arnoldi method} (IRAM), a common large-scale eigenvalue method.
+
+Chapter \ref{Sec:Numerics} then proceeds to develop an efficient, adaptive strategy (Algorithm \ref{Alg:adaptive_IRAM}) for choosing IRAM parameters to handle the EMEP.
+This chapter shows that Algorithm \ref{Alg:adaptive_IRAM} effectively tracks the clustering of the algebraically largest eigenvalues from earlier to later EMEP iterates, thus selecting more desirable parameters for the IRAM.
+We close Chapter \ref{Sec:Numerics} with a few experiments demonstrating that Algorithm \ref{Alg:adaptive_IRAM} decreases computational cost of the EMEP, thus making Algorithm \ref{Alg:PGD} more efficient for noisy phase retrieval.
+Chapter \ref{Sec:Conclusion} concludes this dissertation with a summary of our contributions and suggestions for future work.
+
 
 
 
@@ -51,18 +62,28 @@ The special case of $p = 2$ gives the Frobenius norm
 \begin{equation} 	\label{Def:Frobenius_norm}
 ||A||_F = \left(   \sum_{\substack{i = 1}}^{\substack{\min\{m, n \}}} \sigma_i^2(A)  \right)^{1/2}.
 \end{equation}
-Schatten norms are essential to the multiplicative nature of gauge duality as it is used to develop the PLGD model.  In contrast, the EMEP requires measurements with the vector-induced $2$-norm.  Thus we define the generic \textit{matrix norm} as
+Gauge duality is a duality based on multiplicative relations, and thus Schatten norms are essential to gauge duality and developing the PLGD model (\ref{Eqn:PhaseLift-GD}).  In contrast, the EMEP requires measurements with the vector-induced $2$-norm.  Thus we define the \textit{matrix norm} as
 \begin{equation} 		\label{Def:matrix_norm}
 ||A|| = \sup_{\substack{||v||_2 = 1}} ||Av||_2 = \sigma_{\max}(A).
 \end{equation}
 The standard basis vector is denoted $e_i$, where $[e_i]_i = 1$ and all other components are zero.  
 Given a vector $d$ in $\bbR^n$ or $\bbC^n$ with components $d_1, d_2, \ldots, d_n$, the \textit{diagonal operator} is defined as
 \begin{equation}
-Diag(d) = Diag(d_1, d_2, \ldots, d_n)_{ij} = 
+\text{Diag}(d) = \text{Diag}(d_1, d_2, \ldots, d_n)_{ij} = 
 	\begin{cases}
 		d_i 		&		\text{if } i = j	\\
 		0		&	\text{else}.
 	\end{cases}
+\end{equation}
+Additionally, if $A$ is a matrix in $\bbR^{n \times n}$ or $\bbC^{n \times n}$ then the \textit{diagonal operator} is defined as
+\begin{equation}
+\text{diag}(A) = 
+	\begin{bmatrix}
+		A_{1,1}	\\
+		A_{2,2}	\\
+		\vdots	\\
+		A_{n,n}
+	\end{bmatrix}.
 \end{equation}
 
 Given $\caS$, a subset of a finite-dimensional Euclidean space $\caX$, the \textit{indicator} function of $\caS$ is defined as
@@ -73,7 +94,7 @@ Given $\caS$, a subset of a finite-dimensional Euclidean space $\caX$, the \text
 		+\infty		&	x \notin \caS.
 	\end{cases}
 \end{equation}
-It is easily seen that if $\caS$ is convex, then $\delta_\caS$ will be convex.  Thus the indicator function is useful for tasks like embedding a domain constraint of an optimization model into the objective function and computing the gauge dual of the model (see Chapter \ref{Sec:PLGD}).
+It is easily seen that if $\caS$ is convex, then $\delta_\caS$ will be convex.  Thus the indicator function is useful for tasks like embedding a domain constraint of an optimization model into the objective function and is used frequently in Chapter \ref{Sec:PLGD} for proving gauge duality results.
 
 If $\caC$ is a convex subset of a finite-dimensional Euclidean space, then the \textit{normal cone} of $\caC$ at $y_0 \in \caC$ is defined as
 \begin{equation} 			\label{Def:normal_cone}
@@ -102,7 +123,7 @@ For a pair of matrices $A, B \in \bbC^{n \times n}$, their inner product is that
 \begin{equation}			\label{Def:trace_inner_product}
 \langle A, B \rangle := \tr(A^*B) = \sum_{i=1}^n \sigma_i(A^*B).
 \end{equation}
-For a convex set $\caC$, define the projection onto this set as $\Pi_\caC(y)$.  Since the PLGD objective function $f(y) = \lambda_1(\caA^*y)$ is not generally differentiable, we consider the subdifferential of $f$.  Given a convex function $f : \caU \rightarrow \bbR$ defined on an open, convex subset $\caU$ of a finite-dimensional Euclidean space $\caX$, the \textit{subdifferential} of $f$ at $y_0$ is defined as
+Given $\caC$, a convex subset of a finite-dimensional Euclidean space $\caX$, we define projection of $x \in \caX$ onto $\caC$ as $\Pi_\caC(x)$.  Since the PLGD (\ref{Eqn:PhaseLift-GD}) objective function $f(y) = \lambda_1(\caA^*y)$ is not generally differentiable, we consider the subdifferential of $f$.  Given a convex function $f : \caU \rightarrow \bbR$ defined on an open, convex subset $\caU$ of a finite-dimensional Euclidean space $\caX$, the \textit{subdifferential} of $f$ at $y_0$ is defined as
 \begin{equation}
 	\label{Def:subdifferential}
 	\partial f(y_0) = \left\{  g \in \caX \ | \ f(y) \geq f(y_0) + \langle g, y - y_0 \rangle \ \ \forall y \in \caU	\right\},
@@ -123,8 +144,9 @@ Since $\caX$ and $\caY$ are finite and $\caA$ is linear, $\caA$ is also continuo
 \end{equation}
 where each $A_i$ is some matrix in $\caH^n$.  In this case, the adjoint of $\caA$ is given by 
 \begin{equation}
-\langle \caA(X), y \rangle  	= \sum_{i=1}^m \langle A_i, X \rangle y_i	  = \sum_{i=1}^m \langle y_iA_i, X \rangle   = \langle X, \sum_{i=1}^m  y_iA_i \rangle = \langle X, \caA^*y \rangle.
+\langle \caA(X), y \rangle  	= \sum_{i=1}^m \langle A_i, X \rangle y_i	  = \sum_{i=1}^m \langle y_iA_i, X \rangle   = \langle X, \sum_{i=1}^m  y_iA_i \rangle = \langle X, \caA^*y \rangle,
 \end{equation}
+where $X \in \caH^n$ and $y \in \bbR^m$.
 Thus we have $\caA^*y = \sum_{i=1}^m  y_iA_i$.
 
 

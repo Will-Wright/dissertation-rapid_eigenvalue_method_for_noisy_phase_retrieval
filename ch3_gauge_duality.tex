@@ -3,7 +3,7 @@
 
 \section{Introduction} 	\label{Subsec:PLGD-intro}
 
-This chapter examines the PLGD model for solving the phase retrieval problem (\ref{Eqn:phase_retrieval}) and presents the gauge duality theory necessary for examining this model.  The PLGD model is the following constrained eigenvalue optimization problem
+This chapter examines the PLGD model for solving the phase retrieval problem (\ref{Eqn:phase_retrieval}) and presents the gauge duality theory necessary for examining this model.  The PLGD model is the constrained eigenvalue optimization problem
 \begin{equation}
 \begin{array}{ll}
 	\min\limits_{\substack{y}}
@@ -17,10 +17,10 @@ This chapter examines the PLGD model for solving the phase retrieval problem (\r
 
 We begin in Section \ref{Subsec:PLGD-models_intro} by establishing the PhaseLift primal and gauge dual (PLP, PLGD) pair of models along with some basic definitions. We then contrast gauge duality with Lagrange duality and provide a brief history of gauge duality theory.  Section \ref{Subsec:PLGD-theory} develops a sequence of propositions which are used to prove the gauge duality theorem (Theorem \ref{Thm:P-GD-inequality_pair_are_duals}) along with weak duality, strong duality, and optimality conditions for an inequality constrained gauge dual pair.  Finally, Section \ref{Subsec:PLGD-opt_conds_primal_recovery} uses these results to establish key properties of the primal and gauge dual models which are necessary for developing an efficient method of optimizing the PLGD model and recovering the signal $x$ from the dual variable $y$.  
 
-All of the following gauge properties and gauge duality results were previously established in \cite{rockafellar1970convex}, \cite{DBLP:journals/mp/Freund87}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}.  Gauge functions were first analyzed in  \cite{rockafellar1970convex}.  Gauge duality was then introduced in \cite{DBLP:journals/mp/Freund87}, where the author focused on quadratic programming applications.  In \cite{DBLP:journals/siamjo/FriedlanderMP14}, the authors developed a broad set of antipolar calculus results for the analysis of gauge duality.  These results were then applied to the PLP-PLGD pair to develop a first-order method in \cite{DBLP:journals/siamsc/FriedlanderM16}.
+All of the gauge properties and gauge duality results in this chapter were previously established in \cite{rockafellar1970convex}, \cite{DBLP:journals/mp/Freund87}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}.  Gauge functions were first analyzed in  \cite{rockafellar1970convex}.  Gauge duality was then introduced in \cite{DBLP:journals/mp/Freund87}, where the author focused on quadratic programming applications.  In \cite{DBLP:journals/siamjo/FriedlanderMP14}, the authors developed a broad set of antipolar calculus results for the analysis of gauge duality.  These results were then applied to the PLP-PLGD pair to develop a first-order method in \cite{DBLP:journals/siamsc/FriedlanderM16}.
 
 
-Our contribution is to provide a self-contained, comprehensive treatment of gauge duality theory focused solely on establishing the duality theorem and optimality conditions for the PLP-PLGD pair.  Prior to this treatment, the following results were spread throughout the original texts (\cite{rockafellar1970convex}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}), occasionally with differing notation or style.  In this chapter, we present a single notation and style (Section \ref{Subsec:PLGD_algo-intro}) which we use to develop gauge duality theory (Section \ref{Subsec:PLGD-theory}) and then apply this theory to the PLP-PLGD pair (Section \ref{Subsec:PLGD-opt_conds_primal_recovery}).  The results of this chapter provide the theoretical foundation for developing a first-order optimization method for the PLGD model in Chapter \ref{Sec:PLGD_algo}.
+Our contribution is to provide a self-contained, comprehensive treatment of gauge duality theory focused solely on establishing the duality theorem and optimality conditions for the PLP-PLGD pair.  Prior to this treatment, the results in this chapter were spread throughout the original texts (\cite{rockafellar1970convex}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}), occasionally with differing notation or style.  In this chapter, we present a single notation and style (Section \ref{Subsec:PLGD_algo-intro}) which we use to develop gauge duality theory (Section \ref{Subsec:PLGD-theory}) and then apply this theory to the PLP-PLGD pair (Section \ref{Subsec:PLGD-opt_conds_primal_recovery}).  The results of this chapter provide the theoretical foundation for developing a first-order optimization method for the PLGD model in Chapter \ref{Sec:PLGD_algo}.
 
 
 \section{Definitions and primal-dual pairs}		\label{Subsec:PLGD-models_intro}
@@ -283,7 +283,7 @@ The results in this section are based on \cite{rockafellar1970convex}, \cite{DBL
 
 
 
-The following two propositions are used in Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, (i) to show the inequality pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) is an instance of the nonlinear pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).  Since (\ref{Eqn:PhaseLift_P_GD_inequality_form}) allows for the constraint set $\caC$ to be any closed, convex set not containing the origin, we must simply establish the antipolar of the particular constraint set $\caC = \{ x \ | \rho(Ax-b) \leq \epsilon\}$.  We begin by showing how linear and polar transformations on $\caC$ commute under certain assumptions.
+The next two propositions are used in Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, (i) to show the inequality pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) is an instance of the nonlinear pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).  Since (\ref{Eqn:PhaseLift_P_GD_inequality_form}) allows for the constraint set $\caC$ to be any closed, convex set not containing the origin, we must simply establish the antipolar of the particular constraint set $\caC = \{ x \ | \rho(Ax-b) \leq \epsilon\}$.  We begin by showing how linear and polar transformations on $\caC$ commute under certain assumptions.
 
 
 \begin{prop}		\label{Prop:antipolar_set_equalities}
@@ -309,8 +309,7 @@ The first result is proved in \cite[Proposition 3.3]{DBLP:journals/siamjo/Friedl
 \end{proof}
 
 
-The previous propositions allows us to construct the antipolar of the constraint set $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon \}$ in the following proposition.
-
+The previous propositions allows us to construct the antipolar of the constraint set $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon \}$ in Proposition \ref{Prop:antipolar_of_primal_phase_retrieval}.
 
 \begin{prop}		\label{Prop:antipolar_of_primal_phase_retrieval}
 Let $\caX$ and $\caY$ be finite-dimensional Euclidean spaces, $A : \caX \rightarrow \caY$ a linear operator, and $A^* : \caY \rightarrow \caX$ its adjoint.  Let $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon \}$ with $0 < \epsilon < \rho(b)$.  Also assume $\textnormal{ri}(\caC) \cap \textnormal{range}(A)$ and $A^{-1}\caC$ are not empty. Then

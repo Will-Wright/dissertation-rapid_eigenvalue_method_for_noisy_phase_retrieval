@@ -46,6 +46,7 @@
 	 \newpage
 	 \stepcounter{page}
 	
+	
 	 %%% (optional) dedication page
 	 \thispagestyle{empty}
 	 \vspace*{20em}
@@ -53,6 +54,7 @@
 	   To...
 	 \end{center}
 	 \newpage
+   
    
    % Begin Double Spacing
    %

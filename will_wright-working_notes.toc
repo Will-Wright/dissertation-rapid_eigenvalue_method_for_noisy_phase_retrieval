@@ -1,38 +1,37 @@
 \contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Introduction and contributions}{3}{section.1.1}
 \contentsline {section}{\numberline {1.2}Notation}{4}{section.1.2}
-\contentsline {chapter}{\numberline {2}Noisy phase retrieval: a brief survey of applications and methods}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}Mathematical model}{7}{section.2.1}
-\contentsline {section}{\numberline {2.2}Applications and experimental models}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Survey of noisy phase retrieval methods}{10}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Alternating projection methods}{11}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Structured optimization methods}{13}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Unstructured optimization methods}{15}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}Justification for optimizing the PLGD model}{21}{section.2.4}
-\contentsline {chapter}{\numberline {3}Gauge duality theory and the PhaseLift gauge dual model}{26}{chapter.3}
-\contentsline {section}{\numberline {3.1}Introduction}{26}{section.3.1}
-\contentsline {section}{\numberline {3.2}Definitions and primal-dual pairs}{27}{section.3.2}
-\contentsline {section}{\numberline {3.3}Theory for linearly and nonlinearly constrained models}{31}{section.3.3}
-\contentsline {section}{\numberline {3.4}Optimality conditions and primal recovery for the PLGD model}{39}{section.3.4}
-\contentsline {chapter}{\numberline {4}A first-order method for the PLGD model}{44}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introduction}{44}{section.4.1}
-\contentsline {section}{\numberline {4.2}Algorithm and implementation details}{44}{section.4.2}
-\contentsline {section}{\numberline {4.3}Efficient recovery for noiseless phase retrieval}{50}{section.4.3}
-\contentsline {chapter}{\numberline {5}New termination conditions for the first-order PLGD algorithm}{52}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introduction}{52}{section.5.1}
-\contentsline {section}{\numberline {5.2}Experimental models and potential residuals}{52}{section.5.2}
-\contentsline {section}{\numberline {5.3}Stagnation of the first-order PLGD algorithm}{55}{section.5.3}
-\contentsline {section}{\numberline {5.4}New termination conditions}{60}{section.5.4}
-\contentsline {chapter}{\numberline {6}The evolving matrix eigenvalue problem}{67}{chapter.6}
-\contentsline {section}{\numberline {6.1}Introduction}{67}{section.6.1}
-\contentsline {section}{\numberline {6.2}The EMEP: computational costs and spectral properties}{67}{section.6.2}
-\contentsline {section}{\numberline {6.3}The implicitly restarted Arnoldi method}{73}{section.6.3}
-\contentsline {chapter}{\numberline {7}A new strategy for the EMEP}{82}{chapter.7}
-\contentsline {section}{\numberline {7.1}Introduction}{82}{section.7.1}
-\contentsline {section}{\numberline {7.2}The adaptive inner iteration method for the EMEP}{82}{section.7.2}
-\contentsline {section}{\numberline {7.3}Results for the adaptive inner iteration method}{87}{section.7.3}
-\contentsline {section}{\numberline {7.4}Correlation between EMEP spectrum and IRAM behavior}{90}{section.7.4}
-\contentsline {chapter}{\numberline {8}Revised eigenvalue method for the EMEP}{98}{chapter.8}
-\contentsline {chapter}{\numberline {9}Conclusion}{99}{chapter.9}
-\contentsline {chapter}{\numberline {A}Proof of PhaseLift-$l_1$ gauge duality}{100}{appendix.A}
-\contentsline {chapter}{\numberline {B}Further justification of residuals established in Chapter \ref {Sec:PLGD_term_crit}}{101}{appendix.B}
+\contentsline {chapter}{\numberline {2}Noisy phase retrieval: a brief survey of applications and methods}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Mathematical model}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Applications and experimental models}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Survey of noisy phase retrieval methods}{11}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Alternating projection methods}{12}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Structured optimization methods}{14}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Unstructured optimization methods}{16}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}Justification for optimizing the PLGD model}{22}{section.2.4}
+\contentsline {chapter}{\numberline {3}Gauge duality theory and the PhaseLift gauge dual model}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{27}{section.3.1}
+\contentsline {section}{\numberline {3.2}Definitions and primal-dual pairs}{28}{section.3.2}
+\contentsline {section}{\numberline {3.3}Theory for linearly and nonlinearly constrained models}{32}{section.3.3}
+\contentsline {section}{\numberline {3.4}Optimality conditions and primal recovery for the PLGD model}{40}{section.3.4}
+\contentsline {chapter}{\numberline {4}A first-order method for the PLGD model}{45}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{45}{section.4.1}
+\contentsline {section}{\numberline {4.2}Algorithm and implementation details}{45}{section.4.2}
+\contentsline {section}{\numberline {4.3}Efficient recovery for noiseless phase retrieval}{51}{section.4.3}
+\contentsline {chapter}{\numberline {5}New termination conditions for the first-order PLGD algorithm}{53}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{53}{section.5.1}
+\contentsline {section}{\numberline {5.2}Experimental models and potential residuals}{53}{section.5.2}
+\contentsline {section}{\numberline {5.3}Stagnation of the first-order PLGD algorithm}{56}{section.5.3}
+\contentsline {section}{\numberline {5.4}New termination conditions}{61}{section.5.4}
+\contentsline {chapter}{\numberline {6}The evolving matrix eigenvalue problem}{68}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{68}{section.6.1}
+\contentsline {section}{\numberline {6.2}The EMEP: computational costs and spectral properties}{68}{section.6.2}
+\contentsline {section}{\numberline {6.3}The implicitly restarted Arnoldi method}{74}{section.6.3}
+\contentsline {chapter}{\numberline {7}The adaptive parameter method for the EMEP}{83}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introduction}{83}{section.7.1}
+\contentsline {section}{\numberline {7.2}The adaptive parameter method for the EMEP}{83}{section.7.2}
+\contentsline {section}{\numberline {7.3}Tracking the EMEP spectrum with the adaptive parameter method}{88}{section.7.3}
+\contentsline {section}{\numberline {7.4}Numerical results for the adaptive parameter method}{95}{section.7.4}
+\contentsline {chapter}{\numberline {8}Conclusion}{101}{chapter.8}
+\contentsline {chapter}{\numberline {A}Proof of PhaseLift-$l_1$ gauge duality}{102}{appendix.A}
+\contentsline {chapter}{\numberline {B}Further justification of residuals established in Chapter \ref {Sec:PLGD_term_crit}}{103}{appendix.B}

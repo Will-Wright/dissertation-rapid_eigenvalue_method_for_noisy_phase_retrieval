@@ -27,12 +27,11 @@
 \BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 27
 \BOOKMARK [1][-]{section.6.2}{The EMEP: computational costs and spectral properties}{chapter.6}% 28
 \BOOKMARK [1][-]{section.6.3}{The implicitly restarted Arnoldi method}{chapter.6}% 29
-\BOOKMARK [0][-]{chapter.7}{A new strategy for the EMEP}{}% 30
+\BOOKMARK [0][-]{chapter.7}{The adaptive parameter method for the EMEP}{}% 30
 \BOOKMARK [1][-]{section.7.1}{Introduction}{chapter.7}% 31
-\BOOKMARK [1][-]{section.7.2}{The adaptive inner iteration method for the EMEP}{chapter.7}% 32
-\BOOKMARK [1][-]{section.7.3}{Results for the adaptive inner iteration method}{chapter.7}% 33
-\BOOKMARK [1][-]{section.7.4}{Correlation between EMEP spectrum and IRAM behavior}{chapter.7}% 34
-\BOOKMARK [0][-]{chapter.8}{Revised eigenvalue method for the EMEP}{}% 35
-\BOOKMARK [0][-]{chapter.9}{Conclusion}{}% 36
-\BOOKMARK [0][-]{appendix.A}{Proof of PhaseLift-l1 gauge duality}{}% 37
-\BOOKMARK [0][-]{appendix.B}{Further justification of residuals established in Chapter 5}{}% 38
+\BOOKMARK [1][-]{section.7.2}{The adaptive parameter method for the EMEP}{chapter.7}% 32
+\BOOKMARK [1][-]{section.7.3}{Tracking the EMEP spectrum with the adaptive parameter method}{chapter.7}% 33
+\BOOKMARK [1][-]{section.7.4}{Numerical results for the adaptive parameter method}{chapter.7}% 34
+\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 35
+\BOOKMARK [0][-]{appendix.A}{Proof of PhaseLift-l1 gauge duality}{}% 36
+\BOOKMARK [0][-]{appendix.B}{Further justification of residuals established in Chapter 5}{}% 37

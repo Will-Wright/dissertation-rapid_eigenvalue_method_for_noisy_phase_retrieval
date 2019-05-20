@@ -5,13 +5,12 @@
 \section{Introduction}   \label{Subsec:evol_mats-intro}
 
 
-In this chapter we examine the \textit{evolving matrix eigenvalue problem} (EMEP) in Algorithm \ref{Alg:PGD} and develop a common eigenvalue method for handling large-scale eigenvalue problems like the EMEP.  A thorough understanding of the eigenvalue method presented in this chapter will allow us to develop a new, efficient strategy for handling the EMEP in Chapter \ref{Sec:Numerics}.
-
-Section \ref{Subsec:evol_mats-spectral_props} defines the EMEP and examines its evolving spectral structure across matrix iterates $A_k$.  
+In this chapter we examine the \textit{evolving matrix eigenvalue problem} (EMEP) in Algorithm \ref{Alg:PGD}.  
+Section \ref{Subsec:evol_mats-spectral_props} defines the EMEP and examines its evolving spectrum across matrix iterates $A_k$.  
 In particular, we observe that the algebraically largest eigenvalues tend to cluster as the algorithm proceeds, leading to more difficult eigenvalue problems for later matrix iterates.  
-To handle these eigenvalue problems, we develop the \textit{implicitly restarted Arnoldi method} (IRAM) \cite{sorensen1992implicit} in Section \ref{Subsec:evol_mats-IRAM}.  
-The convergence behavior of the IRAM is based on the spectral structure of the given eigenvalue problem as well as the IRAM parameters chosen by the user.
-To understand and exploit the convergence behavior of the IRAM, we develop this method systematically from its component methods.
+To handle these eigenvalue problems, we review the \textit{implicitly restarted Arnoldi method} (IRAM) \cite{sorensen1992implicit} in Section \ref{Subsec:evol_mats-IRAM}.  
+The convergence behavior of the IRAM is based on the spectrum of the given eigenvalue problem as well as the IRAM parameters chosen by the user.
+To understand and exploit the convergence behavior of the IRAM, we will review this method systematically from its component methods.
 
 
 
@@ -25,25 +24,25 @@ To understand and exploit the convergence behavior of the IRAM, we develop this 
 
 
 In this section we examine the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD}, which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
-We see that the EMEP is the most computationally expensive subroutine in Algorithm \ref{Alg:PGD}, and this problem evolves both structurally and computationally from early to later iterates in Algorithm \ref{Alg:PGD}.  
-The high computational cost and changing structure of this EMEP lead us to examine a common eigenvalue method in the remainder of this chapter.
+We will see that the EMEP is the most computationally expensive subroutine in Algorithm \ref{Alg:PGD}.  
+We also observe that the EMEP matrix iterates have a spectrum which evolves in a predictable way from early to later iterates.
 
 
-
+We begin by formally defining the EMEP.
 Generally speaking, we are concerned with a sequence of eigenvalue problems in which each eigenvalue problem is dependent on the results of the previous problems.  
-For each iterate $k$ in this sequence of problems, we have some Hermitian matrix iterate $A_k \in \caH^n$ and seek its $j$ algebraically largest eigenvalues $\Lambda^{(k)}_j$ and the matrix of corresponding eigenvectors $V^{(k)}_j$.  
-Next, the previous set of basis matrices $\caV_{k} = \{ V^{(i)}_j \}_{i=0}^{k}$ are used to find the next matrix iterate $A_{k+1}$.  
-More specifically, we are concerned with problems of the form
-\begin{equation} 		\label{Eqn:EMEP_general}
-\begin{array}{ll}
-\textnormal{for}
-	&	k = 1, 2, \ldots, K		\\
-\textnormal{find}	
-	&	\left( \Lambda^{(k)}_j, \ V^{(k)}_j \right) \textnormal{ of } A_k
-\end{array}
-\end{equation}
-where $\Lambda^{(k)}$ are the $j$ algebraically largest eigenvalues of $A_k$, $V_k$ is the matrix of corresponding eigenvectors, $A_k \in \caH^n$ is dependent on $\caV_{k} = \{ V^{(i)}_j \}_{i=0}^{k}$, and $V_0 \in \bbC^{n \times j}$ is an initial basis matrix.
-Applications of (\ref{Eqn:EMEP_general}) include subspace tracking in signal processing (see, e.g., \cite{comon1990tracking}, \cite{stewart1992updating}, \cite{yang1995projection}, \cite{doukopoulos2008fast}), matrix completion (e.g., \cite{ngo2012scaled}), and the Kohn-Sham equation in density functional theory (e.g., \cite{saad2010numerical}).
+For each iterate $k$ in this sequence of problems, we have some Hermitian matrix iterate $A_k \in \caH^n$ and seek its $j$ algebraically largest eigenvalues $\Lambda^{(k)}_j$ and the corresponding eigenvectors $V^{(k)}_j$.  
+%Next, the previous set of basis matrices $\caV_{k} = \{ V^{(i)}_j \}_{i=0}^{k}$ are used to find the next matrix iterate $A_{k+1}$.  
+%More specifically, we are concerned with problems of the form
+%\begin{equation} 		\label{Eqn:EMEP_general}
+%\begin{array}{ll}
+%\textnormal{for}
+%	&	k = 1, 2, \ldots, K		\\
+%\textnormal{find}	
+%	&	\left( \Lambda^{(k)}_j, \ V^{(k)}_j \right) \textnormal{ of } A_k
+%\end{array}
+%\end{equation}
+%where $\Lambda^{(k)}$ are the $j$ algebraically largest eigenvalues of $A_k$, $V_k$ is the matrix of corresponding eigenvectors, $A_k \in \caH^n$ is dependent on $\caV_{k} = \{ V^{(i)}_j \}_{i=0}^{k}$, and $V_0 \in \bbC^{n \times j}$ is an initial basis matrix.
+Some examples of this problem include subspace tracking in signal processing (see, e.g., \cite{comon1990tracking}, \cite{stewart1992updating}, \cite{yang1995projection}, \cite{doukopoulos2008fast}), matrix completion (e.g., \cite{ngo2012scaled}), and the Kohn-Sham equation in density functional theory (e.g., \cite{saad2010numerical}).
 
 %Subspace tracking. Possibly the best known use of subspace iteration for evolving matrices is in the context of “subspace tracking” in signal processing applications; see, e.g., [6, 21, 2, 7]. An excellent survey of relatively recent work on the topic can be found in the introduction of [7]. The problem here is to track the “signal subspace,” which is the eigenspace associated with the largest eigenvalues of a covariance matrix associated with a sequence of signals, in the form of vectors x(t),t ∈ Z, that are being received sequentially. 
 %Matrix completion. Another notable application where subspace iteration with evolving matrices plays a major role [14] is that of the matrix completion problem.
@@ -51,15 +50,17 @@ Applications of (\ref{Eqn:EMEP_general}) include subspace tracking in signal pro
 %DFT studies the electronic structure of materials by solving a simplified version of the Schro ̈dinger equation known as the Kohn–Sham equation:
 
 
-
-To see that the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} has the form (\ref{Eqn:EMEP_general}), first note that each eigenvalue problem in Algorithm \ref{Alg:PGD} (steps 2, 6, and 14) requires the $j=2$ algebraically largest eigenvalues of the matrix iterate $A_k = \caA^*y_k$.  (Also note that the iterate $k$ does not correspond to the iterate number in Algorithm \ref{Alg:PGD} because step 6 involves a linesearch which may involve more than one eigenvalue problem.)  We will show that each matrix iterate $A_k = \caA^*y_k$ in Algorithm \ref{Alg:PGD} is computed using a variable $y_k$ which is dependent on the previous set of basis vectors $\caV_{k-1} = \{ v_1^{(i)} \}_{i=0}^{k-1}$.  It can be show inductively that $y_k$ is a function of $\caV_{k-1}$.  The initial iterate $k = 0$ corresponds to the first eigenvalue problem in Algorithm \ref{Alg:PGD}, where $y_0 = \Pi_\caC(b)$ is initialized using the observation vector $b$ and is independent of any eigenvector.  Thus we initialize $v_1^{(0)}$ as the empty set.  If $k >0$ then the update $y_k$ is computed as $y_k = \Pi_{\caC}(y_{k-1}- \alpha_{k-1}  g_{k-1})$, where $g_{k-1} = \caA(v_{k-1} v_{k-1}^*)$ is a function of $v_{k-1}$ and $\alpha_{k-1}$ is determined using a linesearch on the minimization problem
+To see that each eigenvalue problem in Algorithm \ref{Alg:PGD} is dependent on the results of the previous eigenvalue problems, first note that each eigenvalue problem in Algorithm \ref{Alg:PGD} (steps 2, 6, and 14) requires the two algebraically largest eigenvalues of the matrix iterate $A_k = \caA^*y_k$.  (Also note that the iterate $k$ does not correspond to the iterate number in Algorithm \ref{Alg:PGD} because step 6 involves a linesearch which may involve more than one eigenvalue problem.)  
+We will show that each matrix iterate $A_k = \caA^*y_k$ in Algorithm \ref{Alg:PGD} is computed using a variable $y_k$ which is dependent on the previous set of basis vectors $\caV_{k-1} = \{ v_1^{(i)} \}_{i=0}^{k-1}$.  It can be shown inductively that $y_k$ is a function of $\caV_{k-1}$.  The initial iterate $k = 0$ corresponds to the first eigenvalue problem in Algorithm \ref{Alg:PGD}, where $y_0 = \Pi_\caC(b)$ is initialized using the observation vector $b$ and is independent of any eigenvector.  Thus we initialize $v_1^{(0)}$ as the empty set.  If $k >0$ then the update $y_k$ is computed as $y_k = \Pi_{\caC}(y_{k-1}- \alpha_{k-1}  g_{k-1})$, where $g_{k-1} = \caA(v_{k-1} v_{k-1}^*)$ is a function of $v_{k-1}$ and $\alpha_{k-1}$ is determined using a linesearch on the minimization problem
 \begin{equation}
 \begin{array}{ll}
 \min\limits_{\substack{\alpha}}
 	&	\lambda_1 \left( \caA^* ( \Pi_\caC ( y_{k-1} - \alpha g_{k-1} ) )  \right).
 \end{array}
 \end{equation}
-As a result, $y_k$ is dependent on $v_{k-1}$ and $y_{k-1}$, and the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} has the form (\ref{Eqn:EMEP_general}).  Thus we define the sequence of eigenvalue problems generated by Algorithm \ref{Alg:PGD} as the \textit{evolving matrix eigenvalue problem} (EMEP)
+As a result, $y_k$ is dependent on $v_{k-1}$ and $y_{k-1}$; and thus each eigenvalue problem in Algorithm \ref{Alg:PGD} is dependent on the results of the previous eigenvalue problems.
+
+Thus we define the sequence of eigenvalue problems generated by Algorithm \ref{Alg:PGD} as the \textit{evolving matrix eigenvalue problem} (EMEP)
 \begin{equation}		\label{Eqn:EMEP_PLGD}
 \begin{array}{ll}
 \textnormal{for}
@@ -68,23 +69,16 @@ As a result, $y_k$ is dependent on $v_{k-1}$ and $y_{k-1}$, and the sequence of 
 	&	\left( \lambda^{(k)}_1, \ v^{(k)}_1 \right) \textnormal{ and } \left( \lambda^{(k)}_2, \ v^{(k)}_2 \right) \textnormal{ of } A_k,
 \end{array}
 \end{equation}
-where $\lambda^{(k)}_1$ and $\lambda^{(k)}_2$ are the two algebraically largest eigenvalues of the \textit{matrix iterate} $A_k = \caA^*y_k$, and $y_k$ is the previous dual variable generated by Algorithm \ref{Alg:PGD} (from either step 2, 6, or 14).
+where $\lambda^{(k)}_1$ and $\lambda^{(k)}_2$ are the two algebraically largest eigenvalues of the \textit{matrix iterate} $A_k = \caA^*y_k$, and $y_k$ is the previous dual variable generated by Algorithm \ref{Alg:PGD} (from step 2, 6, or 14).
 
 
 
-
-
-
-
-Next, we examine the computational costs of the \emep.
+Next, we examine the overall computational costs of the \emep.
 As discussed in Section \ref{Subsec:PLGD_algo-algo}, the main computational costs in Algorithm \ref{Alg:PGD} are the EMEP (step 2, 6, and 14), the primal refinement (step 11), and the dual refinement (step 13).  
-The eigenvalue computation for the EMEP is performed using the MATLAB function \texttt{eigs} (see Section \ref{Subsec:evol_mats-IRAM} for details). 
-The primal refinement problem (\ref{Eqn:GD-PFD}) is solved using \texttt{minFunc} (a quasi-Newton solver for unstrained optimization, with the descent direction determined using the limited-memory (l-)BFGS method for Hessian approximation) \cite{schmidt2005minFunc}.  
 Since we are focused on PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), the dual refinement step of Algorithm \ref{Alg:PGD} is skipped (see the end of Section \ref{Subsec:PLGD_term_crit-stagnation} for an explanation).
-In both the \emep \ and the primal refinement step, the primary computational cost comes from $\caA$-products (\ref{Eqn:A_definition_with_masks}), where each $\caA(xx^*)$ product requires $L$ DFTs and each $[\caA^*y]x$ product requires $2L$ DFTs.  Thus we measure computational costs in terms of the number of DFTs, following the convention of \cite{DBLP:journals/tit/CandesLS15} and \cite{DBLP:journals/siamsc/FriedlanderM16}.
+In both the \emep \ and the primal refinement step, the primary computational cost comes from $\caA$-products (\ref{Eqn:A_definition_with_masks}), where each $\caA(xx^*)$ product requires $L$ DFTs and each $[\caA^*y]x$ product requires $2L$ DFTs.  
+Thus we measure computational costs in terms of the number of DFTs, following the convention of \cite{DBLP:journals/tit/CandesLS15} and \cite{DBLP:journals/siamsc/FriedlanderM16}.
 Also note that the computation of the eigenpair $(\lambda_1, v_1)$ in the \emep \ must be very accurate in order to determine an accurate descent step $g = \caA(v_1v_1^*)$ in Algorithm \ref{Alg:PGD}.
-
-
 Table \ref{Tab:EMEP_costs} depicts the number of DFTs in Algorithm \ref{Alg:PGD} for a variety of noisy problems.
 \begin{table}[H]
 \centering
@@ -126,11 +120,7 @@ The results in Table \ref{Tab:EMEP_costs} demonstrate the essential computationa
 
 
 
-
-
-
-
-
+We will now profile the cost of the \emep.
 Figure \ref{Fig:EMEP_costs_num_mat_vecs} depicts the number of matrix-vector products $[\caA^*y_k]x$ in the \emep \ for each of the six smaller models from Table \ref{Tab:EMEP_costs}. 
 
 \begin{figure}[H]
@@ -146,10 +136,8 @@ Figure \ref{Fig:EMEP_costs_num_mat_vecs} demonstrates that the number of matrix-
 
 
 
-
-
-
-To understand why the number of matrix-vector products increases as the \emep \ progresses, we must examine the evolving structure of these eigenvalue problems.  In Section \ref{Subsec:evol_mats-IRAM} we will discuss the impact the spectrum of a matrix has on the (theoretic or empirically expected) convergence rate of a few eigenvalue method.  For now, we will briefly examine how the spectrum varies for the matrix iterates in the \emep.  Figure \ref{Fig:EMEP_full_spectrum} depicts the spectrum of earlier and later iterates for a particular model from Table \ref{Tab:EMEP_costs}.
+To understand why the number of matrix-vector products increases as the \emep \ progresses, we close this section by examining the evolving spectrum distribution of these eigenvalue problems.  
+Figure \ref{Fig:EMEP_full_spectrum} depicts the spectrum of earlier and later iterates for a particular model from Table \ref{Tab:EMEP_costs}.
 
 
 
@@ -182,22 +170,24 @@ As we will see in Section \ref{Subsec:evol_mats-IRAM}, the convergence rate of e
 \end{figure}
 % experiments.figure.noisyimage_spectrumdist
 
-Figure \ref{Fig:EMEP_largest_eigvals} demonstrates that the algebraically largest eigenvalues of the matrix iterates $A_k$ cluster together as the \emep \ progresses.  In general, this clustering can be expected.  Section \ref{Subsec:PLGD_algo-algo} established that the PLGD model (\ref{Eqn:PhaseLift-P-GD}) objective function $\lambda_1(\caA^*y)$ is nondifferentiable if the two algebraically largest eigenvalues of $\caA^*y$ are equal.  And Section \ref{Subsec:PLGD_term_crit-stagnation} demonstrated that PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) typically have nondifferentiable optimal objectives $\lambda_1(\caA^*y_\star)$.  
-Thus the two algebraically largest eigenvalues $\lambda_1^{(k)}$ and $\lambda_2^{(k)}$ of the \emep \ can be expected to have a decreasing relative difference
+Figure \ref{Fig:EMEP_largest_eigvals} demonstrates that the algebraically largest eigenvalues of the matrix iterates $A_k$ cluster together as the \emep \ progresses.  
+In general, this clustering in the \emep \ spectrum is expected.  
+Section \ref{Subsec:PLGD_term_crit-stagnation} demonstrated that PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) typically have optimal primal matrices $X_\star$ with rank greater than one (see Table \ref{Tab:average_rank_soln_matrix_with_gaussian_dual_variable}).
+And Corollary \ref{Cor:PLGD-optimality} (e) indicates that $\text{rank}(X_\star)$ is a lower bound on the multiplicity $r$ of the algebraically largest eigenvalue of the optimal dual matrix $\caA^*y_\star$.
+Thus for later \emep \ iterates $k$, we can expect some $r$ algebraically largest eigenvalues $\lambda_1^{(k)}, \lambda_2^{(k)}, \ldots, \lambda_r^{(k)}$ to have a decreasing relative difference
 \[
-\frac{\lambda_1^{(k)} - \lambda_2^{(k)}}
-	{\lambda_1^{(k)}}.
+\frac{\lambda_i^{(k)} - \lambda_{i+1}^{(k)}}
+	{\lambda_i^{(k)}}
 \]
+for $i = 1, 2, \ldots, r-1$.
 
 
 
+The clustering of the algebraically largest eigenvalues as depicted in Figure \ref{Fig:EMEP_largest_eigvals} is known to slow the convergence rate of eigenvalue methods like the IRAM.
+Yet the choice of the parameters in the IRAM can also have a significant effect on the convergence rate of the IRAM.
+A thorough understanding of the IRAM and its subroutines will help us to develop a new, adaptive strategy for choosing IRAM parameters for the \emep \ in Chapter \ref{Sec:Numerics}.
+Thus we proceed to review the IRAM.
 
-
-
-
-
-
-Given the high computational cost of the \emep \ and the evolving structure of this problem, we now proceed to develop a common method for handling large-scale eigenvalue problems.  The convergence behavior and the strengths and weaknesses of this method will help us develop more efficient ways of handling the \emep \ in Chapter \ref{Sec:Numerics}. 
 
 
 
@@ -222,7 +212,12 @@ Given the high computational cost of the \emep \ and the evolving structure of t
 %	v		q
 
 
-In this section we develop the \textit{implicitly restarted Arnoldi method} (IRAM), a common large-scale eigenvalue method which is the default method for handling the \emep.  First proposed by Sorensen \cite{sorensen1992implicit}, \cite{sorensen1997implicitly}, the IRAM is a combination of two essential algorithms.  The \textit{$m$-step Arnoldi iteration} is used to build a matrix $Q_m$ of $m$ basis vectors which approximates the desired eigenspace.  The \textit{$p$-step shifted QR iteration} restarts the matrix $Q_m$ with a specific strategy to damp unwanted eigenvalues, resulting in a smaller matrix $Q_j$ of $j<m$ basis vectors.  Since the $m$-step Arnoldi iteration is an extension of the \textit{power method}, we first discuss the Power method before developing the IRAM.  Altogether, the algorithms in this section are presented in the following order.
+In this section we review the \textit{implicitly restarted Arnoldi method} (IRAM), a common large-scale eigenvalue method.  
+First proposed by Sorensen \cite{sorensen1992implicit}, \cite{sorensen1997implicitly}, the IRAM is a combination of two essential algorithms.  
+The \textit{$m$-step Arnoldi iteration} is used to build a matrix $Q_m$ of $m$ basis vectors which approximates the desired eigenspace.  
+The \textit{$p$-step shifted QR iteration} restarts the matrix $Q_m$ with a specific strategy to damp unwanted eigenvalues, resulting in a smaller matrix $Q_j$ of $j<m$ basis vectors.  
+Since the $m$-step Arnoldi iteration is an extension of the \textit{power method}, we first discuss the Power method before developing the IRAM.  
+Altogether, the algorithms in this section are presented in the order depicted in Figure \ref{Fig:IRAM_flowchart}.
 
 \begin{figure}[H] 
 \centering
@@ -250,8 +245,9 @@ The first method we consider is the \textit{power method}, a method for determin
 \[
 q^{(0)}, \frac{Aq^{(0)}}{||Aq^{(0)}||},  \frac{A^2q^{(0)}}{||A^2q^{(0)}||},  \frac{A^3q^{(0)}}{||A^3q^{(0)}||}, \ldots
 \]
-will have $v_1$ as its limit.  Formally, the power method is the following algorithm \cite[Section 8.2.1]{golub2012matrix}.
+will have $v_1$ as its limit.  
 
+Formally, Algorithm \ref{Alg:power_method} presents the power method as seen in \cite[Section 8.2.1]{golub2012matrix}.
 
 \begin{algorithm}[H]
 \caption{Power method}	\label{Alg:power_method}
@@ -272,7 +268,7 @@ will have $v_1$ as its limit.  Formally, the power method is the following algor
 \end{algorithm}
 
 
-The simplicity of power method allows for elegant, insightful convergence results like the following theorem, in which we assume the matrix $A$ is real for clarity.
+The simplicity of power method allows for insightful convergence results like the Theorem \ref{Thm:power_method_conv_rate}, in which we assume the matrix $A$ is real for clarity.
 
 \begin{theorem}			\label{Thm:power_method_conv_rate}
 Suppose $A \in \bbR^{n \times n}$ is symmetric with an eigenvalue decomposition
@@ -345,7 +341,7 @@ where $H_m$ is an upper Hessenberg matrix.  If $(\theta, w)$ is an eigenpair for
 Additionally, steps 5 and 6 of Algorithm \ref{Alg:Arnoldi_iteration} indicate that $r_m$ is orthogonal to $\caK_m(A, q_1)$, and thus ($\theta, u$) is a Ritz pair for $A$ with respect to $\caK_m(A, q_1)$.  
 
 
-The use of $\caK_m(A, q_1)$ in Algorithm \ref{Alg:Arnoldi_iteration} allows for superior convergence to Algorithm \ref{Alg:power_method}.  Note that the largest magnitude Ritz pair $(\theta_1, u_1)$ for $A$ with respect to $\caK_m(A, q_1)$ generated by Algorithm \ref{Alg:Arnoldi_iteration}  is guaranteed to be at least comparable to the $m$-th iterate of Algorithm \ref{Alg:power_method} since $A^{m-1}q_1 \in  \caK_m(A, q_1)$.  To compare the convergence rates of Algorithms \ref{Alg:power_method} and \ref{Alg:Arnoldi_iteration} more precisely, assume the matrix $A$ in real and symmetric.  Then the matrix $H_m$ returned by Algorithm \ref{Alg:Arnoldi_iteration} is tridiagonal and this algorithm is equivalent to the \textit{$m$-step Lanczos iteration} \cite[Algorithm 10.1.1]{golub2012matrix}.  In this case, we have the following theorem.  Note that this theorem involves \textit{Chebyshev polynomials} \cite[Section 4.4]{saad2011numerical}, a sequence of polynomials defined recursively as
+The use of $\caK_m(A, q_1)$ in Algorithm \ref{Alg:Arnoldi_iteration} allows for superior convergence to Algorithm \ref{Alg:power_method}.  Note that the largest magnitude Ritz pair $(\theta_1, u_1)$ for $A$ with respect to $\caK_m(A, q_1)$ generated by Algorithm \ref{Alg:Arnoldi_iteration}  is guaranteed to be at least comparable to the $m$-th iterate of Algorithm \ref{Alg:power_method} since $A^{m-1}q_1 \in  \caK_m(A, q_1)$.  To compare the convergence rates of Algorithms \ref{Alg:power_method} and \ref{Alg:Arnoldi_iteration} more precisely, assume the matrix $A$ in real and symmetric.  Then the matrix $H_m$ returned by Algorithm \ref{Alg:Arnoldi_iteration} is tridiagonal and this algorithm is equivalent to the \textit{$m$-step Lanczos iteration} \cite[Algorithm 10.1.1]{golub2012matrix}.  In this case, we have the Theorem \ref{Thm:Lanczos_conv_rate}.  Note that this theorem involves \textit{Chebyshev polynomials} \cite[Section 4.4]{saad2011numerical}, a sequence of polynomials defined recursively as
 \begin{equation} 			\label{Def:Chebyshev_polys}
 c_k(x) = 2x c_{k-1}(x) - c_{k-2}(x)
 \end{equation}
@@ -372,7 +368,7 @@ and $c_{m-1}(x)$ is the Chebyshev polynomial of degree $m-1$.
 See \cite[Theorem 10.1.2]{golub2012matrix}.
 \end{proof}
 
-The convergence rate established in Theorem \ref{Thm:Lanczos_conv_rate} may also be applied to Algorithm \ref{Alg:power_method}, giving the following corollary.
+The convergence rate established in Theorem \ref{Thm:Lanczos_conv_rate} may also be applied to Algorithm \ref{Alg:power_method}, giving the Corollary \ref{Cor:Lanczos_cor_for_power_method}.
 
 \begin{corollary} 			\label{Cor:Lanczos_cor_for_power_method}
 Let $A \in \bbR^{n \times n}$ be symmetric and positive semidefinite with an eigenvalue decomposition
@@ -424,7 +420,7 @@ $1.01$
 \caption{Lower bound terms (\ref{Eqn:power_method_lower_bound}) and (\ref{Eqn:Lanczos_lower_bound}) for Ritz values generated by Algorithms \ref{Alg:power_method} and \ref{Alg:Arnoldi_iteration} } \label{Tab:Lanczos_vs_power_method}
 \end{table}
 
-Table \ref{Tab:Lanczos_vs_power_method} demonstrates that the use of the Krylov subspace (\ref{Def:krylov_subspace}) in Algorithm \ref{Alg:Arnoldi_iteration} allows for superior convergence to Algorithm \ref{Alg:power_method}.  Yet this superior convergence rate is slowed somewhat when the desired eigenvalue $\lambda_1$ is close to $\lambda_2$.  For eigenvalue problems where the value $\lambda_1 / \lambda_2$ is very small (like later iterates of the \emep, as demonstrated in Figure \ref{Fig:EMEP_largest_eigvals}), we may seek to increase the number of steps $m$ in Algorithm \ref{Alg:Arnoldi_iteration}.  Yet increasing $m$ can be computationally prohibitive if the eigenvalue problem is very large, requiring significant memory to store $Q_m$ and significant computation to compute the eigenvalue decomposition of $H_m$.
+Table \ref{Tab:Lanczos_vs_power_method} demonstrates that the use of the Krylov subspace $\caK_m(A, 	q_1)$ in Algorithm \ref{Alg:Arnoldi_iteration} allows for superior convergence to Algorithm \ref{Alg:power_method}.  Yet this superior convergence rate is slowed somewhat when the desired eigenvalue $\lambda_1$ is close to $\lambda_2$.  For eigenvalue problems where the value $\lambda_1 / \lambda_2$ is very small (like later iterates of the \emep, as demonstrated in Figure \ref{Fig:EMEP_largest_eigvals}), we may seek to increase the number of steps $m$ in Algorithm \ref{Alg:Arnoldi_iteration}.  Yet increasing $m$ can be computationally prohibitive if the eigenvalue problem is very large, requiring significant memory to store $Q_m$ and significant computation to compute the eigenvalue decomposition of $H_m$.
 
 
 
@@ -454,9 +450,9 @@ where $c$ is a constant and the shift values $\mu_1 = \theta_{j+1}, \ldots, \mu_
 
 \end{algorithm}
 
-The following proposition establishes that Algorithm \ref{Alg:shifted_QR_iteration} implicitly applies the filter polynomial $p(\lambda)$ from (\ref{Eqn:filter_poly}) to the initial vector $q_1$ used to create the $m$-step Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}).
+Proposition \ref{Prop:Arnoldi_restart} establishes that Algorithm \ref{Alg:shifted_QR_iteration} implicitly applies the filter polynomial $p(\lambda)$ from (\ref{Eqn:filter_poly}) to the initial vector $q_1$ used to create the $m$-step Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}).
 
-\begin{prop}
+\begin{prop} 			\label{Prop:Arnoldi_restart}
 Let $A \in \bbC^{n \times n}$ be Hermitian and $AQ_m = Q_mH_m + r_me_m^*$ be the $m$-step Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) returned by Algorithm \ref{Alg:Arnoldi_iteration} with initial vector $q_1$.  And let $\mu_1, \ldots, \mu_p$ be the $p$ smallest algebraic eigenvalues of $H_m$.  Run Algorithm \ref{Alg:shifted_QR_iteration} with $H_m$ and $\mu_1, \ldots, \mu_p$ as inputs, and return $H_m^+$, $V = V_1 \cdots V_p$, and $R = R_p \cdots R_1$.
 
 Then the restarted matrix $Q_+ = Q_mV$ will have the first column
@@ -465,6 +461,14 @@ q_+ = Q_mV(:,1) = p(A)q_1,
 \]
 where $p(\lambda)$ is the filter polynomial (\ref{Eqn:filter_poly}) with constant $c = 1/R(1,1)$.
 \end{prop}
+
+
+\begin{proof}
+See \cite[Section 10.5.3]{golub2012matrix}.
+\end{proof}
+
+
+\iffalse
 
 \begin{proof}
 First we must show that 
@@ -501,6 +505,11 @@ q_+
 \]
 where the third equality is given by (\ref{Eqn:filter_poly_proposition-VR}) and the fourth is given by (\ref{Eqn:filter_poly_propostion-flip}).
 \end{proof}
+
+\fi
+
+
+
 
 
 After performing Algorithm \ref{Alg:shifted_QR_iteration}, we have the transformed $m$-step Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp})
@@ -561,12 +570,12 @@ Combining Algorithms \ref{Alg:Arnoldi_iteration} and \ref{Alg:shifted_QR_iterati
 \end{algorithm}
 
 
-The IRAM is one of the two eigenvalue methods we use in Chapter \ref{Sec:Numerics} to handle the \emep.  The choice of parameters $m$ (the Arnoldi decomposition size) and $j$ (number of requested eigenvalues) can greatly impact the efficiency of IRAM (see Section \ref{Subsec:Numerics-adaptive_IRAM}).  For many large-scale eigenvalue problems, the IRAM is a very effective and convenient method.  Due to the implicit polynomial filtering in step 4 of IRAM, this method is particularly effective when the $j$ algebraically largest eigenvalues have modest separation from $\lambda_{j+1}$.  And since the IRAM only has two parameter choices, there is little optimization required by the user.
+The IRAM is the eigenvalue method we use in Chapter \ref{Sec:Numerics} to handle the \emep.  The choice of parameters $m$ (the Arnoldi decomposition size) and $j$ (number of requested eigenvalues) can greatly impact the efficiency of IRAM (see Section \ref{Subsec:Numerics-adaptive_IRAM}).  For many large-scale eigenvalue problems, the IRAM is a very effective and convenient method.  Due to the implicit polynomial filtering in step 4 of IRAM, this method is particularly effective when the $j$ algebraically largest eigenvalues have modest separation from $\lambda_{j+1}$.  And since the IRAM only has two parameter choices, there is little optimization required by the user.
 
 However, when $\lambda_j \approx \lambda_{j+1}$ and the Arnoldi decomposition size $m$ is not sufficiently large, the IRAM may require many iterations to achieve the desired tolerance.  As we will see in Section \ref{Subsec:Numerics-adaptive_IRAM}, the appropriate choice of $m$ and $j$ in this circumstance may make the IRAM far more competitive.  Yet choosing $m$ and $j$ without prior knowledge of the eigenvalue distribution is inherently heuristic.  Additionally, if the inputted matrix $A$ is very large, then it may be prohibitive to store the $Q_m \in \bbC^{n \times m}$ in active memory.  In particular, if the image or signal $x$ being recovered in the PLGD problem has $n$ pixels, then $Q_m$ will require $m-$times as much storage space.  Thus we proceed in the next section by considering an alternative Krylov subspace method which does not require parameter tuning, nor a large subspace to be held in memory.
 
 
-Note that the numerical software package \texttt{ARPACK} (the ARnoldi PACKage) is an implementation of IRAM in FORTRAN 77 \cite{lehoucq1998arpack}.  Many numerical computing environments include large-scale eigenvalue methods which having bindings to ARPACK, including \texttt{eigs} in MATLAB, \texttt{eigs} and \texttt{eigsh} in the Python package SciPy, \texttt{eigs} in R, and \texttt{eigs} in the Julia package Arpack.jl. 
+The numerical software package \texttt{ARPACK} (the ARnoldi PACKage) is an implementation of IRAM in FORTRAN 77 \cite{lehoucq1998arpack}.  Many numerical computing environments include large-scale eigenvalue methods which having bindings to ARPACK, including \texttt{eigs} in MATLAB, \texttt{eigs} and \texttt{eigsh} in the Python package SciPy, \texttt{eigs} in R, and \texttt{eigs} in the Julia package Arpack.jl. 
 
 
 

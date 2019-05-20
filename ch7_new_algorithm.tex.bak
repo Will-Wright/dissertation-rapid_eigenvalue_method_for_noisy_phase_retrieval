@@ -170,7 +170,7 @@ As we will see in Section \ref{Subsec:Numerics-correl_btwn_EMEP_and_IRAM}, these
 \label{Subsec:Numerics-correl_btwn_EMEP_and_IRAM}
 
 
-In this section we explore the connection between the clustering of the algebraically largest eigenvalues in the \emep \ and the number of requested eigenvalues $r_k$ as chosen by Algorithm \ref{Alg:adaptive_IRAM}.
+In this section we explore the connection between the clustering of the algebraically largest eigenvalues in the \emep \ and the number of requested eigenvalues $r$ as chosen by Algorithm \ref{Alg:adaptive_IRAM} .
 As the algebraically largest eigenvalues in the EMEP begin to cluster, we will see that the optimal value for $r$ (corresponding to the minimum number of matrix-vector products for the IRAM) increases such that $\lambda_{r+1}$ is not clustered with $\lambda_1, \lambda_2, \ldots \lambda_r$.
 Additionally, we will see that clustering of the algebraically largest eigenvalues can occur quickly in some EMEPs, causing the optimal value for $r$ to increase quickly as well.
 The experiments in this section demonstrate that the value $r_k$ chosen by Algorithm \ref{Alg:adaptive_IRAM} properly tracks the optimal choice of $r$ for EMEPs which evolve slowly or quickly.

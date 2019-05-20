@@ -207,7 +207,7 @@ While these HIO-type methods are computationally efficient and still commonly us
 \subsection{Structured optimization methods}  	\label{Subsubsec:phase_retrieval-structured}
 
 
-Next we discuss structured optimization methods for noisy phase retrieval.  In the past decade, a wide range of methods have been crafted to take advantage of the structures of particular phase retrieval problems.  The following survey highlights typical methods, their applications, and theoretical guarantees for exact recovery or error bounds.  
+Next we discuss structured optimization methods for noisy phase retrieval.  In the past decade, a wide range of methods have been crafted to take advantage of the structures of particular phase retrieval problems.  The survey in this section highlights typical methods, their applications, and theoretical guarantees for exact recovery or error bounds.  
 
 These methods are grouped based on the structural property they seek to exploit.  \textit{Compressive phase retrieval} methods assume sparsity in the signal $x$ (\cite{DBLP:journals/corr/abs-1104-4406}, the GrEedy Sparse PhAse Retrieval (GESPAR) method \cite{shechtman2014gespar}, and thresholded wflow  \cite{cai2016optimal}).  \textit{Robust phase retrieval} methods assume sparsity in either the observation $b$ (\cite{katkovnik2017phase}) or the noise $\eta$  (\cite{jiang2017robust}).  \textit{Supervised phase retrieval} methods require an approximate solution signal $\hat{x}$ for initialization (\cite{goldstein2018phasemax} and \cite{bahmani2016phase}).  
 
@@ -353,7 +353,7 @@ If a rank-one solution  $X = xx^*$ exists then this matrix satisfies the lifted 
 
 
 
-The resulting rank minimization problem at right of (\ref{Eqn:PhaseLift_rank_model}) is NP hard, as it includes the cardinality minimization problem as a special case (see \cite{natarajan1995sparse}, \cite{recht2010guaranteed}).  Thus the next step is to relax the discrete, nonconvex objective function $\textnormal{rank}(X)$.  To generalize the model for noisy phase retrieval, a norm bound is also applied to the sensing constraint.  This gives the following semidefinite program which defines the PhaseLift model \cite{DBLP:journals/siamis/CandesESV13}, \cite{candes2013phaselift}
+The resulting rank minimization problem at right of (\ref{Eqn:PhaseLift_rank_model}) is NP hard, as it includes the cardinality minimization problem as a special case (see \cite{natarajan1995sparse}, \cite{recht2010guaranteed}).  Thus the next step is to relax the discrete, nonconvex objective function $\textnormal{rank}(X)$.  To generalize the model for noisy phase retrieval, a norm bound is also applied to the sensing constraint.  This gives the semidefinite program which defines the PhaseLift model \cite{DBLP:journals/siamis/CandesESV13}, \cite{candes2013phaselift}
 \begin{equation} \label{Eqn:PhaseLift}
 \begin{array}{lll}
 	&	\min\limits_{\substack{X \in \caH^n}}
@@ -384,7 +384,7 @@ where minimizing $||x||_1$ serves as a convex relaxation to minimizing the discr
 
 
 
-The following two theorems address how much of a relaxation PhaseLift (\ref{Eqn:PhaseLift} is from (\ref{Eqn:phase_retrieval}), establishing exact and approximate recovery guarantees for the PhaseLift model \cite{candes2014solving}, \cite{candes2013phaselift}.  Theorem \ref{Thm:PhaseLift_exact} applies to the noiseless case (where $\epsilon = 0$ in the PhaseLift model), establishing a probability of equivalence between (\ref{Eqn:phase_retrieval}) and PhaseLift (\ref{Eqn:PhaseLift}).  
+The next two theorems quantify the relaxation of the PhaseLift model (\ref{Eqn:PhaseLift}) from (\ref{Eqn:phase_retrieval}), establishing exact and approximate recovery guarantees for the PhaseLift model \cite{candes2014solving}, \cite{candes2013phaselift}.  Theorem \ref{Thm:PhaseLift_exact} applies to the noiseless case (where $\epsilon = 0$ in the PhaseLift model), establishing a probability of equivalence between (\ref{Eqn:phase_retrieval}) and PhaseLift (\ref{Eqn:PhaseLift}).  
 
 
 \begin{theorem}  \label{Thm:PhaseLift_exact}
@@ -433,7 +433,7 @@ The strength of the PhaseLift model lies in its convexity and generality (no sig
 
 
 
-Like the PhaseLift method, the recent Wirtinger flow (wflow) algorithm \cite{DBLP:journals/tit/CandesLS15} also seeks to solve the phase retrieval problem (\ref{Eqn:phase_retrieval}) without any assumptions on the structure or sparsity of the signal or observation.  However, unlike the PhaseLift model, the wflow model does not involve matrix lifting and instead frames (\ref{Eqn:phase_retrieval}) as the following least-squares problem
+Like the PhaseLift method, the recent Wirtinger flow (wflow) algorithm \cite{DBLP:journals/tit/CandesLS15} also seeks to solve the phase retrieval problem (\ref{Eqn:phase_retrieval}) without any assumptions on the structure or sparsity of the signal or observation.  However, unlike the PhaseLift model, the wflow model does not involve matrix lifting and instead frames (\ref{Eqn:phase_retrieval}) as the least-squares problem
 \begin{equation} 				\label{Eqn:wflow_least-squares}
 \begin{array}{ll}
 	\min\limits_{\substack{x}}
@@ -479,7 +479,7 @@ With this initialization, the authors recommend a gradient descent-like method w
 					C_j^* F^* \textnormal{Diag}(r_j) F C_j \right] x.
 \end{array}
 \end{equation}
-The stepsize is then chosen using the following heuristics
+The stepsize is then chosen using the heuristics
  \begin{equation} 			\label{Eqn:wflow_stepsize}
 \mu_k = \min \{ 1-e^{-k/k_0}, \mu_{\max} \} \hspace{1cm} k_0 = 330, \ \mu_{\max} = 0.4,
 \end{equation}
@@ -510,7 +510,7 @@ F(x) = x^* \left( I - \bar{x}\bar{x}^* \right) x - \frac{3}{4} \left( ||x||^2 - 
 
 Interestingly, we observe that this algorithm can also be interpreted as an alternating projection HIO-type method, where computation of the Wirtinger derivative (\ref{Eqn:wflow_derivative}) corresponds to steps 3-5 of the GS algorithm and the signal update $x_{k+1} = x_k - \alpha_k \nabla f(x_k)$ corresponds to step 6 of the GS algorithm.  More precisely, in the last line of (\ref{Eqn:wflow_derivative}) we see $x_k$ is first mapped to the frequency domain (Algorithm \ref{Alg:GS}, step 3).  This vector is then damped coordinate-wise by the corresponding residual values $\textnormal{Diag}(r_j)$ for $j = 1, \ldots, L$  (Algorithm \ref{Alg:GS}, step 4).  Finally, the observation is mapped back to the object domain (Algorithm \ref{Alg:GS}, step 5) and damped by $\alpha_k$ to generate the signal update $x_{k+1} = x_k - \alpha_k \nabla f(x_k)$ (similar to the HIO update (\ref{Eqn:HIO_step_6}) which replaces Algorithm \ref{Alg:GS}, step 6).  
 
-Yet unlike other alternating projection methods, the wflow algorithm does not require additional frequency domain information or heuristics.  Wflow replaces the frequency domain damping in Algorithm \ref{Alg:GS}, step 4 with a damping which uses the observation residual $r = \caA(xx^*) - b$ as an exact, real-time measurement of the frequency domain violations of $x$.  In this view, $\textnormal{Diag}(r_j)$ in (\ref{Eqn:wflow_derivative}) provides a heuristic-free frequency domain damping.  Consequentially, the wflow algorithm merges the computational simplicity of an alternating projection method (Section  \ref{Subsubsec:phase_retrieval-alternating_direction_methods}) with the broad utility of an unstructured optimization method.  This resulting gradient descent-like method is shown to have the following exact recovery probability for noiseless phase retrieval problems.
+Yet unlike other alternating projection methods, the wflow algorithm does not require additional frequency domain information or heuristics.  Wflow replaces the frequency domain damping in Algorithm \ref{Alg:GS}, step 4 with a damping which uses the observation residual $r = \caA(xx^*) - b$ as an exact, real-time measurement of the frequency domain violations of $x$.  In this view, $\textnormal{Diag}(r_j)$ in (\ref{Eqn:wflow_derivative}) provides a heuristic-free frequency domain damping.  Consequentially, the wflow algorithm merges the computational simplicity of an alternating projection method (Section  \ref{Subsubsec:phase_retrieval-alternating_direction_methods}) with the broad utility of an unstructured optimization method.  Theorem \ref{Thm:wflow_exact_recovery} provides an exact recovery probability for Algorithm \ref{Alg:wflow} applied to noiseless phase retrieval problems.
 
 \begin{theorem} 			\label{Thm:wflow_exact_recovery}
 Consider an arbitrary signal $\bar{x}$ in $\bbC^n$ and assume the sensing vectors $a_i$ are independent, uniformly distributed on the unit sphere of $\bbC^n$.  Suppose that the number of measurements obeys $m \geq c_0 n \log(n)$, where $c_0$ is a sufficiently large constant.  Then the wflow initial estimate $x_0$ normalized to have squared Euclidean norm equal to $(\sum_{i=1}^m b_i)/m$ has
@@ -529,7 +529,7 @@ See \cite[Section 7]{DBLP:journals/tit/CandesLS15}.
 Computationally, the wflow algorithm is very efficient at recovering the signal of an oversampled noiseless observation.  Numerical experiments in \cite[Section 4]{DBLP:journals/tit/CandesLS15} demonstrate the effectiveness of this algorithm for $1$-D random signals, $2$-D natural images, and $3$-D molecular structures.  
 
 
-More generally, it was proved in \cite{sun2016geometric} that if $a_i$ are independent, uniformly distributed on the unit sphere of $\bbC^n$ and there are $m \geq c_0 n \log^3(n)$ measurements, then with probability at least $1-c_0/m$ the function $f(x) = \frac{1}{2}||\caA(xx^*) - b||^2$ has the following properties:
+More generally, it was proved in \cite{sun2016geometric} that if $a_i$ are independent, uniformly distributed on the unit sphere of $\bbC^n$ and there are $m \geq c_0 n \log^3(n)$ measurements, then with probability at least $1-c_0/m$ the function $f(x) = \frac{1}{2}||\caA(xx^*) - b||^2$ has the properties:
 
 \begin{itemize} 		
 
@@ -624,7 +624,7 @@ Thus (\ref{Eqn:PhaseLift}) is solved by maximizing $\tau(\epsilon)$ with a bisec
 This PhaseLift bisection method successfully demonstrates that the accuracy of the PhaseLift optimal signal improves with oversampling and deceases gradually as the error $\epsilon$ increases \cite[Section 7]{candes2013phaselift}.  However, this method is computationally expensive, as the function $||X||_1$ in the objective requires a partial SVD and the constraint $||\caA(xx^*) - b|| \leq \epsilon$ must be embedded into the objective.  Additionally, this method tends to fail without sufficient oversampling and is unable to achieve a high level of accuracy for noiseless models \cite[Section 5, Table 1]{DBLP:journals/siamsc/FriedlanderM16}.
 
 
-Another potential PhaseLift-type model we may consider optimizing is the following \textit{PhaseLift-$l_1$ model}
+Another potential PhaseLift-type model we may consider optimizing is the \textit{PhaseLift-$l_1$ model}
 \begin{equation} 			\label{Eqn:PhaseLift_l-1_norm_model}
 \begin{array}{lll}
 (\textnormal{PLP-}l_1)	
@@ -747,6 +747,6 @@ Figure \ref{Fig:parrot_signal_relative_error_2} demonstrates the tendency of Alg
 Table \ref{Tab:relative_errors_saga_vs_wflow} and Figure \ref{Fig:parrot_signal_relative_error_2} highlight the effectiveness of the first-order PLGD method (Algorithm \ref{Alg:PGD}) for noisy phase retrieval problems.  
 This method is typically is more robust than wflow (Algorithm \ref{Alg:wflow}) and tends to recover signals successfully when there is minimal oversampling. 
 Among the phase retrieval models and methods considered in this chapter, the PLGD model (\ref{Eqn:PLGD_ch2}) is the best suited for large-scale, unstructured noisy phase retrieval problems.
-In the following two chapters we present the theory behind the PLGD model and develop a first-order method (Algorithm \ref{Alg:PGD}) for optimizing this model.
+In the next two chapters we present the theory behind the PLGD model and develop a first-order method (Algorithm \ref{Alg:PGD}) for optimizing this model.
 
 
