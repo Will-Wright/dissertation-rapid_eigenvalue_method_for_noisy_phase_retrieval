@@ -3,8 +3,8 @@
 
 \section{Introduction} 	\label{Subsec:PLGD-intro}
 
-This chapter examines the PLGD model for solving the phase retrieval problem (\ref{Eqn:phase_retrieval}) and presents the gauge duality theory necessary for examining this model.  The PLGD model is the constrained eigenvalue optimization problem
-\begin{equation}
+This chapter examines the PLGD model for solving the phase retrieval problem (\ref{Eqn:phase_retrieval}) and presents the gauge duality theory necessary for optimizing this model.  The PLGD model is the constrained eigenvalue optimization problem
+\begin{equation*}
 \begin{array}{ll}
 	\min\limits_{\substack{y}}
 					&	\lambda_1(\caA^* y)
@@ -12,15 +12,18 @@ This chapter examines the PLGD model for solving the phase retrieval problem (\r
 	\st
 					&	\langle b, y \rangle - \epsilon ||y||_2 \geq 1.
 \end{array}
-\end{equation}
+\end{equation*}
 
 
-We begin in Section \ref{Subsec:PLGD-models_intro} by establishing the PhaseLift primal and gauge dual (PLP, PLGD) pair of models along with some basic definitions. We then contrast gauge duality with Lagrange duality and provide a brief history of gauge duality theory.  Section \ref{Subsec:PLGD-theory} develops a sequence of propositions which are used to prove the gauge duality theorem (Theorem \ref{Thm:P-GD-inequality_pair_are_duals}) along with weak duality, strong duality, and optimality conditions for an inequality constrained gauge dual pair.  Finally, Section \ref{Subsec:PLGD-opt_conds_primal_recovery} uses these results to establish key properties of the primal and gauge dual models which are necessary for developing an efficient method of optimizing the PLGD model and recovering the signal $x$ from the dual variable $y$.  
+We begin in Section \ref{Subsec:PLGD-models_intro} by stating the PhaseLift primal (PLP) and gauge dual (PLGD) pair of models and reviewing key definitions.
+Section \ref{Subsec:PLGD-models_intro} also states a few more general primal-gauge dual model pairs and provides a brief history of gauge duality theory.
+In Section \ref{Subsec:PLGD-theory} we prove the gauge duality theorem (Theorem \ref{Thm:P-GD-inequality_pair_are_duals}) for a more general primal-gauge dual model pair and establish weak duality, strong duality, and optimality conditions for this pair.
+Section \ref{Subsec:PLGD-opt_conds_primal_recovery} then returns to the PLP-PLGD pair, establishing key properties for optimizing the PLGD model and recovering a signal $x$ from a given dual variable $y$.  
 
 All of the gauge properties and gauge duality results in this chapter were previously established in \cite{rockafellar1970convex}, \cite{DBLP:journals/mp/Freund87}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}.  Gauge functions were first analyzed in  \cite{rockafellar1970convex}.  Gauge duality was then introduced in \cite{DBLP:journals/mp/Freund87}, where the author focused on quadratic programming applications.  In \cite{DBLP:journals/siamjo/FriedlanderMP14}, the authors developed a broad set of antipolar calculus results for the analysis of gauge duality.  These results were then applied to the PLP-PLGD pair to develop a first-order method in \cite{DBLP:journals/siamsc/FriedlanderM16}.
 
 
-Our contribution is to provide a self-contained, comprehensive treatment of gauge duality theory focused solely on establishing the duality theorem and optimality conditions for the PLP-PLGD pair.  Prior to this treatment, the results in this chapter were spread throughout the original texts (\cite{rockafellar1970convex}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}), occasionally with differing notation or style.  In this chapter, we present a single notation and style (Section \ref{Subsec:PLGD_algo-intro}) which we use to develop gauge duality theory (Section \ref{Subsec:PLGD-theory}) and then apply this theory to the PLP-PLGD pair (Section \ref{Subsec:PLGD-opt_conds_primal_recovery}).  The results of this chapter provide the theoretical foundation for developing a first-order optimization method for the PLGD model in Chapter \ref{Sec:PLGD_algo}.
+Our contribution is to provide a self-contained, comprehensive treatment of gauge duality theory for the PLP-PLGD pair.  Prior to this treatment, the results in this chapter were spread throughout the original texts (\cite{rockafellar1970convex}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}), occasionally with differing notation or style.  In contrast, Section \ref{Subsec:PLGD-models_intro} provides a single notation and style which is used in Sections \ref{Subsec:PLGD-theory} and \ref{Subsec:PLGD-opt_conds_primal_recovery} to develop gauge duality theory for the PLP-PLGD pair.  The results of this chapter provide the theoretical foundation for developing a first-order optimization method for the PLGD model in Chapter \ref{Sec:PLGD_algo}.
 
 
 \section{Definitions and primal-dual pairs}		\label{Subsec:PLGD-models_intro}
@@ -49,9 +52,9 @@ The PhaseLift primal semidefinite program (restated from (\ref{Eqn:PhaseLift}) i
 
 \end{array}
 \end{equation}
-If $\epsilon > 0$ then we refer to (\ref{Eqn:PhaseLift-P-GD}) as the \textit{noisy PLP-PLGD pair}, where the observation vector $b = \bar{b} + \eta$ is the sum of the true observation $\bar{b}$ with some nontrivial noise $\eta$ as described in the phase retrieval problem (\ref{Eqn:phase_retrieval}).  This section places the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) in the context of gauge duality theory.  We begin by discussing definitions and basic properties which are relevant to gauge duality theory.  We then take a moment to highlight some parallels between gauge duality and Lagrange duality before closing with a summary of major developments in gauge duality theory.  
-
-Following the convention of these major theoretical advances in gauge duality (\cite{DBLP:journals/mp/Freund87}, \cite{DBLP:journals/siamsc/FriedlanderM16}, \cite{aravkin2017foundations}), all notation and definitions in this section are based on \cite{rockafellar1970convex}.  All unproven results in this section are accompanied by a reference to the appropriate section of \cite{rockafellar1970convex}.  Along the way, we present three additional, more general primal-gauge dual models which have PLP-PLGD (\ref{Eqn:PhaseLift-P-GD}) as a special case.  Two of these models are then used in Section \ref{Subsec:PLGD-theory} to develop the theory which establishes the gauge duality of the pair (\ref{Eqn:PhaseLift-P-GD}).
+This section places the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) in the context of gauge duality theory.  We begin by discussing definitions and basic properties which are relevant to gauge duality theory. 
+We then take a moment to highlight some parallels between gauge duality and Lagrange duality before closing with a summary of major developments in gauge duality theory.  
+Along the way, we present three additional, more general primal-gauge dual models which have PLP-PLGD (\ref{Eqn:PhaseLift-P-GD}) as a special case.  Two of these models are then used in Section \ref{Subsec:PLGD-theory} to develop the theory which establishes the gauge duality of the pair (\ref{Eqn:PhaseLift-P-GD}).
 
 
 
@@ -73,7 +76,6 @@ The PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) are examples of a more general prim
 					&	z \in \caC'.
 \end{array}
 \end{equation}
-
 Here, $\caC$ and $\caC'$ are subsets of $\caX$, a finite-dimensional Euclidean space.  The set $\caC'$ is the \textit{antipolar} of $\caC$, defined as
 \begin{equation}  			\label{Def:antipolar_set}
 \caC' = \{ z \ | \ \langle x, z \rangle \geq 1 \ \forall x \in \caC \}.
@@ -82,10 +84,10 @@ This is in contrast to the \textit{polar} of $\caC$, which is defined as
 \begin{equation} 			\label{Def:polar}
 \caC^\circ = \left\{ z \ | \ \langle x, z \rangle \leq 1 \ \forall x \in \caC \right\}.
 \end{equation}
+Although we refer to the primal-gauge dual pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) as nonlinear, we are primarily concerned with closed, convex sets $\caC$ which do not contain the origin (e.g., the PLP (\ref{Eqn:PhaseLift-P-GD}) constraint set when $\epsilon < ||b||$).  
+Note that gauge dual models with linear constraints which do not include the origin are a subset of the models described by (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).
 
-Although we refer to the primal-gauge dual pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) as nonlinear, we are primarily concerned with closed, convex sets $\caC$ which do not contain the origin (e.g., the PLP (\ref{Eqn:PhaseLift-P-GD}) constraint set).  Thus gauge dual models with linear constraints which do not include the origin are a subset of the models described by (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).
-
-The functions $\kappa, \kappa^\circ : \caX \rightarrow \bbR \cup \{+\infty\}$ are \textit{gauge} functions, meaning they are convex, nonnegative, positively homogeneous ($\kappa(\alpha x) = \alpha \kappa(x)$ for all $\alpha > 0$), and vanish at the origin.  The gauge function generalizes the notion of norm, allowing for flexibility in modeling the phase retrieval problem.  In the PLP model for instance, the Schatten $1$-norm $\kappa(X) := || X ||_1$ and  vector $2$-norm $\rho(y) := ||y||$ are both gauges.
+The functions $\kappa, \kappa^\circ : \caX \rightarrow \bbR \cup \{+\infty\}$ in (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) are \textit{gauge} functions, meaning they are convex, nonnegative, positively homogeneous ($\kappa(\alpha x) = \alpha \kappa(x)$ for all $\alpha > 0$), and vanish at the origin.  Gauge functions generalize the notion of norms, allowing for flexibility in modeling the phase retrieval problem.  In the PLP model for instance, the Schatten $1$-norm $\kappa(X) := || X ||_1$ and  vector $2$-norm $\rho(y) := ||y||$ are both gauges.
 
 Given a gauge function $\kappa$, the \textit{polar} of this function is the function $\kappa^\circ$ that most tightly satisfies the inequality
 \begin{equation}  			\label{Def:polar_function_1}
@@ -98,15 +100,11 @@ Equivalently, the polar may be defined as \cite[Section 15]{rockafellar1970conve
 \begin{equation}  			\label{Def:polar_function_2}
 \kappa^\circ(z) = \inf \left\{ \mu > 0 \ | \ \langle x, z \rangle \leq \mu \kappa(x) \ \forall x \right\}.
 \end{equation}
-
-
-
 Note that the polar is a generalization of the \textit{dual norm}, which is defined as
 \begin{equation}			\label{Def:dual_norm}
-||z||_* = \sup_{x} \halfspace \{ \halfspace \Re \langle x, z \rangle \ | \ ||x|| \leq 1 \}.
+||z||_* = \sup_{x} \halfspace \{ \halfspace  \langle x, z \rangle \ | \ ||x|| \leq 1 \}.
 \end{equation}
-
-The \textit{preimage} of $A$ over the set $\caS \subseteq \caY$ is defined as 
+The \textit{preimage} of a linear operator $A: \caX \rightarrow \caY$ over the set $\caS \subseteq \caY$ is defined as 
 \begin{equation} 			\label{Def:preimage}
 A^{-1} \caS = \{ x \in \caX \ | \ Ax \in \caS \}.
 \end{equation}
@@ -114,10 +112,9 @@ The \textit{closure} of a set $\caS \subseteq \caX$ is denoted $\textnormal{cl}(
 \begin{equation}			\label{Def:affine_hull}
 \text{aff}(\caS) = \left\{ \sum_{i=1}^k \alpha_i x_i \ \middle| \ k > 0, \ x_i \in \caS, \ \alpha_i \in \bbR, \ \sum_{i=1}^k \alpha_i = 1 \right\}.
 \end{equation}
-
 The \textit{relative interior} of $\caS$, denoted $\textnormal{ri}(\caS)$, is the interior within the affine hull of $\caS$, i.e.,
 \begin{equation}			\label{Def:relative_interior}
-\text{ri}(\caS) = \{ x \in \caS \ | \ \exists \epsilon > 0, \ B_\epsilon(x) \cap \text{aff}(\caS) \subseteq \caS  \},
+\text{ri}(\caS) = \{ x \in \caS \ | \ \exists \ \epsilon > 0, \ B_\epsilon(x) \cap \text{aff}(\caS) \subseteq \caS  \},
 \end{equation}
 where $B_\epsilon(x)$ is a ball of radius $\epsilon$ centered at $x$.
 The \textit{support} function $\sigma_\caC$ of a nonempty convex set $\caC$ is defined as
@@ -138,7 +135,8 @@ If $\kappa$ is a closed gauge, then its polar may also be expressed as \cite[Sec
 \begin{equation}			\label{Def:polar_function_3}
 \kappa^\circ(z) = \sup\limits_x \left\{ \langle x, z \rangle \ | \ \kappa(x) \leq 1 \right\},
 \end{equation}
-highlighting the fact that the polar function is a generalization of the dual norm (\ref{Def:dual_norm}).  Additionally, if $\kappa$ is also positive everywhere except at the origin then its polar may also be defined as \cite[Section 15]{rockafellar1970convex}
+again highlighting the fact that the polar function is a generalization of the dual norm (\ref{Def:dual_norm}).  
+Additionally, if $\kappa$ is also positive everywhere except at the origin then its polar may also be defined as \cite[Section 15]{rockafellar1970convex}
 \begin{equation}			\label{Def:polar_function_4}
 \kappa^\circ(z) = \sup\limits_x \left\{ \frac{\langle x, z \rangle}{\kappa(x)} \right\}.
 \end{equation}
@@ -149,7 +147,9 @@ highlighting the fact that the polar function is a generalization of the dual no
 
 Given the gauge duality notation discussed above, we take a moment to contrast gauge duality with the much more common Lagrange duality.  Whereas gauge duality involves multiplicative duality transformations, Lagrange duality is additive in nature.  The reader may see \cite[Chapter 5]{boyd2004convex} for a comprehensive introduction to Lagrange duality, and \cite[Section 28]{rockafellar1970convex} or \cite[Chapter 2]{ben2001lectures} for a treatment of Lagrange duality theory.
 
-The nonlinear pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) demonstrates that the gauge dual model GD-nonlin can be described simply using the polar function $\kappa^\circ$ and the antipolar set $\caC'$.  Similarly, the Lagrange dual model can be described using the appropriate function and set transformations.  Given a function $f : \caX \rightarrow \bbR \ \cup \ \{\pm \infty\}$, the \textit{convex conjugate} $f^*$ is defined as the function that most tightly satisfies the inequality
+
+Given P-nonlin, the primal model in (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}), we see that its gauge dual GD-nonlin can be stated simply using the polar function $\kappa^\circ$ and the antipolar set $\caC'$.  
+Similarly, the Lagrange dual of P-nonlin can be described using the appropriate function and set transformations.  Given a function $f : \caX \rightarrow \bbR \ \cup \ \{\pm \infty\}$, the \textit{convex conjugate} $f^*$ is defined as the function that most tightly satisfies the inequality
 \begin{equation} 			\label{Def:conjugate_function_1}
 \begin{array}{ll}
 	\langle x, z \rangle \leq f(x) + f^*(z)
@@ -164,7 +164,7 @@ We see that (\ref{Def:conjugate_function_1}) and (\ref{Def:conjugate_function_2}
 \begin{equation}			\label{Def:dual_cone}
 \caS^* = \{ z \ | \ \langle x, z \rangle \leq 0 \ \forall x \in \caS \}.
 \end{equation}
-Given the convex conjugate $\kappa^*$ and the dual cone $\caC^*$, the Lagrange dual D-nonlin and gauge dual GD-nonlin both have simple forms
+Given the convex conjugate $\kappa^*$ and the dual cone $\caC^*$, the Lagrange dual D-nonlin and gauge dual GD-nonlin both have the simple forms
 \begin{equation} 			
 \begin{array}{lllllll}
 	&	\max\limits_{\substack{z}}
@@ -188,7 +188,9 @@ Note that Lagrange duality applies for any function $f : \caX \rightarrow \bbR \
 
 
 
-In 1970, Rockafellar thoroughly analyzed gauge functions and their polars \cite[Part III]{rockafellar1970convex}.  The concept of gauge duality was then introduced by Freund in 1987 \cite{DBLP:journals/mp/Freund87}.  This seminal work focuses primarily on the \textit{linearly-constrained} primal and gauge dual pair
+In 1970, Rockafellar thoroughly analyzed gauge functions and their polars \cite[Part III]{rockafellar1970convex}.  
+The concept of gauge duality was then introduced by Freund in 1987 \cite{DBLP:journals/mp/Freund87}.  
+This seminal work focused primarily on the \textit{linearly-constrained} primal and gauge dual pair
 \begin{equation} 			\label{Eqn:PhaseLift_P_GD_linear_form}
 \begin{array}{lllllll}
 	&	\min\limits_{\substack{x \in \caX}}
@@ -205,7 +207,12 @@ In 1970, Rockafellar thoroughly analyzed gauge functions and their polars \cite[
 					&	\langle b, y \rangle = 1.
 \end{array}
 \end{equation}
-Here $A : \caX \rightarrow \caY$ is a linear operator over finite-dimensional Euclidean spaces. As with Lagrange duality, if the primal constraint is replaced with $Ax \geq b$ then the gauge dual also includes the constraint $y \geq 0$.  Freund develops strong duality and optimality conditions for the pair (\ref{Eqn:PhaseLift_P_GD_linear_form}) based on polarity relationships for sets and gauge functions.  His work also establishes these conditions for the nonlinear pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).  In this case, his work requires $\caX$ and $\caY$ to be \textit{ray-like} (meaning that for all $x, y \in \caX$ we have $x + \alpha y \in \caX$ for all $\alpha \geq 0$).  The addition of the ray-like property to $\caX$ (along with closed, convex, and containing the origin) guarantees $\caX'' = \caX$.
+Here $A : \caX \rightarrow \caY$ is a linear operator over finite-dimensional Euclidean spaces. 
+As with Lagrange duality, if the primal constraint is replaced with $Ax \geq b$ then the gauge dual also includes the constraint $y \geq 0$.  
+Freund develops strong duality and optimality conditions for the pair (\ref{Eqn:PhaseLift_P_GD_linear_form}) based on polarity relationships for sets and gauge functions.  
+His work also establishes these conditions for the nonlinear pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).  
+In this case, his work requires $\caX$ and $\caY$ to be \textit{ray-like} (meaning that for all $x, y \in \caX$ we have $x + \alpha y \in \caX$ for all $\alpha \geq 0$).  
+The addition of the ray-like property to $\caX$ (along with closed, convex, and containing the origin) guarantees $\caX'' = \caX$.
 
 
 Gauge duality theory was revisited in \cite{DBLP:journals/siamjo/FriedlanderMP14}, where the authors consider the \textit{inequality-constrained} primal and gauge dual pair
@@ -225,7 +232,7 @@ Gauge duality theory was revisited in \cite{DBLP:journals/siamjo/FriedlanderMP14
 					&	\langle b, y \rangle - \epsilon \rho^\circ(y) \geq 1.
 \end{array}
 \end{equation}
-As we will see in Section \ref{Subsec:PLGD-opt_conds_primal_recovery}, the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) pair is recovered when we set $\kappa(X) = ||X||_1 + \delta_{(\cdot) \succeq 0}(X)$ and $\rho(y) = ||y||$.  The authors of \cite{DBLP:journals/siamjo/FriedlanderMP14} develop an antipolar calculus to determine the antipolar for sets like $\{ y \ | \ \rho(Ax-b) \leq \epsilon \}$ and use this calculus rather than polarity relations to derive the gauge dual pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) and establish conditions such as those for strong duality.  Additionally, this antipolar calculus allows the authors to drop the requirement that the sets $\caX$ and $\caY$ are ray-like.
+As we will see in Section \ref{Subsec:PLGD-opt_conds_primal_recovery}, the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) pair is recovered from (\ref{Eqn:PhaseLift_P_GD_inequality_form}) when we set $\kappa(X) = ||X||_1 + \delta_{(\cdot) \succeq 0}(X)$ and $\rho(y) = ||y||$.  The authors of \cite{DBLP:journals/siamjo/FriedlanderMP14} develop an antipolar calculus to determine the antipolar for sets like $\{ y \ | \ \rho(Ax-b) \leq \epsilon \}$ and use this calculus rather than polarity relations to derive the gauge dual pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) and establish conditions such as those for strong duality.  Additionally, this antipolar calculus allows the authors to drop the requirement that the sets $\caX$ and $\caY$ are ray-like.
 
 In contrast to the antipolar calculus framework, the authors of \cite{aravkin2017foundations} develop gauge duality through a perturbation framework.  This even broader setting frames gauge duality as a product of Fenchel-Rockafellar duality, allowing the consideration of gauge duality for 
 general nonnegative convex functions.
@@ -248,21 +255,23 @@ general nonnegative convex functions.
 In this section we develop gauge duality theory for the inequality-constrained primal and gauge dual pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}).  We begin by establishing the propositions necessary to show the gauge duality of (\ref{Eqn:PhaseLift_P_GD_inequality_form}) is a consequence of the duality of both the nonlinear (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) and linear (\ref{Eqn:PhaseLift_P_GD_linear_form}) models.  This two-track proof strategy as depicted in Figure \ref{Fig:gauge_duality_thm_flowchart} leads to Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, (i) and (ii), respectively.
 \begin{figure}[H] 
 \centering
-\hspace{1cm}
+\hspace{0cm}
 \begin{tikzpicture} 
-	\node (1) at (0,3) {Prop \ref{Prop:antipolar_set_equalities}};
-	\node (2) at (0,1.5) {Prop \ref{Prop:antipolar_of_primal_phase_retrieval}};
-	\node (3) at (0,0) {Thm \ref{Thm:P-GD-inequality_pair_are_duals}, (i)};
-	\draw[->] (1) -- (2);
+	\node (1) at (0,3.7) {P-GD-nonlin (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) $\Rightarrow$ (\ref{Eqn:PhaseLift_P_GD_inequality_form})};
+ 	\node (2) at (0,3) {Prop \ref{Prop:antipolar_set_equalities}};
+	\node (3) at (0,1.5) {Prop \ref{Prop:antipolar_of_primal_phase_retrieval}};
+	\node (4) at (0,0) {Thm \ref{Thm:P-GD-inequality_pair_are_duals}, (i)};
 	\draw[->] (2) -- (3);
+	\draw[->] (3) -- (4);
 \end{tikzpicture}
-\hspace{2cm}
+\hspace{1cm}
 \begin{tikzpicture}
-	\node (1) at (3,3) {Prop \ref{Prop:P-GD-Minkowski_set_unique}};
+	\node (6) at (2.5,3.7) {P-GD-lin (\ref{Eqn:PhaseLift_P_GD_linear_form}) $\Rightarrow$ (\ref{Eqn:PhaseLift_P_GD_inequality_form})};
+	\node (1) at (2.5,3) {Prop \ref{Prop:P-GD-Minkowski_set_unique}};
 	\node (2) at (0,1.5) {Prop \ref{Prop:P-GD-polar_of_sum_of_gauges_sets_equal}};
-	\node (3) at (3,1.5) {Prop \ref{Prop:P-GD-polar_of_sum_of_gauges}};
-	\node (4) at (6,1.5) {Prop \ref{Prop:P-GD-indicator_epigraph_polar}};
-	\node (5) at (3,0) {Thm \ref{Thm:P-GD-inequality_pair_are_duals}, (ii)};
+	\node (3) at (2.5,1.5) {Prop \ref{Prop:P-GD-polar_of_sum_of_gauges}};
+	\node (4) at (5,1.5) {Prop \ref{Prop:P-GD-indicator_epigraph_polar}};
+	\node (5) at (2.5,0) {Thm \ref{Thm:P-GD-inequality_pair_are_duals}, (ii)};
 	\draw[->] (1) -- (2);
 	\draw[->] (1) -- (3);
 	\draw[->] (2) -- (3);
@@ -270,11 +279,12 @@ In this section we develop gauge duality theory for the inequality-constrained p
 	\draw[->] (3) -- (5);
 	\draw[->] (4) -- (5);
 \end{tikzpicture}
-\caption{Dependency chart for proofs of Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, (i) and (ii).}
+\caption{Dependency chart for proofs (i) and (ii) of Theorem \ref{Thm:P-GD-inequality_pair_are_duals} which establish the gauge duality of P-GD-ineq (\ref{Eqn:PhaseLift_P_GD_inequality_form}).
+  	}
 \label{Fig:gauge_duality_thm_flowchart}
 \end{figure}
 
-Next we establish weak duality, strong duality, and optimality conditions for (\ref{Eqn:PhaseLift_P_GD_inequality_form}).  In Section \ref{Subsec:PLGD-opt_conds_primal_recovery} we return to the PhaseLift model (\ref{Eqn:PhaseLift-P-GD}), where these optimality conditions provide a method for recovery of the primal signal $x$ from a dual solution $y$.
+Following Theorem \ref{Thm:P-GD-inequality_pair_are_duals} we establish weak duality, strong duality, and optimality conditions for (\ref{Eqn:PhaseLift_P_GD_inequality_form}).  In Section \ref{Subsec:PLGD-opt_conds_primal_recovery} we will return to the PhaseLift model (\ref{Eqn:PhaseLift-P-GD}), where the optimality conditions in this section provide a method for recovery of a primal signal $x$ from a dual variable $y$.
 
 
 The results in this section are based on \cite{rockafellar1970convex}, \cite{DBLP:journals/mp/Freund87}, and especially \cite{DBLP:journals/siamjo/FriedlanderMP14}, and rely on the analysis of polarity relations rather than perturbation analysis as discussed in \cite{aravkin2017foundations}.    In particular, the two-track proof strategy depicted in Figure \ref{Fig:gauge_duality_thm_flowchart} was first developed in \cite{DBLP:journals/siamjo/FriedlanderMP14} as part of a larger treatment of antipolar calculus, and refers to \cite{rockafellar1970convex} for more elementary results (e.g., Propositions \ref{Prop:P-GD-Minkowski_set_unique}, \ref{Prop:P-GD-polar_of_sum_of_gauges_sets_equal}, and \ref{Prop:P-GD-indicator_epigraph_polar}).  This section provides a self-contained development of gauge duality for (\ref{Eqn:PhaseLift_P_GD_inequality_form}).
@@ -283,7 +293,10 @@ The results in this section are based on \cite{rockafellar1970convex}, \cite{DBL
 
 
 
-The next two propositions are used in Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, (i) to show the inequality pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) is an instance of the nonlinear pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).  Since (\ref{Eqn:PhaseLift_P_GD_inequality_form}) allows for the constraint set $\caC$ to be any closed, convex set not containing the origin, we must simply establish the antipolar of the particular constraint set $\caC = \{ x \ | \rho(Ax-b) \leq \epsilon\}$.  We begin by showing how linear and polar transformations on $\caC$ commute under certain assumptions.
+The next two propositions are used in Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, (i) to show the inequality pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) is an instance of the nonlinear pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).  Since (\ref{Eqn:PhaseLift_P_GD_inequality_form}) allows for the constraint set $\caC$ to be any closed, convex set not containing the origin, we must simply establish the antipolar of the constraint set $\caC = \{ x \ | \rho(Ax-b) \leq \epsilon\}$.  We begin by showing how linear and polar transformations on $\caC$ commute under certain assumptions.
+
+
+
 
 
 \begin{prop}		\label{Prop:antipolar_set_equalities}
@@ -296,7 +309,8 @@ Then
 \end{array}
 \end{equation}
 
-Additionally, assume $\caC$ is polyhedral or $\textnormal{ri}(\caC) \cap \textnormal{range}(A) \neq \emptyset$, and $A^{-1}\caC$ is not empty.  Then the $( A^{-1} \caC)'$ is nonempty and the following set equality holds
+Additionally, assume $\caC$ is polyhedral or $\textnormal{ri}(\caC) \cap \textnormal{range}(A) \neq \emptyset$, and $A^{-1}\caC$ is not empty.  
+Then $( A^{-1} \caC)'$ is nonempty and the following set equality holds
 % (A\caC)'	&	=	&	\left( A^* \right)^{-1} \caC'	\\
 \begin{equation}		\label{Eqn:antipolar_set_equalities_2}
 \begin{array}{rll}
@@ -309,8 +323,7 @@ The first result is proved in \cite[Proposition 3.3]{DBLP:journals/siamjo/Friedl
 \end{proof}
 
 
-The previous propositions allows us to construct the antipolar of the constraint set $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon \}$ in the following proposition.
-
+The previous propositions allows us to construct the antipolar of the constraint set $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon \}$ in Proposition \ref{Prop:antipolar_of_primal_phase_retrieval}.
 
 \begin{prop}		\label{Prop:antipolar_of_primal_phase_retrieval}
 Let $\caX$ and $\caY$ be finite-dimensional Euclidean spaces, $A : \caX \rightarrow \caY$ a linear operator, and $A^* : \caY \rightarrow \caX$ its adjoint.  Let $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon \}$ with $0 < \epsilon < \rho(b)$.  Also assume $\textnormal{ri}(\caC) \cap \textnormal{range}(A)$ and $A^{-1}\caC$ are not empty. Then
@@ -346,7 +359,8 @@ Finally, note that $\caC$ and $\caC'$ both lie in $\caX$, while $\caD = A\caC$ a
 
 
 
-The next four propositions allow us to derive the inequality-constrained primal-gauge dual pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) from the linearly-constrained pair (\ref{Eqn:PhaseLift_P_GD_linear_form}) by transforming the P-ineq model into a linearly-constrained gauge model of the form P-lin (see the dependency map (Figure \ref{Fig:gauge_duality_thm_flowchart}) for reference).   This process uses an indicator function to embed the constraint set $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon\}$ into the primal objective function, resulting in a P-lin model.  Finally, we determine the gauge dual of the resulting model using polar relations and properties established in Section \ref{Subsec:PLGD-models_intro}.
+The next four propositions allow us to derive the inequality-constrained primal-gauge dual pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) from the linearly-constrained pair (\ref{Eqn:PhaseLift_P_GD_linear_form}) by transforming the P-ineq model into a linearly-constrained gauge model of the form P-lin (see the dependency map in Figure \ref{Fig:gauge_duality_thm_flowchart} for reference).   
+This process uses an indicator function to embed the constraint set $\caC = \{ x \ | \ \rho(Ax-b) \leq \epsilon\}$ into the primal objective function, resulting in a P-lin model (\ref{Eqn:PhaseLift_P_GD_linear_form}).  Finally, we determine the gauge dual of the resulting model using polar relations and properties established in Section \ref{Subsec:PLGD-models_intro}.
 
 
 The first two propositions show that we may discuss the polar of a sum of gauges in terms of sets induced by Minkowski functions.  This allows us to determine the polar of a sum of gauges in Proposition \ref{Prop:P-GD-polar_of_sum_of_gauges}.
@@ -381,7 +395,8 @@ Let $\kappa_1$ and $\kappa_2$ be gauges.  Then the sum $\kappa(x_1, x_2) := \kap
 \end{equation}
 \end{prop}
 \begin{proof}
-Proposition \ref{Prop:P-GD-polar_of_sum_of_gauges_sets_equal} shows $\kappa$ and its polar $\kappa^\circ$ are gauges.  Setting $\caC_1 = \{ z_1 \ | \ \kappa^\circ(z_1) \leq 1 \}$, $\caC_2 = \{ z_2 \ | \ \kappa^\circ(z_2) \leq 1 \}$, and $\caC = \{ (z_1, z_2) \ | \ \kappa^\circ(z_1, z_2) \leq 1 \}$, we may express the gauge polars as Minkowski functions $\kappa_1^\circ = \gamma_{\caC_1}$, $\kappa_2^\circ = \gamma_{\caC_2}$, and $\kappa^\circ = \gamma_{\caC}$.  Since $\caC_1$, $\caC_2$, and $\caC$ are closed, convex sets containing the origin, Proposition \ref{Prop:P-GD-Minkowski_set_unique} tells us these are the unique such sets defining $\kappa_1^\circ$, $\kappa_2^\circ$, and $\kappa^\circ$.  Additionally, Proposition \ref{Prop:P-GD-polar_of_sum_of_gauges_sets_equal} implies $\caC = \caC_1 \times \caC_2$ and $\kappa^\circ(z_1, z_2) =	\gamma_{\caC}(z_1, z_2) 	=	\gamma_{\caC_1 \times \caC_2}(z_1, z_2)$.
+Proposition \ref{Prop:P-GD-polar_of_sum_of_gauges_sets_equal} shows $\kappa$ and its polar $\kappa^\circ$ are gauges.  Setting $\caC_1 = \{ z_1 \ | \ \kappa^\circ(z_1) \leq 1 \}$, $\caC_2 = \{ z_2 \ | \ \kappa^\circ(z_2) \leq 1 \}$, and $\caC = \{ (z_1, z_2) \ | \ \kappa^\circ(z_1, z_2) \leq 1 \}$, we may express the gauge polars as Minkowski functions $\kappa_1^\circ = \gamma_{\caC_1}$, $\kappa_2^\circ = \gamma_{\caC_2}$, and $\kappa^\circ = \gamma_{\caC}$.  
+Since $\caC_1$, $\caC_2$, and $\caC$ are closed, convex sets containing the origin, Proposition \ref{Prop:P-GD-Minkowski_set_unique} tells us these are the unique sets defining $\kappa_1^\circ$, $\kappa_2^\circ$, and $\kappa^\circ$.  Additionally, Proposition \ref{Prop:P-GD-polar_of_sum_of_gauges_sets_equal} implies $\caC = \caC_1 \times \caC_2$ and $\kappa^\circ(z_1, z_2) =	\gamma_{\caC}(z_1, z_2) 	=	\gamma_{\caC_1 \times \caC_2}(z_1, z_2)$.
 
 
 Then we have
@@ -426,7 +441,7 @@ To show (i) holds, consider the expansion of the expressions
 				\end{cases}	
 \end{array}
 \end{equation*}
-Note that the value of $\delta_{\left(  \textnormal{epi} \halfspace \rho \right)^\circ} (y, \tau)$ is either $0$ or $+\infty$.  If $\delta_{\left(  \textnormal{epi} \halfspace \rho \right)^\circ} (y, \tau) = 0$, then $\langle (x, \sigma), (y, \tau) \rangle  \leq 1$ for all $(x, \sigma) \in \epi \halfspace \rho$.  Since $\rho$ is a gauge, $(x, \sigma) \in \epi \halfspace \rho$ is equivalent to $\rho(\alpha x) \leq \alpha \sigma$ for all $\alpha > 0$.  Then $(\alpha x, \alpha \sigma) \in \epi \halfspace \rho$ for all $\alpha > 0$.  Dividing the inequality by $\alpha$ and taking the limit, we have
+Note that the value of $\delta_{\left(  \textnormal{epi} \halfspace \rho \right)^\circ} (y, \tau)$ is either $0$ or $+\infty$.  If $\delta_{\left(  \textnormal{epi} \halfspace \rho \right)^\circ} (y, \tau) = 0$, then $\langle (x, \sigma), (y, \tau) \rangle  \leq 1$ for all $(x, \sigma) \in \epi \halfspace \rho$.  Since $\rho$ is a gauge, $(x, \sigma) \in \epi \halfspace \rho$ is equivalent to $\rho(\alpha x) \leq \alpha \sigma$ for all $\alpha > 0$.  Then $(\alpha x, \alpha \sigma) \in \epi \halfspace \rho$ for all $\alpha > 0$.  Dividing the inequality by $\alpha$ and letting $\alpha$ approach infinity, we have
 \begin{equation*}
 \langle (x, \sigma), (y, \tau) \rangle \leq \lim\limits_{\substack{\alpha \rightarrow +\infty}} \frac{1}{\alpha} = 0 \ \ \textnormal{for all} \ (x, \alpha) \in \epi \halfspace \rho.
 \end{equation*}
@@ -436,6 +451,8 @@ To show (ii) holds, we have the following set of equivalences
 \begin{equation*}
 \begin{array}{rll}
 (y, \tau) \in \left( \epi \halfspace \rho \right)^\circ
+	&	\iff	& xxx
+			\\
 	&	\iff	&	 \langle (x, \sigma), (y, \tau) \rangle \leq 0 \ \ \forall x \text{ and } \rho(x) \leq \sigma
 			\\
 	&	\iff	&	\langle x, y \rangle \leq -\tau \rho(x) \ \ \forall x

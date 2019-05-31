@@ -278,12 +278,23 @@ Algorithm \ref{Alg:PGD} with primal and dual refinement is very effective for no
 
 
 
-
-This dissertation addresses the challenges noisy phase retrieval poses for Algorithm \ref{Alg:PGD} with the following contributions.
-
-
-Chapter \ref{Sec:PLGD_term_crit} addresses the convergence challenges Algorithm \ref{Alg:PGD} experiences for noisy problems.  We begin by demonstrating that this algorithm stagnates prior to convergence for noisy problems and determining the cause of this stagnation.  Although Algorithm \ref{Alg:PGD} does not generally converge for noisy phase retrieval problems, we demonstrate that this algorithm is more robust and accurate than the wflow method \ref{Alg:wflow} for noisy problems.  Section \ref{Subsec:PLGD_term_crit-new_term_crit} establishes new termination conditions which indicate stagnation, so we may treat Algorithm \ref{Alg:PGD} as a black-box and focus our attention on handling the EMEP.
+Unlike noiseless phase retrieval, noisy phase retrieval poses a few key challenges for Algorithm \ref{Alg:PGD}.
+This dissertation addresses the convergence and computational challenges noisy phase retrieval poses for Algorithm \ref{Alg:PGD} with the following contributions.
 
 
-Chapters \ref{Sec:evol_mats} and \ref{Sec:Numerics} examine the computational challenges Algorithm \ref{Alg:PGD} experiences for noisy problems.  We identify the EMEP as the dominant computational cost and develop new methods for handling this problem.  Chapters \ref{Sec:evol_mats} provides a detailed explanation of three common methods for large-scale eigenvalue problems.  The unique structure and properties of each method inform our strategy for handling the EMEP.  Chapter \ref{Sec:Numerics} then examines the evolving spectral structure of the matrices $\caA^*y_k$ across sequences of iterates $k$ to develop an optimal method for handling the EMEP.  Chapter \ref{Sec:Numerics} then presents a revised version of Algorithm \ref{Alg:PGD} with an optimized method for handling the EMEP and new termination conditions for identifying stagnation.
+Chapter \ref{Sec:PLGD_term_crit} addresses the convergence challenges Algorithm \ref{Alg:PGD} experiences for noisy phase retrieval problems.  
+We begin by demonstrating that this algorithm stagnates prior to convergence for noisy problems and determining the cause of this stagnation.  
+We then establish new termination conditions which indicate stagnation, so we may treat Algorithm \ref{Alg:PGD} as a black-box and focus our attention on handling the \textit{evolving matrix eigenvalue problem} (EMEP) as defined in Chapter \ref{Sec:evol_mats}.
+
+
+In Chapter \ref{Sec:evol_mats} we define the EMEP and identify the EMEP as the dominant computational cost in Algorithm \ref{Alg:PGD}.
+We see that the algebraically largest eigenvalues of the EMEP cluster for later iterates, resulting in more difficult eigenvalue problems.
+To develop a new strategy for handling the EMEP, we close Chapters \ref{Sec:evol_mats} with a review of the \textit{implicitly restarted Arnoldi method} (IRAM), a modern method for large-scale eigenvalue problems.  
+
+
+In Chapter \ref{Sec:Numerics} we develop a new strategy for choosing IRAM parameters to handle the EMEP and examine how this new strategy relates to the clustering of eigenvalues in the EMEP.
+Finally, Chapter \ref{Sec:Conclusion} cwe present numerical results for this new strategy, summarize our contributions, and 
+
+
+
 

@@ -1,4 +1,4 @@
-\chapter{The adaptive parameter method for the EMEP}
+\chapter{A new strategy for the EMEP}
 \label{Sec:Numerics}
 
 
@@ -7,15 +7,13 @@
 \label{Subsec:Numerics-intro}
 
 
-This chapter presents the \textit{adaptive parameter method} for the \emep, a new strategy for solving the EMEP with the IRAM (Algorithm \ref{Alg:IRAM}).
-Section \ref{Subsec:Numerics-adaptive_IRAM} develops the adaptive parameter method by examining the changing behavior of the IRAM across EMEP iterates and states the formal algorithm for the adaptive parameter method.
-Section \ref{Subsec:Numerics-correl_btwn_EMEP_and_IRAM} examines a few EMEPs more closely to demonstrate that the adaptive parameter method effectively increases the number of requested eigenvalues $r$ as the algebraically largest eigenvalues begin to cluster, thus allowing the IRAM to converge more quickly.
-Section \ref{Subsec:Numerics-adaptive_IRAM_figs_and_tables} then presents a variety of numerical results comparing the adaptive parameter method with the original parameters used for the EMEP.
-As compared with the original parameters, we see that the adaptive parameter method decreases the number of matrix-vector products by 50-90\% for EMEPs with minimal oversamping in the phase retrieval problem (\ref{Eqn:phase_retrieval}).
-
-
-All \emep \ experiments in this section are performed with Algorithm \ref{Alg:PGD} using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit}.
-All experiments in this chapter are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
+This chapter presents \textit{the IRAM with adaptive parameter selection}, a new strategy for solving the EMEP by adaptively changing
+the number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}).
+Section \ref{Subsec:Numerics-adaptive_IRAM} develops the IRAM with adaptive parameter selection by examining the changing behavior of the IRAM across EMEP iterates.
+Next, Section \ref{Subsec:Numerics-correl_btwn_EMEP_and_IRAM} closely examines the EMEP for two PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) to demonstrate an observed correlation between the clustering of the algebraically largest eigenvalues in the EMEP and an increase in the optimal choice of parameter $r$ in the IRAM.
+We see that the IRAM with adaptive parameter selection properly tracks the optimal choice of $r$ for these models.
+A more comprehensive set of performance results are presented in  Chapter \ref{Sec:Conclusion}.
+Also note that all \emep \ experiments in this chapter are performed with Algorithm \ref{Alg:PGD} using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit} and are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
 
 
 
@@ -24,7 +22,7 @@ All experiments in this chapter are available for reproduction.\footnote{\url{ht
 
 
 
-\section{The adaptive parameter method for the EMEP}
+\section{The IRAM with adaptive parameter selection for the EMEP}
 \label{Subsec:Numerics-adaptive_IRAM}
 
 
@@ -35,7 +33,7 @@ As discussed in Section \ref{Subsec:evol_mats-IRAM}, the IRAM has only two key p
 As we will see, the proper choice of these parameters can greatly reduce the number of matrix-vector products required for the EMEP.
 
 
-We begin by examining the change in computational costs  (as measured by matrix-vector products) for various \emep \ iterates and IRAM parameters $r$ in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params}.
+We begin by examining the change in computational costs  (as measured by matrix-vector products) with respect to various \emep \ iterates $k$ and IRAM parameters $r$ in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params}.
 In the original implementation of Algorithm \ref{Alg:PGD}, all EMEP iterates were handled using the IRAM with $r=2$ requested eigenvalues and Arnoldi decomposition size $m = \min \{  \max \{ 2r, 20 \}, n \}$, where $n$ is the size of the desired signal $x$.  
 This choice of $m$ is equivalent to the default parameter setting in the IRAM solver \texttt{eigs} for MATLAB and evaluates to $m=20$ for $n \geq 20$.
 Yet the plots in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params} demonstrate that choosing a fixed parameter $r=2$ can result in far more matrix-vector products than is optimal.
@@ -46,10 +44,10 @@ Yet the plots in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params} de
 \hbox{\hspace{-0.8cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_orig_vs_optimal_params_1} }\vspace{1.0cm}
 \hbox{\hspace{-1.6cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_orig_vs_optimal_params_2} }\vspace{0.0cm}
 	\caption{
-Number of matrix-vector products for an \emep \ with various IRAM parameters.
-Top: Number of matrix-vector products (capped at 1,500 for better viewing) for various EMEP iterates and number of requested eigenvalues $r$.  Arnoldi decomposition size is set to $m = 40$ and black dots indicate the \textit{optimal} parameter $r$ with the minimum number of products for each EMEP iterate.
+Performance results for an EMEP from a PLGD model with Gaussian noise	(\ref{Eqn:PhaseLift-GD_Gaussian_noise}) with noise ratio $\epsilon_\text{rel} = 0.15$, oversampling rate $L = 5$, and original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
+Top: Number of matrix-vector products (capped at 1,500 for better viewing) for various EMEP iterates and number of requested eigenvalues $r$.  
+Arnoldi decomposition size is set to $m = 40$ and black dots indicate the optimal parameter $r$ with the minimum number of products for each EMEP iterate.
 Bottom: Plot of IRAM results for the EMEP with optimal parameters from top plot and fixed parameters $r=2$ and $m=20$.
-The EMEP is from a PLGD model with Gaussian noise	 (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) with noise ratio $\epsilon_\text{rel} = 0.15$, oversampling rate $L = 5$, and original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
 	}
 \label{Fig:Numerics-num_matvecs_orig_vs_optimal_params}
 \end{figure}
@@ -70,7 +68,7 @@ If these recent choices suggest the same shift as the first comparison, then we 
 
 
 
-Now we will formally develop an adaptive strategy for choosing the number of requested eigenvalues $r_k$ for each \emep \ iterate $k$.
+Now we develop an adaptive strategy for choosing the number of requested eigenvalues $r_k$ for each \emep \ iterate $k$.
 First, we select a fixed Arnoldi decomposition size $m$ and initialize $r_1=r_{min}$ and $r_2 = r_1+1$ (where $r_{min}=2$, and $r_{max} = \min\{ 30, m-5 \}$, and we set the default value $m=40$).  
 At each step $k \geq 2$ we update $r_{k+1} =  r_k + \delta$, where $\delta \in \{-2, -1, 1, 2\}$ is a shift based on the number of requested eigenvalues $r_k, r_{k-1}, \ldots$ and number of matrix-vector products $t_k, t_{k-1}, \ldots$ for the previous eigenvalues problems.
 The shift $\delta$ is computed as follows.
@@ -96,12 +94,12 @@ where $\beta$ is determined by (\ref{Eqn:adaptive_delta_4_lin_interp_prob}).
 If $\delta_2 = \delta_4$, then the $2$-step (\ref{Eqn:adaptive_delta_2}) and $4$-step equations (\ref{Eqn:adaptive_delta_4}) both suggest we should shift in the direction of $\delta_2$, and we select the shift $\delta = 2\delta_2$.
 If $\delta_2 \neq \delta_4$ then we rely on the $2$-step equation (\ref{Eqn:adaptive_delta_2}) and select the shift value $\delta = \delta_2$.
 Finally, if $r_k = r_{min}$ then we set $\delta = 1$ and if $r_k = r_{max}$ the we set $\delta = -1$.
-Altogether, these steps lead to the \textit{adaptive parameter method} for the \emep.
+Altogether, these steps lead to \textit{the IRAM with adaptive parameter selection} for the \emep.
 
 
 
 \begin{algorithm}[H]
-\caption{Adaptive parameter method for the \emep}	\label{Alg:adaptive_IRAM}
+\caption{The IRAM with adaptive parameter selection for the \emep}	\label{Alg:adaptive_IRAM}
 
 \begin{algorithmic}[1]
 	\Statex 	\textbf{Input:} Sequence of matrices $\{ A_k \}_{k=1}^{maxit}$ from the \emep, Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp})  size $m$ (default parameter $m = 40$).
@@ -142,7 +140,7 @@ For now we will let $m=40$ to examine the behavior of Algorithm \ref{Alg:adaptiv
 
 
 
-We close this section by showing that Algorithm \ref{Alg:adaptive_IRAM} selects a sequence $r_1, r_2, \ldots r_{maxit}$ which varies significantly and generally tracks the optimal choice of parameter $r$ for each \emep \ iterate.
+We close this section by showing that Algorithm \ref{Alg:adaptive_IRAM} selects a sequence $r_1, r_2, \ldots r_{maxit}$ which varies significantly and generally tracks the optimal choice of the parameter $r$ for each \emep \ iterate.
 
 \begin{figure}[H]
 \centering
@@ -166,48 +164,56 @@ As we will see in Section \ref{Subsec:Numerics-correl_btwn_EMEP_and_IRAM}, these
  
 
 
-\section{Tracking the EMEP spectrum with the adaptive parameter method}
+\section{Correlation between EMEP spectrum distribution and behavior of the IRAM}
 \label{Subsec:Numerics-correl_btwn_EMEP_and_IRAM}
 
 
-In this section we explore the connection between the clustering of the algebraically largest eigenvalues in the \emep \ and the number of requested eigenvalues $r$ as chosen by Algorithm \ref{Alg:adaptive_IRAM} .
-As the algebraically largest eigenvalues in the EMEP begin to cluster, we will see that the optimal value for $r$ (corresponding to the minimum number of matrix-vector products for the IRAM) increases such that $\lambda_{r+1}$ is not clustered with $\lambda_1, \lambda_2, \ldots \lambda_r$.
-Additionally, we will see that clustering of the algebraically largest eigenvalues can occur quickly in some EMEPs, causing the optimal value for $r$ to increase quickly as well.
-The experiments in this section demonstrate that the value $r_k$ chosen by Algorithm \ref{Alg:adaptive_IRAM} properly tracks the optimal choice of $r$ for EMEPs which evolve slowly or quickly.
-We also show that the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size $m=40$ is an appropriate default parameter for Algorithm \ref{Alg:adaptive_IRAM}.
-We then close this section with a brief discussion of the possible cause of the optimal value for $r$ to shift as the algebraically largest eigenvalues in the EMEP cluster.
+
+In this section we examine an observed correlation between the clustering of the algebraically largest eigenvalues in the \emep \ and the convergence behavior of the IRAM (Algorithm \ref{Alg:IRAM}) for various parameters.
+As we saw in Section \ref{Subsec:PLGD_term_crit-stagnation}, PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) typically have optimal EMEP matrices $\caA^*y_\star$ for which the algebraically largest eigenvalue has multiplicity greater than one.
+Thus we may expect the algebraically largest eigenvalues in the EMEP to cluster for later iterates.
+
+In Section \ref{Subsubsec:Numerics-correl_clustering_IRAM_param} we examine two PLGD models and show that as the eigenvalues in the EMEP begin to cluster, the \textit{optimal} IRAM parameter $\bar{r}$ (i.e., the number of requested eigenvalues $r$ with the minimum number of matrix-vector products) increases such that $\lambda_{\bar{r}+1}$ is not clustered with $\lambda_1, \lambda_2, \ldots, \lambda_{\bar{r}}$.
+We also see that the value $r_k$ chosen by Algorithm \ref{Alg:adaptive_IRAM} properly tracks the optimal parameter $\bar{r}_k$ for these two PLGD models.
+Next, Section \ref{Subsubsec:Numerics-default_Arnoldi_decomp_size} uses these two PLGD models to demonstrate that the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size $m=40$ is sufficiently large for the IRAM to perform efficiently, and thus $m=40$ is an appropriate default parameter for Algorithm \ref{Alg:adaptive_IRAM}.
 
 
 
 
 
-This section focuses on two \emeps \ for which the sequence of parameters $r_1, r_2, \ldots r_{maxit}$ chosen by  Algorithm \ref{Alg:adaptive_IRAM} varies greatly.
-Figure \ref{Fig:Numerics-num_req_eigs_2_exps} depicts the results of Algorithm \ref{Alg:adaptive_IRAM} for these EMEPs.
+To illustrate these observations, we focus on the EMEP of two particular PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) for which the sequence of parameters $r_1, r_2, \ldots r_{maxit}$ chosen by Algorithm \ref{Alg:adaptive_IRAM} varies greatly.
 
 \begin{figure}[H]
 \centering
 \hbox{\hspace{-1.8cm} \includegraphics[scale=0.6]{Numerics-num_eigs_req_ada_2_exps} }\vspace{0.0cm}
-	\caption{Number of requested eigenvalues $r$ chosen by Algorithm \ref{Alg:adaptive_IRAM} for two \emeps.  The EMEPs are from PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), with noise ratio $\epsilon_\text{rel}=0.15, 0.30$, oversampling rate $L=5$, and original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.}
+	\caption{
+Number of requested eigenvalues $r$ chosen by Algorithm \ref{Alg:adaptive_IRAM} for the \emep \ from two PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), with noise ratio $\epsilon_\text{rel}=0.15, 0.30$, oversampling rate $L=5$, and original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
+}
 \label{Fig:Numerics-num_req_eigs_2_exps}
 \end{figure}
 % experiments.figure.noisyimage_adaptive_eig_full_exp
 
 
-Both \emeps \ in Figure \ref{Fig:Numerics-num_req_eigs_2_exps} caused Algorithm \ref{Alg:adaptive_IRAM} to increase the number of requested eigenvalues $r$ from early to later iterates.
-Yet the rate at which $r$ increased differs greatly for these two EMEPs.
-In particular, the experiment in Figure \ref{Fig:Numerics-num_req_eigs_2_exps} with $L=5$ and $\epsilon_\text{rel} = 0.30$ shows a rapid change in $r_k$ around the iterate $k=60$.
-On closer observation of this EMEP (Figure \ref{Fig:Numerics-num_req_eigs_2_exps}, right plot), we see that Algorithm \ref{Alg:adaptive_IRAM} increased $r_k$ by two units for several iterates $55 \leq k \leq 70$.
-These two-unit increases were caused by the $2$-step shift value (\ref{Eqn:adaptive_delta_2}) $\delta_2 = 1$ and $4$-step shift value (\ref{Eqn:adaptive_delta_4}) $\delta_4 = 1$ being equal, and suggest that the number of matrix-vector products was decreasing consistently as Algorithm \ref{Alg:adaptive_IRAM} increased the number of requested eigenvalues $r$.
+
+For both PLGD models in Figure \ref{Fig:Numerics-num_req_eigs_2_exps}, changes in the EMEP caused Algorithm \ref{Alg:adaptive_IRAM} to increase the number of requested eigenvalues $r_k$ significantly from early to later iterates $k$.
+Yet the value of $r_k$ increased at a quicker rate for the experiment in Figure \ref{Fig:Numerics-num_req_eigs_2_exps} with $L=5$ and $\epsilon_\text{rel} = 0.30$.
+As we will see in Section \ref{Subsubsec:Numerics-correl_clustering_IRAM_param}, this quick increase from $r_{55}=3$ to $r_{70}=13$ coincides with a sudden clustering of the algebraically largest eigenvalues in the EMEP.
 
 
 
 
 
-We will now examine the spectrum of the \emeps \ in Figure \ref{Fig:Numerics-num_req_eigs_2_exps} to demonstrate that Algorithm \ref{Alg:adaptive_IRAM} properly responds to two key tendencies of EMEPs.
-First, as the algebraically largest eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_{m-1}, \lambda_{m}$ of the EMEP begin to cluster, the number of requested eigenvalues $r<m$ should be large enough such that the pair $\{ \lambda_r,  \lambda_{r+1} \}$ will have sufficient separation, thus promoting convergence of the IRAM (Algorithm \ref{Alg:IRAM}).
-And second, the rate at which this clustering occurs varies for different EMEPs, and thus $r$ should increase at a corresponding rate.
-The number of matrix-vector products and eigenvalue difference $\lambda_{r+1} - \lambda_r$ for the two EMEPs from Figure \ref{Fig:Numerics-num_req_eigs_2_exps} are depicted in Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_eig_diffs_2}, respectively.
-Note that these figures only depict about half of the EMEP iterates, so we may focus on the region where $r_k$ varies greatest.
+\subsection{Observed correlation between eigenvalue clustering and IRAM parameter choice}		\label{Subsubsec:Numerics-correl_clustering_IRAM_param}
+
+
+
+
+We now show that the PLGD models in Figure \ref{Fig:Numerics-num_req_eigs_2_exps} exhibit a correlation between the spectrum distribution of the \emep \ and the convergence behavior of the IRAM (Algorithm \ref{Alg:IRAM}).
+For these two models, as the algebraically largest eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_{m-1}, \lambda_{m}$ of the EMEP begin to cluster, 
+the IRAM converges much faster if the number of requested eigenvalues $r<m$ is large enough such that $\lambda_{r+1}$ is not clustered with $\lambda_1, \lambda_2, \ldots, \lambda_r$.
+Thus, as Algorithm \ref{Alg:adaptive_IRAM} explicitly tracks the optimal sequence of parameters $\bar{r}_k$, this algorithm implicitly tracks the clustering of the algebraically largest eigenvalues in the EMEP.
+To demonstrate these observations, we consider various EMEP iterates $k$ and number of requested eigenvalues $r$, and plot the numbers of matrix-vector products for the IRAM as well as the eigenvalue difference $\lambda_{r+1} - \lambda_r$.
+Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_eig_diffs_2} depict about half of the EMEP iterates from the two PLGD models in Figure \ref{Fig:Numerics-num_req_eigs_2_exps}, so we may focus on the regions where $r_k$ in Algorithm \ref{Alg:adaptive_IRAM} varies greatest.
 
 
 
@@ -234,27 +240,53 @@ Note that these figures only depict about half of the EMEP iterates, so we may f
 
 
 
-In Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_1}, the top plot shows that $r_k \approx 10$ offers the minimum number of matrix-vector products for EMEP iterates $50 \leq k  \leq 125$.
-Correspondingly, the bottom plot in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_1} shows a ``ridge'' of eigenvalue differences $\lambda_{r+1} - \lambda_{r} \approx 1 \times 10^{-3}$ around $8 \leq r \leq 12$ for iterates $50 \leq k  \leq 125$, and Algorithm \ref{Alg:adaptive_IRAM} properly selects $8 \leq r_k \leq 12$ for these iterates.
-Around iterate $k = 150$, this ``ridge'' of eigenvalue differences begins to flatten, creating a region of clustered algebraically largest eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_{10}$ for iterates $k \geq 150$.
-Likewise, the desired value $r$ for the minimum number of matrix-vector products shifts to $15 \leq r_k \leq 20$ for iterates $k \geq 150$.
-Yet the shifting of the desired value $r$ in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_1} is gradual, and Algorithm \ref{Alg:adaptive_IRAM} gradually increases $r_k$ (as see in Figure \ref{Fig:Numerics-num_req_eigs_2_exps}, left plot) from $r_k \approx 10$ at iterate $k = 150$ to $r_k \approx 18$ at iterate $k = 200$.
+
+In Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_eig_diffs_2} we see that the clustering of the algebraically largest eigenvalues corresponds to an increase in the optimal number of requested eigenvalues $\bar{r}_k$ for later \emep \ iterates $k$.
+In Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_1}, the eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_{10}$ cluster around iterates $125 \leq k \leq 175$; and likewise the optimal parameter $\bar{r}_{125} \approx 10$ increases to $\bar{r}_{175} \approx 18$.
+Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2} depicts a similar shift, where the eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_{10}$ cluster around iterates $50 \leq k \leq 70$, and the optimal parameter increases to $\bar{r}_{70} \approx 15$.
+In the case of Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2}, the most tightly clustered eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_{8}$ also correspond to parameter values $r = 2, 3, \ldots, 7$ for which the IRAM required the greatest number of matrix-vector products to converge.
 
 
 
-The bottom plot in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2} also depicts less distinct ``hills'' of eigenvalue differences $\lambda_{r+1} - \lambda_{r} \approx 0.5 \times 10^{-3}$ around $2 \leq r \leq 8$ for iterates $40 \leq k  \leq 60$.
-These ``hills'' of eigenvalue differences quickly flatten around iterates $50 \leq k  \leq 70$.
-Likewise, the top plot in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2} shows that the number of matrix-vector products dramatically increases for $2 \leq r  \leq 8$ around iterates $50 \leq k  \leq 70$.
-In response to this change in the number of matrix-vector products, Algorithm \ref{Alg:adaptive_IRAM} also increased $r_k$ quickly around iterates $55 \leq k \leq 70$.
-For iterates $k \geq 60$, the top plot in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2} shows that $r = 12$ is the smallest parameter value necessary to have a minimal number of matrix-vector products.
-Correspondingly, the bottom plot in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2} shows that for iterates $k \geq 60$, the pair $\{ \lambda_{12}, \lambda_{13} \}$ are the first pair of algebraically largest eigenvalues with greater separation than the preceding pairs.
-As desired, Algorithm \ref{Alg:adaptive_IRAM} maintains $r_k \geq 12$ for most of the iterates $k \geq 70$.
+This observed correlation between eigenvalue clustering and a change in the convergence rate of the IRAM may be related to the subroutines used in the IRAM.
+As discussed in Section \ref{Subsec:evol_mats-IRAM}, the IRAM is based on the following two algorithms.
+Given a Hermitian matrix $A \in \bbC^{n \times n}$, the $m$-step Arnoldi iteration (Algorithm \ref{Alg:Arnoldi_iteration}) generates a set of Ritz pairs $(\theta_1, u_1), (\theta_2, u_2), \ldots, (\theta_m, u_m)$ for $A$ with respect to $\caK_m(A, q_1)$.
+Next, the $p$-step shifted QR iteration (Algorithm \ref{Alg:shifted_QR_iteration}) restarts the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) by attempting to damp the unwanted part of the spectrum using the Ritz values $\{ \theta_{r+1}, \theta_{r+2}, \ldots, \theta_m \}$ (where $m = r + p$).
+Assume we have an EMEP matrix iterate $A_k$ with some number $s$ of clustered algebraically largest eigenvalues, $\lambda_1 \approx \lambda_2 \approx \cdots \approx \lambda_s$.
+
+And assume we select the number of requested eigenvalues $r < s$.
+
+
+When the IRAM builds an Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}), the $s$ largest Ritz values of $A_k$ with respect to $\caK_m(A_k, q_1)$ may include values $\theta_{r+1}, \theta_{r+2}, \ldots, \theta_s$ which are close approximations to the desired eigenvalues.
+Thus when the shift values $\mu_1 = \theta_{r+1}, \mu_2 = \theta_{r+2}, \ldots, \mu_{s-r} = \theta_{s}, \ldots, \mu_p = \theta_m$ are passed to the $p$-step shifted QR iteration, the implicit polynomial filter (\ref{Eqn:filter_poly}) will include values $\mu_1, \mu_2, \ldots, \mu_{s-r}$ which damp the desired part of the spectrum.
 
 
 
-Next we show that the default parameter setting $m = 40$ in Algorithm \ref{Alg:adaptive_IRAM} is sufficiently large to minimize the number of matrix-vector products in the \emeps \ from Figure \ref{Fig:Numerics-num_req_eigs_2_exps}.
-To demonstrate that $m=40$ is appropriate, we will examine a more difficult eigenvalue problem (i.e., later iterate) from each of these EMEPs.
-Figure \ref{Fig:Numerics-surf_mvs_for_m_vs_j} depicts the number of matrix-vector products for various IRAM parameters $r$ and $m$ for an iterate from each EMEP.
+However, if we select the number of requested eigenvalues $r > s$, then the shift values used in the $p$-step shifted QR iteration will always include parts of the spectrum which we want to damp, and thus we may expect the IRAM to converge more quickly. 
+
+
+Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_eig_diffs_2} also demonstrate that Algorithm \ref{Alg:adaptive_IRAM} properly tracks the optimal number of requested eigenvalues $\bar{r}_k$ as this value changes.
+In particular, Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2} indicates that $\bar{r}_k$ increased quickly from iterates $k = 50$ to $k = 70$.
+Likewise, Algorithm \ref{Alg:adaptive_IRAM} increased $r_k$ by two units for several iterates $55 \leq k \leq 70$ (see Figure \ref{Fig:Numerics-num_req_eigs_2_exps}).
+These two-unit increases were the result of Algorithm \ref{Alg:adaptive_IRAM} properly identifying a quick increase in the number of matrix-vector products $t_k$ for smaller values $r_k$.
+Recall that Algorithm \ref{Alg:adaptive_IRAM} determines the update $r_{k+1}$ using two-point and four-point linear interpolations (equations (\ref{Eqn:adaptive_delta_2}) and (\ref{Eqn:adaptive_delta_4_lin_interp_prob}), respectively) of the previous parameters $r_k$ and $t_k$.
+For the PLGD model in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2}, both of these interpolations agreed (i.e., $\delta_2=1$ in (\ref{Eqn:adaptive_delta_2}) was equal to $\delta_4=1$ in (\ref{Eqn:adaptive_delta_4})) for several iterates $55 \leq k \leq 70$.
+Thus Algorithm \ref{Alg:adaptive_IRAM} quickly increased $r_k$, avoiding excessive matrix-vector multiplications.
+
+
+
+
+
+
+
+\subsection{Choosing the default Arnoldi decomposition size for the IRAM with adaptive parameter selection}		\label{Subsubsec:Numerics-default_Arnoldi_decomp_size}
+
+
+7
+
+Next we show that the default parameter setting $m = 40$ in Algorithm \ref{Alg:adaptive_IRAM} is sufficiently large to minimize the number of matrix-vector products in the EMEP in the models from Figure \ref{Fig:Numerics-num_req_eigs_2_exps}.
+To demonstrate that $m=40$ is appropriate, we will examine a more difficult eigenvalue problem (i.e., later iterate) from each of these models.
+Figure \ref{Fig:Numerics-surf_mvs_for_m_vs_j} depicts the number of matrix-vector products for various IRAM parameters $r$ and $m$ for an iterate from each model.
 
 
 \begin{figure}[H]
@@ -274,6 +306,10 @@ Right: EMEP iterate 85 from Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2}.
 % experiments.figure.noisyimage_adaptive_eig_full_exp
 
 
+\
+
+8
+
 Figure \ref{Fig:Numerics-surf_mvs_for_m_vs_j} suggests that we should not select IRAM parameters below $r = 9$ and $m = 40$ for the EMEP iterate in the left plot, nor should we select parameters below $r = 12$ and $m = 40$ for the EMEP iterate in the right plot.  
 Yet there is no significant benefit to selecting larger parameter values.
 Since the EMEP iterates in Figure \ref{Fig:Numerics-surf_mvs_for_m_vs_j} represent later, more difficult eigenvalue problems, this figure suggests that $m = 40$ is sufficiently large for all iterates.
@@ -283,222 +319,8 @@ Thus Algorithm \ref{Alg:adaptive_IRAM} has a fixed Arnoldi decomposition (\ref{E
 
 
 
-We close this section by discussing a potential explanation for the IRAM (Algorithm \ref{Alg:IRAM}) to perform poorly when the number of requested eigenvalues $r$ is not sufficiently large for a given \emep \ iterate.
-As discussed in Section \ref{Subsec:evol_mats-IRAM}, the IRAM is based on the following two algorithms.
-Given a Hermitian matrix $A \in \bbC^{n \times n}$, the $m$-step Arnoldi iteration (Algorithm \ref{Alg:Arnoldi_iteration}) generates a set of Ritz pairs $(\theta_1, u_1), (\theta_2, u_2), \ldots, (\theta_m, u_m)$ for $A$ with respect to $\caK_m(A, q_1)$.
-Next, the $p$-step shifted QR iteration (Algorithm \ref{Alg:shifted_QR_iteration}) restarts the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) by attempting to damp the unwanted part of the spectrum using the Ritz values $\{ \theta_{r+1}, \theta_{r+2}, \ldots, \theta_m \}$ (where $m = r + p$).
 
 
-Assume we have an EMEP matrix iterate $A_k$ with some number $s$ of clustered algebraically largest eigenvalues, $\lambda_1 \approx \lambda_2 \approx \cdots \approx \lambda_s$.
-And say we select the number of requested eigenvalues $r < s$.
-When the IRAM builds an Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}), the $s$ largest Ritz values of $A_k$ with respect to $\caK_m(A, q_1)$ may include values $\theta_{r+1}, \theta_{r+2}, \ldots, \theta_s$ which are close approximations to the desired eigenvalues.
-Thus when the shift values $\mu_1 = \theta_{r+1}, \mu_2 = \theta_{r+2}, \ldots, \mu_s = \theta_{r+s}, \ldots, \mu_p = \theta_m$ are passed to the $p$-step shifted QR iteration, the implicit polynomial filter (\ref{Eqn:filter_poly}) will include values ($\mu_1, \mu_2, \ldots, \mu_s$) which damp the desired part of the spectrum.
-
-
-
-
-
-
-
-
-
-
-\section{Numerical results for the adaptive parameter method} 			\label{Subsec:Numerics-adaptive_IRAM_figs_and_tables}
-
-
-
-This section demonstrates the efficiency of the adaptive parameter method (Algorithm \ref{Alg:adaptive_IRAM}) for solving the \emep.
-We begin by demonstrating that Algorithm \ref{Alg:adaptive_IRAM} is more efficient than the original IRAM (Algorithm \ref{Alg:IRAM}) parameter settings for a variety of \emeps.
-Next, we show that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal as a method for choosing the ideal number of requested eigenvalues $r_k$ corresponding to the minimum number of matrix-vector products necessary for each \emep \ iteration.
-Finally, we demonstrate that the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size parameter $m = 40$ for Algorithm \ref{Alg:adaptive_IRAM} strikes a proper balance between increasing computational efficiency and minimizing data storage.
-
-
-
-
-We begin this section by examining the performance of Algorithm \ref{Alg:adaptive_IRAM} for various phase retrieval problems.
-Figure \ref{Fig:Numerics-ada_vs_orig_various_params} depicts a set of experiments with randomly generated signals.
-
-
-\begin{figure}[H]
-\centering
-\hbox{\hspace{-1.8cm} 
-	\includegraphics[scale=0.6]{Numerics-ada_vs_orig_various_params}
-			}
-	\vspace{0.0cm}
-	\caption{
-	Performance results for Algorithm \ref{Alg:adaptive_IRAM} (dashed line) and the original IRAM parameters $m=20$, $r = 2$ (solid line).
-	All problems are PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) and signals are complex with standard Gaussian distribution (\ref{Def:Gaussian_distribution_complex}).
-	Each result is the mean of 10 experiments.
-	Left: Varying signal size $n$, with fixed noise ratio $\epsilon_\text{rel} = 0.15$ and oversampling scaled logarithmically with $n$ (i.e., $L = 10, 12, 12, 14$) as indicated in Theorem \ref{Thm:PhaseLift_approx}.
-	Middle: Varying oversampling rate $L$, with fixed signal size $n = 128$ and noise ratio $\epsilon_\text{rel} = 0.15$.
-	Right: Varying noise ratio $\epsilon_\text{rel}$, with fixed signal size $n = 128$ and oversampling rate $L = 10$.
-	}
-\label{Fig:Numerics-ada_vs_orig_various_params}
-\end{figure}
-% experiments.figure.noisyimage_comparison_adaptive_vs_orig
-
-Figure \ref{Fig:Numerics-ada_vs_orig_various_params} demonstrates that Algorithm \ref{Alg:adaptive_IRAM} requires fewer matrix-vector products than the original IRAM parameters for the \emep \ for a wide range of phase retrieval problems.
-The left and middle plots in Figure \ref{Fig:Numerics-ada_vs_orig_various_params} suggest that Algorithm \ref{Alg:adaptive_IRAM} requires about $60\%$ fewer matrix-vector products regardless of signal size $n$ or oversampling rate $L$.
-Additionally, the right plot in Figure \ref{Fig:Numerics-ada_vs_orig_various_params} suggests Algorithm \ref{Alg:adaptive_IRAM} may reduce matrix-vector products by $80\%$ or more for problems with significant noise.
-
-
-
-%%%%%%%%%%%%%%%%%%
-%
-% 	ADD HERE: Discussion, UCD AND JUL PICS, Table
-%
-%%%%%%%%%%%%%%%%%%
-
-\iffalse
-
-\begin{table}[H]
-\centering
-\begin{tabular}{ |cc|c|cc|cc| }
- \hline
-			&&  Original
-			&  \multicolumn{2}{c|}{Algorithm \ref{Alg:adaptive_IRAM}}
-			&	\multicolumn{2}{c|}{Algorithm \ref{Alg:adaptive_IRAM}}	\\
-$x$ & $L$ & $r=2, m=20$	& \multicolumn{2}{c|}{$m=40$}  & \multicolumn{2}{c|}{$m=80$}   \\
- \hline
- \multirow{2}{*}{Figure XXX} &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-  &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-   \multirow{2}{*}{Figure YYY} &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-  &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-     \multirow{2}{*}{Figure ZZZ} &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-  &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
- \hline
-\end{tabular}
-\caption{
-	DONGLE
-	} 
-	\label{Tab:Numerics-ada_vs_orig_large_images}
-\end{table}
-% experiments.figure.noisyimage_comparison_adaptive_vs_orig
-
-\fi
-
-
-
-
-Next, we demonstrate that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal in the sense of choosing the number of requested eigenvalues $r_k$ which minimizes the number of matrix-vector products for each \emep \ iterate $k$.
-Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada} indicates the number of matrix-vector products for solving the six EMEPs with Algorithm \ref{Alg:adaptive_IRAM}, with the original IRAM parameters, and with the minimum possible number of matrix-vector products if each value $r_k$ was chosen such that $2 \leq r_k\leq 30$ and $r_k$ corresponds to the minimum number of matrix-vector products for the IRAM to evaluate EMEP iterate $k$.
-
-
-\begin{table}[H]
-\centering
-\begin{tabular}{ |ccc|c|cc|cc| }
- \hline
-			&&&  Original
-			&  \multicolumn{2}{c|}{Optimal $2 \leq r \leq 30$}
-			&	\multicolumn{2}{c|}{Algorithm \ref{Alg:adaptive_IRAM}}	\\
-$L$ & $\epsilon_\text{rel}$ & EMEP its & $r=2, m=20$	& \multicolumn{2}{c|}{$m=40$}  & \multicolumn{2}{c|}{$m=40$}   \\
- \hline
- 5 &  0.05 & 300 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-  5 &  0.15 & 300 & 1,099,045  &  242,003 & 78\% &  258,385 & 76\% \\ 
-  5 &  0.30 &  92 &  444,697  &   58,780 & 87\% &   69,510 & 84\% \\ 
- 10 &  0.05 & 153 &   80,453  &   61,948 & 23\% &   68,709 & 15\% \\ 
- 10 &  0.15 & 108 &   88,317  &   51,311 & 42\% &   57,231 & 35\% \\ 
- 10 &  0.30 &  54 &   72,486  &   23,217 & 68\% &   25,809 & 64\% \\ 
- \hline
-\end{tabular}
-
-\caption{
-Total number of matrix-vector products and percent decrease from the original IRAM parameters for various \emeps.  
-Parameter $r$ is the number of requested eigenvalues in the IRAM (Algorithm \ref{Alg:IRAM}) and $m$ is the Arnoldi decomposition size (\ref{Eqn:Arnoldi_decomp}).
-EMEPs come from PLGD models with Gaussian noise	(\ref{Eqn:PhaseLift-GD_Gaussian_noise}) with original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.} \label{Tab:Numerics-num_matvecs_opt_vs_ada}
-\end{table}
-% experiments.figure.noisyimage_adaptive_eig_full_exp
-
-Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada} demonstrates that Algorithm \ref{Alg:adaptive_IRAM} decreases the number of matrix-vector products of each \emep \ from the original IRAM parameters by a percentage comparable to that of the optimal choice for parameter $r$.
-Notably, Algorithm \ref{Alg:adaptive_IRAM} is particularly effective at decreasing the number of matrix-vector products when there is a large relative difference between the number of matrix-vector products for the original IRAM parameters and the optimal parameters.
-To further explore this performance behavior, Figure \ref{Fig:Numerics-num_eigs_ada_vs_opt} depicts the two EMEPs from Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada} with the largest and smallest relative difference in matrix-vector products (those with $L=5$, $\epsilon_\text{rel} = 0.15$, and $L=10$, $\epsilon_\text{rel} = 0.05$, respectively).
-
-
-
-\begin{figure}[H]
-\centering
-\hbox{\hspace{-1.8cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_1} }\vspace{0.6cm}
-\hbox{\hspace{-1.8cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_2} }
-\vspace{0.2cm}
-	\caption{
-	Number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}) for two \emeps \ from Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada}.
-	}
-\label{Fig:Numerics-num_eigs_ada_vs_opt}
-\end{figure}
-% experiments.figure.noisyimage_adaptive_eig_full_exp
-
-
-In both \emeps \ depicted in Figure \ref{Fig:Numerics-num_eigs_ada_vs_opt}, the number of requested eigenvalues $r$ chosen by Algorithm \ref{Alg:adaptive_IRAM} is usually within 1-3 units from the optimal parameter value.
-The bottom plot in Figure \ref{Fig:Numerics-num_eigs_ada_vs_opt} suggests that Algorithm \ref{Alg:adaptive_IRAM} required relatively more matrix-vector products than the optimal value of $r$ because Algorithm \ref{Alg:adaptive_IRAM} always changes the value of $r$ by one or two units, thus shifting away from the optimal value $r=2$ for many EMEP iterates.
-As we saw in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2}, the optimal parameter $r$ may shift rapidly for some EMEPs, and thus Algorithm \ref{Alg:adaptive_IRAM} always changes $r$ by one or two units to continue gathering performance information about the EMEP.
-
-
-
-
-
-We now provide further justification for selecting $m=40$ as the default Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size for Algorithm \ref{Alg:adaptive_IRAM}.
-Table \ref{Tab:Numerics-num_matvecs_orig_vs_ada} depicts the total number of matrix-vector products required to solve the \emeps \ from Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada} with Algorithm \ref{Alg:adaptive_IRAM} with various parameter values $m$.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{ |ccc|c|ccccc| }
- \hline
-			  \multicolumn{3}{|c|}{n = 4,096} &  Original
-			&  \multicolumn{5}{c|}{Adaptive parameter method (Algorithm \ref{Alg:adaptive_IRAM})}	\\
-$L$ & $\epsilon_\text{rel}$ & EMEP its & $r=2, m=20$	& $m=20$  & $m=40$  & $m=60$  & $m=80$  & $m=100$   \\
- \hline
-  5 &  0.05 & 300 &  406,308  &  358,195  &  198,070  &  189,401  &  192,042  &  201,270  \\ 
-  5 &  0.15 & 300 & 1,099,045  &  806,412  &  258,385  &  224,048  &  214,118  &  215,392  \\ 
-  5 &  0.30 &  92 &  444,697  &  175,669  &   69,510  &   56,193  &   55,146  &   54,987  \\ 
- 10 &  0.05 & 153 &   80,453  &   77,768  &   68,709  &   64,300  &   68,602  &   73,754  \\ 
- 10 &  0.15 & 108 &   88,317  &   65,833  &   57,231  &   53,261  &   54,388  &   55,308  \\ 
- 10 &  0.30 &  54 &   72,486  &   28,799  &   25,809  &   24,699  &   25,113  &   25,491  \\ 
- \hline
-\end{tabular}
-
-\caption{
-Total number of matrix-vector products for various \emeps.  
-Parameter $r$ is the number of requested eigenvalues in the IRAM (Algorithm \ref{Alg:IRAM}) and $m$ is the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size. 
-EMEPs come from PLGD models with Gaussian noise	(\ref{Eqn:PhaseLift-GD_Gaussian_noise}) with original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
-} \label{Tab:Numerics-num_matvecs_orig_vs_ada}
-\end{table}
-% experiments.figure.noisyimage_adaptive_eig_full_exp
-
-
-
-Table \ref{Tab:Numerics-num_matvecs_orig_vs_ada} demonstrates that Algorithm \ref{Alg:adaptive_IRAM} reduces the number of matrix-vector products from those of the original IRAM parameters for all experiments considered.
-Yet this cost reduction varies significantly depending on the choice of Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size $m$.
-We seek a default setting for the parameter $m$ which is sufficiently large to yield the benefits of Algorithm \ref{Alg:adaptive_IRAM}, yet sufficiently small as not to burden random-access memory constraints.
-To select an appropriate default value for $m$, we examine the two experiments from Table \ref{Tab:Numerics-num_matvecs_orig_vs_ada} with $\epsilon_\text{rel} = 0.15, 0.30$ and $L=5$ which have the greatest original number of matrix-vector products, along with the greatest total decrease in cost when using Algorithm \ref{Alg:adaptive_IRAM} with a sufficiently large parameter $m$.
-Figure \ref{Fig:Numerics-num_matvecs_ada_for_m_vals} singles out these two experiments, depicting the number of matrix-vector products for each \emep \ iteration.
-
-\begin{figure}[H]
-\centering
-\hbox{\hspace{-1.6cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_ada_for_m_vals} }\vspace{0.0cm}
-	\caption{Number of matrix-vector products for each \emep \ iteration from two experiments in Figure \ref{Fig:Numerics-num_matvecs_ada_for_m_vals} with various Arnoldi decomposition size $m=20, 40, 80$.}
-\label{Fig:Numerics-num_matvecs_ada_for_m_vals}
-\end{figure}
-% experiments.figure.noisyimage_adaptive_eig_full_exp
-
-
-
-
-Figure \ref{Fig:Numerics-num_matvecs_ada_for_m_vals} demonstrates that the Arnoldi decomposition size of $m=20$ is not sufficiently large to allow Algorithm \ref{Alg:adaptive_IRAM} to decrease the number of matrix-vector products.  
-The dramatic matrix-vector product spikes for $m=20$ in Figure \ref{Fig:Numerics-num_matvecs_ada_for_m_vals} resemble those first seen in Figure \ref{Fig:EMEP_costs_num_mat_vecs} when solving the \emep \ with the original IRAM parameters $m=20, r=2$.
-Yet when the Arnoldi decomposition size is increased to $m=40$, these cost spikes effectively disappear.
-The change in number of matrix-vector products between $m=40$ and $m=80$ is minimal for each EMEP iterate.  
-Thus the default parameter of $m=40$ for Algorithm \ref{Alg:adaptive_IRAM} strikes the proper balance between efficiency and memory constraints.
-
-
-
-
-
-
-As we have seen in this chapter, Algorithm \ref{Alg:adaptive_IRAM} is an efficient strategy for using the IRAM (Algorithm \ref{Alg:IRAM}) to handle the \emep.  
-We saw that changes in the number of requested eigenvalues, as chosen by Algorithm \ref{Alg:adaptive_IRAM}, correspond to clustering of the algebraically largest eigenvalues in the EMEP.
-Thus Algorithm \ref{Alg:adaptive_IRAM} appears to promote convergence of the IRAM by selecting an appropriate number of requested eigenvalues $r$ for which the pair $\lambda_r$ and $\lambda_{r+1}$ will have sufficient separation.
-Algorithm \ref{Alg:adaptive_IRAM} was shown to reduce the number of matrix-vector products required to handle EMEPs by $50-90\%$ when the underlying phase retrieval models have minimal oversampling.
-Our experiments indicated that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal as a method for selecting the number of requested eigenvalues which corresponds to the minimum possible number of matrix-vector products required for each EMEP iterate.
 
 
 

@@ -33,7 +33,7 @@ This dissertation is organized in the following manner.
 Chapter \ref{Sec:phase_retrieval} introduces the phase retrieval problem and provides a survey of phase retrieval methods.  
 We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow method.
 Chapter \ref{Sec:PLGD} presents the gauge duality theory necessary for analyzing and optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
-Chapter \ref{Sec:PLGD_algo} then develops Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this algorithm for noiseless phase retrieval.
+Chapter \ref{Sec:PLGD_algo} then presents Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this algorithm for noiseless phase retrieval.
 
 Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically stagnates prior to converging for noisy phase retrieval problems. 
 We then identify the cause of this stagnation and establish new termination conditions for Algorithm \ref{Alg:PGD}.
@@ -45,7 +45,7 @@ We close Chapter \ref{Sec:evol_mats} with a review of the \textit{implicitly res
 
 Chapter \ref{Sec:Numerics} then proceeds to develop an efficient, adaptive strategy (Algorithm \ref{Alg:adaptive_IRAM}) for choosing IRAM parameters to handle the EMEP.
 This chapter shows that Algorithm \ref{Alg:adaptive_IRAM} effectively tracks the clustering of the algebraically largest eigenvalues from earlier to later EMEP iterates, thus selecting more desirable parameters for the IRAM.
-We close Chapter \ref{Sec:Numerics} with a few experiments demonstrating that Algorithm \ref{Alg:adaptive_IRAM} decreases computational cost of the EMEP, thus making Algorithm \ref{Alg:PGD} more efficient for noisy phase retrieval.
+We close Chapter \ref{Sec:Numerics} with a few experiments demonstrating that Algorithm \ref{Alg:adaptive_IRAM} decreases the computational cost of the EMEP, thus making Algorithm \ref{Alg:PGD} more efficient for noisy phase retrieval.
 Chapter \ref{Sec:Conclusion} concludes this dissertation with a summary of our contributions and suggestions for future work.
 
 
@@ -79,10 +79,10 @@ Additionally, if $A$ is a matrix in $\bbR^{n \times n}$ or $\bbC^{n \times n}$ t
 \begin{equation}
 \text{diag}(A) = 
 	\begin{bmatrix}
-		A_{1,1}	\\
-		A_{2,2}	\\
+		A(1,1)	\\
+		A(2,2)	\\
 		\vdots	\\
-		A_{n,n}
+		A(n,n)
 	\end{bmatrix}.
 \end{equation}
 
@@ -94,7 +94,8 @@ Given $\caS$, a subset of a finite-dimensional Euclidean space $\caX$, the \text
 		+\infty		&	x \notin \caS.
 	\end{cases}
 \end{equation}
-It is easily seen that if $\caS$ is convex, then $\delta_\caS$ will be convex.  Thus the indicator function is useful for tasks like embedding a domain constraint of an optimization model into the objective function and is used frequently in Chapter \ref{Sec:PLGD} for proving gauge duality results.
+It is easily seen that if $\caS$ is convex, then $\delta_\caS$ will be convex.  
+The indicator function is useful for tasks like embedding a domain constraint of an optimization model into the objective function and is used frequently in Chapter \ref{Sec:PLGD} for proving gauge duality results.
 
 If $\caC$ is a convex subset of a finite-dimensional Euclidean space, then the \textit{normal cone} of $\caC$ at $y_0 \in \caC$ is defined as
 \begin{equation} 			\label{Def:normal_cone}
@@ -112,18 +113,18 @@ Given a symmetric (or Hermitian) matrix $A$ in $\bbR^{n \times n}$ (or $\bbC^{n 
 \begin{equation}			\label{Def:eigenvalues}
 \lambda_1(A) \geq \lambda_2(A) \geq \ldots \geq \lambda_n(A),
 \end{equation}
-where $\lambda_1(A)$ or simply $\lambda_1$ is the algebraically largest eigenvalue of $A$, and $\lambda_n(A)$ or $\lambda_n$ is the smallest algebraic eigenvalue.  The \textit{spectrum} of $A$ is the set of all of its eigenvalues $\Lambda = \{ \lambda_1, \lambda_2, \ldots, \lambda_n\}$.
+where $\lambda_1(A)$ or simply $\lambda_1$ is the algebraically largest eigenvalue of $A$, and $\lambda_n(A)$ or $\lambda_n$ is the smallest eigenvalue.  The \textit{spectrum} of $A$ is the set of all of its eigenvalues $\Lambda = \{ \lambda_1, \lambda_2, \ldots, \lambda_n\}$.
 If $S$ is a subspace of $\bbR^n$ (or $\bbC^n$) then $(\theta, u)$ is a \textit{Ritz pair for $A$ with respect to $S$} if 
 \begin{equation} 			\label{Def:Ritz_pair_val_vec}
 \langle w, (Au-\theta u) \rangle = 0 \hspace{1cm} \forall w \in S.
 \end{equation}
 Likewise, $\theta$ is a \textit{Ritz value} and $u$ the corresponding \textit{Ritz vector for $A$ with respect to $S$}.
 
-For a pair of matrices $A, B \in \bbC^{n \times n}$, their inner product is that induced by the trace
+For a pair of matrices $A, B \in \bbC^{n \times n}$, their inner product is induced by the trace
 \begin{equation}			\label{Def:trace_inner_product}
 \langle A, B \rangle := \tr(A^*B) = \sum_{i=1}^n \sigma_i(A^*B).
 \end{equation}
-Given $\caC$, a convex subset of a finite-dimensional Euclidean space $\caX$, we define projection of $x \in \caX$ onto $\caC$ as $\Pi_\caC(x)$.  Since the PLGD (\ref{Eqn:PhaseLift-GD}) objective function $f(y) = \lambda_1(\caA^*y)$ is not generally differentiable, we consider the subdifferential of $f$.  Given a convex function $f : \caU \rightarrow \bbR$ defined on an open, convex subset $\caU$ of a finite-dimensional Euclidean space $\caX$, the \textit{subdifferential} of $f$ at $y_0$ is defined as
+Given $\caC$, a convex subset of a finite-dimensional Euclidean space $\caX$, we define projection of $x \in \caX$ onto $\caC$ as $\Pi_\caC(x)$.  Since the PLGD (\ref{Eqn:PhaseLift-GD}) objective function $f(y) = \lambda_1(\caA^*y)$ is generally nondifferentiable, we consider the subdifferential of $f$.  Given a convex function $f : \caU \rightarrow \bbR$ defined on an open, convex subset $\caU$ of a finite-dimensional Euclidean space $\caX$, the \textit{subdifferential} of $f$ at $y_0$ is defined as
 \begin{equation}
 	\label{Def:subdifferential}
 	\partial f(y_0) = \left\{  g \in \caX \ | \ f(y) \geq f(y_0) + \langle g, y - y_0 \rangle \ \ \forall y \in \caU	\right\},
