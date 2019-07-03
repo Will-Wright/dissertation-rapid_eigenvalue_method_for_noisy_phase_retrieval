@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  30 MAY 2019 19:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  3 JUL 2019 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -919,7 +919,7 @@ it/10.95 n\OMS/cmsy/m/n/10.95 ^^@$\OT1/cmr/m/n/10.95 dimensional
 
 [8
 
-] <phase_retrieval_depiction_mod.jpg, id=397, 526.96875pt x 333.245pt>
+] <phase_retrieval_depiction_mod.jpg, id=402, 526.96875pt x 333.245pt>
 File: phase_retrieval_depiction_mod.jpg Graphic file (type jpg)
 
 <use phase_retrieval_depiction_mod.jpg>
@@ -927,7 +927,7 @@ Package pdftex.def Info: phase_retrieval_depiction_mod.jpg used on input line 4
 8.
 (pdftex.def)             Requested size: 322.50346pt x 203.95543pt.
  [9] [10 <./phase_retrieval_depiction_mod.jpg>] <parrot_signal_iterates.png, id
-=438, 978.65625pt x 173.64874pt>
+=443, 978.65625pt x 173.64874pt>
 File: parrot_signal_iterates.png Graphic file (type png)
 
 <use parrot_signal_iterates.png>
@@ -962,7 +962,7 @@ File: parrot_signal_iterates.png Graphic file (type png)
 Package pdftex.def Info: parrot_signal_iterates.png used on input line 745.
 (pdftex.def)             Requested size: 538.2626pt x 95.5071pt.
 
-<parrot_signal_relative_error_2.png, id=777, 925.4575pt x 206.7725pt>
+<parrot_signal_relative_error_2.png, id=782, 925.4575pt x 206.7725pt>
 File: parrot_signal_relative_error_2.png Graphic file (type png)
 
 <use parrot_signal_relative_error_2.png>
@@ -1005,13 +1005,8 @@ Chapter 4.
 Chapter 5.
 [54
 
-] [55] [56] [57]
-Overfull \hbox (24.42828pt too wide) in paragraph at lines 197--221
- [][] 
- []
-
-[58]
-<noisy_random_signal_relative_errors_stagnate.png, id=1539, 869.2475pt x 182.68
+] [55] [56] [57] [58]
+<noisy_random_signal_relative_errors_stagnate.png, id=1544, 869.2475pt x 182.68
 25pt>
 File: noisy_random_signal_relative_errors_stagnate.png Graphic file (type png)
  <use noisy_random_signal_relative_errors_stagnate.png>
@@ -1024,7 +1019,7 @@ Overfull \hbox (45.61165pt too wide) in paragraph at lines 267--268
  []
 
 [59 <./noisy_random_signal_relative_errors_stagnate.png (PNG copy)>] [60]
-<noisy_random_signal_DFP_vs_no_DFP.png, id=1625, 866.23625pt x 187.70125pt>
+<noisy_random_signal_DFP_vs_no_DFP.png, id=1630, 866.23625pt x 187.70125pt>
 File: noisy_random_signal_DFP_vs_no_DFP.png Graphic file (type png)
 
 <use noisy_random_signal_DFP_vs_no_DFP.png>
@@ -1037,28 +1032,28 @@ Overfull \hbox (46.6499pt too wide) in paragraph at lines 335--336
  []
 
 [61 <./noisy_random_signal_DFP_vs_no_DFP.png (PNG copy)>] [62]
-<term_crit-signal_err.png, id=1674, 884.30376pt x 504.88625pt>
+<term_crit-signal_err.png, id=1679, 884.30376pt x 504.88625pt>
 File: term_crit-signal_err.png Graphic file (type png)
 
 <use term_crit-signal_err.png>
 Package pdftex.def Info: term_crit-signal_err.png used on input line 391.
 (pdftex.def)             Requested size: 530.58635pt x 302.93407pt.
  [63 <./term_crit-signal_err.png (PNG copy)>]
-<term_crit-pr_and_dual.png, id=1721, 884.30376pt x 754.82pt>
+<term_crit-pr_and_dual.png, id=1726, 884.30376pt x 754.82pt>
 File: term_crit-pr_and_dual.png Graphic file (type png)
 
 <use term_crit-pr_and_dual.png>
 Package pdftex.def Info: term_crit-pr_and_dual.png used on input line 463.
 (pdftex.def)             Requested size: 530.58635pt x 452.89551pt.
  [64] [65 <./term_crit-pr_and_dual.png (PNG copy)>] <term_crit-duality_gap.png,
- id=1762, 860.21375pt x 432.61626pt>
+ id=1767, 860.21375pt x 432.61626pt>
 File: term_crit-duality_gap.png Graphic file (type png)
 
 <use term_crit-duality_gap.png>
 Package pdftex.def Info: term_crit-duality_gap.png used on input line 490.
 (pdftex.def)             Requested size: 516.13223pt x 259.57176pt.
  [66]
-<term_crit-model_term_for_tols.png, id=1784, 884.30376pt x 505.89pt>
+<term_crit-model_term_for_tols.png, id=1789, 884.30376pt x 505.89pt>
 File: term_crit-model_term_for_tols.png Graphic file (type png)
 
 <use term_crit-model_term_for_tols.png>
@@ -1071,51 +1066,51 @@ _tols.png (PNG copy)>]
 Chapter 6.
 [69
 
-] [70] <EMEP_costs_num_mat_vecs.png, id=1869, 884.30376pt x 400.49625pt>
+] [70] <EMEP_costs_num_mat_vecs.png, id=1874, 884.30376pt x 400.49625pt>
 File: EMEP_costs_num_mat_vecs.png Graphic file (type png)
 
 <use EMEP_costs_num_mat_vecs.png>
 Package pdftex.def Info: EMEP_costs_num_mat_vecs.png used on input line 154.
 (pdftex.def)             Requested size: 530.58635pt x 240.29959pt.
  [71]
-<EMEP_full_spectrum.png, id=1887, 874.26625pt x 483.8075pt>
+<EMEP_full_spectrum.png, id=1892, 874.26625pt x 483.8075pt>
 File: EMEP_full_spectrum.png Graphic file (type png)
 
 <use EMEP_full_spectrum.png>
-Package pdftex.def Info: EMEP_full_spectrum.png used on input line 174.
+Package pdftex.def Info: EMEP_full_spectrum.png used on input line 177.
 (pdftex.def)             Requested size: 524.5638pt x 290.28674pt.
  [72 <./EMEP_costs_num_mat_vecs.png (PNG copy)>]
-<EMEP_largest_eigvals.png, id=1906, 873.2625pt x 440.64626pt>
+<EMEP_largest_eigvals.png, id=1911, 873.2625pt x 440.64626pt>
 File: EMEP_largest_eigvals.png Graphic file (type png)
 
 <use EMEP_largest_eigvals.png>
-Package pdftex.def Info: EMEP_largest_eigvals.png used on input line 195.
+Package pdftex.def Info: EMEP_largest_eigvals.png used on input line 198.
 (pdftex.def)             Requested size: 523.96153pt x 264.38979pt.
  [73 <./EMEP_full_spectrum.png (PNG copy)>]
 [74 <./EMEP_largest_eigvals.png (PNG copy)>] [75]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 339.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 339.
 
 [76] [77] [78]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 461.
+(hyperref)                removing `math shift' on input line 464.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 461.
+(hyperref)                removing `math shift' on input line 464.
 
 [79] [80] [81] [82]) [83] (./ch7_new_algorithm.tex
 Chapter 7.
 [84
 
 ]
-<Numerics-num_matvecs_orig_vs_optimal_params_1.png, id=2134, 746.79pt x 422.578
+<Numerics-num_matvecs_orig_vs_optimal_params_1.png, id=2139, 746.79pt x 422.578
 75pt>
 File: Numerics-num_matvecs_orig_vs_optimal_params_1.png Graphic file (type png)
 
@@ -1124,7 +1119,7 @@ Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_1.png used
  on input line 44.
 (pdftex.def)             Requested size: 448.07745pt x 253.5492pt.
 
-<Numerics-num_matvecs_orig_vs_optimal_params_2.png, id=2135, 821.0675pt x 198.7
+<Numerics-num_matvecs_orig_vs_optimal_params_2.png, id=2140, 821.0675pt x 198.7
 425pt>
 File: Numerics-num_matvecs_orig_vs_optimal_params_2.png Graphic file (type png)
 
@@ -1133,8 +1128,19 @@ Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_2.png used
  on input line 45.
 (pdftex.def)             Requested size: 492.6443pt x 119.24641pt.
  [85] [86 <./Numerics-num_matvecs_orig_vs_optimal_params_1.png (PNG copy)> <./N
-umerics-num_matvecs_orig_vs_optimal_params_2.png (PNG copy)>] [87] [88]
-<Numerics-num_eigs_ada_vs_opt_1.png, id=2190, 858.20625pt x 259.97125pt>
+umerics-num_matvecs_orig_vs_optimal_params_2.png (PNG copy)>]
+Overfull \hbox (39.50543pt too wide) in paragraph at lines 86--90
+\OT1/cmr/m/n/10.95 where $\OML/cmm/m/it/10.95 y \OT1/cmr/m/n/10.95 = [\OML/cmm/
+m/it/10.95 t[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 t[]\OT1/cmr/m/n/10.95 ; 
+\OML/cmm/m/it/10.95 t[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 t[]\OT1/cmr/m/n
+/10.95 ]$ is the vec-tor of matrix-vector prod-uct val-ues, $\OML/cmm/m/it/10.9
+5 x \OT1/cmr/m/n/10.95 = [\OML/cmm/m/it/10.95 r[]\OT1/cmr/m/n/10.95 ; \OML/cmm/
+m/it/10.95 r[]\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 r[]\OT1/cmr/m/n/10.95 ; 
+\OML/cmm/m/it/10.95 r[]\OT1/cmr/m/n/10.95 ]$
+ []
+
+[87] [88]
+<Numerics-num_eigs_ada_vs_opt_1.png, id=2195, 858.20625pt x 259.97125pt>
 File: Numerics-num_eigs_ada_vs_opt_1.png Graphic file (type png)
 
 <use Numerics-num_eigs_ada_vs_opt_1.png>
@@ -1142,7 +1148,7 @@ Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_1.png used on input line
 147.
 (pdftex.def)             Requested size: 514.92773pt x 155.98395pt.
  [89 <./Numerics-num_eigs_ada_vs_opt_1.png (PNG copy)>]
-<Numerics-num_eigs_req_ada_2_exps.png, id=2219, 865.2325pt x 246.9225pt>
+<Numerics-num_eigs_req_ada_2_exps.png, id=2224, 865.2325pt x 246.9225pt>
 File: Numerics-num_eigs_req_ada_2_exps.png Graphic file (type png)
 
 <use Numerics-num_eigs_req_ada_2_exps.png>
@@ -1150,7 +1156,7 @@ Package pdftex.def Info: Numerics-num_eigs_req_ada_2_exps.png used on input lin
 e 188.
 (pdftex.def)             Requested size: 519.14351pt x 148.15462pt.
  [90 <./Numerics-num_eigs_req_ada_2_exps.png (PNG copy)>]
-<Numerics-surf_num_mvs_and_eig_diffs_1.png, id=2246, 678.535pt x 705.63625pt>
+<Numerics-surf_num_mvs_and_eig_diffs_1.png, id=2251, 678.535pt x 705.63625pt>
 File: Numerics-surf_num_mvs_and_eig_diffs_1.png Graphic file (type png)
 
 <use Numerics-surf_num_mvs_and_eig_diffs_1.png>
@@ -1158,7 +1164,7 @@ Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_1.png used on inpu
 t line 224.
 (pdftex.def)             Requested size: 441.04253pt x 458.65813pt.
  [91]
-<Numerics-surf_num_mvs_and_eig_diffs_2.png, id=2263, 677.53125pt x 707.64375pt>
+<Numerics-surf_num_mvs_and_eig_diffs_2.png, id=2268, 677.53125pt x 707.64375pt>
 File: Numerics-surf_num_mvs_and_eig_diffs_2.png Graphic file (type png)
 <use Numerics-surf_num_mvs_and_eig_diffs_2.png>
 Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_2.png used on inpu
@@ -1166,7 +1172,7 @@ t line 234.
 (pdftex.def)             Requested size: 440.39009pt x 459.963pt.
  [92 <./Numerics-surf_num_mvs_and_eig_diffs_1.png (PNG copy)>] [93 <./Numerics-
 surf_num_mvs_and_eig_diffs_2.png (PNG copy)>] [94]
-<Numerics-surf_mvs_for_m_vs_j_1.png, id=2316, 350.30875pt x 356.33125pt>
+<Numerics-surf_mvs_for_m_vs_j_1.png, id=2321, 350.30875pt x 356.33125pt>
 File: Numerics-surf_mvs_for_m_vs_j_1.png Graphic file (type png)
 
 <use Numerics-surf_mvs_for_m_vs_j_1.png>
@@ -1174,7 +1180,7 @@ Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_1.png used on input line
 289.
 (pdftex.def)             Requested size: 210.18686pt x 213.80038pt.
 
-<Numerics-surf_mvs_for_m_vs_j_2.png, id=2317, 351.3125pt x 355.3275pt>
+<Numerics-surf_mvs_for_m_vs_j_2.png, id=2322, 351.3125pt x 355.3275pt>
 File: Numerics-surf_mvs_for_m_vs_j_2.png Graphic file (type png)
 
 <use Numerics-surf_mvs_for_m_vs_j_2.png>
@@ -1185,43 +1191,72 @@ Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_2.png used on input line
 r_m_vs_j_2.png (PNG copy)>]
 (./ch8_conclusion.tex
 Chapter 8.
-<Numerics-ada_vs_orig_various_params.png, id=2356, 860.21375pt x 238.8925pt>
+<Numerics-ada_vs_orig_various_params.png, id=2361, 860.21375pt x 238.8925pt>
 File: Numerics-ada_vs_orig_various_params.png Graphic file (type png)
 
 <use Numerics-ada_vs_orig_various_params.png>
 Package pdftex.def Info: Numerics-ada_vs_orig_various_params.png used on input 
-line 34.
+line 32.
 (pdftex.def)             Requested size: 516.13223pt x 143.3366pt.
  [96
 
 ] [97 <./Numerics-ada_vs_orig_various_params.png (PNG copy)>]
+<jul_and_me_orig.png, id=2405, 240.9pt x 240.9pt>
+File: jul_and_me_orig.png Graphic file (type png)
+ <use jul_and_me_orig.png>
+Package pdftex.def Info: jul_and_me_orig.png used on input line 87.
+(pdftex.def)             Requested size: 100.37596pt x 100.37596pt.
+
+<UCD_orig.png, id=2406, 602.25pt x 200.75pt>
+File: UCD_orig.png Graphic file (type png)
+ <use UCD_orig.png>
+Package pdftex.def Info: UCD_orig.png used on input line 89.
+(pdftex.def)             Requested size: 301.12425pt x 100.37474pt.
+
+<jul_and_me_L_15_ada40.png, id=2407, 240.9pt x 240.9pt>
+File: jul_and_me_L_15_ada40.png Graphic file (type png)
+
+<use jul_and_me_L_15_ada40.png>
+Package pdftex.def Info: jul_and_me_L_15_ada40.png used on input line 92.
+(pdftex.def)             Requested size: 100.37596pt x 100.37596pt.
+
+<UCD_L_15_ada40.png, id=2408, 602.25pt x 200.75pt>
+File: UCD_L_15_ada40.png Graphic file (type png)
+ <use UCD_L_15_ada40.png>
+Package pdftex.def Info: UCD_L_15_ada40.png used on input line 94.
+(pdftex.def)             Requested size: 301.12425pt x 100.37474pt.
+
+[98 <./jul_and_me_orig.png (PNG copy)> <./UCD_orig.png (PNG copy)> <./jul_and_m
+e_L_15_ada40.png (PNG copy)> <./UCD_L_15_ada40.png (PNG copy)>]
 File: Numerics-num_eigs_ada_vs_opt_1.png Graphic file (type png)
- <use Numerics-num_eigs_ada_vs_opt_1.png>
+
+<use Numerics-num_eigs_ada_vs_opt_1.png>
 Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_1.png used on input line 
-130.
+153.
 (pdftex.def)             Requested size: 514.92773pt x 155.98395pt.
 
-<Numerics-num_eigs_ada_vs_opt_2.png, id=2404, 860.21375pt x 181.67876pt>
+<Numerics-num_eigs_ada_vs_opt_2.png, id=2439, 860.21375pt x 181.67876pt>
 File: Numerics-num_eigs_ada_vs_opt_2.png Graphic file (type png)
 
 <use Numerics-num_eigs_ada_vs_opt_2.png>
 Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_2.png used on input line 
-131.
+154.
 (pdftex.def)             Requested size: 516.13223pt x 109.00809pt.
- [98]
-Overfull \hbox (7.23111pt too wide) in paragraph at lines 154--168
+ [99]
+Overfull \hbox (7.23111pt too wide) in paragraph at lines 179--193
  [][] 
  []
 
-[99 <./Numerics-num_eigs_ada_vs_opt_2.png (PNG copy)>]
-<Numerics-num_matvecs_ada_for_m_vals.png, id=2450, 855.195pt x 563.10374pt>
+[100 <./Numerics-num_eigs_ada_vs_opt_2.png (PNG copy)>]
+<Numerics-num_matvecs_ada_for_m_vals.png, id=2485, 855.195pt x 563.10374pt>
 File: Numerics-num_matvecs_ada_for_m_vals.png Graphic file (type png)
 
 <use Numerics-num_matvecs_ada_for_m_vals.png>
 Package pdftex.def Info: Numerics-num_matvecs_ada_for_m_vals.png used on input 
-line 186.
+line 211.
 (pdftex.def)             Requested size: 513.12097pt x 337.86485pt.
- [100] [101 <./Numerics-num_matvecs_ada_for_m_vals.png (PNG copy)>]) [102]
+ [101] [102 <./Numerics-num_matvecs_ada_for_m_vals.png (PNG copy)>] [103]) [104
+]
 (./Appx-A_proof_of_PL1_gauge_duality.tex
 Appendix A.
 
@@ -1236,37 +1271,33 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1.
 
-
-LaTeX Warning: Reference `Subsubsec:phase_retrieval-why_optimize_PLGD_model' on
- page 103 undefined on input line 3.
-
-) [103
+) [105
 
 ] (./Appx-B_further_justification.tex
 Appendix B.
-<term_crit-pr_err_fails.png, id=2508, 854.19125pt x 200.75pt>
+<term_crit-pr_err_fails.png, id=2597, 854.19125pt x 200.75pt>
 File: term_crit-pr_err_fails.png Graphic file (type png)
 
 <use term_crit-pr_err_fails.png>
 Package pdftex.def Info: term_crit-pr_err_fails.png used on input line 25.
 (pdftex.def)             Requested size: 512.5187pt x 120.45091pt.
- [104
+ [106
 
-] [105 <./term_crit-pr_err_fails.png (PNG copy)>] <term_crit-dual_obj.png, id=2
-558, 890.32625pt x 392.46625pt>
+] [107 <./term_crit-pr_err_fails.png (PNG copy)>] <term_crit-dual_obj.png, id=2
+646, 890.32625pt x 392.46625pt>
 File: term_crit-dual_obj.png Graphic file (type png)
 
 <use term_crit-dual_obj.png>
 Package pdftex.def Info: term_crit-dual_obj.png used on input line 93.
 (pdftex.def)             Requested size: 534.19987pt x 235.48155pt.
- [106]) [107 <./term_crit-dual_obj.png (PNG copy)>] (./will_wright-working_note
-s.bbl [108
+ [108]) [109 <./term_crit-dual_obj.png (PNG copy)>] (./will_wright-working_note
+s.bbl [110
 
-] [109] [110] [111]
+] [111] [112] [113]
 Missing character: There is no â in font cmti10!
 Missing character: There is no € in font cmti10!
 Missing character: There is no ” in font cmti10!
- [112]) [113]
+ [114]) [115]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 308.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 308.
 
@@ -1275,19 +1306,15 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 308.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 308.
 Package rerunfilecheck Info: File `will_wright-working_notes.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 836353EB0BE363F5A75456B05DEB83ED;3830.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 41001AC9ED1730DE5D3AFB4B811488BC;3901.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 308.
  ) 
 Here is how much of TeX's memory you used:
- 22183 strings out of 493054
- 433920 string characters out of 6134760
- 545751 words of memory out of 5000000
- 24770 multiletter control sequences out of 15000+600000
- 19877 words of font info for 76 fonts, out of 8000000 for 9000
+ 22217 strings out of 493054
+ 434564 string characters out of 6134760
+ 546774 words of memory out of 5000000
+ 24791 multiletter control sequences out of 15000+600000
+ 20222 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,21n,67p,1590b,904s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -1308,14 +1335,15 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on will_wright-working_notes.pdf (114 pages, 1834641 bytes).
+-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on will_wright-working_notes.pdf (116 pages, 2590137 bytes).
 PDF statistics:
- 2788 PDF objects out of 2984 (max. 8388607)
- 2474 compressed objects within 25 object streams
- 480 named destinations out of 1000 (max. 500000)
- 506 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2883 PDF objects out of 2984 (max. 8388607)
+ 2556 compressed objects within 26 object streams
+ 488 named destinations out of 1000 (max. 500000)
+ 534 words of extra memory for PDF output out of 10000 (max. 10000000)
 

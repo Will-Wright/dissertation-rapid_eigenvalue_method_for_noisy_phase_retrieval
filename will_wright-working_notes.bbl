@@ -155,6 +155,11 @@ M.~Guizar-Sicairos, \emph{Phase retrieval for x-ray coherent lensless imaging},
 G.~H. Golub and C.~F. Van~Loan, \emph{Matrix computations}, 4 ed., JHU Press,
   2012.
 
+\bibitem[GY02]{golub2002inverse}
+G.~H. Golub and Q.~Ye, \emph{An inverse free preconditioned krylov subspace
+  method for symmetric generalized eigenvalue problems}, SIAM Journal on
+  Scientific Computing \textbf{24} (2002), no.~1, 312--334.
+
 \bibitem[Har93]{harrison1993phase}
 R.~W. Harrison, \emph{Phase problem in crystallography}, JOSA a \textbf{10}
   (1993), no.~5, 1046--1055.

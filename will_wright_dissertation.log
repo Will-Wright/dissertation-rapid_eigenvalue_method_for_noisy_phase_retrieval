@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  20 MAY 2019 14:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  2 JUL 2019 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -979,17 +979,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (9.72601pt too wide) in paragraph at lines 40--41
+Overfull \hbox (9.72601pt too wide) in paragraph at lines 44--45
 []\OT1/cmr/m/n/10.95 CDI is a method for re-con-struct-ing $2$- or $3$-dimensio
 nal nano-structures (e.g., nan-otubes, nanocrys-
  []
 
-<phase_retrieval_depiction_mod.jpg, id=367, 526.96875pt x 333.245pt>
+<phase_retrieval_depiction_mod.jpg, id=376, 526.96875pt x 333.245pt>
 File: phase_retrieval_depiction_mod.jpg Graphic file (type jpg)
 
 <use phase_retrieval_depiction_mod.jpg>
 Package pdftex.def Info: phase_retrieval_depiction_mod.jpg used on input line 4
-4.
+8.
 (pdftex.def)             Requested size: 352.31625pt x 222.81026pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -998,54 +998,51 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9 <./phase_retrieval_depiction_mod.jpg>]
-<parrot_signal_iterates.png, id=409, 978.65625pt x 173.64874pt>
+<parrot_signal_iterates.png, id=420, 978.65625pt x 173.64874pt>
 File: parrot_signal_iterates.png Graphic file (type png)
 
 <use parrot_signal_iterates.png>
-Package pdftex.def Info: parrot_signal_iterates.png used on input line 77.
+Package pdftex.def Info: parrot_signal_iterates.png used on input line 90.
 (pdftex.def)             Requested size: 538.2626pt x 95.5071pt.
- [10 <./parrot_signal_iterates.png (PNG copy)>]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 113.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11]
-Overfull \hbox (4.39432pt too wide) in paragraph at lines 157--158
+ [10]
+[11 <./parrot_signal_iterates.png (PNG copy)>]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 129.
+ [12]
+Overfull \hbox (4.39432pt too wide) in paragraph at lines 174--175
  [][] 
  []
 
+[13]
+Underfull \vbox (badness 6157) has occurred while \output is active []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
-Underfull \vbox (badness 3354) has occurred while \output is active []
-
- [13]
-[14]
+ [14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17]
+[17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18]
-[19]
-Underfull \vbox (badness 2903) has occurred while \output is active []
+Underfull \vbox (badness 6078) has occurred while \output is active []
+
+ [19]
+Underfull \vbox (badness 7273) has occurred while \output is active []
 
  [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-Underfull \vbox (badness 1571) has occurred while \output is active []
+Underfull \vbox (badness 1742) has occurred while \output is active []
 
  [22]
-Underfull \vbox (badness 1270) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
 [24]
@@ -1061,21 +1058,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: parrot_signal_iterates.png Graphic file (type png)
 
 <use parrot_signal_iterates.png>
-Package pdftex.def Info: parrot_signal_iterates.png used on input line 734.
+Package pdftex.def Info: parrot_signal_iterates.png used on input line 745.
 (pdftex.def)             Requested size: 538.2626pt x 95.5071pt.
 
-<parrot_signal_relative_error_2.png, id=754, 925.4575pt x 206.7725pt>
+<parrot_signal_relative_error_2.png, id=772, 925.4575pt x 206.7725pt>
 File: parrot_signal_relative_error_2.png Graphic file (type png)
 
 <use parrot_signal_relative_error_2.png>
 Package pdftex.def Info: parrot_signal_relative_error_2.png used on input line 
-735.
+746.
 (pdftex.def)             Requested size: 555.2788pt x 124.06445pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28])
-(./ch3_gauge_duality.tex [29 <./parrot_signal_relative_error_2.png (PNG copy)>]
+ [28]) (./ch3_gauge_duality.tex
+[29 <./parrot_signal_relative_error_2.png (PNG copy)>]
 Chapter 3
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1084,12 +1078,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (1.41534pt too wide) in paragraph at lines 54--55
-[]\OT1/cmr/m/n/10.95 Following the con-ven-tion of these ma-jor the-o-ret-i-cal
- ad-vances in gauge du-al-ity ( [[]\OT1/cmr/bx/n/10.95 Fre87[]\OT1/cmr/m/n/10.9
-5 ], [[]\OT1/cmr/bx/n/10.95 FM16[]\OT1/cmr/m/n/10.95 ],
- []
-
 [31]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1100,14 +1088,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34]
+[35]
+Underfull \vbox (badness 1874) has occurred while \output is active []
+
+ [36]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35]
-[36] [37]
+ [37]
 Underfull \vbox (badness 1221) has occurred while \output is active []
 
  [38]
-Overfull \hbox (4.62978pt too wide) in paragraph at lines 366--367
+Overfull \hbox (4.62978pt too wide) in paragraph at lines 381--382
 [][][]\OT1/cmr/m/sc/10.95 Proposition \OT1/cmr/m/n/10.95 3.3.4\OT1/cmr/m/sc/10.
 95 . []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^T[]$ \OT1/cmr/m/it/10.95 
 and $\OML/cmm/m/it/10.95 ^^T[]$ \OT1/cmr/m/it/10.95 be gauges. Let $\OML/cmm/m/
@@ -1121,12 +1112,10 @@ mr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 z[] \OMS/cmsy/m/n/10.95
  []
 
 [39]
-Underfull \vbox (badness 3679) has occurred while \output is active []
+Underfull \vbox (badness 2150) has occurred while \output is active []
 
  [40]
-Underfull \vbox (badness 7888) has occurred while \output is active []
-
- [41]
+[41]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [42]
@@ -1201,7 +1190,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [69]
-<noisy_random_signal_relative_errors_stagnate.png, id=1551, 869.2475pt x 182.68
+<noisy_random_signal_relative_errors_stagnate.png, id=1571, 869.2475pt x 182.68
 25pt>
 File: noisy_random_signal_relative_errors_stagnate.png Graphic file (type png)
  <use noisy_random_signal_relative_errors_stagnate.png>
@@ -1217,7 +1206,7 @@ Overfull \hbox (51.7975pt too wide) in paragraph at lines 267--268
 Underfull \vbox (badness 1281) has occurred while \output is active []
 
  [70 <./noisy_random_signal_relative_errors_stagnate.png (PNG copy)>] [71]
-<noisy_random_signal_DFP_vs_no_DFP.png, id=1636, 866.23625pt x 187.70125pt>
+<noisy_random_signal_DFP_vs_no_DFP.png, id=1656, 866.23625pt x 187.70125pt>
 File: noisy_random_signal_DFP_vs_no_DFP.png Graphic file (type png)
 
 <use noisy_random_signal_DFP_vs_no_DFP.png>
@@ -1230,21 +1219,21 @@ Overfull \hbox (49.99075pt too wide) in paragraph at lines 335--336
  []
 
 [72 <./noisy_random_signal_DFP_vs_no_DFP.png (PNG copy)>] [73]
-<term_crit-signal_err.png, id=1686, 884.30376pt x 504.88625pt>
+<term_crit-signal_err.png, id=1707, 884.30376pt x 504.88625pt>
 File: term_crit-signal_err.png Graphic file (type png)
 
 <use term_crit-signal_err.png>
 Package pdftex.def Info: term_crit-signal_err.png used on input line 391.
 (pdftex.def)             Requested size: 530.58635pt x 302.93407pt.
  [74 <./term_crit-signal_err.png (PNG copy)>]
-<term_crit-pr_and_dual.png, id=1733, 884.30376pt x 754.82pt>
+<term_crit-pr_and_dual.png, id=1753, 884.30376pt x 754.82pt>
 File: term_crit-pr_and_dual.png Graphic file (type png)
 
 <use term_crit-pr_and_dual.png>
 Package pdftex.def Info: term_crit-pr_and_dual.png used on input line 463.
 (pdftex.def)             Requested size: 530.58635pt x 452.89551pt.
  [75] [76 <./term_crit-pr_and_dual.png (PNG copy)>] <term_crit-duality_gap.png,
- id=1774, 860.21375pt x 432.61626pt>
+ id=1794, 860.21375pt x 432.61626pt>
 File: term_crit-duality_gap.png Graphic file (type png)
 
 <use term_crit-duality_gap.png>
@@ -1254,7 +1243,7 @@ Package pdftex.def Info: term_crit-duality_gap.png used on input line 490.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [77]
-<term_crit-model_term_for_tols.png, id=1795, 884.30376pt x 505.89pt>
+<term_crit-model_term_for_tols.png, id=1815, 884.30376pt x 505.89pt>
 File: term_crit-model_term_for_tols.png Graphic file (type png)
 
 <use term_crit-model_term_for_tols.png>
@@ -1267,29 +1256,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [78 <./term_crit-duality_gap.png (PNG copy)>]) (./ch6_eig_methods.tex [79 <./t
 erm_crit-model_term_for_tols.png (PNG copy)>]
 Chapter 6
-
-LaTeX Warning: Citation `comon1990tracking' on page 80 undefined on input line 
-45.
-
-
-LaTeX Warning: Citation `stewart1992updating' on page 80 undefined on input lin
-e 45.
-
-
-LaTeX Warning: Citation `yang1995projection' on page 80 undefined on input line
- 45.
-
-
-LaTeX Warning: Citation `doukopoulos2008fast' on page 80 undefined on input lin
-e 45.
-
-
-LaTeX Warning: Citation `ngo2012scaled' on page 80 undefined on input line 45.
-
-
-LaTeX Warning: Citation `saad2010numerical' on page 80 undefined on input line 
-45.
-
 [80
 
 
@@ -1297,31 +1263,28 @@ LaTeX Warning: Citation `saad2010numerical' on page 80 undefined on input line
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [81]
-<EMEP_costs_num_mat_vecs.png, id=1867, 884.30376pt x 400.49625pt>
+<EMEP_costs_num_mat_vecs.png, id=1903, 884.30376pt x 400.49625pt>
 File: EMEP_costs_num_mat_vecs.png Graphic file (type png)
 
 <use EMEP_costs_num_mat_vecs.png>
-Package pdftex.def Info: EMEP_costs_num_mat_vecs.png used on input line 128.
+Package pdftex.def Info: EMEP_costs_num_mat_vecs.png used on input line 154.
 (pdftex.def)             Requested size: 530.58635pt x 240.29959pt.
-
-Underfull \vbox (badness 1033) has occurred while \output is active []
-
  [82]
-<EMEP_full_spectrum.png, id=1885, 874.26625pt x 483.8075pt>
+<EMEP_full_spectrum.png, id=1921, 874.26625pt x 483.8075pt>
 File: EMEP_full_spectrum.png Graphic file (type png)
 
 <use EMEP_full_spectrum.png>
-Package pdftex.def Info: EMEP_full_spectrum.png used on input line 146.
+Package pdftex.def Info: EMEP_full_spectrum.png used on input line 174.
 (pdftex.def)             Requested size: 524.5638pt x 290.28674pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [83 <./EMEP_costs_num_mat_vecs.png (PNG copy)>]
-<EMEP_largest_eigvals.png, id=1903, 873.2625pt x 440.64626pt>
+<EMEP_largest_eigvals.png, id=1940, 873.2625pt x 440.64626pt>
 File: EMEP_largest_eigvals.png Graphic file (type png)
 
 <use EMEP_largest_eigvals.png>
-Package pdftex.def Info: EMEP_largest_eigvals.png used on input line 167.
+Package pdftex.def Info: EMEP_largest_eigvals.png used on input line 195.
 (pdftex.def)             Requested size: 523.96153pt x 264.38979pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1329,171 +1292,252 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [84 <./EMEP_full_spectrum.png (PNG copy)>]
 Underfull \vbox (badness 1997) has occurred while \output is active []
 
- [85 <./EMEP_largest_eigvals.png (PNG copy)>] [86] [87]
+ [85 <./EMEP_largest_eigvals.png (PNG copy)>] [86]
+Underfull \vbox (badness 1748) has occurred while \output is active []
+
+ [87]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [88]
 [89] [90] [91]
-Underfull \vbox (badness 3482) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [92]
 [93]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [94])
-(./ch7_new_algorithm.tex [95]
+ [94]
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+ [95])
+(./ch7_new_algorithm.tex [96]
 Chapter 7
-[96
+[97
 
 
 ]
-<Numerics-num_matvecs_orig_vs_optimal_params_1.png, id=2136, 746.79pt x 422.578
+<Numerics-num_matvecs_orig_vs_optimal_params_1.png, id=2182, 746.79pt x 422.578
 75pt>
 File: Numerics-num_matvecs_orig_vs_optimal_params_1.png Graphic file (type png)
 
  <use Numerics-num_matvecs_orig_vs_optimal_params_1.png>
 Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_1.png used
- on input line 46.
+ on input line 44.
 (pdftex.def)             Requested size: 448.07745pt x 253.5492pt.
 
-<Numerics-num_matvecs_orig_vs_optimal_params_2.png, id=2137, 821.0675pt x 198.7
+<Numerics-num_matvecs_orig_vs_optimal_params_2.png, id=2183, 821.0675pt x 198.7
 425pt>
 File: Numerics-num_matvecs_orig_vs_optimal_params_2.png Graphic file (type png)
 
  <use Numerics-num_matvecs_orig_vs_optimal_params_2.png>
 Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_2.png used
- on input line 47.
+ on input line 45.
 (pdftex.def)             Requested size: 492.6443pt x 119.24641pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [97]
-[98 <./Numerics-num_matvecs_orig_vs_optimal_params_1.png (PNG copy)> <./Numeric
+ [98]
+[99 <./Numerics-num_matvecs_orig_vs_optimal_params_1.png (PNG copy)> <./Numeric
 s-num_matvecs_orig_vs_optimal_params_2.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [99]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [100]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [101]
-<Numerics-num_eigs_ada_vs_opt_1.png, id=2198, 858.20625pt x 259.97125pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [102]
+<Numerics-num_eigs_ada_vs_opt_1.png, id=2241, 858.20625pt x 259.97125pt>
 File: Numerics-num_eigs_ada_vs_opt_1.png Graphic file (type png)
 
 <use Numerics-num_eigs_ada_vs_opt_1.png>
 Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_1.png used on input line 
-149.
+147.
 (pdftex.def)             Requested size: 514.92773pt x 155.98395pt.
 
-Underfull \vbox (badness 7759) has occurred while \output is active []
+Underfull \vbox (badness 6575) has occurred while \output is active []
 
- [102 <./Numerics-num_eigs_ada_vs_opt_1.png (PNG copy)>]
-<Numerics-num_eigs_req_ada_2_exps.png, id=2226, 865.2325pt x 246.9225pt>
+ [103 <./Numerics-num_eigs_ada_vs_opt_1.png (PNG copy)>]
+<Numerics-num_eigs_req_ada_2_exps.png, id=2270, 865.2325pt x 246.9225pt>
 File: Numerics-num_eigs_req_ada_2_exps.png Graphic file (type png)
 
 <use Numerics-num_eigs_req_ada_2_exps.png>
 Package pdftex.def Info: Numerics-num_eigs_req_ada_2_exps.png used on input lin
-e 189.
+e 188.
 (pdftex.def)             Requested size: 519.14351pt x 148.15462pt.
- [103 <./Numerics-num_eigs_req_ada_2_exps.png (PNG copy)>]
-<Numerics-surf_num_mvs_and_eig_diffs_1.png, id=2256, 678.535pt x 705.63625pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (13.0pt): 
+ Make it at least 24.38252pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[104 <./Numerics-num_eigs_req_ada_2_exps.png (PNG copy)>]
+<Numerics-surf_num_mvs_and_eig_diffs_1.png, id=2298, 678.535pt x 705.63625pt>
 File: Numerics-surf_num_mvs_and_eig_diffs_1.png Graphic file (type png)
 
 <use Numerics-surf_num_mvs_and_eig_diffs_1.png>
 Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_1.png used on inpu
-t line 218.
+t line 224.
 (pdftex.def)             Requested size: 441.04253pt x 458.65813pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [104]
-<Numerics-surf_num_mvs_and_eig_diffs_2.png, id=2273, 677.53125pt x 707.64375pt>
+
+
+Package Fancyhdr Warning: \headheight is too small (13.0pt): 
+ Make it at least 24.38252pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[105]
+<Numerics-surf_num_mvs_and_eig_diffs_2.png, id=2316, 677.53125pt x 707.64375pt>
 File: Numerics-surf_num_mvs_and_eig_diffs_2.png Graphic file (type png)
 <use Numerics-surf_num_mvs_and_eig_diffs_2.png>
 Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_2.png used on inpu
-t line 228.
+t line 234.
 (pdftex.def)             Requested size: 440.39009pt x 459.963pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [105 <./Numerics-surf_num_mvs_and_eig_diffs_1.png (PNG copy)>] [106 <./Numeric
-s-surf_num_mvs_and_eig_diffs_2.png (PNG copy)>]
-<Numerics-surf_mvs_for_m_vs_j_1.png, id=2308, 350.30875pt x 356.33125pt>
+
+
+Package Fancyhdr Warning: \headheight is too small (13.0pt): 
+ Make it at least 24.38252pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[106 <./Numerics-surf_num_mvs_and_eig_diffs_1.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (13.0pt): 
+ Make it at least 24.38252pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[107 <./Numerics-surf_num_mvs_and_eig_diffs_2.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (13.0pt): 
+ Make it at least 24.38252pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[108] <Numerics-surf_mvs_for_m_vs_j_1.png, id=2369, 350.30875pt x 356.33125pt>
 File: Numerics-surf_mvs_for_m_vs_j_1.png Graphic file (type png)
 
 <use Numerics-surf_mvs_for_m_vs_j_1.png>
 Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_1.png used on input line 
-263.
+289.
 (pdftex.def)             Requested size: 210.18686pt x 213.80038pt.
 
-<Numerics-surf_mvs_for_m_vs_j_2.png, id=2309, 351.3125pt x 355.3275pt>
+<Numerics-surf_mvs_for_m_vs_j_2.png, id=2370, 351.3125pt x 355.3275pt>
 File: Numerics-surf_mvs_for_m_vs_j_2.png Graphic file (type png)
 
 <use Numerics-surf_mvs_for_m_vs_j_2.png>
 Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_2.png used on input line 
-264.
+290.
 (pdftex.def)             Requested size: 210.78911pt x 213.19814pt.
+) (./ch8_conclusion.tex
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package Fancyhdr Warning: \headheight is too small (13.0pt): 
+ Make it at least 24.38252pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
- [107]
-[108 <./Numerics-surf_mvs_for_m_vs_j_1.png (PNG copy)> <./Numerics-surf_mvs_for
+[109 <./Numerics-surf_mvs_for_m_vs_j_1.png (PNG copy)> <./Numerics-surf_mvs_for
 _m_vs_j_2.png (PNG copy)>]
-<Numerics-ada_vs_orig_various_params.png, id=2354, 860.21375pt x 238.8925pt>
+
+Package Fancyhdr Warning: \headheight is too small (13.0pt): 
+ Make it at least 24.38252pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[110]
+Chapter 8
+<Numerics-ada_vs_orig_various_params.png, id=2413, 860.21375pt x 238.8925pt>
 File: Numerics-ada_vs_orig_various_params.png Graphic file (type png)
 
 <use Numerics-ada_vs_orig_various_params.png>
 Package pdftex.def Info: Numerics-ada_vs_orig_various_params.png used on input 
-line 325.
+line 32.
 (pdftex.def)             Requested size: 516.13223pt x 143.3366pt.
+ [111
 
+
+]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [109]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [112 <./Numerics-ada_vs_orig_various_params.png (PNG copy)>]
+<jul_and_me_orig.png, id=2457, 240.9pt x 240.9pt>
+File: jul_and_me_orig.png Graphic file (type png)
+ <use jul_and_me_orig.png>
+Package pdftex.def Info: jul_and_me_orig.png used on input line 87.
+(pdftex.def)             Requested size: 100.37596pt x 100.37596pt.
 
- [110 <./Numerics-ada_vs_orig_various_params.png (PNG copy)>]
+<UCD_orig.png, id=2458, 602.25pt x 200.75pt>
+File: UCD_orig.png Graphic file (type png)
+ <use UCD_orig.png>
+Package pdftex.def Info: UCD_orig.png used on input line 89.
+(pdftex.def)             Requested size: 301.12425pt x 100.37474pt.
+
+<jul_and_me_L_15_ada40.png, id=2459, 240.9pt x 240.9pt>
+File: jul_and_me_L_15_ada40.png Graphic file (type png)
+
+<use jul_and_me_L_15_ada40.png>
+Package pdftex.def Info: jul_and_me_L_15_ada40.png used on input line 92.
+(pdftex.def)             Requested size: 100.37596pt x 100.37596pt.
+
+<UCD_L_15_ada40.png, id=2460, 602.25pt x 200.75pt>
+File: UCD_L_15_ada40.png Graphic file (type png)
+ <use UCD_L_15_ada40.png>
+Package pdftex.def Info: UCD_L_15_ada40.png used on input line 94.
+(pdftex.def)             Requested size: 301.12425pt x 100.37474pt.
+
+[113 <./jul_and_me_orig.png (PNG copy)> <./UCD_orig.png (PNG copy)> <./jul_and_
+me_L_15_ada40.png (PNG copy)> <./UCD_L_15_ada40.png (PNG copy)>]
 File: Numerics-num_eigs_ada_vs_opt_1.png Graphic file (type png)
 
 <use Numerics-num_eigs_ada_vs_opt_1.png>
 Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_1.png used on input line 
-420.
+153.
 (pdftex.def)             Requested size: 514.92773pt x 155.98395pt.
 
-<Numerics-num_eigs_ada_vs_opt_2.png, id=2401, 860.21375pt x 181.67876pt>
+<Numerics-num_eigs_ada_vs_opt_2.png, id=2490, 860.21375pt x 181.67876pt>
 File: Numerics-num_eigs_ada_vs_opt_2.png Graphic file (type png)
 
 <use Numerics-num_eigs_ada_vs_opt_2.png>
 Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_2.png used on input line 
-421.
+154.
 (pdftex.def)             Requested size: 516.13223pt x 109.00809pt.
 
+Underfull \vbox (badness 2165) has occurred while \output is active []
+
+ [114]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [111]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [112 <./Numerics-num_eigs_ada_vs_opt_2.png (PNG copy)>]
-<Numerics-num_matvecs_ada_for_m_vals.png, id=2452, 855.195pt x 563.10374pt>
+ [115 <./Numerics-num_eigs_ada_vs_opt_2.png (PNG copy)>]
+<Numerics-num_matvecs_ada_for_m_vals.png, id=2537, 855.195pt x 563.10374pt>
 File: Numerics-num_matvecs_ada_for_m_vals.png Graphic file (type png)
 
 <use Numerics-num_matvecs_ada_for_m_vals.png>
 Package pdftex.def Info: Numerics-num_matvecs_ada_for_m_vals.png used on input 
-line 477.
+line 211.
 (pdftex.def)             Requested size: 513.12097pt x 337.86485pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [113]
-[114 <./Numerics-num_matvecs_ada_for_m_vals.png (PNG copy)>])
-(./ch8_conclusion.tex [115]
-Chapter 8
-) (./Appx-A_proof_of_PL1_gauge_duality.tex [116
+ [116]
+[117 <./Numerics-num_matvecs_ada_for_m_vals.png (PNG copy)>]
+Underfull \vbox (badness 2478) has occurred while \output is active []
 
-
-]
+ [118])
+(./Appx-A_proof_of_PL1_gauge_duality.tex [119]
 Appendix A
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -1507,12 +1551,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1.
 
-) (./Appx-B_further_justification.tex [117
+) (./Appx-B_further_justification.tex [120
 
 
 ]
 Appendix B
-<term_crit-pr_err_fails.png, id=2515, 854.19125pt x 200.75pt>
+<term_crit-pr_err_fails.png, id=2643, 854.19125pt x 200.75pt>
 File: term_crit-pr_err_fails.png Graphic file (type png)
 
 <use term_crit-pr_err_fails.png>
@@ -1521,15 +1565,15 @@ Package pdftex.def Info: term_crit-pr_err_fails.png used on input line 25.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [118
+ [121
 
 
 ]
-[119 <./term_crit-pr_err_fails.png (PNG copy)>]
+[122 <./term_crit-pr_err_fails.png (PNG copy)>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [120]
-<term_crit-dual_obj.png, id=2571, 890.32625pt x 392.46625pt>
+ [123]
+<term_crit-dual_obj.png, id=2698, 890.32625pt x 392.46625pt>
 File: term_crit-dual_obj.png Graphic file (type png)
 
 <use term_crit-dual_obj.png>
@@ -1538,13 +1582,13 @@ Package pdftex.def Info: term_crit-dual_obj.png used on input line 93.
 
 Underfull \vbox (badness 2035) has occurred while \output is active []
 
- [121 <./term_crit-dual_obj.png (PNG copy)>]) [122] (./will_wright_dissertation
+ [124 <./term_crit-dual_obj.png (PNG copy)>]) [125] (./will_wright_dissertation
 .bbl
 Bibliography
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [123
+ [126
 
 
 
@@ -1552,25 +1596,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [124]
+ [127]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 240.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [125]
+ [128]
 Missing character: There is no â in font cmti9!
 Missing character: There is no € in font cmti9!
 Missing character: There is no ” in font cmti9!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [126])
+ [129])
 
 Package caption Warning: Unused \captionsetup[subfigure] on input line 20.
 See the caption package documentation for explanation.
 
-[127]
+[130]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 136.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 136.
  (./will_wright_dissertation.aux)
@@ -1578,21 +1622,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 136.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 136.
 Package rerunfilecheck Info: File `will_wright_dissertation.out' has not change
 d.
-(rerunfilecheck)             Checksum: 59145025CC16559F07DBB8D3F1943E61;3101.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: F35524ECBE7BFFFAA6EA2DA77E53A3B0;3156.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 136.
  ) 
 Here is how much of TeX's memory you used:
- 22843 strings out of 493054
- 440844 string characters out of 6134760
- 550552 words of memory out of 5000000
- 25233 multiletter control sequences out of 15000+600000
+ 22891 strings out of 493054
+ 441880 string characters out of 6134760
+ 555254 words of memory out of 5000000
+ 25262 multiletter control sequences out of 15000+600000
  16028 words of font info for 62 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 57i,19n,67p,1592b,886s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,21n,67p,1592b,886s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -1617,10 +1657,10 @@ ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2015/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on will_wright_dissertation.pdf (134 pages, 1892806 bytes).
+Output written on will_wright_dissertation.pdf (137 pages, 2635966 bytes).
 PDF statistics:
- 2818 PDF objects out of 2984 (max. 8388607)
- 2480 compressed objects within 25 object streams
- 496 named destinations out of 1000 (max. 500000)
- 434 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2937 PDF objects out of 2984 (max. 8388607)
+ 2588 compressed objects within 26 object streams
+ 511 named destinations out of 1000 (max. 500000)
+ 462 words of extra memory for PDF output out of 10000 (max. 10000000)
 

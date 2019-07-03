@@ -1,30 +1,28 @@
 \chapter{Conclusion}			\label{Sec:Conclusion}
 
 
-xxx REVISE INTRO
-
-
-Section \ref{Subsec:Numerics-adaptive_IRAM_figs_and_tables} presents a variety of numerical results comparing the adaptive parameter method with the original parameters used for the \emep.
-As compared with the original parameters, we see that the adaptive parameter method decreases the number of matrix-vector products by 50-90\% for the EMEP with minimal oversamping in the phase retrieval problem (\ref{Eqn:phase_retrieval}).
-
-
-All \emep \ experiments in this chapter are performed with Algorithm \ref{Alg:PGD} using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit}.
-All experiments in this chapter are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
-
-
-\section{Overall numerical results} 			\label{Subsec:Numerics-adaptive_IRAM_figs_and_tables}
+In this chapter we conclude our work on the PLGD model (\ref{Eqn:PhaseLift-P-GD}) and the \emep.
+Section \ref{Subsec:Conclusion-performance_results} demonstrates the effectiveness of the IRAM with adaptive parameter selection (Algorithm \ref{Alg:adaptive_IRAM}) for a variety of noisy phase retrieval problems.
+Section \ref{Subsec:Conclusion-contrib_and_future} summarizes the contributions made in this dissertation and suggests possible future work.
 
 
 
-This section demonstrates the efficiency of the adaptive parameter method (Algorithm \ref{Alg:adaptive_IRAM}) for solving the \emep.
+\section{Performance results} 			\label{Subsec:Conclusion-performance_results}
+
+
+This section demonstrates the efficiency of the IRAM with adaptive parameter selection (Algorithm \ref{Alg:adaptive_IRAM}) for solving the \emep.
 We begin by demonstrating that Algorithm \ref{Alg:adaptive_IRAM} is more efficient than the original IRAM (Algorithm \ref{Alg:IRAM}) parameter settings for a variety of PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).
-Next, we show that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal as a method for choosing the ideal number of requested eigenvalues $r_k$ corresponding to the minimum number of matrix-vector products necessary for each \emep \ iteration.
+We observe that Algorithm \ref{Alg:adaptive_IRAM} typically reduces the number of matrix-vector products in the EMEP by at least $50\%$ as compared with the original IRAM settings.
+Next, we show that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal as a method for choosing the ideal number of requested eigenvalues $r_k$ corresponding to the minimum number of matrix-vector products necessary for each EMEP iteration.
 Finally, we demonstrate that the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size parameter $m = 40$ for Algorithm \ref{Alg:adaptive_IRAM} strikes a proper balance between increasing computational efficiency and minimizing data storage.
+Note that all experiments in this section are performed using termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit}.
+All experiments are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
 
 
+%\subsection{Performance results for two EMEP methods}  			\label{Subsubsec:Conclusion-gen_perf_results}
 
 
-We begin this section by examining the performance of Algorithm \ref{Alg:adaptive_IRAM} for various phase retrieval problems.
+We begin by comparing the performance of Algorithm \ref{Alg:adaptive_IRAM} and the original IRAM parameter choices for a variety of randomly generated and image-based phase retrieval problems.
 Figure \ref{Fig:Numerics-ada_vs_orig_various_params} depicts a set of experiments with randomly generated signals.
 
 
@@ -35,9 +33,8 @@ Figure \ref{Fig:Numerics-ada_vs_orig_various_params} depicts a set of experiment
 			}
 	\vspace{0.0cm}
 	\caption{
-xxx MENTION MODELS FIRST, METHODS NEXT. 
-	Performance results for Algorithm \ref{Alg:adaptive_IRAM} (dashed line) and the original IRAM parameters $m=20$, $r = 2$ (solid line).
-	All problems are PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) and signals are complex with standard Gaussian distribution (\ref{Def:Gaussian_distribution_complex}).
+	Performance results for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), where signals are complex with standard Gaussian distribution (\ref{Def:Gaussian_distribution_complex}).
+	Results indicate Algorithm \ref{Alg:adaptive_IRAM} (dashed line) and the original IRAM parameters $m=20$, $r = 2$ (solid line). 
 	Each result is the mean of 10 experiments.
 	Left: Varying signal size $n$, with fixed noise ratio $\epsilon_\text{rel} = 0.15$ and oversampling scaled logarithmically with $n$ (i.e., $L = 10, 12, 12, 14$) as indicated in Theorem \ref{Thm:PhaseLift_approx}.
 	Middle: Varying oversampling rate $L$, with fixed signal size $n = 128$ and noise ratio $\epsilon_\text{rel} = 0.15$.
@@ -52,41 +49,66 @@ The left and middle plots in Figure \ref{Fig:Numerics-ada_vs_orig_various_params
 Additionally, the right plot in Figure \ref{Fig:Numerics-ada_vs_orig_various_params} suggests Algorithm \ref{Alg:adaptive_IRAM} may reduce matrix-vector products by $80\%$ or more for problems with significant noise.
 
 
+We also find that Algorithm \ref{Alg:adaptive_IRAM} is more efficient than the original IRAM settings for image-based phase retrieval problems.
+Table \ref{Tab:Numerics-ada_vs_orig_large_images} shows the performance results for two larger images from Figure \ref{Fig:Numerics-large_images}.
 
-%%%%%%%%%%%%%%%%%%
-%
-% 	ADD HERE: Discussion, UCD AND JUL PICS, Table
-%
-%%%%%%%%%%%%%%%%%%
 
-\iffalse
 
 \begin{table}[H]
 \centering
-\begin{tabular}{ |cc|c|cc|cc| }
+\begin{tabular}{ |ccc|c|cc|cc| }
  \hline
-			&&  Original
+			&&&  Original
 			&  \multicolumn{2}{c|}{Algorithm \ref{Alg:adaptive_IRAM}}
 			&	\multicolumn{2}{c|}{Algorithm \ref{Alg:adaptive_IRAM}}	\\
-$x$ & $L$ & $r=2, m=20$	& \multicolumn{2}{c|}{$m=40$}  & \multicolumn{2}{c|}{$m=80$}   \\
+Image & $n$ & $L$ & $r=2, m=20$	& \multicolumn{2}{c|}{$m=40$}  & \multicolumn{2}{c|}{$m=80$}   \\
  \hline
- \multirow{2}{*}{Figure XXX} &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-  &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-   \multirow{2}{*}{Figure YYY} &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-  &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-     \multirow{2}{*}{Figure ZZZ} &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
-  &  10 &  406,308  &  179,807 & 56\% &  198,070 & 51\% \\ 
+	\multirow{2}{*}{Figure \ref{Fig:Numerics-large_images}, left} &
+   \multirow{2}{*}{$57,600$} &  10 &  562,255  &  297,767 & 47\% &  252,316 & 55\% \\ 
+  &&  15 &  647,753  &  301,752 & 53\% &  253,209 & 61\% \\ 
+	\multirow{2}{*}{Figure \ref{Fig:Numerics-large_images}, right}  &   
+     \multirow{2}{*}{$120,000$} &  10 &  852,633  &  364,164 & 57\% &  287,309 & 66\% \\ 
+  &&  15 &  563,085  &  291,630 & 48\% &  256,084 & 55\% \\ 
  \hline
 \end{tabular}
 \caption{
-	DONGLE
+Performance results for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), where signals are the images in Figure \ref{Fig:Numerics-large_images}.
+Results indicate total number of matrix-vector products and percent decrease from the original IRAM parameters.
+Parameter $r$ is the number of requested eigenvalues in the IRAM (Algorithm \ref{Alg:IRAM}) and $m$ is the Arnoldi decomposition size (\ref{Eqn:Arnoldi_decomp}).
 	} 
 	\label{Tab:Numerics-ada_vs_orig_large_images}
 \end{table}
 % experiments.figure.noisyimage_comparison_adaptive_vs_orig
 
-\fi
 
+
+\begin{figure}[H]
+\centering
+	\includegraphics[scale=0.4166666666]{jul_and_me_orig}
+		\hspace{0.1cm}
+		\includegraphics[scale=0.5]{UCD_orig}
+		\vspace{0.3cm} \hspace{0.02cm}
+		\\
+	\includegraphics[scale=0.4166666666]{jul_and_me_L_15_ada40}	
+		\hspace{0.1cm}
+		\includegraphics[scale=0.5]{UCD_L_15_ada40} 
+		\vspace{0.0cm}
+	\caption{
+Images used for experiments in Table \ref{Tab:Numerics-ada_vs_orig_large_images}.
+Top left: original image of my daughter and me, image size $240 \times 240 = 57,600$ pixels.
+Bottom left: result image after solving EMEP.
+Top right: original image of UC Davis roundabout, image size $200 \times 600 = 120,000$ pixels.
+Bottom right: result image after solving EMEP.
+All experiments have noise ratio $\epsilon_\text{rel} = 0.15$ and oversampling $L = 15$.
+	}
+\label{Fig:Numerics-large_images}
+\end{figure}
+% experiments.figure.noisyimage_comparison_adaptive_vs_orig
+
+
+Table \ref{Tab:Numerics-ada_vs_orig_large_images} demonstrates that the benefits of Algorithm \ref{Alg:adaptive_IRAM} also apply to large-scale phase retrieval problems.
+Additionally, a larger Arnoldi decomposition size $m$ further reduces the number of matrix-vector products.
+Thus, when solving large-scale problems it may be advisable to consider increasing this parameter beyond the default setting of $m=40$ in Algorithm \ref{Alg:adaptive_IRAM} if memory constraints permit this increase.
 
 
 
@@ -113,7 +135,8 @@ $L$ & $\epsilon_\text{rel}$ & EMEP its & $r=2, m=20$	& \multicolumn{2}{c|}{$m=40
 \end{tabular}
 
 \caption{
-Total number of matrix-vector products and percent decrease from the original IRAM parameters for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) with original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
+Performance results for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) with original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
+Results indicate total number of matrix-vector products and percent decrease from the original IRAM parameters.
 Parameter $r$ is the number of requested eigenvalues in the IRAM (Algorithm \ref{Alg:IRAM}) and $m$ is the Arnoldi decomposition size (\ref{Eqn:Arnoldi_decomp}).
 } \label{Tab:Numerics-num_matvecs_opt_vs_ada}
 \end{table}
@@ -144,9 +167,11 @@ As we saw in Figure \ref{Fig:Numerics-surf_mvs_eig_diffs_2}, the optimal paramet
 
 
 
+%\subsection{Performance results for varying Arnoldi decomposition size}				
 
 
-We now provide further justification for selecting $m=40$ as the default Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size for Algorithm \ref{Alg:adaptive_IRAM}.
+
+Finally, we use performance results to justify selecting $m=40$ as the default Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size for Algorithm \ref{Alg:adaptive_IRAM}.
 Table \ref{Tab:Numerics-num_matvecs_orig_vs_ada} depicts the total number of matrix-vector products required to solve the \emep \ for each PLGD model from Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada} with Algorithm \ref{Alg:adaptive_IRAM} with various parameter values $m$.
 
 \begin{table}[H]
@@ -154,7 +179,7 @@ Table \ref{Tab:Numerics-num_matvecs_orig_vs_ada} depicts the total number of mat
 \begin{tabular}{ |ccc|c|ccccc| }
  \hline
 			  \multicolumn{3}{|c|}{n = 4,096} &  Original
-			&  \multicolumn{5}{c|}{Adaptive parameter method (Algorithm \ref{Alg:adaptive_IRAM})}	\\
+			&  \multicolumn{5}{c|}{Algorithm \ref{Alg:adaptive_IRAM}}	\\
 $L$ & $\epsilon_\text{rel}$ & EMEP its & $r=2, m=20$	& $m=20$  & $m=40$  & $m=60$  & $m=80$  & $m=100$   \\
  \hline
   5 &  0.05 & 300 &  406,308  &  358,195  &  198,070  &  189,401  &  192,042  &  201,270  \\ 
@@ -177,7 +202,7 @@ Parameter $r$ is the number of requested eigenvalues in the IRAM (Algorithm \ref
 
 Table \ref{Tab:Numerics-num_matvecs_orig_vs_ada} demonstrates that Algorithm \ref{Alg:adaptive_IRAM} reduces the number of matrix-vector products from those of the original IRAM parameters for all experiments considered.
 Yet this cost reduction varies significantly depending on the choice of Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size $m$.
-We seek a default setting for the parameter $m$ which is sufficiently large to yield the benefits of Algorithm \ref{Alg:adaptive_IRAM}, yet sufficiently small as not to burden random-access memory constraints.
+We seek a default setting for the parameter $m$ which is sufficiently large to yield the benefits of Algorithm \ref{Alg:adaptive_IRAM}, yet sufficiently small as not to impact memory constraints.
 To select an appropriate default value for $m$, we examine the two experiments from Table \ref{Tab:Numerics-num_matvecs_orig_vs_ada} with $\epsilon_\text{rel} = 0.15, 0.30$ and $L=5$ which have the greatest original number of matrix-vector products, along with the greatest total decrease in cost when using Algorithm \ref{Alg:adaptive_IRAM} with a sufficiently large parameter $m$.
 Figure \ref{Fig:Numerics-num_matvecs_ada_for_m_vals} singles out these two experiments, depicting the number of matrix-vector products for each \emep \ iteration.
 
@@ -202,11 +227,58 @@ Thus the default parameter of $m=40$ for Algorithm \ref{Alg:adaptive_IRAM} strik
 
 
 
+\section{Contributions and future work} 			\label{Subsec:Conclusion-contrib_and_future}
 
-As we have seen in this chapter, Algorithm \ref{Alg:adaptive_IRAM} is an efficient strategy for using the IRAM (Algorithm \ref{Alg:IRAM}) to handle the \emep.  
-We saw that changes in the number of requested eigenvalues, as chosen by Algorithm \ref{Alg:adaptive_IRAM}, correspond to clustering of the algebraically largest eigenvalues in the EMEP.
-Thus Algorithm \ref{Alg:adaptive_IRAM} appears to promote convergence of the IRAM by selecting an appropriate number of requested eigenvalues $r$ for which the pair $\lambda_r$ and $\lambda_{r+1}$ will have sufficient separation.
-Algorithm \ref{Alg:adaptive_IRAM} was shown to reduce the number of matrix-vector products required to handle the EMEP by $50-90\%$ when the underlying phase retrieval models have minimal oversampling.
-Our experiments indicated that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal as a method for selecting the number of requested eigenvalues which corresponds to the minimum possible number of matrix-vector products required for each EMEP iterate.
+
+In this dissertation we examined noisy phase retrieval, focusing on the PLGD model (\ref{Eqn:PhaseLift-P-GD}) which we chose to optimize with Algorithm \ref{Alg:PGD} from Chapter \ref{Sec:PLGD_algo}.
+Our work offers two primary contributions.
+
+
+First, we established new termination conditions for Algorithm \ref{Alg:PGD}.
+Chapter \ref{Sec:PLGD_term_crit} showed that PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) cause Algorithm \ref{Alg:PGD} to stagnate prior to satisfying the original termination conditions (\ref{Eqn:saga_conv_crit_primal}) and (\ref{Eqn:saga_conv_crit_gap}).  
+We saw that this stagnation was likely the result of the optimal PLGD matrix $\caA^*y_\star$ having an algebraically largest eigenvalue with multiplicity greater than one.
+Thus the objective function $\lambda_1(\caA^*y)$ will be nondifferentiable in the neighborhood of $y_\star$ and we may expect first-order methods like Algorithm \ref{Alg:PGD} to stagnate in this neighborhood.
+As a result, we established new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) based on empirical evidence of algorithmic stagnation.
+
+
+Second, we developed a new strategy for handling the \emep \ in Algorithm \ref{Alg:PGD}.
+In Chapter \ref{Sec:evol_mats} we defined the EMEP in Algorithm \ref{Alg:PGD} and examined the evolving spectrum of the EMEP.
+We observed that the algebraically largest eigenvalues of the EMEP tend to cluster for later iterates, making these eigenvalue problems more difficult for methods like the IRAM (Algorithm \ref{Alg:IRAM}).
+We also showed that the EMEP is the computational bottleneck of Algorithm \ref{Alg:PGD}, requiring about $95$\% of the matrix-vector products in Algorithm \ref{Alg:PGD}.
+Section \ref{Subsec:evol_mats-IRAM} then reviewed the IRAM and its component algorithms, providing insight for how we may better select the IRAM parameters.
+Next, Chapter \ref{Sec:Numerics} developed Algorithm \ref{Alg:adaptive_IRAM}, a new strategy for solving the EMEP by selecting the number of requested eigenvalues in the IRAM based on empirical observations of IRAM behavior.
+Section \ref{Subsec:Numerics-correl_btwn_EMEP_and_IRAM} showed that changes in the number of requested eigenvalues, as chosen by Algorithm \ref{Alg:adaptive_IRAM}, correspond to clustering of the algebraically largest eigenvalues in the EMEP.
+Performance results in Section \ref{Subsec:Conclusion-performance_results} demonstrated that Algorithm \ref{Alg:adaptive_IRAM} is more efficient than the original parameter selection used for the EMEP, reducing the number of matrix-vector products by $50$-$90\%$.
+
+
+In addition to these contributions, Chapter \ref{Sec:PLGD} presented a self-contained, comprehensive treatment of gauge duality theory for establishing and analyzing the PLP-PLGD pair and Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model} justified the choice of the PLGD model (\ref{Eqn:PhaseLift-P-GD}) for noisy phase retrieval.
+
+
+Several theoretical and computational questions still remain for future work.  
+In terms of theory, it would be beneficial to determine the expected rank of a given optimal PLGD matrix $\caA^*y_\star$. 
+As mentioned above, PLGD models with Gaussian noise typically have matrices $\caA^*y_\star$ with rank $\rho$ greater than one (see Table \ref{Tab:average_rank_soln_matrix_with_gaussian_dual_variable}).
+Thus, as Algorithm \ref{Alg:PGD} progresses we may expect the $\rho$ algebraically largest eigenvalues of $\caA^*y$ to cluster.
+Algorithm \ref{Alg:adaptive_IRAM} changes the number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}) as the spectrum of $\caA^*y$ evolves.
+As we saw in Section \ref{Subsec:Numerics-correl_btwn_EMEP_and_IRAM}, changes in the choice of $r$ appear to correlate with clustering of the algebraically largest eigenvalues of $\caA^*y$.
+In this sense, the value $r$ selected by Algorithm \ref{Alg:adaptive_IRAM} may be a proxy for determining the rank $\rho$ of $\caA^*y_\star$.
+Knowledge of the expected value for $\rho$ may provide both theoretical justification for Algorithm \ref{Alg:adaptive_IRAM} and a means to modify and enhance Algorithm \ref{Alg:adaptive_IRAM}.
+
+
+Many computational questions also remain for future work.
+In terms of solving the \emep, we did not examine parallel methods for solving this sequence of problems.\footnote{
+Note that we did consider the \textit{inverse free preconditioned Krylov subspace method} (EIGIFP) \cite{golub2002inverse}, which was comparable to or slightly slower than IRAM.  EIGIFP is implemented in MATLAB and this code had some numerical issues for larger PLGD models.
+}
+We also did not discuss optimizing the method for handling the primal recovery problem (\ref{Eqn:GD-PFD}) in Algorithm \ref{Alg:PGD}.
+Recall that the primal recovery problem requires $2$-$5\%$ of the total DFTs in a given PLGD model (see Table \ref{Tab:EMEP_costs}).
+The current method used is \textit{minFunc} \cite{schmidt2005minFunc}, which is a quasi-Newton method based only on gradient information.
+However, a recent paper \cite{sun2016geometric} indicates that the objective function in (\ref{Eqn:GD-PFD}) has no spurious local minima and negative directional curvature at all saddle points.
+Thus the Hessian of this function may also be used to solve (\ref{Eqn:GD-PFD}).
+Finally, we did not discuss alternative methods to Algorithm \ref{Alg:PGD} for optimizing the PLGD model itself.\footnote{
+Note that we did consider \textit{minConf} \cite{schmidt2008minConf}, a descent method for problems like the PLGD model with an expensive objective function and cheap projection operator.  This method appeared comparable to Algorithm \ref{Alg:PGD} and in some cases faster.
+}
+
+
+
+
 
 

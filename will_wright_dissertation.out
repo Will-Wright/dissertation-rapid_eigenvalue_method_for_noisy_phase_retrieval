@@ -24,14 +24,15 @@
 \BOOKMARK [1][-]{section.5.4}{5.4. New termination conditions}{chapter.5}% 24
 \BOOKMARK [0][-]{chapter.6}{Chapter 6. The evolving matrix eigenvalue problem}{}% 25
 \BOOKMARK [1][-]{section.6.1}{6.1. Introduction}{chapter.6}% 26
-\BOOKMARK [1][-]{section.6.2}{6.2. The EMEP: computational costs and spectral properties}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.2}{6.2. The EMEP: computational costs and evolving spectrum}{chapter.6}% 27
 \BOOKMARK [1][-]{section.6.3}{6.3. The implicitly restarted Arnoldi method}{chapter.6}% 28
-\BOOKMARK [0][-]{chapter.7}{Chapter 7. The adaptive parameter method for the EMEP}{}% 29
+\BOOKMARK [0][-]{chapter.7}{Chapter 7. A new strategy for the EMEP}{}% 29
 \BOOKMARK [1][-]{section.7.1}{7.1. Introduction}{chapter.7}% 30
-\BOOKMARK [1][-]{section.7.2}{7.2. The adaptive parameter method for the EMEP}{chapter.7}% 31
-\BOOKMARK [1][-]{section.7.3}{7.3. Tracking the EMEP spectrum with the adaptive parameter method}{chapter.7}% 32
-\BOOKMARK [1][-]{section.7.4}{7.4. Numerical results for the adaptive parameter method}{chapter.7}% 33
-\BOOKMARK [0][-]{chapter.8}{Chapter 8. Conclusion}{}% 34
-\BOOKMARK [0][-]{appendix.A}{Appendix A. Proof of PhaseLift-l1 gauge duality}{}% 35
-\BOOKMARK [0][-]{appendix.B}{Appendix B. Further justification of residuals established in Chapter 5}{}% 36
-\BOOKMARK [0][-]{appendix*.41}{Bibliography}{}% 37
+\BOOKMARK [1][-]{section.7.2}{7.2. The IRAM with adaptive parameter selection for the EMEP}{chapter.7}% 31
+\BOOKMARK [1][-]{section.7.3}{7.3. Correlation between EMEP spectrum distribution and behavior of the IRAM}{chapter.7}% 32
+\BOOKMARK [0][-]{chapter.8}{Chapter 8. Conclusion}{}% 33
+\BOOKMARK [1][-]{section.8.1}{8.1. Performance results}{chapter.8}% 34
+\BOOKMARK [1][-]{section.8.2}{8.2. Contributions and future work}{chapter.8}% 35
+\BOOKMARK [0][-]{appendix.A}{Appendix A. Proof of PhaseLift-l1 gauge duality}{}% 36
+\BOOKMARK [0][-]{appendix.B}{Appendix B. Further justification of residuals established in Chapter 5}{}% 37
+\BOOKMARK [0][-]{appendix*.43}{Bibliography}{}% 38

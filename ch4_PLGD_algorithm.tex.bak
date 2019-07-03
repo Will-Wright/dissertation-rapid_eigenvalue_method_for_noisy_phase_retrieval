@@ -293,7 +293,7 @@ To develop a new strategy for handling the EMEP, we close Chapters \ref{Sec:evol
 
 
 In Chapter \ref{Sec:Numerics} we develop a new strategy for choosing IRAM parameters to handle the EMEP and examine how this new strategy relates to the clustering of eigenvalues in the EMEP.
-Finally, Chapter \ref{Sec:Conclusion} cwe present numerical results for this new strategy, summarize our contributions, and 
+Finally, Chapter \ref{Sec:Conclusion} concludes this dissertation with numerical results and suggestions for future work.
 
 
 

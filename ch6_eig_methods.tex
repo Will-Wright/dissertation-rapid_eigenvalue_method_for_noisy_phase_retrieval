@@ -157,7 +157,10 @@ Figure \ref{Fig:EMEP_costs_num_mat_vecs} depicts the number of matrix-vector pro
 \end{figure}
 % experiments.figure.noisyimage_costs
 
-Figure \ref{Fig:EMEP_costs_num_mat_vecs} demonstrates that the number of matrix-vector products required for each \emep \ iterate varies greatly from earlier to later iterates.  In each model, the later iterates account for the majority of the computational cost of the \emep.  
+Figure \ref{Fig:EMEP_costs_num_mat_vecs} demonstrates that the number of matrix-vector products required for each \emep \ iterate varies greatly from earlier to later iterates.  
+In each model, the later iterates account for the majority of the computational cost of the \emep.  
+Additionally, some iterates require far more matrix-vector products than others (e.g., the iterates around $k=75$ in the bottom-right plot).
+To help explain this change in computational costs, we now proceed to examine how the spectrum of the EMEP evolves.
 
 
 
@@ -607,10 +610,14 @@ Combining Algorithms \ref{Alg:Arnoldi_iteration} and \ref{Alg:shifted_QR_iterati
 
 The IRAM is the eigenvalue method we use in Chapter \ref{Sec:Numerics} to handle the \emep.  The choice of parameters $m$ (the Arnoldi decomposition size) and $j$ (number of requested eigenvalues) can greatly impact the efficiency of IRAM (see Section \ref{Subsec:Numerics-adaptive_IRAM}).  For many large-scale eigenvalue problems, the IRAM is a very effective and convenient method.  Due to the implicit polynomial filtering in step 4 of IRAM, this method is particularly effective when the $j$ algebraically largest eigenvalues have modest separation from $\lambda_{j+1}$.  And since the IRAM only has two parameter choices, there is little optimization required by the user.
 
-However, when $\lambda_j \approx \lambda_{j+1}$ and the Arnoldi decomposition size $m$ is not sufficiently large, the IRAM may require many iterations to achieve the desired tolerance.  As we will see in Section \ref{Subsec:Numerics-adaptive_IRAM}, the appropriate choice of $m$ and $j$ in this circumstance may make the IRAM far more competitive.  Yet choosing $m$ and $j$ without prior knowledge of the eigenvalue distribution is inherently heuristic.  Additionally, if the inputted matrix $A$ is very large, then it may be prohibitive to store the $Q_m \in \bbC^{n \times m}$ in active memory.  In particular, if the image or signal $x$ being recovered in the PLGD problem has $n$ pixels, then $Q_m$ will require $m-$times as much storage space.  Thus we proceed in the next section by considering an alternative Krylov subspace method which does not require parameter tuning, nor a large subspace to be held in memory.
+However, when $\lambda_j \approx \lambda_{j+1}$ and the Arnoldi decomposition size $m$ is not sufficiently large, the IRAM may require many iterations to achieve the desired tolerance. 
+ As we will see in Section \ref{Subsec:Numerics-adaptive_IRAM}, the appropriate choice of $m$ and $j$ in this circumstance may make the IRAM far more competitive.  
+Yet choosing $m$ and $j$ without prior knowledge of the eigenvalue distribution is inherently heuristic.  
+Additionally, if the inputted matrix $A$ is very large, then it may be prohibitive to store the $Q_m \in \bbC^{n \times m}$ in active memory.  In particular, if the image or signal $x$ being recovered in the PLGD problem has $n$ pixels, then $Q_m$ will require $m-$times as much storage space.  
+Thus we proceed in the next section by considering an alternative Krylov subspace method which does not require parameter tuning, nor a large subspace to be held in memory.
 
 
-The numerical software package \texttt{ARPACK} (the ARnoldi PACKage) is an implementation of IRAM in FORTRAN 77 \cite{lehoucq1998arpack}.  Many numerical computing environments include large-scale eigenvalue methods which having bindings to ARPACK, including \texttt{eigs} in MATLAB, \texttt{eigs} and \texttt{eigsh} in the Python package SciPy, \texttt{eigs} in R, and \texttt{eigs} in the Julia package Arpack.jl. 
+Note that the IRAM is implemented in the numerical software package \texttt{ARPACK} (the ARnoldi PACKage) in FORTRAN 77 \cite{lehoucq1998arpack}.  Many numerical computing environments include large-scale eigenvalue methods which having bindings to ARPACK, including \texttt{eigs} in MATLAB, \texttt{eigs} and \texttt{eigsh} in the Python package SciPy, \texttt{eigs} in R, and \texttt{eigs} in the Julia package Arpack.jl. 
 
 
 

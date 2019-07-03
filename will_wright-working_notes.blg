@@ -16,45 +16,45 @@ Warning--missing pages in goldstein2018phasemax
 Warning--missing pages in jiang2017robust
 Warning--missing pages in katkovnik2017phase
 Warning--missing journal name in sorensen1997implicitly
-You've used 67 entries,
+You've used 68 entries,
             2674 wiz_defined-function locations,
-            981 strings with 16520 characters,
-and the built_in function-call counts, 27077 in all, are:
-= -- 2520
-> -- 1406
+            987 strings with 16710 characters,
+and the built_in function-call counts, 27486 in all, are:
+= -- 2561
+> -- 1425
 < -- 22
-+ -- 493
-- -- 485
-* -- 2419
-:= -- 4430
-add.period$ -- 67
-call.type$ -- 67
-change.case$ -- 444
-chr.to.int$ -- 66
-cite$ -- 78
-duplicate$ -- 966
-empty$ -- 2087
-format.name$ -- 561
-if$ -- 5432
++ -- 500
+- -- 491
+* -- 2457
+:= -- 4496
+add.period$ -- 68
+call.type$ -- 68
+change.case$ -- 450
+chr.to.int$ -- 67
+cite$ -- 79
+duplicate$ -- 979
+empty$ -- 2119
+format.name$ -- 568
+if$ -- 5514
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 74
-newline$ -- 212
-num.names$ -- 199
-pop$ -- 414
+missing$ -- 75
+newline$ -- 215
+num.names$ -- 202
+pop$ -- 418
 preamble$ -- 1
-purify$ -- 508
+purify$ -- 515
 quote$ -- 0
-skip$ -- 787
+skip$ -- 798
 stack$ -- 0
-substring$ -- 1603
-swap$ -- 126
+substring$ -- 1636
+swap$ -- 127
 text.length$ -- 22
 text.prefix$ -- 17
 top$ -- 0
-type$ -- 496
+type$ -- 504
 warning$ -- 11
-while$ -- 268
-width$ -- 73
-write$ -- 721
+while$ -- 273
+width$ -- 74
+write$ -- 732
 (There were 12 warnings)

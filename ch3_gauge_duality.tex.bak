@@ -451,7 +451,7 @@ To show (ii) holds, we have the following set of equivalences
 \begin{equation*}
 \begin{array}{rll}
 (y, \tau) \in \left( \epi \halfspace \rho \right)^\circ
-	&	\iff	& xxx
+	&	\iff	&  \langle (x, \sigma), (y, \tau) \rangle \leq 1 \ \ \forall (x, \sigma) \in  \epi (\rho)
 			\\
 	&	\iff	&	 \langle (x, \sigma), (y, \tau) \rangle \leq 0 \ \ \forall x \text{ and } \rho(x) \leq \sigma
 			\\
@@ -462,11 +462,11 @@ To show (ii) holds, we have the following set of equivalences
 		&	\iff	&	(y, -\tau)  \in \epi (\rho^\circ).
 \end{array}
 \end{equation*}
-Here, the first equivalence was established in the proof of (i) and the second comes from setting $\sigma$ as the minimal value $\sigma = \rho(x)$.  Thus $\delta_{\left( \epi \halfspace \rho \right)^\circ} (y, \tau) = \delta_{\epi \left( \rho^\circ \right)}(y, -\tau)$.
+Here, the second equivalence was established in the proof of (i) and the third comes from setting $\sigma$ as the minimal value $\sigma = \rho(x)$.  Thus $\delta_{\left( \epi \halfspace \rho \right)^\circ} (y, \tau) = \delta_{\epi \left( \rho^\circ \right)}(y, -\tau)$.
 \end{proof}
 
 
-
+xxx here
 
 
 

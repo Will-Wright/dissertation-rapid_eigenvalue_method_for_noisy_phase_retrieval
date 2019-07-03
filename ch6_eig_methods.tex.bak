@@ -157,7 +157,10 @@ Figure \ref{Fig:EMEP_costs_num_mat_vecs} depicts the number of matrix-vector pro
 \end{figure}
 % experiments.figure.noisyimage_costs
 
-Figure \ref{Fig:EMEP_costs_num_mat_vecs} demonstrates that the number of matrix-vector products required for each \emep \ iterate varies greatly from earlier to later iterates.  In each model, the later iterates account for the majority of the computational cost of the \emep.  
+Figure \ref{Fig:EMEP_costs_num_mat_vecs} demonstrates that the number of matrix-vector products required for each \emep \ iterate varies greatly from earlier to later iterates.  
+In each model, the later iterates account for the majority of the computational cost of the \emep.  
+Additionally, some iterates require far more matrix-vector products than others (e.g., the iterates around $k=75$ in the bottom-right plot).
+To gain insight into this great increase in computational cost, we now proceed to examine how the spectrum of the EMEP evolves.
 
 
 

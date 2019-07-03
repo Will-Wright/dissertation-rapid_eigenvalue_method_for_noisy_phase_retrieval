@@ -39,8 +39,9 @@
 \contentsline {section}{\numberline {7.2}The IRAM with adaptive parameter selection for the EMEP}{84}{section.7.2}
 \contentsline {section}{\numberline {7.3}Correlation between EMEP spectrum distribution and behavior of the IRAM}{89}{section.7.3}
 \contentsline {subsection}{\numberline {7.3.1}Observed correlation between eigenvalue clustering and IRAM parameter choice}{90}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Choosing the default Arnoldi decomposition size for the IRAM with adaptive parameter selection}{95}{subsection.7.3.2}
+\contentsline {subsection}{\numberline {7.3.2}Selecting the default Arnoldi decomposition size for the IRAM with adaptive parameter selection}{95}{subsection.7.3.2}
 \contentsline {chapter}{\numberline {8}Conclusion}{96}{chapter.8}
-\contentsline {section}{\numberline {8.1}Overall numerical results}{96}{section.8.1}
-\contentsline {chapter}{\numberline {A}Proof of PhaseLift-$l_1$ gauge duality}{103}{appendix.A}
-\contentsline {chapter}{\numberline {B}Further justification of residuals established in Chapter \ref {Sec:PLGD_term_crit}}{104}{appendix.B}
+\contentsline {section}{\numberline {8.1}Performance results}{96}{section.8.1}
+\contentsline {section}{\numberline {8.2}Contributions and future work}{103}{section.8.2}
+\contentsline {chapter}{\numberline {A}Proof of PhaseLift-$l_1$ gauge duality}{105}{appendix.A}
+\contentsline {chapter}{\numberline {B}Further justification of residuals established in Chapter \ref {Sec:PLGD_term_crit}}{106}{appendix.B}

@@ -59,16 +59,16 @@ Bottom: Plot of IRAM results for the EMEP with optimal parameters from top plot 
 We now examine Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params} to develop an adaptive strategy for choosing the number of requested eigenvalues $r$ for the sequence of EMEP iterates.
 The top plot in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params} shows that the optimal choice of parameter $r$ typically changes only slightly between EMEP iterates.
 However, the optimal parameter $r$ can increase quickly for later EMEP iterates (as we see around iterate 150 in the top plot in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params}).
-Based on these observations, we may develop a strategy for choosing a sequence of parameters $r_1, r_2, \ldots, r_{maxit}$ using two basic heuristics.
-Assume that each pair of parameters $r_{i-1}$ and $r_i$ differ by at least one.
-First, we compare the two most recent choices for $r$ and the resulting number of matrix-vector products.
+Based on these observations, we may develop a strategy for choosing a sequence of parameters $r_1, r_2, \ldots, r_{maxit}$ as follows.
+In order to measure change in the number of matrix-vector products for each iterate, we require that each pair of parameters $r_{k-1}$ and $r_k$ differ by at least one.
+To select a new parameter $r_+$, we compare the two most recent choices for $r$ and the resulting number of matrix-vector products.
 If these two choices for $r$ decreased the number of matrix-vector products, we continue to shift the value of $r$ in this direction by one unit; and otherwise we shift $r$ in the opposite direction.
-Next, we compare the four most recent choices for $r$ and the resulting number of matrix-vector products using linear interpolation.
+We also allow $r$ to increase or decrease $r$ more rapidly by comparing the four most recent choices for $r$ and the resulting number of matrix-vector products using linear interpolation.
 If these recent choices suggest the same shift as the first comparison, then we shift $r$ in this direction by two units rather than one.
 
 
 
-Now we develop an adaptive strategy for choosing the number of requested eigenvalues $r_k$ for each \emep \ iterate $k$.
+This adaptive strategy for choosing the number of requested eigenvalues $r_k$ for each \emep \ iterate $k$ has the following steps.
 First, we select a fixed Arnoldi decomposition size $m$ and initialize $r_1=r_{min}$ and $r_2 = r_1+1$ (where $r_{min}=2$, and $r_{max} = \min\{ 30, m-5 \}$, and we set the default value $m=40$).  
 At each step $k \geq 2$ we update $r_{k+1} =  r_k + \delta$, where $\delta \in \{-2, -1, 1, 2\}$ is a shift based on the number of requested eigenvalues $r_k, r_{k-1}, \ldots$ and number of matrix-vector products $t_k, t_{k-1}, \ldots$ for the previous eigenvalues problems.
 The shift $\delta$ is computed as follows.
@@ -84,7 +84,7 @@ Next, if $k \geq 4$ then we compute a linear interpolation of the past four requ
 \begin{equation} 			\label{Eqn:adaptive_delta_4_lin_interp_prob}
 \min_{\alpha, \beta} || y - \alpha e - \beta x ||,
 \end{equation}
-where $y$ is the vector of matrix-vector product values $t_{k-3}, t_{k-2}, t_{k-1}, t_k$, $x$ is the vector of the number of requested eigenvalues $r_{k-3}, r_{k-2}, r_{k-1}, r_k$, and $e = [1;1;1;1]$.
+where $y = [t_{k-3}; t_{k-2}; t_{k-1}; t_k]$ is the vector of matrix-vector product values, $x = [r_{k-3}; r_{k-2}; r_{k-1}; r_k]$ is the vector of the number of requested eigenvalues, and $e = [1;1;1;1]$.
 If the solution to (\ref{Eqn:adaptive_delta_4_lin_interp_prob}) has $\beta > 0$ then the past four eigenvalue problems suggest that $t_i$ increases with $r_i$, and thus we should decrease $r_k$.
 Thus we have the \textit{$4$-step shift value}
 \begin{equation}			\label{Eqn:adaptive_delta_4}
@@ -136,7 +136,7 @@ Note that the only parameter in Algorithm \ref{Alg:adaptive_IRAM} is the Arnoldi
 The choice of $m$ is a trade-off between computational efficiency and data storage constraints.
 We seek the smallest value $m$ possible, since $Q_m$ must be stored in random-access memory and each column of $Q_m$ is the size of the desired signal $\bar{x}$ in the phase retrieval problem (\ref{Eqn:phase_retrieval}).
 However, as we will see in Section \ref{Subsec:Numerics-correl_btwn_EMEP_and_IRAM}, $m$ must be sufficiently large for the shifted QR iteration (Algorithm \ref{Alg:shifted_QR_iteration}) in the IRAM to handle the \emep \ efficiently.  
-For now we will let $m=40$ to examine the behavior of Algorithm \ref{Alg:adaptive_IRAM}.
+For now we will let $m=40$ to demonstrate the behavior of Algorithm \ref{Alg:adaptive_IRAM}.
 
 
 
@@ -274,7 +274,7 @@ Thus Algorithm \ref{Alg:adaptive_IRAM} quickly increased $r_k$, avoiding excessi
 
 
 
-\subsection{Choosing the default Arnoldi decomposition size for the IRAM with adaptive parameter selection}		\label{Subsubsec:Numerics-default_Arnoldi_decomp_size}
+\subsection{Selecting the default Arnoldi decomposition size for the IRAM with adaptive parameter selection}		\label{Subsubsec:Numerics-default_Arnoldi_decomp_size}
 
 
 

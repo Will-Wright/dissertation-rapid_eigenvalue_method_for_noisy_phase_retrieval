@@ -59,6 +59,11 @@ E.~J. Cand{\`{e}}s, Y.~C. Eldar, T.~Strohmer, and V.~Voroninski, \emph{Phase
   retrieval via matrix completion}, {SIAM} J. Imaging Sciences \textbf{6}
   (2013), no.~1, 199--225.
 
+\bibitem[CG90]{comon1990tracking}
+P.~Comon and G.~H. Golub, \emph{Tracking a few extreme singular values and
+  vectors in signal processing}, Proceedings of the IEEE \textbf{78} (1990),
+  no.~8, 1327--1343.
+
 \bibitem[CL14]{candes2014solving}
 E.~J. Cand{\`e}s and X.~Li, \emph{Solving quadratic equations via phaselift
   when there are about as many equations as unknowns}, Foundations of
@@ -90,9 +95,10 @@ E.~J. Candes, T.~Strohmer, and V.~Voroninski, \emph{Phaselift: Exact and stable
   Communications on Pure and Applied Mathematics \textbf{66} (2013), no.~8,
   1241--1274.
 
-\bibitem[DF04]{dummit2004abstract}
-D.~S. Dummit and R.~M. Foote, \emph{Abstract algebra}, vol.~3, Wiley Hoboken,
-  2004.
+\bibitem[DM08]{doukopoulos2008fast}
+X.~G. Doukopoulos and G.~V. Moustakides, \emph{Fast and stable subspace
+  tracking}, IEEE Transactions on Signal Processing \textbf{56} (2008), no.~4,
+  1452--1465.
 
 \bibitem[DMM{\etalchar{+}}11]{duadi2011digital}
 H.~Duadi, O.~Margalit, V.~Mico, J.~A. Rodrigo, T.~Alieva, J.~Garcia, and
@@ -123,10 +129,6 @@ M.~P. Friedlander and I.~Macedo, \emph{Low-rank spectral optimization via gauge
 M.~P. Friedlander, I.~Macedo, and T.~K. Pong, \emph{Gauge optimization and
   duality}, {SIAM} Journal on Optimization \textbf{24} (2014), no.~4,
   1999--2022.
-
-\bibitem[FR64]{fletcher1964function}
-R.~Fletcher and C.~M. Reeves, \emph{Function minimization by conjugate
-  gradients}, The computer journal \textbf{7} (1964), no.~2, 149--154.
 
 \bibitem[Fre87]{DBLP:journals/mp/Freund87}
 R.~M. Freund, \emph{Dual gauge programs, with applications to quadratic
@@ -162,10 +164,6 @@ G.~H. Golub and Q.~Ye, \emph{An inverse free preconditioned krylov subspace
 R.~W. Harrison, \emph{Phase problem in crystallography}, JOSA a \textbf{10}
   (1993), no.~5, 1046--1055.
 
-\bibitem[HS52]{hestenes1952methods}
-M.~R. Hestenes and E.~Stiefel, \emph{Methods of conjugate gradients for solving
-  linear systems}, vol.~49, NBS Washington, DC, 1952.
-
 \bibitem[JEH15]{DBLP:journals/corr/JaganathanEH15a}
 K.~Jaganathan, Y.~C. Eldar, and B.~Hassibi, \emph{Phase retrieval: An overview
   of recent developments}, CoRR \textbf{abs/1510.07713} (2015), 1--24,
@@ -179,16 +177,6 @@ X.~Jiang, H.-C. So, and X.~Liu, \emph{Robust phase retrieval via admm with
 V.~Katkovnik, \emph{Phase retrieval from noisy data based on sparse
   approximation of object phase and amplitude}, arXiv preprint arXiv:1709.01071
   (2017).
-
-\bibitem[Kny87]{knyazev1987convergence}
-A.~V. Knyazev, \emph{Convergence rate estimates for iterative methods for a
-  mesh symmetric eigenvalue problem}, Russian Journal of Numerical Analysis and
-  Mathematical Modelling \textbf{2} (1987), no.~5, 371--396.
-
-\bibitem[Li15]{li2015rayleigh}
-R.-C. Li, \emph{Rayleigh quotient based optimization methods for eigenvalue
-  problems}, Matrix Functions and Matrix Equations, World Scientific, 2015,
-  pp.~76--108.
 
 \bibitem[LS84]{LeviS84}
 A.~Levi and H.~Stark, \emph{Image restoration by the method of generalized
@@ -223,14 +211,14 @@ A.~V. Martin, F.~Wang, N.~Loh, T.~Ekeberg, F.~R. Maia, M.~Hantke, G.~van~der
   coherent diffractive imaging with a single diffraction pattern}, Optics
   Express \textbf{20} (2012), no.~15, 16650--16661.
 
-\bibitem[MY05]{money2005algorithm}
-J.~H. Money and Q.~Ye, \emph{Algorithm 845: Eigifp: a matlab program for
-  solving large symmetric generalized eigenvalue problems}, ACM Transactions on
-  Mathematical Software (TOMS) \textbf{31} (2005), no.~2, 270--279.
-
 \bibitem[Nat95]{natarajan1995sparse}
 B.~K. Natarajan, \emph{Sparse approximate solutions to linear systems}, SIAM
   journal on computing \textbf{24} (1995), no.~2, 227--234.
+
+\bibitem[NS12]{ngo2012scaled}
+T.~Ngo and Y.~Saad, \emph{Scaled gradients on grassmann manifolds for matrix
+  completion}, Advances in Neural Information Processing Systems, 2012,
+  pp.~1412--1420.
 
 \bibitem[NW06]{nocedal2006numerical}
 J.~Nocedal and S.~J. Wright, \emph{Numerical optimization 2nd}, Springer, 2006.
@@ -238,16 +226,6 @@ J.~Nocedal and S.~J. Wright, \emph{Numerical optimization 2nd}, Springer, 2006.
 \bibitem[PB{\etalchar{+}}14]{parikh2014proximal}
 N.~Parikh, S.~Boyd, et~al., \emph{Proximal algorithms}, Foundations and
   Trends{\textregistered} in Optimization \textbf{1} (2014), no.~3, 127--239.
-
-\bibitem[PR69]{polak1969note}
-E.~Polak and G.~Ribiere, \emph{Note on convergence of conjugate direction
-  meters}, French Review of Computer Science and Operational Research. Red
-  \textbf{3} (1969), no.~16, 35--43.
-
-\bibitem[QY10]{quillen2010block}
-P.~Quillen and Q.~Ye, \emph{A block inverse-free preconditioned krylov subspace
-  method for symmetric generalized eigenvalue problems}, Journal of
-  computational and applied mathematics \textbf{233} (2010), no.~5, 1298--1313.
 
 \bibitem[RFP10]{recht2010guaranteed}
 B.~Recht, M.~Fazel, and P.~A. Parrilo, \emph{Guaranteed minimum-rank solutions
@@ -291,6 +269,11 @@ M.~Schmidt, \emph{minfunc: unconstrained differentiable multivariate
   constraints in matlab},
   \url{http://www.cs.ubc.ca/~schmidtm/Software/minConf.html}, 2008.
 
+\bibitem[SCS10]{saad2010numerical}
+Y.~Saad, J.~R. Chelikowsky, and S.~M. Shontz, \emph{Numerical methods for
+  electronic structure calculations of materials}, SIAM review \textbf{52}
+  (2010), no.~1, 3--54.
+
 \bibitem[SEC{\etalchar{+}}15]{DBLP:journals/spm/ShechtmanECCMS15}
 Y.~Shechtman, Y.~C. Eldar, O.~Cohen, H.~N. Chapman, J.~Miao, and M.~Segev,
   \emph{Phase retrieval with application to optical imaging: {A} contemporary
@@ -316,9 +299,9 @@ J.~Sun, Q.~Qu, and J.~Wright, \emph{A geometric analysis of phase retrieval},
   Information Theory (ISIT), 2016 IEEE International Symposium on, IEEE, 2016,
   pp.~2379--2383.
 
-\bibitem[TBI97]{trefethen1997numerical}
-L.~N. Trefethen and D.~Bau~III, \emph{Numerical linear algebra}, vol.~50, Siam,
-  1997.
+\bibitem[Ste92]{stewart1992updating}
+G.~W. Stewart, \emph{An updating algorithm for subspace tracking}, IEEE
+  Transactions on Signal Processing \textbf{40} (1992), no.~6, 1535--1541.
 
 \bibitem[TTT99]{toh1999sdpt3}
 K.-C. Toh, M.~J. Todd, and R.~H. T{\"u}t{\"u}nc{\"u}, \emph{Sdpt3—a matlab
@@ -328,6 +311,10 @@ K.-C. Toh, M.~J. Todd, and R.~H. T{\"u}t{\"u}nc{\"u}, \emph{Sdpt3—a matlab
 \bibitem[Wal63]{walther1963question}
 A.~Walther, \emph{The question of phase retrieval in optics}, Optica Acta:
   International Journal of Optics \textbf{10} (1963), no.~1, 41--49.
+
+\bibitem[Yan95]{yang1995projection}
+B.~Yang, \emph{Projection approximation subspace tracking}, IEEE Transactions
+  on Signal processing \textbf{43} (1995), no.~1, 95--107.
 
 \bibitem[ZH04]{zhang2004nonmonotone}
 H.~Zhang and W.~W. Hager, \emph{A nonmonotone line search technique and its
