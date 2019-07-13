@@ -646,7 +646,7 @@ Another potential PhaseLift-type model we may consider optimizing is the \textit
 \end{equation}
 discussed in \cite{candes2014solving}.  
 This paper showed that the number of observations required in Theorem \ref{Thm:PhaseLift_approx} to guaranteed the solution signal error bounds (\ref{Eqn:Thm_PhaseLift_approx_X}), (\ref{Eqn:Thm_PhaseLift_approx_x}) are reduced to $\caO(n)$ if we instead consider the PhaseLift-$l_1$ model (\ref{Eqn:PhaseLift_l-1_norm_model}).
-Thus we investigate whether (\ref{Eqn:PhaseLift_l-1_norm_model}) or its duals could be used to develop a computationally efficient large-scale first-order method.
+Therefore we will investigate whether (\ref{Eqn:PhaseLift_l-1_norm_model}) or its duals could be used to develop a computationally efficient large-scale first-order method.
 
 
 A first-order method for the PhaseLift-$l_1$ model (\ref{Eqn:PhaseLift_l-1_norm_model}) will require projection onto the positive semidefinite constraint $X \succeq 0$, again requiring a partial SVD which is prohibitive for large-scale problems.  We may also consider the gauge dual and Lagrange dual
@@ -672,7 +672,7 @@ A first-order method for the PhaseLift-$l_1$ model (\ref{Eqn:PhaseLift_l-1_norm_
 \end{equation}
 to the PhaseLift-$l_1$ model (\ref{Eqn:PhaseLift_l-1_norm_model}) 
 (see Appendix \ref{Sec:Appx-PL-l1} for the derivation of PLGD-$l_1$ and  \cite[Chapter 5]{boyd2004convex} for PLD-$l_1$).   
-Yet like the PhaseLift Lagrange dual (\ref{Eqn:PhaseLift-Lagrange_dual_nonTFOCS}), 
+Like the PhaseLift Lagrange dual (\ref{Eqn:PhaseLift-Lagrange_dual_nonTFOCS}), 
 both of these models (\ref{Eqn:PhaseLift_l-1_norm_model_dual}) have a linear matrix inequality in the constraint.
 As a result, projection onto this constraint $\{ y \ | \ -\caA^*y \succeq 0 \}$ will again require a separate eigenvalue optimization problem similar to PLGD model (\ref{Eqn:PLGD_ch2}), making both models (\ref{Eqn:PhaseLift_l-1_norm_model_dual}) computationally prohibitive to optimize.
 Thus, among the PhaseLift-type models discussed above, the PLGD model (\ref{Eqn:PLGD_ch2}) is the best suited for developing a first-order method.
@@ -697,7 +697,7 @@ A signal is considered successfully recovered if it satisfies the inequality (\r
 
 
 
-The ability of Algorithm \ref{Alg:PGD} to denoise the noisy observation $b = \bar{b} + \eta$ is a consequence of the property that PLGD variable $y_k$ approximates the noise term $\eta$ with increasing accuracy as Algorithm \ref{Alg:PGD} converges (see Section \ref{Subsec:PLGD-opt_conds_primal_recovery} for details regarding the primal refinement method).
+The ability of Algorithm \ref{Alg:PGD} to denoise the noisy observation $b = \bar{b} + \eta$ is a consequence of the property that the PLGD variable $y_k$ approximates the noise term $\eta$ with increasing accuracy as Algorithm \ref{Alg:PGD} converges (see Section \ref{Subsec:PLGD-opt_conds_primal_recovery} for details regarding the primal refinement method).
 Thus we also measure the angle between $\eta$ and the final dual variable $y$ returned by Algorithm \ref{Alg:PGD}
 \begin{equation} 			\label{Eqn:angle_eta_y}
 	\cos \angle (\eta, y)	=	\frac{\eta^*y}{||\eta|| \ ||y||}.
