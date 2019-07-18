@@ -1,4 +1,4 @@
-\chapter{A first-order method for the PLGD model}  \label{Sec:PLGD_algo}
+\chapter{A First-Order Method for the PLGD Model}  \label{Sec:PLGD_algo}
 
 
 
@@ -7,17 +7,26 @@
 
 In this chapter we present a first-order algorithm for optimizing the PLGD model (\ref{Eqn:PhaseLift-P-GD}).  Section \ref{Subsec:PLGD_algo-algo} develops the computational steps necessary for a first-order PLGD algorithm.  We then present the resulting algorithm and discuss specific implementation details.  Section \ref{Subsec:PLGD_algo-noiseless_success} demonstrates the effectiveness of this algorithm for noiseless phase retrieval problems.  We close with a summary of the challenges to this algorithm which are addressed in the remainder of this dissertation.
 
-The algorithm presented in this chapter was first established in \cite{DBLP:journals/siamsc/FriedlanderM16}.  As we will see in Section \ref{Subsec:PLGD_term_crit-stagnation}, the challenges posed by noisy phase retrieval are intrinsic to the PLGD model (\ref{Eqn:PhaseLift-P-GD}) itself, and independent of the choice of first-order method.  Thus, due to the effectiveness of this particular method for noiseless phase retrieval and the existence of a comprehensive, specialized software package, we use this method to examine the behavior of first-order methods for optimizing (\ref{Eqn:PhaseLift-P-GD}).  All implementation details in this chapter are identical to the original software package unless otherwise noted.
+The algorithm presented in this chapter was first established in \cite{DBLP:journals/siamsc/FriedlanderM16}.  
+As we will see in Section \ref{Subsec:PLGD_term_crit-stagnation}, the challenges posed by noisy phase retrieval are intrinsic to the PLGD model (\ref{Eqn:PhaseLift-P-GD}) itself, and independent of the choice of first-order method.  
+Thus, due to the effectiveness of this algorithm for noiseless phase retrieval and the existence of a comprehensive, specialized software package by the authors of \cite{DBLP:journals/siamsc/FriedlanderM16}, we use this algorithm to examine the behavior of first-order methods for optimizing (\ref{Eqn:PhaseLift-P-GD}).  
+All implementation details in this chapter are identical to the original software package unless otherwise noted.
 
 
 
 
 
-\section{Algorithm and implementation details}  	\label{Subsec:PLGD_algo-algo}
+\section{The Algorithm}  	\label{Subsec:PLGD_algo-algo}
 
 
-
-We begin by examining the features of the PLGD model (\ref{Eqn:PhaseLift-P-GD}) which are essential to developing a first-order descent method.  Recall that first-order methods like gradient descent have a basic iterate update $y_+ = \Pi_\caC(y - \alpha g)$, where $-g$ is a descent direction based on first-order information, $\alpha$ is a steplength determined with some policy, and $\Pi_\caC$ is projection onto the feasible region $\caC$.  Since we are primarily concerned with large-scale signal recovery, the descent direction must be constructed using only first-order information.  Each objective function evalution $\lambda_1(\caA^*y)$ requires the solution of a costly eigenvalue problem, so its computation should be kept to a minimum.  Additionally, the PLGD model (\ref{Eqn:PhaseLift-P-GD}) is a convex problem, having both convex objective function $\lambda_1(\caA^* y)$ and convex constraint domain $\caC = \{ y \in \R^m \ | \ \langle b, y \rangle - \epsilon ||y|| \geq 1 \}$.   Thus, any descent method should take advantage of this convexity and determine the steplength $\alpha$ using a linesearch with minimal backtracking (or evaluations of $\lambda_1(\caA^*y)$) and guaranteed convergence.  Some applicable methods include projected gradient, quasi-Newton, and spectral bundle methods.  Our first-order method of choice for solving (\ref{Eqn:PhaseLift-P-GD}) is a projected gradient descent method with adaptive steplength based on the local differentiability of $\lambda_1(\caA^* y)$.
+We begin this section by examining the features of the PLGD model (\ref{Eqn:PhaseLift-P-GD}) which are essential to developing a first-order descent method.  
+Recall that first-order methods like gradient descent have a basic iterate update $y_+ = \Pi_\caC(y - \alpha g)$, where $-g$ is a descent direction based on first-order information, $\alpha$ is a steplength determined with some policy, and $\Pi_\caC$ is projection onto the feasible region $\caC$.  
+Since we are primarily concerned with large-scale signal recovery, the descent direction must be constructed using only first-order information.  
+Each objective function evalution $\lambda_1(\caA^*y)$ requires the solution of a costly eigenvalue problem, so its computation should be kept to a minimum.  
+Additionally, the PLGD model (\ref{Eqn:PhaseLift-P-GD}) is a convex problem, having both convex objective function $\lambda_1(\caA^* y)$ and convex constraint domain $\caC = \{ y \in \R^m \ | \ \langle b, y \rangle - \epsilon ||y|| \geq 1 \}$.   
+Thus, any descent method should take advantage of this convexity and determine the steplength $\alpha$ using a linesearch with minimal backtracking (or evaluations of $\lambda_1(\caA^*y)$) and guaranteed convergence.  
+Some applicable methods include projected gradient, quasi-Newton, and spectral bundle methods.  
+Our first-order method of choice for solving (\ref{Eqn:PhaseLift-P-GD}) is a projected gradient descent method with adaptive steplength based on the local differentiability of $\lambda_1(\caA^* y)$.
 
 
 
@@ -187,7 +196,10 @@ The above sequence of steps and methods leads to Algorithm \ref{Alg:PGD}, a proj
 
 
 
-We close this section by describing the implementation details of Algorithm \ref{Alg:PGD}.  This algorithm was original established in \cite{DBLP:journals/siamsc/FriedlanderM16} and implemented in the accompanying software package \texttt{low-rank-opt}\footnote{\url{https://www.cs.ubc.ca/~mpf/pubs/low-rank-spectral-optimization-via-gauge-duality/}} (with the identical clone \footnote{\url{https://github.com/Will-Wright/low-rank-opt-orig}}).  All tests, experiments, and new methods in this dissertation are available for reproduction in a branched package\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}.  This branch includes a few minor changes to the original algorithm which are noncritical to the behavior of this algorithm (see \texttt{README.md} in the main directory for details).
+We close this section by describing the implementation details of Algorithm \ref{Alg:PGD}.  
+This algorithm was original established in \cite{DBLP:journals/siamsc/FriedlanderM16} and implemented in the accompanying software package \texttt{low-rank-opt}\footnote{\url{https://www.cs.ubc.ca/~mpf/pubs/low-rank-spectral-optimization-via-gauge-duality/}} (with the identical clone\footnote{\url{https://github.com/Will-Wright/low-rank-opt-orig}}).  
+All tests, experiments, and new methods in this dissertation are available for reproduction in a branched package\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}.  
+This branch includes a few minor changes to the original algorithm which are noncritical to the behavior of this algorithm (see the package repository for details).
 
 
 In the case of noisy phase retrieval, the input $\epsilon$ is a measure of the total noise \[
@@ -235,7 +247,8 @@ Theoretically, the steplength strategy in Algorithm \ref{Alg:PGD} is guaranteed 
 
 
 
-\section{Efficient recovery for noiseless phase retrieval} 		\label{Subsec:PLGD_algo-noiseless_success}
+\section{Noiseless Phase Retrieval} 		\label{Subsec:PLGD_algo-noiseless_success}
+
 
 
 
@@ -287,13 +300,15 @@ We begin by demonstrating that this algorithm stagnates prior to convergence for
 We then establish new termination conditions which indicate stagnation, so we may treat Algorithm \ref{Alg:PGD} as a black-box and focus our attention on handling the \textit{evolving matrix eigenvalue problem} (EMEP) as defined in Chapter \ref{Sec:evol_mats}.
 
 
-In Chapter \ref{Sec:evol_mats} we define the EMEP and identify the EMEP as the dominant computational cost in Algorithm \ref{Alg:PGD}.
+In Chapter \ref{Sec:evol_mats} we define the EMEP in Algorithm \ref{Alg:PGD} and develop a new strategy for handling this problem.
 We see that the algebraically largest eigenvalues of the EMEP cluster for later iterates, resulting in more difficult eigenvalue problems.
-To develop a new strategy for handling the EMEP, we close Chapters \ref{Sec:evol_mats} with a review of the \textit{implicitly restarted Arnoldi method} (IRAM), a modern method for large-scale eigenvalue problems.  
+To develop a new strategy for handling the EMEP, Section \ref{Subsec:evol_mats-IRAM} reviews the \textit{implicitly restarted Arnoldi method} (IRAM), a common method for large-scale eigenvalue problems. 
+Next, Section \ref{Subsec:evol_mats-adaptive_IRAM} develops \textit{the IRAM with adaptive parameter selection}, a new strategy for choosing the IRAM parameters to handle the EMEP.  
+We close Chapter \ref{Sec:evol_mats} by examining how this new strategy relates to the clustering of eigenvalues in the EMEP.
 
 
-In Chapter \ref{Sec:Numerics} we develop a new strategy for choosing IRAM parameters to handle the EMEP and examine how this new strategy relates to the clustering of eigenvalues in the EMEP.
-Finally, Chapter \ref{Sec:Conclusion} concludes this dissertation with numerical results and suggestions for future work.
+Finally, Chapter \ref{Sec:Numerics} provides performance results for the IRAM with adaptive parameter selection, demonstrating the efficiency of this method compared to the default IRAM parameter choice for Algorithm \ref{Alg:PGD}.  
+Chapter \ref{Sec:Conclusion} concludes this dissertation with a summary of our work and suggestions for future work.
 
 
 

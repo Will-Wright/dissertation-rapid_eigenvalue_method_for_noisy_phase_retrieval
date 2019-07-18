@@ -1,24 +1,23 @@
-\chapter{New termination conditions for the first-order PLGD algorithm}  \label{Sec:PLGD_term_crit}
+\chapter{Termination Conditions}  \label{Sec:PLGD_term_crit}
 
 
 \section{Introduction}	\label{Subsec:PLGD_term_crit-intro}
 
 
-In the previous chapter we developed Algorithm \ref{Alg:PGD} to optimize the PLGD model (\ref{Eqn:PhaseLift-P-GD}) and saw that this method is efficient and accurate for noiseless phase retrieval.  We now examine the tendency of Algorithm \ref{Alg:PGD} to fail to converge for noisy phase retrieval and establish new termination conditions for this algorithm.
+In Chapter \ref{Sec:PLGD_algo} we developed Algorithm \ref{Alg:PGD} to optimize the PLGD model (\ref{Eqn:PhaseLift-P-GD}) and saw that this method is efficient and accurate for noiseless phase retrieval.  
+We now examine the tendency of Algorithm \ref{Alg:PGD} to fail to converge for noisy phase retrieval and establish new termination conditions for this algorithm.
 
-We begin in Section \ref{Subsec:PLGD_term_crit-NOISY_MODELS_AND_RESIDUALS} by describing how we construct experimental noisy PLGD models and discussing potential residuals for measuring the progress of Algorithm \ref{Alg:PGD}.
+Section \ref{Subsec:PLGD_term_crit-NOISY_MODELS_AND_RESIDUALS} describes our method of constructing experimental noisy PLGD models and establishes potential residuals for measuring the progress of Algorithm \ref{Alg:PGD}.
 Section \ref{Subsec:PLGD_term_crit-stagnation} then examines the tendency of Algorithm \ref{Alg:PGD} not to converge for noisy phase retrieval problems.
 We see that signals observed with nontrivial noise tend to have optimal PLGD matrices $X_\star$ with rank greater than one, preventing first-order methods like Algorithm \ref{Alg:PGD} from converging.  
-To handle this issue, Section \ref{Subsec:PLGD_term_crit-new_term_crit} establishes new termination conditions based on heuristic evidence indicating Algorithm \ref{Alg:PGD} has stopped making signal recovery progress.  
-These new conditions allow us to treat Algorithm \ref{Alg:PGD} as a black-box solver in the remainder of this dissertation so we may develop optimal methods for handling the EMEP, the computational bottleneck of this algorithm.
+To handle this issue, Section \ref{Subsec:PLGD_term_crit-new_term_crit} establishes new termination conditions based on heuristic evidence which indicates that Algorithm \ref{Alg:PGD} has stopped making signal recovery progress.  
+These new termination conditions allow us to treat Algorithm \ref{Alg:PGD} as a black-box solver in Chapter \ref{Sec:evol_mats}, where we focus on the challenging sequence of eigenvalue problems in Algorithm \ref{Alg:PGD}.
 
 
 
 
 
-
-
-\section{Experimental models and potential residuals} 		\label{Subsec:PLGD_term_crit-NOISY_MODELS_AND_RESIDUALS}
+\section{Experimental Models and Residuals} 		\label{Subsec:PLGD_term_crit-NOISY_MODELS_AND_RESIDUALS}
 
 
 
@@ -161,7 +160,7 @@ As we will see in Section \ref{Subsec:PLGD_term_crit-new_term_crit}, the primal 
 
 
 
-\section{Stagnation of the first-order PLGD algorithm} 		\label{Subsec:PLGD_term_crit-stagnation}
+\section{Algorithmic Stagnation} 		\label{Subsec:PLGD_term_crit-stagnation}
 
 
 
@@ -174,9 +173,9 @@ Additionally, since $X_\star \neq \bar{x}\bar{x}^*$, the primal refinement strat
 
 
 In order to describe the behavior of Algorithm \ref{Alg:PGD} for noisy phase retrieval problems, we use the following terminology to make the distinction between Algorithm \ref{Alg:PGD} converging to an optimal solution and converging to a nonoptimal variable.
-Recall that Algorithm \ref{Alg:PGD} \textit{converges} at a given iterate if the conditions (\ref{Eqn:saga_conv_crit_primal}) and (\ref{Eqn:saga_conv_crit_gap}) are satisfied.  
-We say that Algorithm \ref{Alg:PGD} \textit{fails to converge} if conditions (\ref{Eqn:saga_conv_crit_primal}) or (\ref{Eqn:saga_conv_crit_gap}) are not satisfied for any iterate within a maximum number of iterations (typically 1,000).
-In contrast with converging, we say Algorithm \ref{Alg:PGD} \textit{stagnates} at a given iterate if the progress from the previous iterate is trivial.  
+Recall that Algorithm \ref{Alg:PGD} has \textit{converged} at a given iterate if the conditions (\ref{Eqn:saga_conv_crit_primal}) and (\ref{Eqn:saga_conv_crit_gap}) are satisfied.  
+We say that Algorithm \ref{Alg:PGD} \textit{failed to converge} if conditions (\ref{Eqn:saga_conv_crit_primal}) or (\ref{Eqn:saga_conv_crit_gap}) are not satisfied for any iterate within a maximum number of iterations (typically 1,000).
+In contrast with converging, we say Algorithm \ref{Alg:PGD} has \textit{stagnated} at a given iterate if the progress from the previous iterate is trivial as measured by the difference residuals (\ref{Eqn:term_crit-candidate_residuals}g-j).  
 Specifically, Algorithm \ref{Alg:PGD} stagnates at a given iterate if a chosen subset of difference residuals (\ref{Eqn:term_crit-candidate_residuals}e, g-j) are below a required set of tolerances.
 
 
@@ -200,9 +199,9 @@ Table \ref{Tab:synthetic_dual_variable_converges} depicts the results of Algorit
  	&	\multicolumn{2}{c|}{$L = 5$}
  		&	\multicolumn{2}{c|}{$L = 10$}
  			&	\multicolumn{2}{c|}{$L = 15$}	\\
- 	&	 Iterations	&	xErr
- 		&	Iterations	&	xErr
- 			&	Iterations	&	xErr		\\  			
+ 	&	 Iters	&	xErr
+ 		&	Iters	&	xErr
+ 			&	Iters	&	xErr		\\  			
  \hline
 $\epsilon_\rel = 0.05$
 	&	$154$ & $8.581 \times 10^{-3}$
@@ -346,7 +345,7 @@ Figure \ref{Fig:noisy_random_DFP_vs_no_DFP} demonstrates that the dual refinemen
 
 
 
-\section{New termination conditions}  	\label{Subsec:PLGD_term_crit-new_term_crit}
+\section{New Termination Conditions}  	\label{Subsec:PLGD_term_crit-new_term_crit}
 
 
 In Section \ref{Subsec:PLGD_term_crit-stagnation}, we saw that Algorithm \ref{Alg:PGD} tends to stagnate when solving phase retrieval problems with Gaussian noise (\ref{Eqn:phase_retrieval_Gaussian_noise}), failing to satisfy the duality gap termination condition (\ref{Eqn:saga_conv_crit_gap}) original established in \cite{DBLP:journals/siamsc/FriedlanderM16}.  

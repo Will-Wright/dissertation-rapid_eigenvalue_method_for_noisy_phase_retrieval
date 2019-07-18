@@ -1,13 +1,9 @@
-\chapter{Further justification of residuals established in Chapter \ref{Sec:PLGD_term_crit}}      		\label{Sec:Appx-further_reasons_for_new_term_crit}
-
-
-\begin{enumerate}
+\chapter{Further Justification of New Termination Conditions in Section \ref{Subsec:PLGD_term_crit-new_term_crit}}      		\label{Sec:Appx-further_reasons_for_new_term_crit}
 
 
 
-\item
-
-The previous section demonstrated that the primal difference (\ref{Eqn:term_crit-candidate_residuals}e) and dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) effectively identify the point at which Algorithm \ref{Alg:PGD} stagnates for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  We close this chapter with a justification for ignoring the remaining residuals (\ref{Eqn:term_crit-candidate_residuals}).  As we will see, each of these residuals is either unreliable or effectively a duplicate of another (computationally cheaper) residual.  
+Section \ref{Subsec:PLGD_term_crit-new_term_crit} demonstrated that the primal difference (\ref{Eqn:term_crit-candidate_residuals}e) and dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) effectively identify the point at which Algorithm \ref{Alg:PGD} stagnates for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  
+This appendix demonstrates that all of the remaining residuals from  (\ref{Eqn:term_crit-candidate_residuals}) are either unreliable or effectively a duplicate of another computationally cheaper residual.  
 
 One residual that may be eliminated is the primal relative error (\ref{Eqn:term_crit-candidate_residuals}d).  The original termination conditions for Algorithm \ref{Alg:PGD} include the feasibility requirement (\ref{Eqn:saga_conv_crit_primal}) 
 \begin{equation*}
@@ -100,5 +96,4 @@ Finally, we may also eliminate the dual objective difference (\ref{Eqn:term_crit
 Figure \ref{Fig:term_crit-dual_obj} demonstrates that the dual objective difference (\ref{Eqn:term_crit-candidate_residuals}h) behaves erratically, decreasing too slowly for low-noise models and too quickly for high-noise models.  To simplify our discussion, label the dual objective tolerance as $\tol_\text{DO}$.  If we set $\tol_\text{DO} = 10^{-5}$, then Algorithm \ref{Alg:PGD} will terminate far too late for the top-left model in Figure \ref{Fig:term_crit-dual_obj}.  However, if we set $\tol_\text{DO} = 10^{-4}$ then the algorithm may terminate far too early for the middle-left and bottom-left models.  Likewise, the models at right in Figure \ref{Fig:term_crit-dual_obj} do not have a consistent tolerance value $\tol_\text{DO}$ which reliably selects for termination within the desired intervals.  Thus the tolerance $\tol_\text{DO}$ is not a reliable indicator of stagnation of Algorithm \ref{Alg:PGD}.  
 
 
-\end{enumerate}
 

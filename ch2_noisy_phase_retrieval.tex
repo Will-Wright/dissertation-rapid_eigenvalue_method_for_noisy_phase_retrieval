@@ -1,7 +1,7 @@
-\chapter{Noisy phase retrieval: a brief survey of applications and methods} 	\label{Sec:phase_retrieval}
+\chapter{Noisy Phase Retrieval} 	\label{Sec:phase_retrieval}
 
 
-\section{Mathematical model}	\label{Subsec:phase_retrieval-math_model}
+\section{Introduction}	\label{Subsec:phase_retrieval-math_model}
 
 
 
@@ -24,7 +24,7 @@ In this chapter, we begin by discussing a few typical applications of phase retr
 We then review several methods for noisy phase retrieval.  
 These methods are split into three classes: alternating projection methods (Section \ref{Subsubsec:phase_retrieval-alternating_direction_methods}), structured optimization methods (Section \ref{Subsubsec:phase_retrieval-structured}) which rely on additional assumptions like sparsity of the signal $x$, and unstructured optimization methods (Section \ref{Subsubsec:phase_retrieval-unstructured}) which only require an observation vector $b$ and noise ratio $\epsilon_{\text{rel}} = ||\eta|| / ||b||$.  
 This final class includes the PLGD model (\ref{Eqn:PhaseLift-GD}) which is central to this dissertation, and thus we provide greater detail for theoretical guarantees and numerical performance behavior.
-Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model} closes this chapter with a justification for using the PLGD model (\ref{Eqn:PhaseLift-GD}) to handle noisy phase retrieval problems.
+Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model} closes this chapter by discussing the advantages of using the PLGD model (\ref{Eqn:PhaseLift-GD}) to handle noisy phase retrieval problems.
 We see that the PLGD model is particularly well suited for developing a first-order optimization method.
 Additionally, we demonstrate that one such first-order method for the PLGD model (Algorithm \ref{Alg:PGD} from Chapter \ref{Sec:PLGD_algo}) is generally more accurate and robust to noise and low oversampling than wflow, an alternative method discussed in Section \ref{Subsubsec:phase_retrieval-unstructured}.
 
@@ -32,13 +32,13 @@ Additionally, we demonstrate that one such first-order method for the PLGD model
 
 
 
-\section{Applications and experimental models} 			\label{Subsec:phase_retrieval-applications}
+\section{Applications and Experimental Models} 			\label{Subsec:phase_retrieval-applications}
 
 
-Phase retrieval has a broad range of applications across the sciences, many of which fall into the general category of coherent diffraction imaging (CDI) \cite{miao1999extending}.  This section provides a brief overview of CDI and closes with a description of the phase retrieval experimental models used in this dissertation (as well as \cite{DBLP:journals/siamis/CandesESV13}, \cite{DBLP:journals/tit/CandesLS15}, \cite{DBLP:journals/siamsc/FriedlanderM16}).
-
-
-More specific applications of phase retrieval can be found in astronomy \cite{fienup1987phase}, diffraction and array imaging \cite{bunk2007diffractive} \cite{chai2010array}, microscopy \cite{miao2008extending}, optics \cite{walther1963question}, and x-ray crystallography \cite{harrison1993phase}, \cite{millane1990phase} (for a recent benchmark set of crystallography problems, see \cite{elser2017benchmark}).  For a comprehensive introduction to optical phase retrieval and an overview of recent theory and methods, see the survey \cite{DBLP:journals/spm/ShechtmanECCMS15}.
+Phase retrieval has a broad range of applications across the sciences, many of which fall into the general category of coherent diffraction imaging (CDI) \cite{miao1999extending}.  
+This section provides a brief overview of CDI and closes with a description of the phase retrieval experimental models used in this dissertation (as well as \cite{DBLP:journals/siamis/CandesESV13}, \cite{DBLP:journals/tit/CandesLS15}, \cite{DBLP:journals/siamsc/FriedlanderM16}).
+More specific applications of phase retrieval can be found in astronomy \cite{fienup1987phase}, diffraction and array imaging \cite{bunk2007diffractive} \cite{chai2010array}, microscopy \cite{miao2008extending}, optics \cite{walther1963question}, and x-ray crystallography \cite{harrison1993phase}, \cite{millane1990phase} (for a recent benchmark set of crystallography problems, see \cite{elser2017benchmark}).  
+For a comprehensive introduction to optical phase retrieval and an overview of recent theory and methods, see the survey \cite{DBLP:journals/spm/ShechtmanECCMS15}.
 
 
 CDI is a method for reconstructing $2$- or $3$-dimensional nano-structures (e.g., nanotubes, nanocrystals, proteins).  In this process, highly coherent waves (e.g., x-rays, electrons, photons) are projected at a given object.  The resulting diffraction creates a pattern of intensities which are measured with a detector, resulting in magnitude-only measurements.  Figure \ref{Fig:CDI} below depicts the CDI observation process.
@@ -96,18 +96,18 @@ For a complete explanation of our method for creating noisy phase retrieval prob
 
 
 
-\section{Survey of noisy phase retrieval methods}  	\label{Subsec:phase_retrieval-survey_of_methods}
+\section{Methods}  	\label{Subsec:phase_retrieval-survey_of_methods}
 
-Due to the variety of phase retrieval applications and the difficulty of solving the phase retrieval problem (\ref{Eqn:phase_retrieval}), a wide range of phase retrieval methods have been developed for both noisy and noiseless phase retrieval.  This section provides a review of methods for noisy phase retrieval (\ref{Eqn:phase_retrieval} with $||\eta|| > 0$) which we separate into three classes: alternating projection methods (Section \ref{Subsubsec:phase_retrieval-alternating_direction_methods}), structured optimization methods (Section \ref{Subsubsec:phase_retrieval-structured}), and unstructured optimization methods (Section \ref{Subsubsec:phase_retrieval-unstructured}).  These three classes were chosen to mirror the historical progression of methods (as the alternating projection methods preceded the others by a few decades) and emphasize the uniqueness of the three unstructured methods discussed in Section \ref{Subsubsec:phase_retrieval-unstructured}.  For a recent survey of noiseless phase retrieval methods, see \cite{DBLP:journals/corr/JaganathanEH15a}.
-
-
+Given the variety of phase retrieval applications and the difficulty of solving the phase retrieval problem (\ref{Eqn:phase_retrieval}), a wide range of phase retrieval methods have been developed for both noisy and noiseless phase retrieval.  This section provides a review of methods for noisy phase retrieval (\ref{Eqn:phase_retrieval} with $||\eta|| > 0$) which we separate into three classes: alternating projection methods (Section \ref{Subsubsec:phase_retrieval-alternating_direction_methods}), structured optimization methods (Section \ref{Subsubsec:phase_retrieval-structured}), and unstructured optimization methods (Section \ref{Subsubsec:phase_retrieval-unstructured}).  These three classes were chosen to mirror the historical progression of methods (as the alternating projection methods preceded the others by a few decades) and emphasize the uniqueness of the three unstructured methods discussed in Section \ref{Subsubsec:phase_retrieval-unstructured}.  For a recent survey of noiseless phase retrieval methods, see \cite{DBLP:journals/corr/JaganathanEH15a}.
 
 
 
 
 
 
-\subsection{Alternating projection methods}		\label{Subsubsec:phase_retrieval-alternating_direction_methods}
+
+
+\subsection{Alternating Projection Methods}		\label{Subsubsec:phase_retrieval-alternating_direction_methods}
 
 
 
@@ -216,7 +216,7 @@ While these HIO-type methods are computationally efficient and still commonly us
 
 
 
-\subsection{Structured optimization methods}  	\label{Subsubsec:phase_retrieval-structured}
+\subsection{Structured Optimization Methods}  	\label{Subsubsec:phase_retrieval-structured}
 
 
 Next we discuss structured optimization methods for noisy phase retrieval.  In the past decade, a wide range of methods have been crafted to take advantage of the structure of particular phase retrieval problems.  The survey in this section highlights typical methods, their applications, and theoretical guarantees for exact recovery or error bounds.  
@@ -283,7 +283,7 @@ Their numerical results demonstrate that this probability quickly approaches $1$
 
 
 
-\subsection{Unstructured optimization methods}	 	\label{Subsubsec:phase_retrieval-unstructured}
+\subsection{Unstructured Optimization Methods}	 	\label{Subsubsec:phase_retrieval-unstructured}
 
 
 The final class of methods we examine are unstructured optimization methods.  Unlike the methods discussed in Section \ref{Subsubsec:phase_retrieval-structured}, these methods place no assumptions on the signal $x$, the sensing vectors $a_i$, or the observation $b = \bar{b} + \eta$ other than knowledge of the noise ratio $\epsilon_\rel = ||\eta|| / ||b||$.
@@ -557,20 +557,22 @@ $f$ has negative directional curvature at all saddle points.
 Thus when solving (\ref{Eqn:wflow_least-squares}), methods such as wflow do not require specialized initialization, and are likewise guaranteed to find a global minimum given sufficient oversampling.  Nevertheless, wflow can diverge when significant noise exists or the oversampling rate is too low, as we will see in Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model}.
 
 
-As we have seen in this section, many phase retrieval methods have been developed to utilize structural properties of the given phase retrieval problem (\ref{Eqn:phase_retrieval}).  Yet if the problem is unstructured (only the observation and noise ratio are availalble), then only a few methods are available.   We will now examine these methods to establish why the PLGD model is best suited for handling large-scale, noisy phase retrieval problems.
+As we have seen in this section, many phase retrieval methods have been developed to utilize structural properties of the given phase retrieval problem (\ref{Eqn:phase_retrieval}).  
+Yet if the problem is unstructured (only the observation and noise ratio are availalble), then only a few methods are available.   
+We will briefly examine a few alternatives to the PLGD model (\ref{Eqn:PhaseLift-GD}) for handling large-scale, noisy phase retrieval problems.
 
 
 
 
-\section{Justification for optimizing the PLGD model}	\label{Subsec:phase_retrieval-why_optimize_PLGD_model}
+\section{Advantages of the PLGD Model}		\label{Subsec:phase_retrieval-why_optimize_PLGD_model}
 
 
 
 
-In this section we justify using the PLGD model (\ref{Eqn:PhaseLift-GD}) to solve large-scale, unstructured noisy phase retrieval problems (\ref{Eqn:phase_retrieval}). 
+In this section we examine the advantages of using the PLGD model (\ref{Eqn:PhaseLift-GD}) to solve large-scale, unstructured noisy phase retrieval problems (\ref{Eqn:phase_retrieval}). 
 First, we examine several \textit{PhaseLift-type} models, which are either duals or modifications of the PhaseLift model (\ref{Eqn:PhaseLift}) discussed in Section \ref{Subsubsec:phase_retrieval-unstructured}.
 Among these PhaseLift-type models, we explain why the PLGD model is the best suited for developing a first-order optimization method.
-Next, we demonstrate experimentally that the first-order PLGD method used in this dissertation is more accurate and robust than the wflow algorithm (Algorithm \ref{Alg:wflow}) for noisy phase retrieval with minimal oversampling.
+Next, we demonstrate experimentally that the first-order PLGD method used in this dissertation is generally more accurate and robust than the wflow algorithm (Algorithm \ref{Alg:wflow}) for noisy phase retrieval with minimal oversampling.
 
 Note that the first-order PLGD method discussed in this section is presented fully in Section \ref{Subsec:PLGD_algo-algo}, where we also 
 review the steps necessary to develop a generic first-order method.  

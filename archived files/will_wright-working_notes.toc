@@ -1,0 +1,42 @@
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Noisy Phase Retrieval}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Applications and Experimental Models}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Methods}{11}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Alternating Projection Methods}{12}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Structured Optimization Methods}{15}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Unstructured Optimization Methods}{17}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}Advantages of the PLGD Model}{23}{section.2.4}
+\contentsline {chapter}{\numberline {3}Gauge Duality Theory}{28}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{28}{section.3.1}
+\contentsline {section}{\numberline {3.2}Primal-Gauge Dual Pairs and Definitions}{29}{section.3.2}
+\contentsline {section}{\numberline {3.3}The Gauge Duality Theorem and Optimality Conditions}{32}{section.3.3}
+\contentsline {section}{\numberline {3.4}Theory Applied to the PLGD Model}{41}{section.3.4}
+\contentsline {chapter}{\numberline {4}A First-Order Method for the PLGD Model}{46}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{46}{section.4.1}
+\contentsline {section}{\numberline {4.2}The Algorithm}{46}{section.4.2}
+\contentsline {section}{\numberline {4.3}Noiseless Phase Retrieval}{52}{section.4.3}
+\contentsline {chapter}{\numberline {5}Termination Conditions}{55}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{55}{section.5.1}
+\contentsline {section}{\numberline {5.2}Experimental Models and Residuals}{55}{section.5.2}
+\contentsline {section}{\numberline {5.3}Algorithmic Stagnation}{58}{section.5.3}
+\contentsline {section}{\numberline {5.4}New Termination Conditions}{62}{section.5.4}
+\contentsline {chapter}{\numberline {6}Eigenvalue Computation}{70}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{70}{section.6.1}
+\contentsline {section}{\numberline {6.2}The Evolving Matrix Eigenvalue Problem}{71}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Definition}{71}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Computational Costs}{72}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Evolving Spectrum Distribution}{73}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}The Implicitly Restarted Arnoldi Method}{76}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}The Power Method}{76}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}The $m$-Step Arnoldi Iteration}{78}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}The $p$-Step Shifted QR Iteration}{80}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}The Implicitly Restarted Arnoldi Method}{82}{subsection.6.3.4}
+\contentsline {section}{\numberline {6.4}A New Strategy for the EMEP}{84}{section.6.4}
+\contentsline {section}{\numberline {6.5}Spectrum Distribution and IRAM Behavior}{88}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Eigenvalue Clustering and IRAM Parameter Choice}{89}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Selecting the Arnoldi Decomposition Size}{94}{subsection.6.5.2}
+\contentsline {chapter}{\numberline {7}Experimental Results}{95}{chapter.7}
+\contentsline {chapter}{\numberline {8}Conclusion}{102}{chapter.8}
+\contentsline {chapter}{\numberline {A}Proof of PhaseLift-$l_1$ gauge duality}{104}{appendix.A}
+\contentsline {chapter}{\numberline {B}Further justification of residuals established in Chapter \ref {Sec:PLGD_term_crit}}{105}{appendix.B}

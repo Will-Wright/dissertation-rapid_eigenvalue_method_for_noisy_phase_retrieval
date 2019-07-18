@@ -106,14 +106,10 @@
    
    
 
-   \input{ch7_new_algorithm.tex}      
+   \input{ch7_numerics.tex}         
    
    
-
-   \input{ch8_revised_method.tex}   
-   
-
-	\input{ch9_conclusion.tex}
+	\input{ch8_conclusion.tex}
 
    
    \appendix

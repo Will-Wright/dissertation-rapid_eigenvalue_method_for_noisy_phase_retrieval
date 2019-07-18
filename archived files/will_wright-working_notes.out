@@ -1,0 +1,42 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Noisy Phase Retrieval}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Applications and Experimental Models}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Methods}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.3.1}{Alternating Projection Methods}{section.2.3}% 6
+\BOOKMARK [2][-]{subsection.2.3.2}{Structured Optimization Methods}{section.2.3}% 7
+\BOOKMARK [2][-]{subsection.2.3.3}{Unstructured Optimization Methods}{section.2.3}% 8
+\BOOKMARK [1][-]{section.2.4}{Advantages of the PLGD Model}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{Gauge Duality Theory}{}% 10
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.2}{Primal-Gauge Dual Pairs and Definitions}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.3}{The Gauge Duality Theorem and Optimality Conditions}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.4}{Theory Applied to the PLGD Model}{chapter.3}% 14
+\BOOKMARK [0][-]{chapter.4}{A First-Order Method for the PLGD Model}{}% 15
+\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{The Algorithm}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.3}{Noiseless Phase Retrieval}{chapter.4}% 18
+\BOOKMARK [0][-]{chapter.5}{Termination Conditions}{}% 19
+\BOOKMARK [1][-]{section.5.1}{Introduction}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.2}{Experimental Models and Residuals}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.3}{Algorithmic Stagnation}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.4}{New Termination Conditions}{chapter.5}% 23
+\BOOKMARK [0][-]{chapter.6}{Eigenvalue Computation}{}% 24
+\BOOKMARK [1][-]{section.6.1}{Introduction}{chapter.6}% 25
+\BOOKMARK [1][-]{section.6.2}{The Evolving Matrix Eigenvalue Problem}{chapter.6}% 26
+\BOOKMARK [2][-]{subsection.6.2.1}{Definition}{section.6.2}% 27
+\BOOKMARK [2][-]{subsection.6.2.2}{Computational Costs}{section.6.2}% 28
+\BOOKMARK [2][-]{subsection.6.2.3}{Evolving Spectrum Distribution}{section.6.2}% 29
+\BOOKMARK [1][-]{section.6.3}{The Implicitly Restarted Arnoldi Method}{chapter.6}% 30
+\BOOKMARK [2][-]{subsection.6.3.1}{The Power Method}{section.6.3}% 31
+\BOOKMARK [2][-]{subsection.6.3.2}{The m-Step Arnoldi Iteration}{section.6.3}% 32
+\BOOKMARK [2][-]{subsection.6.3.3}{The p-Step Shifted QR Iteration}{section.6.3}% 33
+\BOOKMARK [2][-]{subsection.6.3.4}{The Implicitly Restarted Arnoldi Method}{section.6.3}% 34
+\BOOKMARK [1][-]{section.6.4}{A New Strategy for the EMEP}{chapter.6}% 35
+\BOOKMARK [1][-]{section.6.5}{Spectrum Distribution and IRAM Behavior}{chapter.6}% 36
+\BOOKMARK [2][-]{subsection.6.5.1}{Eigenvalue Clustering and IRAM Parameter Choice}{section.6.5}% 37
+\BOOKMARK [2][-]{subsection.6.5.2}{Selecting the Arnoldi Decomposition Size}{section.6.5}% 38
+\BOOKMARK [0][-]{chapter.7}{Experimental Results}{}% 39
+\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 40
+\BOOKMARK [0][-]{appendix.A}{Proof of PhaseLift-l1 gauge duality}{}% 41
+\BOOKMARK [0][-]{appendix.B}{Further justification of residuals established in Chapter 5}{}% 42
