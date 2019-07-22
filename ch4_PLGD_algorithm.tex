@@ -138,7 +138,7 @@ The primal refinement step makes further use of the fact that $\epsilon y / ||y|
 ||^2,
 \end{array}
 \end{equation}
-which is initialized with the primal recovery solution $\hat{x}$ from (\ref{Eqn:GD-primal_rec2}).  This problem can be interpreted as a partially denoised version of the wflow least-squares problem (\ref{Eqn:wflow_least-squares}), where $b$ has been replaced by $b_\epsilon$.
+which is initialized with the primal recovery solution $\hat{x}$ from (\ref{Eqn:GD-primal_rec2}).  The problem (\ref{Eqn:GD-PFD}) can be interpreted as a partially denoised version of the wflow least-squares problem (\ref{Eqn:wflow_least-squares}), where the observation $b$ has been replaced by the partially denoised observation $b_\epsilon$.
 
 
 
@@ -164,12 +164,12 @@ The above sequence of steps and methods leads to Algorithm \ref{Alg:PGD}, a proj
 \caption{Projected gradient descent method with refinement} 	\label{Alg:PGD}
 
 \begin{algorithmic}[1]
-	\Statex 	\textbf{Input:} Sensing operator $\caA$ and adjoint $\caA^*$, measurement vector $b$,
+	\Statex 	\textbf{Input:} Sensing operator $\caA$ and adjoint $\caA^*$, observation vector $b$,
 	initial dual variable $y$, estimate of total noise level $\epsilon$,  convergence
 	tolerances.
 	\Statex 	\textbf{Output:} Approximate solution signal $x$.
 	\While	{not converged}
-		\State 		\textit{Compute algebraically largest eigenpairs:} $(\lambda_1, v_1)$ and  $(\lambda_2, v_2)$ from $\caA^*y$.
+		\State 		\textit{Compute algebraically largest eigenvalues and corresponding eigenvectors:} $(\lambda_1, v_1)$ and  $(\lambda_2, v_2)$ from $\caA^*y$.
 		\State 		\textit{Compute (sub)gradient:} $g = \caA(v_1 v_1^*)$ based on  (\ref{Eqn:GD-subdifferential}).
 		\State		Determine differentiability of $\lambda_1(\caA^*y)$ based on (\ref{Eqn:GD-diff_tol}).
 		\If {$\lambda_1(\caA^*y)$ is differentiable}

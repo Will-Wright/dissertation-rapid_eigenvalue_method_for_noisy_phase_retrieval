@@ -87,7 +87,7 @@ For a complete explanation of our method for creating noisy phase retrieval prob
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-2.3cm} \includegraphics[scale=0.55]{parrot_signal_iterates} }
+\hbox{\hspace{-2.55cm} \includegraphics[scale=0.6]{parrot_signal_iterates} }
 \caption{Results from a first-order method (Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}) applied to a noisy phase retrieval problem (\ref{Eqn:phase_retrieval}) with oversampling rate $L = m/n=8$ and noise ratio $\epsilon_\text{rel} = ||\eta|| / ||b|| = 0.30$.}
 \label{Fig:parrot_signal_iterates}
 \end{figure}
@@ -557,7 +557,9 @@ $f$ has negative directional curvature at all saddle points.
 Thus when solving (\ref{Eqn:wflow_least-squares}), methods such as wflow do not require specialized initialization, and are likewise guaranteed to find a global minimum given sufficient oversampling.  Nevertheless, wflow can diverge when significant noise exists or the oversampling rate is too low, as we will see in Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model}.
 
 
-As we have seen in this section, many phase retrieval methods have been developed to utilize structural properties of the given phase retrieval problem (\ref{Eqn:phase_retrieval}).  Yet if the problem is unstructured (only the observation and noise ratio are availalble), then only a few methods are available.   We will now examine these methods to establish why the PLGD model is best suited for handling large-scale, noisy phase retrieval problems.
+As we have seen in this section, many phase retrieval methods have been developed to utilize structural properties of the given phase retrieval problem (\ref{Eqn:phase_retrieval}).  
+Yet if the problem is unstructured (only the observation and noise ratio are availalble), then only a few methods are available.   
+We will briefly examine a few alternatives to the PLGD model (\ref{Eqn:PhaseLift-GD}) for handling large-scale, noisy phase retrieval problems.
 
 
 
@@ -570,7 +572,7 @@ As we have seen in this section, many phase retrieval methods have been develope
 In this section we examine the advantages of using the PLGD model (\ref{Eqn:PhaseLift-GD}) to solve large-scale, unstructured noisy phase retrieval problems (\ref{Eqn:phase_retrieval}). 
 First, we examine several \textit{PhaseLift-type} models, which are either duals or modifications of the PhaseLift model (\ref{Eqn:PhaseLift}) discussed in Section \ref{Subsubsec:phase_retrieval-unstructured}.
 Among these PhaseLift-type models, we explain why the PLGD model is the best suited for developing a first-order optimization method.
-Next, we demonstrate experimentally that the first-order PLGD method used in this dissertation is more accurate and robust than the wflow algorithm (Algorithm \ref{Alg:wflow}) for noisy phase retrieval with minimal oversampling.
+Next, we demonstrate experimentally that the first-order PLGD method used in this dissertation is generally more accurate and robust than the wflow algorithm (Algorithm \ref{Alg:wflow}) for noisy phase retrieval with minimal oversampling.
 
 Note that the first-order PLGD method discussed in this section is presented fully in Section \ref{Subsec:PLGD_algo-algo}, where we also 
 review the steps necessary to develop a generic first-order method.  

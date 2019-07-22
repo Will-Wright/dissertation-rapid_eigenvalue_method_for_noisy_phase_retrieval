@@ -20,11 +20,11 @@ The PLGD model (\ref{Eqn:PhaseLift-GD}) maintains the convergence guarantees of 
 
 To optimize the PLGD model (\ref{Eqn:PhaseLift-GD}) we use the first-order method proposed in \cite[Section 4.4]{DBLP:journals/siamsc/FriedlanderM16}, which we restate in Section \ref{Subsec:PLGD_algo-algo} as Algorithm \ref{Alg:PGD}.
 The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than an alternate method for optimizing the PhaseLift model and returns signals with greater accuracy than wflow \cite{DBLP:journals/tit/CandesLS15}, another method for phase retrieval (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details regarding PhaseLift and wflow).  
-Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant runtime for large signals.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically stagnate before converging.
+Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant runtime for large signals.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically fail to converge.
 
 
 This dissertation offers two main contributions.  
-First, we address the algorithmic stagnation of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate stagnation of signal recovery progress.  
+First, we address the convergence  of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate stagnation of signal recovery progress.  
 Second, we develop a new strategy for handling the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} which decreases the computational cost and overall runtime of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
 
 

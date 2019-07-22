@@ -18,7 +18,7 @@ As indicated in Table \ref{Tab:term_crit-pr_feas_faster_for_big_L_noise}, Algori
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.6cm} \includegraphics[scale=0.6]{term_crit-pr_err_fails} }
+\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{term_crit-pr_err_fails} }
 \caption{Primal relative error (\ref{Eqn:term_crit-candidate_residuals}d) (blue) and noise ratio threshold (red) for noise ratio $\epsilon_\rel = 0.15$ and oversampling rate $L = 5$.  Iterate 1,000 remains infeasible with a primal relative error of $0.1541$.}
 \label{Fig:term_crit-pr_err_fails}
 \end{figure}
@@ -86,7 +86,7 @@ Finally, we may also eliminate the dual objective difference (\ref{Eqn:term_crit
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-2.1cm} \includegraphics[scale=0.6]{term_crit-dual_obj} }\vspace{-0.4cm}
+\hbox{\hspace{-1.5cm} \includegraphics[scale=0.6]{term_crit-dual_obj} }\vspace{-0.4cm}
 \caption{Plots of dual objective difference values (\ref{Eqn:term_crit-candidate_residuals}h) against the iterate at which Algorithm \ref{Alg:PGD} first satisfies this tolerance for the models discussed in Figure \ref{Fig:term_crit-signal_err}.  Red circles are placed at tolerances $10^{-n}$.  The blue rectangles indicate the proposed intervals of termination from Table \ref{Tab:term_crit-desired_termination_windows}.}
 \label{Fig:term_crit-dual_obj}
 \end{figure}

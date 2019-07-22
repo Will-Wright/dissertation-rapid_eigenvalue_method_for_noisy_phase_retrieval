@@ -20,11 +20,11 @@ The PLGD model (\ref{Eqn:PhaseLift-GD}) maintains the convergence guarantees of 
 
 To optimize the PLGD model (\ref{Eqn:PhaseLift-GD}) we use the first-order method proposed in \cite[Section 4.4]{DBLP:journals/siamsc/FriedlanderM16}, which we restate in Section \ref{Subsec:PLGD_algo-algo} as Algorithm \ref{Alg:PGD}.
 The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than an alternate method for optimizing the PhaseLift model and returns signals with greater accuracy than wflow \cite{DBLP:journals/tit/CandesLS15}, another method for phase retrieval (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details regarding PhaseLift and wflow).  
-Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant runtime for large signals.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically stagnate before converging.
+Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant runtime for large signals.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically fail to converge.
 
 
 This dissertation offers two main contributions.  
-First, we address the algorithmic stagnation of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate stagnation of signal recovery progress.  
+First, we address the convergence challenges of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate that signal recovery progress has stagnated.  
 Second, we develop a new strategy for handling the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} which decreases the computational cost and overall runtime of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
 
 
@@ -34,8 +34,8 @@ We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{
 Chapter \ref{Sec:PLGD} presents the gauge duality theory necessary for analyzing and optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
 Chapter \ref{Sec:PLGD_algo} then presents Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this algorithm for noiseless phase retrieval.
 
-Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically stagnates prior to converging for noisy phase retrieval problems. 
-We then identify the cause of this stagnation and establish new termination conditions for Algorithm \ref{Alg:PGD}.
+Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically fails to converge for noisy phase retrieval problems. 
+We then identify the cause of this behavior and establish new termination conditions for Algorithm \ref{Alg:PGD}.
 Chapter \ref{Sec:evol_mats} develops a new, efficient strategy for solving the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
 We first show that the EMEP is the computational bottleneck of Algorithm \ref{Alg:PGD}.
 We see that the spectrum of these eigenvalue problems evolves in a predictable way, with the algebraically largest eigenvalues clustering for later EMEP iterates.

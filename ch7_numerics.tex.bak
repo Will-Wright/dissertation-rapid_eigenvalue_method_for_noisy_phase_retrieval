@@ -1,19 +1,9 @@
-\chapter{Numerics}
+\chapter{Experimental Results}
 \label{Sec:Numerics}
 
 
-
-
-
-This chapter examines how the 
-modifications established in Chapters \ref{Sec:PLGD_term_crit} and \ref{Sec:evol_mats}
-effect the numerical performance of Algorithm \ref{Alg:PGD}.
-
-Using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit}, 
-
-we demonstrate the efficiency of the IRAM with adaptive parameter selection (Algorithm \ref{Alg:adaptive_IRAM}) from Chapter \ref{Sec:evol_mats} for a variety of noisy phase retrieval problems.
-
-
+This chapter examines the performance of Algorithm \ref{Alg:PGD} when we apply the modifications established in Chapters \ref{Sec:PLGD_term_crit} and \ref{Sec:evol_mats}.
+Using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) for Algorithm \ref{Alg:PGD}, we examine the efficiency of the IRAM with adaptive parameter selection (Algorithm \ref{Alg:adaptive_IRAM}) for a variety of noisy phase retrieval problems.
 First, we demonstrate that Algorithm \ref{Alg:adaptive_IRAM} is more efficient than the original IRAM (Algorithm \ref{Alg:IRAM}) parameter settings for a variety of PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).
 We observe that Algorithm \ref{Alg:adaptive_IRAM} typically reduces the number of matrix-vector products in the EMEP by at least $50\%$ as compared with the original IRAM settings.
 Next, we show that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal as a method for choosing the ideal number of requested eigenvalues $r_k$ corresponding to the minimum number of matrix-vector products necessary for each EMEP iteration.
@@ -30,7 +20,7 @@ Figure \ref{Fig:Numerics-ada_vs_orig_various_params} depicts a set of experiment
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.8cm} 
+\hbox{\hspace{-1.1cm} 
 	\includegraphics[scale=0.6]{Numerics-ada_vs_orig_various_params}
 			}
 	\vspace{0.0cm}
@@ -152,8 +142,8 @@ To further explore this performance behavior, Figure \ref{Fig:Numerics-num_eigs_
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.8cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_1} }\vspace{0.6cm}
-\hbox{\hspace{-1.8cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_2} }
+\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_1} }\vspace{0.6cm}
+\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_2} }
 \vspace{0.2cm}
 	\caption{
 	Number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}) for two PLGD models from Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada}.
@@ -210,7 +200,7 @@ Figure \ref{Fig:Numerics-num_matvecs_ada_for_m_vals} singles out these two exper
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.6cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_ada_for_m_vals} }\vspace{0.0cm}
+\hbox{\hspace{-0.9cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_ada_for_m_vals} }\vspace{0.0cm}
 	\caption{Number of matrix-vector products for each \emep \ iteration from two experiments in Figure \ref{Fig:Numerics-num_matvecs_ada_for_m_vals} with various Arnoldi decomposition size $m=20, 40, 80$.}
 \label{Fig:Numerics-num_matvecs_ada_for_m_vals}
 \end{figure}

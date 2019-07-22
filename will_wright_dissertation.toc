@@ -26,7 +26,7 @@
 \contentsline {chapter}{\tocchapter {Chapter}{6}{Eigenvalue Computation}}{79}{chapter.6}
 \contentsline {section}{\tocsection {}{6.1}{Introduction}}{79}{section.6.1}
 \contentsline {section}{\tocsection {}{6.2}{The Evolving Matrix Eigenvalue Problem}}{80}{section.6.2}
-\contentsline {subsection}{\tocsubsection {}{6.2.1}{Definition}}{80}{subsection.6.2.1}
+\contentsline {subsection}{\tocsubsection {}{6.2.1}{EMEP Definition}}{80}{subsection.6.2.1}
 \contentsline {subsection}{\tocsubsection {}{6.2.2}{Computational Costs}}{81}{subsection.6.2.2}
 \contentsline {subsection}{\tocsubsection {}{6.2.3}{Evolving Spectrum Distribution}}{83}{subsection.6.2.3}
 \contentsline {section}{\tocsection {}{6.3}{The Implicitly Restarted Arnoldi Method}}{86}{section.6.3}

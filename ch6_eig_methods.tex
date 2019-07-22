@@ -35,7 +35,7 @@ We also observe that the EMEP matrix iterates have a spectrum which evolves in a
 
 
 
-\subsection{Definition} 	\label{Subsubsec:evol_mats-EMEP_definition}
+\subsection{EMEP Definition} 	\label{Subsubsec:evol_mats-EMEP_definition}
 
 
 We begin by formally defining the EMEP.
@@ -116,7 +116,7 @@ Table \ref{Tab:EMEP_costs} depicts the number of DFTs in Algorithm \ref{Alg:PGD}
 \begin{footnotesize}
 \hbox{
 
-\hspace{-0.7cm}
+\hspace{0.25cm}
 \begin{tabular}{ |ccc|ccc|cc|cc| }
  \hline
 			&&&  \multicolumn{3}{c|}{EMEP} 
@@ -156,7 +156,7 @@ Figure \ref{Fig:EMEP_costs_num_mat_vecs} depicts the number of matrix-vector pro
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.9cm} \includegraphics[scale=0.6]{EMEP_costs_num_mat_vecs} }\vspace{-0.4cm}
+\hbox{\hspace{-1.2cm} \includegraphics[scale=0.6]{EMEP_costs_num_mat_vecs} }\vspace{-0.4cm}
 	\caption{Number of matrix-vector products for each iteration in the \emep \ for the six smaller models from Table \ref{Tab:EMEP_costs}	.}
 \label{Fig:EMEP_costs_num_mat_vecs}
 \end{figure}
@@ -181,7 +181,7 @@ First, we examine the full spectrum of a few EMEP matrix iterates in Figure \ref
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.9cm} \includegraphics[scale=0.6]{EMEP_full_spectrum} }\vspace{-0.4cm}
+\hbox{\hspace{-1.2cm} \includegraphics[scale=0.6]{EMEP_full_spectrum} }\vspace{-0.4cm}
 	\caption{Spectrum of specific \emep \ matrix iterates $A_k$ for the model from Table \ref{Tab:EMEP_costs} with signal size $n = 4,096$, oversampling $L = 5$, and noise ratio $\epsilon_\text{rel} = 0.15$.}
 \label{Fig:EMEP_full_spectrum}
 \end{figure}
@@ -202,7 +202,7 @@ As we will see in Section \ref{Subsec:evol_mats-IRAM}, the convergence rate of e
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.9cm} \includegraphics[scale=0.6]{EMEP_largest_eigvals} }\vspace{-0.4cm}
+\hbox{\hspace{-1.2cm} \includegraphics[scale=0.6]{EMEP_largest_eigvals} }\vspace{-0.4cm}
 	\caption{Twenty algebraically largest eigenvalues of specific \emep \ matrix iterates $A_k$ for the model from Table \ref{Tab:EMEP_costs} with signal size $n = 4,096$, oversampling $L = 5$, and noise ratio $\epsilon_\text{rel} = 0.15$.}
 \label{Fig:EMEP_largest_eigvals}
 \end{figure}
@@ -649,8 +649,8 @@ Yet the plots in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params} de
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-0.8cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_orig_vs_optimal_params_1} }\vspace{1.0cm}
-\hbox{\hspace{-1.6cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_orig_vs_optimal_params_2} }\vspace{0.0cm}
+\hbox{\hspace{-0.2cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_orig_vs_optimal_params_1} }\vspace{1.0cm}
+\hbox{\hspace{-0.8cm} \includegraphics[scale=0.6]{Numerics-num_matvecs_orig_vs_optimal_params_2} }\vspace{0.0cm}
 	\caption{
 Performance results for an EMEP from a PLGD model with Gaussian noise	(\ref{Eqn:PhaseLift-GD_Gaussian_noise}) with noise ratio $\epsilon_\text{rel} = 0.15$, oversampling rate $L = 5$, and original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
 Top: Number of matrix-vector products (capped at 1,500 for better viewing) for various EMEP iterates and number of requested eigenvalues $r$.  
@@ -752,7 +752,7 @@ We close this section by showing that Algorithm \ref{Alg:adaptive_IRAM} selects 
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.8cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_1} }\vspace{0.6cm}
+\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_1} }\vspace{0.6cm}
 \vspace{0.2cm}
 	\caption{
 	Plot comparing Algorithm \ref{Alg:adaptive_IRAM} with the optimal choice of parameter $r$ (number of requested eigenvalues in the IRAM).
@@ -793,7 +793,7 @@ To illustrate these observations, we focus on the EMEP of two particular PLGD mo
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.8cm} \includegraphics[scale=0.6]{Numerics-num_eigs_req_ada_2_exps} }\vspace{0.0cm}
+\hbox{\hspace{-1.1cm} \includegraphics[scale=0.6]{Numerics-num_eigs_req_ada_2_exps} }\vspace{0.0cm}
 	\caption{
 Number of requested eigenvalues $r$ chosen by Algorithm \ref{Alg:adaptive_IRAM} for the \emep \ from two PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), with noise ratio $\epsilon_\text{rel}=0.15, 0.30$, oversampling rate $L=5$, and original signal from Figure \ref{Fig:parrot_signal_iterates} resized to $64 \times 64$ pixels.
 }
@@ -829,7 +829,7 @@ Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_e
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-0.5cm} \includegraphics[scale=0.65]{Numerics-surf_num_mvs_and_eig_diffs_1} }\vspace{0.0cm}
+\hbox{\hspace{-0.2cm} \includegraphics[scale=0.65]{Numerics-surf_num_mvs_and_eig_diffs_1} }\vspace{0.0cm}
 	\caption{Behavior of Algorithm \ref{Alg:adaptive_IRAM} for the experiment from Figure \ref{Fig:Numerics-num_req_eigs_2_exps} with $L=5$, $\epsilon_\text{rel}=0.15$.  Top: Number of matrix-vector products (capped at 2,000 for better viewing) for each \emep \ iterate $k$ and number of requested eigenvalues $r$. Bottom: eigenvalue differences $\lambda_r - \lambda_{r+1}$ for each \emep \ iterate $k$ and number of requested eigenvalues $r$.  Black dots in both plots indicate the value $r_k$ chosen by Algorithm \ref{Alg:adaptive_IRAM}.}
 \label{Fig:Numerics-surf_mvs_eig_diffs_1}
 \end{figure}
@@ -839,7 +839,7 @@ Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_e
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-0.5cm} \includegraphics[scale=0.65]{Numerics-surf_num_mvs_and_eig_diffs_2} }\vspace{0.0cm}
+\hbox{\hspace{-0.2cm} \includegraphics[scale=0.65]{Numerics-surf_num_mvs_and_eig_diffs_2} }\vspace{0.0cm}
 	\caption{Behavior of Algorithm \ref{Alg:adaptive_IRAM} for the experiment from Figure \ref{Fig:Numerics-num_req_eigs_2_exps} with $L=5$, $\epsilon_\text{rel}=0.30$.  Top: Number of matrix-vector products (capped at 2,000 for better viewing) for each \emep \ iterate $k$ and number of requested eigenvalues $r$. Bottom: eigenvalue differences $\lambda_r - \lambda_{r+1}$ for each \emep \ iterate $k$ and number of requested eigenvalues $r$.  Black dots in both plots indicate the value $r_k$ chosen by Algorithm \ref{Alg:adaptive_IRAM}.}
 \label{Fig:Numerics-surf_mvs_eig_diffs_2}
 \end{figure}
@@ -893,8 +893,9 @@ Figure \ref{Fig:Numerics-surf_mvs_for_m_vs_j} depicts the number of matrix-vecto
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-0.1cm} 
+\hbox{\hspace{0.3cm} 
 	\includegraphics[scale=0.6]{Numerics-surf_mvs_for_m_vs_j_1}
+	\hspace{0.5cm}
 	\includegraphics[scale=0.6]{Numerics-surf_mvs_for_m_vs_j_2} 
 			}
 	\vspace{0.0cm}
