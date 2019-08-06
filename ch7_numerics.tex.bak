@@ -2,13 +2,13 @@
 \label{Sec:Numerics}
 
 
-This chapter examines the performance of Algorithm \ref{Alg:PGD} when we apply the modifications established in Chapters \ref{Sec:PLGD_term_crit} and \ref{Sec:evol_mats}.
-Using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) for Algorithm \ref{Alg:PGD}, we examine the efficiency of the IRAM with adaptive parameter selection (Algorithm \ref{Alg:adaptive_IRAM}) for a variety of noisy phase retrieval problems.
+In this chapter we examine the performance of the IRAM with adaptive parameter selection (Algorithm \ref{Alg:adaptive_IRAM}) from Chapter \ref{Sec:evol_mats}.
+Our experiments apply Algorithm \ref{Alg:adaptive_IRAM} to the \emep \ and use the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit}.
 First, we demonstrate that Algorithm \ref{Alg:adaptive_IRAM} is more efficient than the original IRAM (Algorithm \ref{Alg:IRAM}) parameter settings for a variety of PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).
 We observe that Algorithm \ref{Alg:adaptive_IRAM} typically reduces the number of matrix-vector products in the EMEP by at least $50\%$ as compared with the original IRAM settings.
 Next, we show that Algorithm \ref{Alg:adaptive_IRAM} is nearly optimal as a method for choosing the ideal number of requested eigenvalues $r_k$ corresponding to the minimum number of matrix-vector products necessary for each EMEP iteration.
 Finally, we demonstrate that the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size parameter $m = 40$ for Algorithm \ref{Alg:adaptive_IRAM} strikes a proper balance between increasing computational efficiency and minimizing data storage.
-All experiments are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
+All experiments in this chapter use the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) for Algorithm \ref{Alg:PGD} and are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
 
 
 %\subsection{Performance results for two EMEP methods}  			\label{Subsubsec:Conclusion-gen_perf_results}
