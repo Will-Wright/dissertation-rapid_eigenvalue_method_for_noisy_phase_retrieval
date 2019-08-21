@@ -165,27 +165,28 @@ The above sequence of steps and methods leads to Algorithm \ref{Alg:PGD}, a proj
 
 \begin{algorithmic}[1]
 	\Statex 	\textbf{Input:} Sensing operator $\caA$ and adjoint $\caA^*$, observation vector $b$,
-	initial dual variable $y$, estimate of total noise level $\epsilon$,  convergence
+	initial dual variable $y_0$, estimate of total noise level $\epsilon$,  convergence
 	tolerances.
 	\Statex 	\textbf{Output:} Approximate solution signal $x$.
+	\Statex		\textbf{Initialization:} Set $k = 0$.
 	\While	{not converged}
-		\State 		\textit{Compute algebraically largest eigenvalues and corresponding eigenvectors:} $(\lambda_1, v_1)$ and  $(\lambda_2, v_2)$ from $\caA^*y$.
+		\State 		\textit{Compute algebraically largest eigenvalues and corresponding eigenvectors:} $(\lambda_1, v_1)$ and  $(\lambda_2, v_2)$ from $\caA^*y_k$.
 		\State 		\textit{Compute (sub)gradient:} $g = \caA(v_1 v_1^*)$ based on  (\ref{Eqn:GD-subdifferential}).
-		\State		Determine differentiability of $\lambda_1(\caA^*y)$ based on (\ref{Eqn:GD-diff_tol}).
-		\If {$\lambda_1(\caA^*y)$ is differentiable}
-			\State		\textit{Linesearch:} Perform linesearch (\ref{Eqn:GD-linesearch}) with initial step $\alpha$ (\ref{Eqn:Barzilai-Borwein_steplength}) to obtain $y_+$.	
+		\State		Determine differentiability of $\lambda_1(\caA^*y_k)$ based on (\ref{Eqn:GD-diff_tol}).
+		\If {$\lambda_1(\caA^*y_k)$ is differentiable}
+			\State		\textit{Linesearch:} Perform linesearch (\ref{Eqn:GD-linesearch}) with initial step $\alpha$ (\ref{Eqn:Barzilai-Borwein_steplength}) to obtain $y_{k+1}$.	
 		\Else
-			\State		\textit{Projected subgradient step:} Set $y_+ = \Pi_\caC (y - \alpha g)$ with $\alpha$ from (\ref{Eqn:GD-steplength_sum}).
+			\State		\textit{Projected subgradient step:} Set $y_{k+1} = \Pi_\caC (y_k - \alpha g)$ with $\alpha$ from (\ref{Eqn:GD-steplength_sum}).
 		\EndIf
 		\State		\textit{Primal recovery:} Compute $\hat{x}$ based on (\ref{Eqn:GD-primal_rec2}).
-		\State		\textit{Primal refinement:} Find $x_+$ as the solution to (\ref{Eqn:GD-PFD}) initialized with $\hat{x}$ and $y_+$.
+		\State		\textit{Primal refinement:} Find $x_{k+1}$ as the solution to (\ref{Eqn:GD-PFD}) initialized with $\hat{x}$ and $y_{k+1}$.
 		\If {$\epsilon = 0$  } {}
 			\State		\textit{Dual refinement:} Find $\widehat{y}$ based on (\ref{Eqn:GD-DFP}).
-			\State		\textbf{if} $\lambda_1(\caA^* \widehat{y}) < \lambda_1$, set $y_+ = \widehat{y}$
+			\State		\textbf{if} $\lambda_1(\caA^* \widehat{y}) < \lambda_1$, set $y_{k+1} = \widehat{y}$
 		\EndIf
-			\State	\textit{Update:} $x = x_+$, $y = y_+$.
+			\State	\textit{Update:} $k = k+1$.
 	\EndWhile
-	\State	\textit{Return:} $x$. 
+	\State	\textit{Return:} $x = x_k$. 
 \end{algorithmic}
 
 \end{algorithm}

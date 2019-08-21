@@ -23,7 +23,7 @@ We begin this section by examining the features of the PLGD model (\ref{Eqn:Phas
 Recall that first-order methods like gradient descent have a basic iterate update $y_+ = \Pi_\caC(y - \alpha g)$, where $-g$ is a descent direction based on first-order information, $\alpha$ is a steplength determined with some policy, and $\Pi_\caC$ is projection onto the feasible region $\caC$.  
 Since we are primarily concerned with large-scale signal recovery, the descent direction must be constructed using only first-order information.  
 Each objective function evalution $\lambda_1(\caA^*y)$ requires the solution of a costly eigenvalue problem, so its computation should be kept to a minimum.  
-Additionally, the PLGD model (\ref{Eqn:PhaseLift-P-GD}) is a convex problem, having both convex objective function $\lambda_1(\caA^* y)$ and convex constraint domain $\caC = \{ y \in \R^m \ | \ \langle b, y \rangle - \epsilon ||y|| \geq 1 \}$.   
+Additionally, the PLGD model (\ref{Eqn:PhaseLift-P-GD}) is a convex problem, having both convex objective function $\lambda_1(\caA^* y)$ and convex constraint domain $\caC = \{ y \in \R^m \ | \ \langle b, y \rangle - \epsilon ||y||_2 \geq 1 \}$.   
 Thus, any descent method should take advantage of this convexity and determine the steplength $\alpha$ using a linesearch with minimal backtracking (or evaluations of $\lambda_1(\caA^*y)$) and guaranteed convergence.  
 Some applicable methods include projected gradient, quasi-Newton, and spectral bundle methods.  
 Our first-order method of choice for solving (\ref{Eqn:PhaseLift-P-GD}) is a projected gradient descent method with adaptive steplength based on the local differentiability of $\lambda_1(\caA^* y)$.
@@ -85,19 +85,19 @@ will generate a sequence $y_k$ converging to an optimal solution (see, e.g., \ci
 
 
 
-The linesearch subproblem (\ref{Eqn:GD-linesearch}) and the resulting update $\hat{y} = y - \alpha g$ require projection onto the feasible region $\caC= \langle b, y \rangle - \epsilon ||y|| \geq 1$.   If $\epsilon = 0$, this projection has the closed form expression
+The linesearch subproblem (\ref{Eqn:GD-linesearch}) and the resulting update $\hat{y} = y - \alpha g$ require projection onto the feasible region $\caC= \langle b, y \rangle - \epsilon ||y||_2 \geq 1$.   If $\epsilon = 0$, this projection has the closed form expression
 \begin{equation} 	\label{Eqn:GD-projection}
 \Pi_C(\hat{y}) =
 	\begin{cases}
-		\hat{y} + \frac{1 - \langle b, \hat{y} \rangle}{||b||^2}b 	&	\textnormal{if} \ \langle b, \hat{y} \rangle < 1		\\
+		\hat{y} + \frac{1 - \langle b, \hat{y} \rangle}{||b||_2^2}b 	&	\textnormal{if} \ \langle b, \hat{y} \rangle < 1		\\
 		\hat{y}													& \textnormal{else}.
 	\end{cases}
 \end{equation}
 If $\epsilon > 0$, then the projection is the solution to the problem
 \begin{equation}		\label{Eqn:GD-projection_2}
 \begin{array}{lcr}
-\min\limits_{\substack{ y \in \R^m}} \frac{1}{2} || y - \hat{y} ||^2
-	&	\textnormal{subject to} 	&	 \langle b, y \rangle - \epsilon ||y|| \geq 1.
+\min\limits_{\substack{ y \in \R^m}} \frac{1}{2} || y - \hat{y} ||_2^2
+	&	\textnormal{subject to} 	&	 \langle b, y \rangle - \epsilon ||y||_2 \geq 1.
 \end{array}
 \end{equation}
 The KKT conditions of this problem can be simplified into a one-dimensional degree-4 polynomial whose largest real root is used to express $\Pi_\caC(\hat{y})$ again as a linear combination of $\hat{y}$ and $b$ (details omitted, see \cite[Chapter 5]{boyd2004convex}).
@@ -108,16 +108,16 @@ The KKT conditions of this problem can be simplified into a one-dimensional degr
 
 
 
-Given the updated dual variable $y$, we must recover a primal variable (signal) $x$ to test for primal feasibility ($|| \caA (xx^*) - b || \leq \epsilon$).  Corollary \ref{Cor:PLGD-primal_recovery_refinement} indicates that the general primal recovery problem is
+Given the updated dual variable $y$, we must recover a primal variable (signal) $x$ to test for primal feasibility ($|| \caA (xx^*) - b ||_2 \leq \epsilon$).  Corollary \ref{Cor:PLGD-primal_recovery_refinement} indicates that the general primal recovery problem is
 \begin{equation} 	\label{Eqn:GD-primal_rec1}
 \begin{array}{lr}
-\min\limits_{\substack{S \succeq 0}}	|| \caA(V_1 S V_1^*) - b_\epsilon ||^2,
-	& 	b_\epsilon := b - \epsilon \frac{y}{||y||},
+\min\limits_{\substack{S \succeq 0}}	|| \caA(V_1 S V_1^*) - b_\epsilon ||_2^2,
+	& 	b_\epsilon := b - \epsilon \frac{y}{||y||_2},
 \end{array}
 \end{equation}
-where $V_1 \in \bbC^{r_1 \times n}$ are the eigenvectors corresponding to $\lambda_1$, $r_1$ is the multiplicity of $\lambda_1$, $S \in \bbC^{r_1 \times r_1}$ is positive semidefinite, and $b_\epsilon$ is the noisy observation $b$ with a removal of the current approximation $\epsilon y / ||y||$ to the noise term $\eta$ as shown in (\ref{Eqn:PLGD-noise_is_dual_variable}).  If $ \lambda_1(\caA^* y)$ is differentiable, then $\lambda_1$ is unique and (\ref{Eqn:GD-primal_rec1}) simplifies to the closed-form expression
+where $V_1 \in \bbC^{r_1 \times n}$ are the eigenvectors corresponding to $\lambda_1$, $r_1$ is the multiplicity of $\lambda_1$, $S \in \bbC^{r_1 \times r_1}$ is positive semidefinite, and $b_\epsilon$ is the noisy observation $b$ with a removal of the current approximation $\epsilon y / ||y||_2$ to the noise term $\eta$ as shown in (\ref{Eqn:PLGD-noise_is_dual_variable}).  If $ \lambda_1(\caA^* y)$ is differentiable, then $\lambda_1$ is unique and (\ref{Eqn:GD-primal_rec1}) simplifies to the closed-form expression
 \begin{equation} 	\label{Eqn:GD-primal_rec2}
-\hat{x} = [ \langle \caA(v_1v_1^*), b_\epsilon \rangle ]_+ / || \caA(v_1v_1^*)||^2.
+\hat{x} = [ \langle \caA(v_1v_1^*), b_\epsilon \rangle ]_+ / || \caA(v_1v_1^*)||_2^2.
 \end{equation}
 
 
@@ -131,11 +131,11 @@ The previous steps constitute a complete projected gradient descent method for o
 
 
 
-The primal refinement step makes further use of the fact that $\epsilon y / ||y||$ approximates the noise term $\eta$, as indicated by Corollary \ref{Cor:PLGD-primal_recovery_refinement}.  Setting $b_\epsilon = b - \epsilon y / ||y||$, we then solve the unconstrained nonconvex problem
+The primal refinement step makes further use of the fact that $\epsilon y / ||y||_2$ approximates the noise term $\eta$, as indicated by Corollary \ref{Cor:PLGD-primal_recovery_refinement}.  Setting $b_\epsilon = b - \epsilon y / ||y||_2$, we then solve the unconstrained nonconvex problem
 \begin{equation}	\label{Eqn:GD-PFD}
 \begin{array}{l}
 \min\limits_{\substack{x \in \bbC^n}} h(x) := \frac{1}{4}|| \caA(x x^*) - b_\epsilon
-||^2,
+||_2^2,
 \end{array}
 \end{equation}
 which is initialized with the primal recovery solution $\hat{x}$ from (\ref{Eqn:GD-primal_rec2}).  The problem (\ref{Eqn:GD-PFD}) can be interpreted as a partially denoised version of the wflow least-squares problem (\ref{Eqn:wflow_least-squares}), where the observation $b$ has been replaced by the partially denoised observation $b_\epsilon$.
@@ -143,15 +143,15 @@ which is initialized with the primal recovery solution $\hat{x}$ from (\ref{Eqn:
 
 
 
-For noiseless phase retrieval problems, an additional dual refinement method promotes convergence of the dual iterate $y$.  In essence, this step uses optimality conditions and the refined signal $x$ from (\ref{Eqn:GD-PFD}) to identify the corresponding dual variable $y$.  If the optimal matrix $X_\star = \bar{x}\bar{x}^*$ is rank-one, then Corollary \ref{Cor:PLGD-primal_recovery_refinement} (a) indicates that the algebraically largest eigenpair $(\lambda_1^\star, v_1^\star)$ of $\caA^*y_\star$ will be unique.  Thus $v_1^\star$ will be a rescaling of the optimal signal $\bar{x}$, and  Corollary \ref{Cor:PLGD-optimality} (d) (strong duality) gives this rescaling
+For noiseless phase retrieval problems, an additional dual refinement method promotes convergence of the dual iterate $y$.  In essence, this step uses optimality conditions and the refined signal $x$ from (\ref{Eqn:GD-PFD}) to identify the corresponding dual variable $y$.  If the optimal matrix $X_\star = \mathbf{x}\mathbf{x}^*$ is rank-one, then Corollary \ref{Cor:PLGD-primal_recovery_refinement} (a) indicates that the algebraically largest eigenpair $(\lambda_1^\star, v_1^\star)$ of $\caA^*y_\star$ will be unique.  Thus $v_1^\star$ will be a rescaling of the optimal signal $\mathbf{x}$, and  Corollary \ref{Cor:PLGD-optimality} (d) (strong duality) gives this rescaling
 \[
-||X_\star||_1 = ||\bar{x}||_2^2 = 1/ \lambda_1^\star \implies \bar{x} = v_1^\star / \sqrt{\lambda_1^\star}.
+||X_\star||_1 = ||\mathbf{x}||_2^2 = 1/ \lambda_1^\star \implies \mathbf{x} = v_1^\star / \sqrt{\lambda_1^\star}.
 \]  
 As a result, the dual refinement step attempts to find the update $y \in \caC$ which satisfies $ [\caA^* y]x = \lambda_1 x$ by solving the constrained linear-least-squares problem
 \begin{equation} 	\label{Eqn:GD-DFP}
 \begin{array}{lcr}
-\min\limits_{\substack{ y \in \R^m}} \frac{1}{2} || [\caA^* y]x - \lambda_1 x ||^2
-	&	\textnormal{subject to} 	&	 \langle b, y \rangle - \epsilon ||y|| \geq 1,
+\min\limits_{\substack{ y \in \R^m}} \frac{1}{2} || [\caA^* y]x - \lambda_1 x ||_2^2
+	&	\textnormal{subject to} 	&	 \langle b, y \rangle - \epsilon ||y||_2 \geq 1,
 \end{array}
 \end{equation}
 where $\lambda_1 = \lambda_1 (\caA^*y)$ is the most recent PLGD objective evaluation and $x$ is the solution to (\ref{Eqn:GD-PFD}).  If the refined iterate $\hat{y}$ improves the dual objective, i.e., $\lambda_1 (\caA^*\hat{y}) < \lambda_1 (\caA^*y)$, then $\hat{y}$ replaces $y$.  This spacer iterate, as described in \cite[Proposition 1.2.5]{bertsekas2016nonlinear}, is guaranteed not to interfere with the convergence behavior of the underlying method.
@@ -165,27 +165,28 @@ The above sequence of steps and methods leads to Algorithm \ref{Alg:PGD}, a proj
 
 \begin{algorithmic}[1]
 	\Statex 	\textbf{Input:} Sensing operator $\caA$ and adjoint $\caA^*$, observation vector $b$,
-	initial dual variable $y$, estimate of total noise level $\epsilon$,  convergence
+	initial dual variable $y_0$, estimate of total noise level $\epsilon$,  convergence
 	tolerances.
 	\Statex 	\textbf{Output:} Approximate solution signal $x$.
+	\Statex		\textbf{Initialization:} Set $k = 0$.
 	\While	{not converged}
-		\State 		\textit{Compute algebraically largest eigenvalues and corresponding eigenvectors:} $(\lambda_1, v_1)$ and  $(\lambda_2, v_2)$ from $\caA^*y$.
+		\State 		\textit{Compute algebraically largest eigenvalues and corresponding eigenvectors:} $(\lambda_1, v_1)$ and  $(\lambda_2, v_2)$ from $\caA^*y_k$.
 		\State 		\textit{Compute (sub)gradient:} $g = \caA(v_1 v_1^*)$ based on  (\ref{Eqn:GD-subdifferential}).
-		\State		Determine differentiability of $\lambda_1(\caA^*y)$ based on (\ref{Eqn:GD-diff_tol}).
-		\If {$\lambda_1(\caA^*y)$ is differentiable}
-			\State		\textit{Linesearch:} Perform linesearch (\ref{Eqn:GD-linesearch}) with initial step $\alpha$ (\ref{Eqn:Barzilai-Borwein_steplength}) to obtain $y_+$.	
+		\State		Determine differentiability of $\lambda_1(\caA^*y_k)$ based on (\ref{Eqn:GD-diff_tol}).
+		\If {$\lambda_1(\caA^*y_k)$ is differentiable}
+			\State		\textit{Linesearch:} Perform linesearch (\ref{Eqn:GD-linesearch}) with initial step $\alpha$ (\ref{Eqn:Barzilai-Borwein_steplength}) to obtain $y_{k+1}$.	
 		\Else
-			\State		\textit{Projected subgradient step:} Set $y_+ = \Pi_\caC (y - \alpha g)$ with $\alpha$ from (\ref{Eqn:GD-steplength_sum}).
+			\State		\textit{Projected subgradient step:} Set $y_{k+1} = \Pi_\caC (y_k - \alpha g)$ with $\alpha$ from (\ref{Eqn:GD-steplength_sum}).
 		\EndIf
 		\State		\textit{Primal recovery:} Compute $\hat{x}$ based on (\ref{Eqn:GD-primal_rec2}).
-		\State		\textit{Primal refinement:} Find $x_+$ as the solution to (\ref{Eqn:GD-PFD}) initialized with $\hat{x}$ and $y_+$.
+		\State		\textit{Primal refinement:} Find $x_{k+1}$ as the solution to (\ref{Eqn:GD-PFD}) initialized with $\hat{x}$ and $y_{k+1}$.
 		\If {$\epsilon = 0$  } {}
 			\State		\textit{Dual refinement:} Find $\widehat{y}$ based on (\ref{Eqn:GD-DFP}).
-			\State		\textbf{if} $\lambda_1(\caA^* \widehat{y}) < \lambda_1$, set $y_+ = \widehat{y}$
+			\State		\textbf{if} $\lambda_1(\caA^* \widehat{y}) < \lambda_1$, set $y_{k+1} = \widehat{y}$
 		\EndIf
-			\State	\textit{Update:} $x = x_+$, $y = y_+$.
+			\State	\textit{Update:} $k = k+1$.
 	\EndWhile
-	\State	\textit{Return:} $x$. 
+	\State	\textit{Return:} $x = x_k$. 
 \end{algorithmic}
 
 \end{algorithm}
@@ -203,10 +204,10 @@ This branch includes a few minor changes to the original algorithm which are non
 
 
 In the case of noisy phase retrieval, the input $\epsilon$ is a measure of the total noise \[
-\epsilon = ||\eta|| = ||b - \bar{b}|| 
+\epsilon = ||\eta||_2 = ||b - \mathbf{b}||_2 
 \] of the model (\ref{Eqn:phase_retrieval}).  Convergence of Algorithm \ref{Alg:PGD} (step 1) is based on strong duality (Corollary \ref{Cor:PLGD-optimality}, d) along with primal and dual feasiblility. Since dual feasibility is maintained throughout the entire algorithm, only primal feasibility and strong duality must be measured.  Thus the algorithm terminates when both of the following conditions are met:
 \begin{equation} \label{Eqn:saga_conv_crit_primal}
-|| \caA(xx^*) - b || \leq \epsilon + \textnormal{tol}_\textnormal{feas} (1 + ||b||),
+|| \caA(xx^*) - b ||_2 \leq \epsilon + \textnormal{tol}_\textnormal{feas} (1 + ||b||_2),
 \end{equation}
 \begin{equation} \label{Eqn:saga_conv_crit_gap}
  ||xx^*||_1 \cdot \lambda_1 \left( \caA^* y \right)  \leq 1 +  \textnormal{tol}_\textnormal{gap}.
@@ -257,7 +258,7 @@ This section examines the behavior of Algorithm \ref{Alg:PGD} for noiseless phas
 
 We begin by discussing the general behavior of each refinement step and the relationship between the two.  
 For noiseless problems ($\epsilon = 0$), the primal refinement step (\ref{Eqn:GD-PFD}) is initialized with $b_\epsilon = b$ and is therefore independent of the dual variable $y$ other than the fact that (\ref{Eqn:GD-PFD}) is initialized with $\hat{x}$ from (\ref{Eqn:GD-primal_rec2}).  
-In this case, (\ref{Eqn:GD-PFD}) is equivalent to the wflow least-squares problem (\ref{Eqn:wflow_least-squares}) discussed in Section \ref{Subsubsec:phase_retrieval-unstructured}.  As proved in \cite{sun2016geometric} and restated at the end of Section \ref{Subsubsec:phase_retrieval-unstructured}, if this problem has a sufficient oversampling $L$, then the objective function of (\ref{Eqn:GD-PFD}) will have no spurious local minima, only one global minima (up to a phase constant), and negative directional curvature at all saddle points.  As a result, for noiseless problems the primal refinement step effectively solves the phase retrieval problem on the first iteration of Algorithm \ref{Alg:PGD} (i.e., $x$ typically has a relative error $|| \bar{x}\bar{x}^* - xx^* ||_F / ||\bar{x}||_2^2$ on the order of $10^{-7}$ or smaller).  Thus the primal refinement step serves as an effective standalone method for promoting the quick convergence of the primal signal $x$.
+In this case, (\ref{Eqn:GD-PFD}) is equivalent to the wflow least-squares problem (\ref{Eqn:wflow_least-squares}) discussed in Section \ref{Subsubsec:phase_retrieval-unstructured}.  As proved in \cite{sun2016geometric} and restated at the end of Section \ref{Subsubsec:phase_retrieval-unstructured}, if this problem has a sufficient oversampling $L$, then the objective function of (\ref{Eqn:GD-PFD}) will have no spurious local minima, only one global minima (up to a phase constant), and negative directional curvature at all saddle points.  As a result, for noiseless problems the primal refinement step effectively solves the phase retrieval problem on the first iteration of Algorithm \ref{Alg:PGD} (i.e., $x$ typically has a relative error $|| \mathbf{x}\mathbf{x}^* - xx^* ||_F / ||\mathbf{x}||_2^2$ on the order of $10^{-7}$ or smaller).  Thus the primal refinement step serves as an effective standalone method for promoting the quick convergence of the primal signal $x$.
 
 In contrast to primal refinement, the dual refinement problem (\ref{Eqn:GD-DFP}) is directly dependent on the accuracy of the primal signal $x$.  If the dual refinement is initialized with an inaccurate signal, then the returned dual variable $\hat{y}$ may be inferior to the initial update $y_+$.  Yet $\hat{y}$ may also satisfy the condition for replacing the previous variable (step 14), preventing Algorithm \ref{Alg:PGD} from converging.
 
@@ -275,7 +276,7 @@ Table \ref{Tab:noiseless_runtimes} compares the behavior of these refinement ste
  Relative error & 	7.469$\times 10^{-9}$		&	8.097$\times 10^{-9}$ &	1.166$\times 10^{2}$	& 	 1.176$\times 10^{2}$	\\
  \hline
 \end{tabular}
-\caption{Algorithm \ref{Alg:PGD} with and without primal (\ref{Eqn:GD-PFD}) and dual refinement (\ref{Eqn:GD-DFP}). This experiment involves a random gaussian signal of size $n = 128$ with $L = 10$ observations and no noise.  Both termination conditions (\ref{Eqn:saga_conv_crit_primal}) and (\ref{Eqn:saga_conv_crit_gap}) are required.  Signal relative error is measured as $|| \bar{x}\bar{x}^* - x_0x_0^* ||_F / ||\bar{x}||_2^2$.} \label{Tab:noiseless_runtimes}
+\caption{Algorithm \ref{Alg:PGD} with and without primal (\ref{Eqn:GD-PFD}) and dual refinement (\ref{Eqn:GD-DFP}). This experiment involves a random gaussian signal of size $n = 128$ with $L = 10$ observations and no noise.  Both termination conditions (\ref{Eqn:saga_conv_crit_primal}) and (\ref{Eqn:saga_conv_crit_gap}) are required.  Signal relative error is measured as $|| \mathbf{x}\mathbf{x}^* - x_0x_0^* ||_F / ||\mathbf{x}||_2^2$.} \label{Tab:noiseless_runtimes}
 \end{table}
 % experiments.table.noiselessrandom_refinement_comparison
 
@@ -287,7 +288,7 @@ However, when both the primal and dual refinement subroutines are used, Algorith
 
 
 
-Algorithm \ref{Alg:PGD} with primal and dual refinement is very effective for noiseless phase retrieval, acting as a robust, efficent competitor to the wflow algorithm with the added benefit of greater signal accuracy \cite[Section 5.1.1, 5.1.3]{DBLP:journals/siamsc/FriedlanderM16}.  Note that the optimality of $y$ is unnecessary if we simply want to minimize the noiseless problem $||\caA(xx^*) - b||$.  To this end, Algorithm \ref{Alg:PGD} as implemented includes a setting specifically for noiseless problems, where the strong duality condition (\ref{Eqn:saga_conv_crit_gap}) is dropped and only primal feasibility (\ref{Eqn:saga_conv_crit_primal}) is required.  This primal feasibility version of Algorithm \ref{Alg:PGD} typically converges in 0-1 iterations with about the same computational cost as the wflow algorithm.  
+Algorithm \ref{Alg:PGD} with primal and dual refinement is very effective for noiseless phase retrieval, acting as a robust, efficent competitor to the wflow algorithm with the added benefit of greater signal accuracy \cite[Section 5.1.1, 5.1.3]{DBLP:journals/siamsc/FriedlanderM16}.  Note that the optimality of $y$ is unnecessary if we simply want to minimize the noiseless problem $||\caA(xx^*) - b||_2$.  To this end, Algorithm \ref{Alg:PGD} as implemented includes a setting specifically for noiseless problems, where the strong duality condition (\ref{Eqn:saga_conv_crit_gap}) is dropped and only primal feasibility (\ref{Eqn:saga_conv_crit_primal}) is required.  This primal feasibility version of Algorithm \ref{Alg:PGD} typically converges in 0-1 iterations with about the same computational cost as the wflow algorithm.  
 
 
 

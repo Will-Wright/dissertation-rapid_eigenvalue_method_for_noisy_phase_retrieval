@@ -1,16 +1,6 @@
 \chapter{Conclusion}			\label{Sec:Conclusion}
 
 
-Section \ref{Subsec:Conclusion-contrib_and_future} summarizes the contributions made in this dissertation and suggests possible future work.
-
-
-
-
-
-
-\section{Contributions and future work} 			\label{Subsec:Conclusion-contrib_and_future}
-
-
 In this dissertation we examined noisy phase retrieval, focusing on the PLGD model (\ref{Eqn:PhaseLift-P-GD}) which we chose to optimize with Algorithm \ref{Alg:PGD} from Chapter \ref{Sec:PLGD_algo}.
 Our work offers two primary contributions.
 
@@ -27,22 +17,28 @@ In Chapter \ref{Sec:evol_mats} we defined the EMEP in Algorithm \ref{Alg:PGD} an
 We observed that the algebraically largest eigenvalues of the EMEP tend to cluster for later iterates, making these eigenvalue problems more difficult for methods like the IRAM (Algorithm \ref{Alg:IRAM}).
 We also showed that the EMEP is the computational bottleneck of Algorithm \ref{Alg:PGD}, requiring about $95$\% of the matrix-vector products in Algorithm \ref{Alg:PGD}.
 Section \ref{Subsec:evol_mats-IRAM} then reviewed the IRAM and its component algorithms, providing insight for how we may better select the IRAM parameters.
-Next, Chapter \ref{Sec:Numerics} developed Algorithm \ref{Alg:adaptive_IRAM}, a new strategy for solving the EMEP by selecting the number of requested eigenvalues in the IRAM based on empirical observations of IRAM behavior.
+In Section \ref{Subsec:evol_mats-adaptive_IRAM} we developed Algorithm \ref{Alg:adaptive_IRAM}, a new strategy for solving the EMEP by selecting the number of requested eigenvalues in the IRAM based on empirical observations of IRAM behavior.
 Section \ref{Subsec:evol_mats-correl_btwn_EMEP_and_IRAM} showed that changes in the number of requested eigenvalues, as chosen by Algorithm \ref{Alg:adaptive_IRAM}, correspond to clustering of the algebraically largest eigenvalues in the EMEP.
-Performance results in Section \ref{Subsec:Conclusion-performance_results} demonstrated that Algorithm \ref{Alg:adaptive_IRAM} is more efficient than the original parameter selection used for the EMEP, reducing the number of matrix-vector products by $50$-$90\%$.
 
 
-In addition to these contributions, Chapter \ref{Sec:PLGD} presented a self-contained, comprehensive treatment of gauge duality theory for establishing and analyzing the PLP-PLGD pair and Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model} justified the choice of the PLGD model (\ref{Eqn:PhaseLift-P-GD}) for noisy phase retrieval.
+In Chapter \ref{Sec:Numerics} we presented Algorithm \ref{Alg:PGD-improved}, an improved version of Algorithm \ref{Alg:PGD} which incorporated the new termination conditions of Chapter \ref{Sec:PLGD_term_crit} and the new strategy for the EMEP from Chapter \ref{Sec:evol_mats}.
+Performance results demonstrated that Algorithm \ref{Alg:PGD-improved} is more efficient than Algorithm \ref{Alg:PGD} for a variety of noisy phase retrieval problems.
+In particular, Algorithm \ref{Alg:PGD-improved} typically reduced the number of matrix-vector products by $50$-$80\%$ for problems with a low oversampling rate.
+
+
+In addition to these contributions, Chapter \ref{Sec:PLGD} presented a self-contained, comprehensive treatment of gauge duality theory for establishing and analyzing the PLP-PLGD pair.
+Also, Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model} examined some of the benefits of choosing the PLGD model (\ref{Eqn:PhaseLift-P-GD}) for noisy phase retrieval.
+We saw that the PLGD model is well-suited for developing a first-order method, and that the resulting algorithm (Algorithm \ref{Alg:PGD}) typically solves noisy phase retrieval problems with greater accuracy than the wflow algorithm (Algorithm \ref{Alg:wflow}).
 
 
 Several theoretical and computational questions still remain for future work.  
-In terms of theory, it would be beneficial to determine the expected rank of a given optimal PLGD matrix $\caA^*y_\star$. 
-As mentioned above, PLGD models with Gaussian noise typically have matrices $\caA^*y_\star$ with rank $\rho$ greater than one (see Table \ref{Tab:average_rank_soln_matrix_with_gaussian_dual_variable}).
+In terms of theory, it would be beneficial to determine the expected rank of the optimal PLGD matrix $\caA^*y_\star$ for a given noisy phase retrieval problem. 
+As shown in Chapter \ref{Sec:PLGD_term_crit}, PLGD models with Gaussian noise typically have optimal matrices $\caA^*y_\star$ with rank $\rho$ greater than one (see Table \ref{Tab:average_rank_soln_matrix_with_gaussian_dual_variable}).
 Thus, as Algorithm \ref{Alg:PGD} progresses we may expect the $\rho$ algebraically largest eigenvalues of $\caA^*y$ to cluster.
 Algorithm \ref{Alg:adaptive_IRAM} changes the number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}) as the spectrum of $\caA^*y$ evolves.
 As we saw in Section \ref{Subsec:evol_mats-correl_btwn_EMEP_and_IRAM}, changes in the choice of $r$ appear to correlate with clustering of the algebraically largest eigenvalues of $\caA^*y$.
 In this sense, the value $r$ selected by Algorithm \ref{Alg:adaptive_IRAM} may be a proxy for determining the rank $\rho$ of $\caA^*y_\star$.
-Knowledge of the expected value for $\rho$ may provide both theoretical justification for Algorithm \ref{Alg:adaptive_IRAM} and a means to modify and enhance Algorithm \ref{Alg:adaptive_IRAM}.
+Knowledge of the expected value for $\rho$ may provide both theoretical justification for Algorithm \ref{Alg:adaptive_IRAM} and a means to improve Algorithm \ref{Alg:adaptive_IRAM}.
 
 
 Many computational questions also remain for future work.

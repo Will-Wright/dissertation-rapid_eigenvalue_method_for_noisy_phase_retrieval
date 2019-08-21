@@ -71,11 +71,11 @@ Thus the duality gap difference (\ref{Eqn:term_crit-candidate_residuals}g) behav
 
 Finally, the dual matrix difference (\ref{Eqn:term_crit-candidate_residuals}j) is also a redundant measurement which may be disregarded.  Note that the norm difference of dual matrices is bounded above by the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i), since
 \[
-||A - \hat{A}|| = ||\caA^*(y - \hat{y})|| \leq ||\caA^*|| \ ||y - \hat{y}||_2,
+||A - \hat{A}||_F = ||\caA^*(y - \hat{y})||_F \leq ||\caA^*|| \ ||y - \hat{y}||_2,
 \]
-where we have the induced norm of $\caA^*$
+where we have the induced norm
 \[
-||\caA^*|| = \sup_{\substack{||w||_2=1}}||\caA^*w||.
+||\caA^*|| = \sup_{\substack{||w||_2=1}}||\caA^*w||_F.
 \]
 And computationally, the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) is computed with a vector norm, where as the dual matrix difference (\ref{Eqn:term_crit-candidate_residuals}j) requires an additional eigenvalue computation (in this case the largest magnitude eigenvalue).  Thus the dual matrix difference (\ref{Eqn:term_crit-candidate_residuals}j) can be ignored due to its excessive computational cost and close relationship to the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i).
 

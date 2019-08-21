@@ -1,9 +1,118 @@
-\chapter{Introduction}  \label{Sec:Intro}			\label{Sec:intro}
+\chapter{Introduction}  \label{Sec:Intro}
+
+
+In this chapter, we introduce the phase retrieval problem and summarize the goals of this dissertation.
+Section \ref{Subsec:phase_retrieval-math_model} defines the phase retrieval problem.
+Section \ref{Subsec:phase_retrieval-applications} describes a common phase retrieval application and presents the experimental model which we use throughout this dissertation for numerical testing.
+Section \ref{Subsec:Intro-contributions} defines the phase retrieval model studied in this dissertation: the gauge dual of the PhaseLift model.
+We then describe the two main contributions and the layout of this dissertation.
+Finally, Section \ref{Subsec:Intro-notation} defines the notation used in this dissertation.
+
+
+
+\section{Phase Retrieval}	\label{Subsec:phase_retrieval-math_model}
+
+
+
+Phase retrieval is the problem of recovering a signal from magnitude-only observations with little or no knowledge of the signal phase.  
+Let $\mathbf{x}$ be a desired signal (or \textit{true signal}) in $\bbR^n$ or $\bbC^n$ which as been observed with sensing (or sampling) vectors $a_i \in \bbC^n$, resulting in squared measurements $|\langle a_i, \mathbf{x} \rangle |^2 = \mathbf{b}_i \in \bbR$ for $i = 1, \ldots, m$.  
+Also assume the \textit{true observation} vector $\mathbf{b} = [\mathbf{b}_1, \ldots, \mathbf{b}_m]^T \in \bbR^m$ has been contaminated by possibly nontrivial noise $\eta = [\eta_1, \ldots, \eta_m]^T \in \bbR^m$, giving the observation vector $b = \mathbf{b} + \eta \in \bbR^m$.  Then we define the \textit{phase retrieval problem} as
+\begin{equation} \label{Eqn:phase_retrieval}
+\begin{array}{lll}
+\textnormal{find}		&	x		\\
+\st				&	|\langle a_i, x \rangle|^2 = b_i = \mathbf{b}_i + \eta_i	&	1 \leq i \leq m.
+\end{array}
+\end{equation}
+If $\eta_i = 0$ for all $i$, then (\ref{Eqn:phase_retrieval}) is the noiseless phase retrieval problem (from \cite{Fienup82} and  \cite{DBLP:journals/tit/CandesLS15} among many others).  In this dissertation however, we are primarily concerned with nontrivial noise and will refer to (\ref{Eqn:phase_retrieval}) with $||\eta||_2 > 0$ as \textit{noisy phase retrieval}.  Additionally, we are concerned with noise $\eta$ which has a Gaussian distribution, as discussed in \cite{DBLP:journals/siamis/CandesESV13} and \cite{DBLP:journals/siamsc/FriedlanderM16}.
+
+
+Each sensing vector $a_i \in \bbC^n$ is typically the conjugate of the $i$th row of the $n-$dimensional discrete Fourier transformation (DFT) matrix $F$ \cite[Chapter 11]{bracewell1986fourier}.  This gives the constraint $|Fx|^2 = b$ (where the square operator is applied element-wise).  Often the number of observations $m = nL$ is oversampled by a factor of $L$ to promote uniqueness of a signal solution and convergence of a given algorithm.  
+
+The domain of the constraint in (\ref{Eqn:phase_retrieval}) is a high-dimensional torus, and thus phase retrieval is inherently nonconvex.  When deciding how to handle a particular phase retrieval problem, this  nonconvexity presents a unique challenge in terms of choosing an appropriate algorithm.  
 
 
 
 
-Phase retrieval has a wide range of solution methods, yet few exist for handling noisy observations without imposing additional restrictions such as signal sparsity.  One recent noisy phase retrieval model which requires no underlying assumptions is the gauge dual of the PhaseLift model (PLGD)
+
+
+\section{Applications and Experimental Models} 			\label{Subsec:phase_retrieval-applications}
+
+
+Phase retrieval has a broad range of applications across the sciences, many of which fall into the general category of coherent diffraction imaging (CDI) \cite{miao1999extending}.  
+This section provides a brief overview of CDI and closes with a description of the phase retrieval experimental models used in this dissertation (as well as \cite{DBLP:journals/siamis/CandesESV13}, \cite{DBLP:journals/tit/CandesLS15}, and \cite{DBLP:journals/siamsc/FriedlanderM16}).
+More specific applications of phase retrieval can be found in astronomy \cite{fienup1987phase}, diffraction and array imaging \cite{bunk2007diffractive} \cite{chai2010array}, microscopy \cite{miao2008extending}, optics \cite{walther1963question}, and x-ray crystallography \cite{harrison1993phase}, \cite{millane1990phase} (for a recent benchmark set of crystallography problems, see \cite{elser2017benchmark}).  
+For a comprehensive introduction to optical phase retrieval and an overview of recent theory and methods, see the survey \cite{DBLP:journals/spm/ShechtmanECCMS15}.
+
+
+CDI is a method for reconstructing $2$- or $3$-dimensional nano-structures (e.g., nanotubes, nanocrystals, proteins).  In this process, highly coherent waves (e.g., x-rays, electrons, photons) are projected at a given object.  The resulting diffraction creates a pattern of intensities which are measured with a detector, resulting in magnitude-only measurements.  Figure \ref{Fig:CDI} below depicts the CDI observation process.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=0.75\textwidth]{phase_retrieval_depiction_mod.jpg}
+   \caption{Depiction of coherent diffractive imaging.  Coherent waves (left) are projected at an image (center) which causes a diffraction pattern that is measured by a detector (right). Image from \cite{Guizar-Sicairos}.}
+   \label{Fig:CDI}
+\end{figure}
+
+Because CDI does not involve optical lenses, there is no optical aberration (blurring or distorting).  
+Instead, the resolution depends on the limits of diffraction and dose.  
+Many efficient methods exist for handling low-noise phase retrieval (see Chapter \ref{Sec:phase_retrieval} for an overview of some common methods).  
+However, due to the nonconvexity of the constraints in (\ref{Eqn:phase_retrieval}), many low-noise methods lead to algorithms which are likely to diverge or converge to a suboptimal local minimum if there is modest noise or an insufficient number of observations.  
+Thus accurate CDI typically requires minimal noise and multiple observations to recover a high-resolution solution.
+
+
+
+
+When developing an experimental model, there are many methods for increasing the number of observations of a signal.  Some options include rotating the position of the object, using a spatial light modulator to defocus the observations, and inserting phase plates, or \textit{masks}, in line with the waves (see the survey \cite{duadi2011digital} for a discussion of these methods).  Our experimental models use the same masking method described in \cite[Section 2]{DBLP:journals/siamis/CandesESV13}, \cite[Sections 4.2, 4.3]{DBLP:journals/tit/CandesLS15}, and \cite[Section 5.1]{DBLP:journals/siamsc/FriedlanderM16} (see Section \ref{Subsubsec:phase_retrieval-unstructured} for an overview of these papers).  
+This masking method involves placing a phase plate with a known structure oriented normal to the projected waves.  The phase plate can be placed on either side of the object; in our experiments, the plate lies between the object and the detector.  The mask is then shifted and multiple observations are collected.
+
+
+
+
+Mathematically, the application of a phase plate to the phase problem (\ref{Eqn:phase_retrieval}) is equivalent to replacing the sensing operator $|Fx|^2$ with $|FC_jx|^2$, where the matrices $C_j \in \mathbb{C}^{n \times n}$ for $j = 1, \ldots, L$ are diagonal with standard Gaussian distribution entries $C_j(i,i) \sim \caN(0, 1)$, representing the diffraction patterns of the shifted phase plate.  This gives the observation constraint
+
+\begin{equation}		\label{Eqn:FCx}
+	\begin{vmatrix}
+		FC_1x \\ \vdots \\ FC_Lx
+	\end{vmatrix}^2
+	= b.
+\end{equation}
+
+In certain cases only a limited number of observations can be collected.  For instance, in x-ray imaging, overexposure of the incident waves to the object (living tissue) can be dangerous.  Thus the number of observations $L$ may be relatively small compare to the signal size $n$, again making signal recovery difficult for nonconvex methods.
+
+
+
+
+
+In this dissertation, our experimental phase retrieval models are generating using the method established in \cite{DBLP:journals/tit/CandesLS15} and extended in \cite{DBLP:journals/siamsc/FriedlanderM16}.  
+We begin with a true signal $\mathbf{x}$ which is either a vectorized image or a randomly generated vector with coordinates having complex standard Gaussian distribution $\mathbf{x}_i \sim \caN(0, 1)$.
+Next, we generate $j = 1, \ldots,  L$ diagonal mask matrices $C_j \in \mathbb{C}^{n \times n}$ with diagonal entries $C_j(i,i) \sim \caN(0, 1)$.
+We then compute the product (\ref{Eqn:FCx}) to obtain the true observation vector $\mathbf{b}$.
+For noiseless phase retrieval, we set the observation vector to $b = \mathbf{b}$.
+If the phase retrieval problem requires a nonzero noise term $\eta$, we add $\eta$ to the true observation to obtain the observation vector $b = \mathbf{b} + \eta$.
+Figure \ref{Fig:parrot_signal_iterates} below depicts the primary test image used in this dissertation.
+Here, an original image of size $128 \times 128$ is used to generate a noisy phase retrieval problem, and we see a few particular iterates returned by the algorithm considered in this dissertation (Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}).  
+For a complete explanation of our method for creating noisy phase retrieval problems, see Section \ref{Subsec:PLGD_term_crit-NOISY_MODELS_AND_RESIDUALS}.
+
+\begin{figure}[H]
+\centering
+\hbox{\hspace{-2.55cm} \includegraphics[scale=0.6]{parrot_signal_iterates} }
+\caption{Results from a first-order algorithm (Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}) applied to a noisy phase retrieval problem (\ref{Eqn:phase_retrieval}) with oversampling rate $L = m/n=8$ and noise ratio $\epsilon_\text{rel} = ||\eta||_2 / ||b||_2 = 0.30$.}
+\label{Fig:parrot_signal_iterates}
+\end{figure}
+% experiments.figure.noisyimage_signal_relerr_various_saga_iterates
+
+
+
+
+
+
+\section{Contributions}		\label{Subsec:Intro-contributions}
+
+
+We now present the phase retrieval model studied in this dissertation and summarize the contributions and layout of this dissertation.
+As we will see in Chapter \ref{Sec:phase_retrieval}, a wide range of mathematical models and solution methods have been developed for phase retrieval.
+Yet few models exist for noisy phase retrieval without imposing additional restrictions such as signal sparsity.  
+One recent noisy phase retrieval model which requires no underlying assumptions is the gauge dual of the PhaseLift model (PLGD)
 \begin{equation} \label{Eqn:PhaseLift-GD}
 \begin{array}{lll}
 	&	\min\limits_{\substack{y}}
@@ -11,31 +120,39 @@ Phase retrieval has a wide range of solution methods, yet few exist for handling
 		\\
 \textnormal{(PLGD)}
 	&	\st
-		&	\langle b, y \rangle - \epsilon ||y|| \geq 1.
+		&	\langle b, y \rangle - \epsilon ||y||_2 \geq 1,
 \end{array}
 \end{equation}
-First introduced and analyzed in \cite{DBLP:journals/siamsc/FriedlanderM16}, the PLGD model (\ref{Eqn:PhaseLift-GD}) is based on the PhaseLift method \cite{DBLP:journals/siamis/CandesESV13} in which a desired signal of $n$ elements (e.g., pixels) is lifted into the space of $n \times n$ positive semidefinite matrices, creating a convex, large-scale recovery problem.  
+where  $\caA^* y := \sum_{i=1}^m y_i A_i$ is a weighted sum of rank-one observation matrices $A_i = a_ia_i^*$, 
+and $\lambda_1(\caA^* y)$ is a function of $y \in \bbR^m$ which returns the algebraically largest eigenvalue of $\caA^*y$.
+Note that the gauge dual variable $y$ may be used to recover the approximate signal $x$, as discussed in Section \ref{Subsec:PLGD-opt_conds_primal_recovery}.
+
+The PLGD model (\ref{Eqn:PhaseLift-GD}) was first introduced and analyzed in \cite{DBLP:journals/siamsc/FriedlanderM16}, and is based on the PhaseLift model \cite{DBLP:journals/siamis/CandesESV13} in which a desired signal of $n$ elements (e.g., pixels) is lifted into the space of $n \times n$ positive semidefinite matrices, creating a convex, large-scale recovery problem (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details).  
 The PLGD model (\ref{Eqn:PhaseLift-GD}) maintains the convergence guarantees of the convex PhaseLift model, yet also allows for efficient first-order methods.
+To optimize the PLGD model (\ref{Eqn:PhaseLift-GD}) we use the first-order method and the resulting algorithm proposed by \cite{DBLP:journals/siamsc/FriedlanderM16}, which we restate in Section \ref{Subsec:PLGD_algo-algo} as Algorithm \ref{Alg:PGD}.
+The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than a previous method for optimizing the PhaseLift model and returns signals with greater accuracy than the wflow algorithm \cite{DBLP:journals/tit/CandesLS15} (see Section \ref{Subsubsec:phase_retrieval-unstructured} for wflow details).  
 
 
-To optimize the PLGD model (\ref{Eqn:PhaseLift-GD}) we use the first-order method proposed in \cite[Section 4.4]{DBLP:journals/siamsc/FriedlanderM16}, which we restate in Section \ref{Subsec:PLGD_algo-algo} as Algorithm \ref{Alg:PGD}.
-The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than an alternate method for optimizing the PhaseLift model and returns signals with greater accuracy than wflow \cite{DBLP:journals/tit/CandesLS15}, another method for phase retrieval (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details regarding PhaseLift and wflow).  
-Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant runtime for large signals.  Additionally, when the phase retrieval problem has nontrivial noise, first-order methods for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically fail to converge.
+Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  
+Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant computational costs for large signals.  
+Additionally, when the phase retrieval problem has nontrivial noise, first-order algorithms for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically fail to converge.
+
 
 
 This dissertation offers two main contributions.  
-First, we address the convergence  of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate stagnation of signal recovery progress.  
-Second, we develop a new strategy for handling the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} which decreases the computational cost and overall runtime of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
+First, we address the convergence challenges of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate that signal recovery progress has stagnated.  
+Second, we develop a new strategy for handling the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD}.
+Applying these two modifications to Algorithm \ref{Alg:PGD} decreases the computational costs of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
 
 
 This dissertation is organized in the following manner.  
-Chapter \ref{Sec:phase_retrieval} introduces the phase retrieval problem and provides a survey of phase retrieval methods.  
-We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow method.
-Chapter \ref{Sec:PLGD} presents the gauge duality theory necessary for analyzing and optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
-Chapter \ref{Sec:PLGD_algo} then presents Algorithm \ref{Alg:PGD}, a first-order method for the PLGD model (\ref{Eqn:PhaseLift-GD}), and demonstrates the effectiveness of this algorithm for noiseless phase retrieval.
+Chapter \ref{Sec:phase_retrieval} provides a survey of phase retrieval methods.  
+We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow algorithm.
+Chapter \ref{Sec:PLGD} presents the gauge duality theory necessary for developing, analyzing, and optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
+Chapter \ref{Sec:PLGD_algo} then presents Algorithm \ref{Alg:PGD}, a first-order algorithm for the PLGD model (\ref{Eqn:PhaseLift-GD}), and examines the effectiveness of this algorithm for noiseless phase retrieval.
 
-Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically stagnates prior to converging for noisy phase retrieval problems. 
-We then identify the cause of this stagnation and establish new termination conditions for Algorithm \ref{Alg:PGD}.
+Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically fails to converge for noisy phase retrieval problems. 
+We then identify the cause of this behavior and establish new termination conditions for Algorithm \ref{Alg:PGD}.
 Chapter \ref{Sec:evol_mats} develops a new, efficient strategy for solving the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
 We first show that the EMEP is the computational bottleneck of Algorithm \ref{Alg:PGD}.
 We see that the spectrum of these eigenvalue problems evolves in a predictable way, with the algebraically largest eigenvalues clustering for later EMEP iterates.
@@ -44,13 +161,24 @@ Next, we review the \textit{implicitly restarted Arnoldi method} (IRAM), a commo
 We close Chapter \ref{Sec:evol_mats} by demonstrating that Algorithm \ref{Alg:adaptive_IRAM} effectively tracks the clustering of the algebraically largest eigenvalues from earlier to later EMEP iterates, thus selecting more desirable parameters for the IRAM.
 
 
-Chapter \ref{Sec:Numerics} provides performance results for Algorithm \ref{Alg:PGD} using the new termination conditions from Chapter \ref{Sec:PLGD_term_crit} and the new eigenvalue strategy (Algorithm \ref{Alg:adaptive_IRAM}) from Chapter \ref{Sec:evol_mats}.
-We see that Algorithm \ref{Alg:adaptive_IRAM} decreases the computational cost of the EMEP for a variety of noisy phase retrieval problems.
+Chapter \ref{Sec:Numerics} presents an improved version of Algorithm \ref{Alg:PGD} which uses the new termination conditions of Chapter \ref{Sec:PLGD_term_crit} and new eigenvalue strategy (Algorithm \ref{Alg:adaptive_IRAM}) of Chapter \ref{Sec:evol_mats}.
+Chapter \ref{Sec:Numerics} then provides performance results for this improved algorithm.
+We see that this improved algorithm reduces computational costs for a variety of noisy phase retrieval problems.
 Chapter \ref{Sec:Conclusion} concludes this dissertation with a summary of our contributions and suggestions for future work.
 
 
 
-This dissertation uses the following notation.  Additional notation and definitions related to gauge duality are stated in Sections \ref{Subsec:PLGD-models_intro}.  The $(i,j)$ entry of a matrix $A$ is denoted $[A]_{i,j}$ or $A(i,j)$, and the $i$-th component of a vector $a$ is denoted $a_i$ or $[a]_i$.  Vector norms are the standard $p$-norms, with $||\cdot|| \equiv || \cdot ||_2$.   Matrix norms for $A \in \bbC^{m \times n}$ are Schatten $p$-norms, which apply the  $p$-norm to the vector of singular values, i.e.,
+
+
+
+
+
+\section{Notation}		\label{Subsec:Intro-notation}
+
+
+This dissertation uses the following notation.  Additional notation and definitions specific to gauge duality are stated in Section \ref{Subsec:PLGD-models_intro}.  
+
+The $(i,j)$ entry of a matrix $A$ is denoted $[A]_{i,j}$ or $A(i,j)$, and the $i$-th component of a vector $a$ is denoted $a_i$ or $[a]_i$.  Vector norms are the standard $p$-norms.   Matrix norms for $A \in \bbC^{m \times n}$ are Schatten $p$-norms, which apply the  $p$-norm to the vector of singular values, i.e.,
 \begin{equation}  \label{Def:shatten_norms}
 ||A||_p  = \left( \sum_{\substack{i = 1}}^{\substack{\min\{m, n \}}} \sigma_i^p(A) \right)^{1/p}.
 \end{equation}
@@ -60,12 +188,12 @@ The special case of $p = 2$ gives the Frobenius norm
 \end{equation}
 Gauge duality is a duality based on multiplicative relations, and thus Schatten norms are essential to gauge duality and developing the PLGD model (\ref{Eqn:PhaseLift-GD}).  In contrast, the EMEP requires measurements with the vector-induced $2$-norm.  Thus we define the \textit{matrix norm} as
 \begin{equation} 		\label{Def:matrix_norm}
-||A|| = \sup_{\substack{||v||_2 = 1}} ||Av||_2 = \sigma_{\max}(A).
+||A|| = \sigma_{\max}(A) = \sup_{\substack{||v||_2 = 1}} ||Av||_2.
 \end{equation}
 The standard basis vector is denoted $e_i$, where $[e_i]_i = 1$ and all other components are zero.  
-Given a vector $d$ in $\bbR^n$ or $\bbC^n$ with components $d_1, d_2, \ldots, d_n$, the \textit{diagonal operator} is defined as
+Given a vector $d$ in $\bbR^n$ or $\bbC^n$ with components $d_1, d_2, \ldots, d_n$, the \textit{diagonal operator} is denoted $\text{Diag}(d)$ and defined as
 \begin{equation}
-\text{Diag}(d) = \text{Diag}(d_1, d_2, \ldots, d_n)_{ij} = 
+\text{Diag}(d)_{i,j} = \text{Diag}(d_1, d_2, \ldots, d_n)_{i,j} = 
 	\begin{cases}
 		d_i 		&		\text{if } i = j	\\
 		0		&	\text{else}.
@@ -109,7 +237,7 @@ Given a symmetric (or Hermitian) matrix $A$ in $\bbR^{n \times n}$ (or $\bbC^{n 
 \begin{equation}			\label{Def:eigenvalues}
 \lambda_1(A) \geq \lambda_2(A) \geq \ldots \geq \lambda_n(A),
 \end{equation}
-where $\lambda_1(A)$ or simply $\lambda_1$ is the algebraically largest eigenvalue of $A$, and $\lambda_n(A)$ or $\lambda_n$ is the smallest eigenvalue.  The \textit{spectrum} of $A$ is the set of all of its eigenvalues $\Lambda = \{ \lambda_1, \lambda_2, \ldots, \lambda_n\}$.
+where $\lambda_1(A)$ or simply $\lambda_1$ is the algebraically largest eigenvalue of $A$, and $\lambda_n(A)$ or $\lambda_n$ is the smallest eigenvalue.  The \textit{spectrum} of $A$ is the set of all of its eigenvalues, $\Lambda = \{ \lambda_1, \lambda_2, \ldots, \lambda_n\}$.
 If $S$ is a subspace of $\bbR^n$ (or $\bbC^n$) then $(\theta, u)$ is a \textit{Ritz pair for $A$ with respect to $S$} if 
 \begin{equation} 			\label{Def:Ritz_pair_val_vec}
 \langle w, (Au-\theta u) \rangle = 0 \hspace{1cm} \forall w \in S.

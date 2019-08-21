@@ -36,15 +36,15 @@ The set of potential residuals is a combination of those discussed in Chapter \r
 
 
 
-We begin by describing experimental noisy phase retrieval problems which have \textit{Gaussian noise}.  Recall that the noisy phase retrieval problem (\ref{Eqn:phase_retrieval}) involves an observation $b = \bar{b} + \eta$, where the true observation $\bar{b}$ is contaminated by some nontrivial noise $\eta$.  To mimic the typical experimental noisy phase retrieval scenario, we begin with an unknown signal $\bar{x}$.  A sensing operator $\caA$ (\ref{Eqn:A_definition_with_masks}) is then chosen with diagonal mask matrices $C_j$ whose diagonal elements have complex standard Gaussian distribution (\ref{Def:Gaussian_distribution_complex}) (see Section \ref{Subsec:phase_retrieval-applications} for an explanation of masks).  The sensing operator is then used to create the true observation $\bar{b} = \caA(\bar{x}\bar{x}^*)$, and a noise term $\eta$ is chosen with real standard Gaussian distribution (\ref{Def:Gaussian_distribution}).  Finally, the noisy observation is set as $b = \bar{b} + \eta$.  Altogether, given a signal $\bar{x}$, a sensing operator $\caA$ (\ref{Eqn:A_definition_with_masks}), and noise ratio $\epsilon_\text{rel}$, we create the phase retrieval problem with Gaussian noise experimentally with the steps
+We begin by describing experimental noisy phase retrieval problems which have \textit{Gaussian noise}.  Recall that the noisy phase retrieval problem (\ref{Eqn:phase_retrieval}) involves an observation $b = \mathbf{b} + \eta$, where the true observation $\mathbf{b}$ is contaminated by some nontrivial noise $\eta$.  To mimic the typical experimental noisy phase retrieval scenario, we begin with an unknown signal $\mathbf{x}$.  A sensing operator $\caA$ (\ref{Eqn:A_definition_with_masks}) is then chosen with diagonal mask matrices $C_j$ whose diagonal elements have complex standard Gaussian distribution (\ref{Def:Gaussian_distribution_complex}) (see Section \ref{Subsec:phase_retrieval-applications} for an explanation of masks).  The sensing operator is then used to create the true observation $\mathbf{b} = \caA(\mathbf{x}\mathbf{x}^*)$, and a noise term $\eta$ is chosen with real standard Gaussian distribution (\ref{Def:Gaussian_distribution}).  Finally, the noisy observation is set as $b = \mathbf{b} + \eta$.  Altogether, given a signal $\mathbf{x}$, a sensing operator $\caA$ (\ref{Eqn:A_definition_with_masks}), and noise ratio $\epsilon_\text{rel}$, we create the phase retrieval problem with Gaussian noise experimentally with the steps
 \begin{equation} 			\label{Def:Gaussian_noise}
 \begin{array}{ll}
-1)	&	\bar{b} = \caA(\bar{x}\bar{x}^*) ,\\
+1)	&	\mathbf{b} = \caA(\mathbf{x}\mathbf{x}^*) ,\\
 2) &	\eta \sim \caN(0,1), \\
-3) & b = \bar{b} + \eta,
+3) & b = \mathbf{b} + \eta,
 \end{array}
 \end{equation}
-where $\eta$ is rescaled in the third step to satisfy the noise ratio $\epsilon_\text{rel} = ||\eta|| / ||b||$.  Thus we define the \textit{phase retrieval problem with Gaussian noise} as
+where $\eta$ is rescaled in the third step to satisfy the noise ratio $\epsilon_\text{rel} = ||\eta||_2 / ||b||_2$.  Thus we define the \textit{phase retrieval problem with Gaussian noise} as
 \begin{equation} \label{Eqn:phase_retrieval_Gaussian_noise}
 \begin{array}{ll}
 		\text{find}
@@ -54,7 +54,7 @@ where $\eta$ is rescaled in the third step to satisfy the noise ratio $\epsilon_
 		& 	||\caA (xx^*) - b||_2 \leq \epsilon,
 \end{array}
 \end{equation}
-where $b = \bar{b} + \eta$ is constructed experimentally using the steps (\ref{Def:Gaussian_noise}).  Likewise, the \textit{PLGD model with Gaussian noise} refers to the the PLGD model (\ref{Eqn:PhaseLift-P-GD}) 
+where $b = \mathbf{b} + \eta$ is constructed experimentally using the steps (\ref{Def:Gaussian_noise}).  Likewise, the \textit{PLGD model with Gaussian noise} refers to the the PLGD model (\ref{Eqn:PhaseLift-P-GD}) 
 \begin{equation} 			\label{Eqn:PhaseLift-GD_Gaussian_noise}
 \begin{array}{lll}
 	&\min\limits_{\substack{y}}
@@ -62,29 +62,29 @@ where $b = \bar{b} + \eta$ is constructed experimentally using the steps (\ref{D
 						\\
 	\textnormal{(PLGD)}
 				&	\st
-					&	\langle b, y \rangle - \epsilon ||y|| \geq 1,
+					&	\langle b, y \rangle - \epsilon ||y||_2 \geq 1,
 \end{array}
 \end{equation}
-where again $b = \bar{b} + \eta$ is constructed experimentally using the steps (\ref{Def:Gaussian_noise}).  
+where again $b = \mathbf{b} + \eta$ is constructed experimentally using the steps (\ref{Def:Gaussian_noise}).  
 
 
 
 
 To demonstrate how the differentiability of the dual objective $\lambda_1(\caA^*y)$ impacts the behavior of Algorithm \ref{Alg:PGD}, Section \ref{Subsec:PLGD_term_crit-stagnation} also considers experimental noisy phase retrieval problems which we say have \textit{synthetic noise}.
 The purpose of this synthetic noise is to create a PLGD model where the dual objective $\lambda_1(\caA^*y)$ is differentiable at $y_\star$.  
-To achieve this goal, the phase retrieval problem with synthetic noise is constructed to satisfy the PLGD primal recovery conditions of Corollary \ref{Cor:PLGD-primal_recovery_refinement}.  First we choose a random variable with standard Gaussian distribution (\ref{Def:Gaussian_distribution}) to be the optimal dual variable $y_\star$ and use this vector to construct the rest of the noisy phase retrieval problem.  The true signal $\bar{x}$ is set as the eigenvector corresponding to the algebraically largest eigenvalue of $\caA^*y_\star$ per Corollary \ref{Cor:PLGD-primal_recovery_refinement} (a).  This signal is then used to create a true observation $\bar{b}$ which is noised with a rescaling of $y_\star$ per Corollary \ref{Cor:PLGD-primal_recovery_refinement} (b) and  (\ref{Eqn:PLGD-noise_is_dual_variable}).  Altogether, given a noise ratio $\epsilon_\text{rel}$ we have the following steps for constructing the phase retrieval problem with synthetic noise
+To achieve this goal, the phase retrieval problem with synthetic noise is constructed to satisfy the PLGD primal recovery conditions of Corollary \ref{Cor:PLGD-primal_recovery_refinement}.  First we choose a random variable with standard Gaussian distribution (\ref{Def:Gaussian_distribution}) to be the optimal dual variable $y_\star$ and use this vector to construct the rest of the noisy phase retrieval problem.  The true signal $\mathbf{x}$ is set as the eigenvector corresponding to the algebraically largest eigenvalue of $\caA^*y_\star$ per Corollary \ref{Cor:PLGD-primal_recovery_refinement} (a).  This signal is then used to create a true observation $\mathbf{b}$ which is noised with a rescaling of $y_\star$ per Corollary \ref{Cor:PLGD-primal_recovery_refinement} (b) and  (\ref{Eqn:PLGD-noise_is_dual_variable}).  Altogether, given a noise ratio $\epsilon_\text{rel}$ we have the following steps for constructing the phase retrieval problem with synthetic noise
 \begin{equation} 			\label{Def:synthetic_noise}
 \begin{array}{ll}
 1)	&	y_\star \sim \caN(0,1), 	\\
-2) & \bar{x} \text{ is the eigenvector corresponding to } \\
+2) & \mathbf{x} \text{ is the eigenvector corresponding to } \\
 	&	\text{the algebraically largest eigenvalue of } \caA^*y_\star, \\
-3) & \bar{b} = \caA(\bar{x}\bar{x}^*), \\
-4) & b = \bar{b} + \epsilon \frac{y_\star}{|| y_\star ||},
+3) & \mathbf{b} = \caA(\mathbf{x}\mathbf{x}^*), \\
+4) & b = \mathbf{b} + \epsilon \frac{y_\star}{|| y_\star ||_2},
 \end{array}
 \end{equation}
-where $\epsilon = \epsilon_\text{rel}||b||$.  
-Steps one and two in (\ref{Def:synthetic_noise}) guarantee the PLP-PLGD optimality conditions (Corollary \ref{Cor:PLGD-optimality}) will hold for a known pair ($X_\star = \bar{x}\bar{x}^*$, $y_\star$) with rank-one optimal matrix $X_\star$.  
-Additionally, step four in (\ref{Def:synthetic_noise}) satisfies the primal recovery equation (\ref{Eqn:PLGD-noise_is_dual_variable}), guaranteeing the primal refinement strategy (\ref{Eqn:GD-PFD}) used in Algorithm \ref{Alg:PGD} will recovery the true signal $\bar{x}$ when initialized with $y_\star$.
+where $\epsilon = \epsilon_\text{rel}||b||_2$.  
+Steps one and two in (\ref{Def:synthetic_noise}) guarantee the PLP-PLGD optimality conditions (Corollary \ref{Cor:PLGD-optimality}) will hold for a known pair ($X_\star = \mathbf{x}\mathbf{x}^*$, $y_\star$) with rank-one optimal matrix $X_\star$.  
+Additionally, step four in (\ref{Def:synthetic_noise}) satisfies the primal recovery equation (\ref{Eqn:PLGD-noise_is_dual_variable}), guaranteeing the primal refinement strategy (\ref{Eqn:GD-PFD}) used in Algorithm \ref{Alg:PGD} will recovery the true signal $\mathbf{x}$ when initialized with $y_\star$.
 We define the \textit{phase retrieval problem with synthetic noise} as
 \begin{equation} \label{Eqn:phase_retrieval_synthetic_noise}
 \begin{array}{ll}
@@ -95,7 +95,7 @@ We define the \textit{phase retrieval problem with synthetic noise} as
 		& 	||\caA (xx^*) - b||_2 \leq \epsilon,
 \end{array}
 \end{equation}
-where $b = \bar{b} + \epsilon \frac{y_\star}{|| y_\star ||}$ is constructed experimentally using the steps (\ref{Def:synthetic_noise}).  Likewise, the \textit{PLGD model with synthetic noise} refers to the the PLGD model (\ref{Eqn:PhaseLift-P-GD}) 
+where $b = \mathbf{b} + \epsilon \frac{y_\star}{|| y_\star ||_2}$ is constructed experimentally using the steps (\ref{Def:synthetic_noise}).  Likewise, the \textit{PLGD model with synthetic noise} refers to the the PLGD model (\ref{Eqn:PhaseLift-P-GD}) 
 \begin{equation} 			\label{Eqn:PhaseLift-GD_synthetic_noise}
 \begin{array}{lll}
 	&\min\limits_{\substack{y}}
@@ -103,10 +103,10 @@ where $b = \bar{b} + \epsilon \frac{y_\star}{|| y_\star ||}$ is constructed expe
 						\\
 	\textnormal{(PLGD)}
 				&	\st
-					&	\langle b, y \rangle - \epsilon ||y|| \geq 1,
+					&	\langle b, y \rangle - \epsilon ||y||_2 \geq 1,
 \end{array}
 \end{equation}
-where again $b = \bar{b} + \epsilon \frac{y_\star}{|| y_\star ||}$ is constructed experimentally using the steps (\ref{Def:synthetic_noise}).  
+where again $b = \mathbf{b} + \epsilon \frac{y_\star}{|| y_\star ||_2}$ is constructed experimentally using the steps (\ref{Def:synthetic_noise}).  
 
 
 
@@ -123,13 +123,13 @@ Next we establish an exhaustive list of residuals which are available for measur
 \begin{subequations}  		\label{Eqn:term_crit-candidate_residuals}
 \begin{align}
 \text{signal relative error}
-	& \hspace{1cm}	||xx^* - \bar{x}\bar{x}^*||_F / ||\bar{x}\bar{x}^*||_F \\
+	& \hspace{1cm}	||xx^* - \mathbf{x}\mathbf{x}^*||_F / ||\mathbf{x}\mathbf{x}^*||_F \\
 \text{dual relative error}
-	&	\hspace{1cm} 	||y - y_\star|| / ||y_\star|| 	\\	
+	&	\hspace{1cm} 	||y - y_\star||_2 / ||y_\star||_2 	\\	
 \text{primal true relative error}
-	& \hspace{1cm} ||\caA(xx^*)-\bar{b}|| / ||\bar{b}||  \\
+	& \hspace{1cm} ||\caA(xx^*)-\mathbf{b}||_2 / ||\mathbf{b}||_2  \\
 \text{primal relative error}
-	& \hspace{1cm}	\rho := ||\caA(xx^*) - b|| / ||b||	 \\
+	& \hspace{1cm}	\rho := ||\caA(xx^*) - b||_2 / ||b||_2	 \\
 \text{primal difference}
 	& \hspace{1cm}	|\rho - \hat{\rho} | / | \rho| \\
 \text{duality gap}
@@ -139,7 +139,7 @@ Next we establish an exhaustive list of residuals which are available for measur
 \text{dual objective difference}
 	& \hspace{1cm}	|\lambda_1 - \hat{\lambda}_1| / |\lambda_1| \\
 \text{dual variable difference}
-	& \hspace{1cm}	||y- \hat{y}|| / ||y|| \\
+	& \hspace{1cm}	||y- \hat{y}||_2 / ||y||_2 \\
 \text{dual matrix difference}
 	& \hspace{1cm}	||A - \hat{A}||_F / ||A||_F
 \end{align}
@@ -170,7 +170,7 @@ In this section we demonstrate the tendency of Algorithm \ref{Alg:PGD} not to co
 We see that PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) typically have an optimal matrix $X_\star$ with rank greater than one.  
 In this circumstance, Corollary \ref{Cor:PLGD-optimality} (e) indicates that the algebraically largest eigenvalue of the optimal dual matrix $\caA^*y_\star$ will also be greater than one.
 As a result, the dual objective $\lambda_1(\caA^*y)$ will be nondifferentiable in a neighborhood of $y_\star$ and first-order methods like Algorithm \ref{Alg:PGD} may not converge.
-Additionally, since $X_\star \neq \bar{x}\bar{x}^*$, the primal refinement strategy (\ref{Eqn:GD-PFD}) used in Algorithm \ref{Alg:PGD} is not guaranteed to recover the true signal $\bar{x}$.
+Additionally, since $X_\star \neq \mathbf{x}\mathbf{x}^*$, the primal refinement strategy (\ref{Eqn:GD-PFD}) used in Algorithm \ref{Alg:PGD} is not guaranteed to recover the true signal $\mathbf{x}$.
 
 
 In order to describe the behavior of Algorithm \ref{Alg:PGD} for noisy phase retrieval problems, we use the following terminology to make the distinction between Algorithm \ref{Alg:PGD} converging to an optimal solution and converging to a nonoptimal variable.
@@ -189,7 +189,7 @@ Specifically, Algorithm \ref{Alg:PGD} has stagnated at a given iterate if a chos
 
 
 
-The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} use PLGD models with synthetic noise (\ref{Eqn:PhaseLift-GD_synthetic_noise}) to demonstrate that Algorithm \ref{Alg:PGD} is able to converge and accurately recover the true signal $\bar{x}$ when the optimal matrix in the PLGD model is rank-one (i.e., $X_\star = \bar{x} \bar{x}^*$).  
+The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} use PLGD models with synthetic noise (\ref{Eqn:PhaseLift-GD_synthetic_noise}) to demonstrate that Algorithm \ref{Alg:PGD} is able to converge and accurately recover the true signal $\mathbf{x}$ when the optimal matrix in the PLGD model is rank-one (i.e., $X_\star = \mathbf{x} \mathbf{x}^*$).  
 Table \ref{Tab:synthetic_dual_variable_converges} depicts the results of Algorithm \ref{Alg:PGD} applied to the PLGD model with synthetic noise (\ref{Eqn:PhaseLift-GD_synthetic_noise}), corroborating the results in \cite[Section 5.1.2]{DBLP:journals/siamsc/FriedlanderM16}.
 
 \begin{table}[H]
@@ -321,8 +321,8 @@ As a result, Algorithm \ref{Alg:PGD} cannot attain a pair $(X,y)$ that are suffi
 In contrast to the Gaussian models (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), we see that PLGD models with synthetic noise (\ref{Eqn:PhaseLift-GD_synthetic_noise}) consistenly have rank-one optimal matrices $X_\star$, allowing Algorithm \ref{Alg:PGD} to converge.  
 Each synthetic noise model (\ref{Eqn:PhaseLift-GD_synthetic_noise}) in Table \ref{Tab:average_rank_soln_matrix_with_gaussian_dual_variable} had an optimal dual matrix $\caA^*y_\star$ with a unique algebraically largest eigenvalue, making the dual objective function $\lambda_1(\caA^*y)$ differentiable at $y_\star$ and allowing Algorithm \ref{Alg:PGD} to approach the optimal dual variable $y_\star$.  
 Once the pair $(X,y)$ are sufficiently close to the optimal pair, the duality gap condition (\ref{Eqn:saga_conv_crit_gap}) is met and convergence is declared.
-At this point, the primal recovery equation (\ref{Eqn:PLGD-noise_is_dual_variable}) successfully denoises the noisy observation $b = \bar{b} + \epsilon y_\star / ||y_\star||$ because the synthetic noise steps (\ref{Def:synthetic_noise}) guarantee an exact relation $\eta = \epsilon y_\star / ||y_\star||$ between the noise term $\eta$ and optimal dual variable $y_\star$.
-Thus Algorithm \ref{Alg:PGD} is able to return a matrix $X$ which accurately approximates the optimal matrix $X_\star = \bar{x}\bar{x}^*$.  
+At this point, the primal recovery equation (\ref{Eqn:PLGD-noise_is_dual_variable}) successfully denoises the noisy observation $b = \mathbf{b} + \epsilon y_\star / ||y_\star||_2$ because the synthetic noise steps (\ref{Def:synthetic_noise}) guarantee an exact relation $\eta = \epsilon y_\star / ||y_\star||_2$ between the noise term $\eta$ and optimal dual variable $y_\star$.
+Thus Algorithm \ref{Alg:PGD} is able to return a matrix $X$ which accurately approximates the optimal matrix $X_\star = \mathbf{x}\mathbf{x}^*$.  
 
 
 
@@ -366,12 +366,12 @@ This section establishes new termination conditions for Algorithm \ref{Alg:PGD} 
 We begin by presenting the new termination conditions for Algorithm \ref{Alg:PGD} for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  To identify stagnation of Algorithm \ref{Alg:PGD} and declare termination, the primal difference (\ref{Eqn:term_crit-candidate_residuals}e) is set to 
 \begin{equation}
 	\label{Eqn:term_crit_new-primal_difference}
-\frac{| \rho - \hat{\rho} |}{\rho} \leq  \textnormal{tol}_\textnormal{primal} = 10^{-5}, \ \ \rho = ||\caA(xx^*) - b||
+\frac{| \rho - \hat{\rho} |}{\rho} \leq  \textnormal{tol}_\textnormal{primal} = 10^{-5}, \ \ \rho = ||\caA(xx^*) - b||_2
 \end{equation}
 and the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) is set to
 \begin{equation}
 	\label{Eqn:term_crit_new-dual_difference}
-\frac{||y- \hat{y}||}{||y||} \leq \textnormal{tol}_\textnormal{dual}= 10^{-4},
+\frac{||y- \hat{y}||_2}{||y||_2} \leq \textnormal{tol}_\textnormal{dual}= 10^{-4},
 \end{equation}
 where a hat indicates the previous iterate (e.g., $\hat{y} = y_{k-1}$).  Termination is declared when (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) are satisfied or after a maximum of 300 iterations are performed.  After termination, the signal returned corresponds to the signal among the previous 20 with the smallest duality gap (\ref{Eqn:term_crit-candidate_residuals}f) value.  
 
@@ -475,9 +475,9 @@ For each of the models in Figure \ref{Fig:term_crit-pr_and_dual}, the terminatio
 
 Note that there is also theoretical justification for selecting the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) as a termination condition.  Proposition \ref{Prop:PLGD-opt_unconstrained} showed that the variable $y$ is optimal for the PLGD model (\ref{Eqn:PhaseLift-P-GD}) if $y = \Pi_\caC(y - \alpha g)$ for some $g \in \partial f(y)$ and all $\alpha > 0$.  This property corresponds to the termination condition 
 \begin{equation*}
-|| \Pi_\caC(y - \alpha g) - y || \leq \text{tol}.
+|| \Pi_\caC(y - \alpha g) - y ||_2 \leq \text{tol}.
 \end{equation*}
-If we make this condition relative by setting $\text{tol} = 10^{-4}||\Pi_\caC(y - \alpha g)||$, then we recover the new dual variable difference condition (\ref{Eqn:term_crit_new-dual_difference}).
+If we make this condition relative by setting $\text{tol} = 10^{-4}||\Pi_\caC(y - \alpha g)||_2$, then we recover the new dual variable difference condition (\ref{Eqn:term_crit_new-dual_difference}).
 
 
 

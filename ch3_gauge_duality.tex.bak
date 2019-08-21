@@ -20,10 +20,15 @@ Section \ref{Subsec:PLGD-models_intro} also states a few more general primal-gau
 In Section \ref{Subsec:PLGD-theory} we prove the gauge duality theorem (Theorem \ref{Thm:P-GD-inequality_pair_are_duals}) for a more general primal-gauge dual model pair and establish weak duality, strong duality, and optimality conditions for this pair.
 Section \ref{Subsec:PLGD-opt_conds_primal_recovery} then returns to the PLP-PLGD pair, establishing key properties for optimizing the PLGD model and recovering a signal $x$ from a given dual variable $y$.  
 
-All of the gauge properties and gauge duality results in this chapter were previously established in \cite{rockafellar1970convex}, \cite{DBLP:journals/mp/Freund87}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}.  Gauge functions were first analyzed in  \cite{rockafellar1970convex}.  Gauge duality was then introduced in \cite{DBLP:journals/mp/Freund87}, where the author focused on quadratic programming applications.  In \cite{DBLP:journals/siamjo/FriedlanderMP14}, the authors developed a broad set of antipolar calculus results for the analysis of gauge duality.  These results were then applied to the PLP-PLGD pair to develop a first-order method in \cite{DBLP:journals/siamsc/FriedlanderM16}.
+All of the gauge properties and gauge duality results in this chapter were previously established in \cite{rockafellar1970convex}, \cite{DBLP:journals/mp/Freund87}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}.  Gauge functions were first analyzed in  \cite{rockafellar1970convex}.  Gauge duality was then introduced in \cite{DBLP:journals/mp/Freund87}, where the author focused on quadratic programming applications.  
+In \cite{DBLP:journals/siamjo/FriedlanderMP14}, the authors developed a broad set of antipolar calculus results for the analysis of gauge duality.  
+These results were then applied to the PLP-PLGD pair to develop a first-order method in \cite{DBLP:journals/siamsc/FriedlanderM16}.
 
 
-Our contribution is to provide a self-contained, comprehensive treatment of gauge duality theory for the PLP-PLGD pair.  Prior to this treatment, the results in this chapter were spread throughout the original texts (\cite{rockafellar1970convex}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}), occasionally with differing notation or style.  In contrast, Section \ref{Subsec:PLGD-models_intro} provides a single notation and style which is used in Sections \ref{Subsec:PLGD-theory} and \ref{Subsec:PLGD-opt_conds_primal_recovery} to develop gauge duality theory for the PLP-PLGD pair.  The results of this chapter provide the theoretical foundation for developing a first-order optimization method for the PLGD model in Chapter \ref{Sec:PLGD_algo}.
+Our contribution is to provide a self-contained, comprehensive treatment of gauge duality theory for the PLP-PLGD pair.  
+Prior to this treatment, the results in this chapter were spread throughout the original texts ( \hspace{-0.24cm} \cite{rockafellar1970convex}, \cite{DBLP:journals/siamjo/FriedlanderMP14}, and \cite{DBLP:journals/siamsc/FriedlanderM16}), occasionally with differing notation or style.  
+In contrast, Section \ref{Subsec:PLGD-models_intro} provides a single notation and style which is used in Sections \ref{Subsec:PLGD-theory} and \ref{Subsec:PLGD-opt_conds_primal_recovery} to develop gauge duality theory for the PLP-PLGD pair.  
+The results of this chapter provide the theoretical foundation for developing a first-order optimization method for the PLGD model in Chapter \ref{Sec:PLGD_algo}.
 
 
 \section{Primal-Gauge Dual Pairs and Definitions}		\label{Subsec:PLGD-models_intro}
@@ -41,10 +46,10 @@ The PhaseLift primal semidefinite program (restated from (\ref{Eqn:PhaseLift}) i
 						\\
 \textnormal{(PLP)}
 	&	\st
-		& 	|| \caA (X) - b || \leq \epsilon
+		& 	|| \caA (X) - b ||_2 \leq \epsilon
 			&	\hspace{0.4cm} 	\textnormal{(PLGD)}
 				&	\st
-					&	\langle b, y \rangle - \epsilon ||y|| \geq 1.
+					&	\langle b, y \rangle - \epsilon ||y||_2 \geq 1.
 						\\
 
 	&
@@ -84,10 +89,10 @@ This is in contrast to the \textit{polar} of $\caC$, which is defined as
 \begin{equation} 			\label{Def:polar}
 \caC^\circ = \left\{ z \ | \ \langle x, z \rangle \leq 1 \ \forall x \in \caC \right\}.
 \end{equation}
-Although we refer to the primal-gauge dual pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) as nonlinear, we are primarily concerned with closed, convex sets $\caC$ which do not contain the origin (e.g., the PLP (\ref{Eqn:PhaseLift-P-GD}) constraint set when $\epsilon < ||b||$).  
+Although we refer to the primal-gauge dual pair (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) as nonlinear, we are primarily concerned with closed, convex sets $\caC$ which do not contain the origin (e.g., the PLP (\ref{Eqn:PhaseLift-P-GD}) constraint set when $\epsilon < ||b||_2$).  
 Note that gauge dual models with linear constraints which do not include the origin are a subset of the models described by (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}).
 
-The functions $\kappa, \kappa^\circ : \caX \rightarrow \bbR \cup \{+\infty\}$ in (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) are \textit{gauge} functions, meaning they are convex, nonnegative, positively homogeneous ($\kappa(\alpha x) = \alpha \kappa(x)$ for all $\alpha > 0$), and vanish at the origin.  Gauge functions generalize the notion of norms, allowing for flexibility in modeling the phase retrieval problem.  In the PLP model for instance, the Schatten $1$-norm $\kappa(X) := || X ||_1$ and  vector $2$-norm $\rho(y) := ||y||$ are both gauges.
+The functions $\kappa, \kappa^\circ : \caX \rightarrow \bbR \cup \{+\infty\}$ in (\ref{Eqn:PhaseLift_P_GD_nonlinear_form}) are \textit{gauge} functions, meaning they are convex, nonnegative, positively homogeneous ($\kappa(\alpha x) = \alpha \kappa(x)$ for all $\alpha > 0$), and vanish at the origin.  Gauge functions generalize the notion of norms, allowing for flexibility in modeling the phase retrieval problem.  In the PLP model for instance, the Schatten $1$-norm $\kappa(X) := || X ||_1$ and  vector $2$-norm $\rho(y) := ||y||_2$ are both gauges.
 
 Given a gauge function $\kappa$, the \textit{polar} of this function is the function $\kappa^\circ$ that most tightly satisfies the inequality
 \begin{equation}  			\label{Def:polar_function_1}
@@ -232,7 +237,7 @@ Gauge duality theory was revisited in \cite{DBLP:journals/siamjo/FriedlanderMP14
 					&	\langle b, y \rangle - \epsilon \rho^\circ(y) \geq 1.
 \end{array}
 \end{equation}
-As we will see in Section \ref{Subsec:PLGD-opt_conds_primal_recovery}, the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) pair is recovered from (\ref{Eqn:PhaseLift_P_GD_inequality_form}) when we set $\kappa(X) = ||X||_1 + \delta_{(\cdot) \succeq 0}(X)$ and $\rho(y) = ||y||$.  The authors of \cite{DBLP:journals/siamjo/FriedlanderMP14} develop an antipolar calculus to determine the antipolar for sets like $\{ y \ | \ \rho(Ax-b) \leq \epsilon \}$ and use this calculus rather than polarity relations to derive the gauge dual pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) and establish conditions such as those for strong duality.  Additionally, this antipolar calculus allows the authors to drop the requirement that the sets $\caX$ and $\caY$ are ray-like.
+As we will see in Section \ref{Subsec:PLGD-opt_conds_primal_recovery}, the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) pair is recovered from (\ref{Eqn:PhaseLift_P_GD_inequality_form}) when we set $\kappa(X) = ||X||_1 + \delta_{(\cdot) \succeq 0}(X)$ and $\rho(y) = ||y||_2$.  The authors of \cite{DBLP:journals/siamjo/FriedlanderMP14} develop an antipolar calculus to determine the antipolar for sets like $\{ y \ | \ \rho(Ax-b) \leq \epsilon \}$ and use this calculus rather than polarity relations to derive the gauge dual pair (\ref{Eqn:PhaseLift_P_GD_inequality_form}) and establish conditions such as those for strong duality.  Additionally, this antipolar calculus allows the authors to drop the requirement that the sets $\caX$ and $\caY$ are ray-like.
 
 In contrast to the antipolar calculus framework, the authors of \cite{aravkin2017foundations} develop gauge duality through a perturbation framework.  This even broader setting frames gauge duality as a product of Fenchel-Rockafellar duality, allowing the consideration of gauge duality for 
 general nonnegative convex functions.
@@ -633,12 +638,12 @@ Furthermore, \cite[Theorem 28.4]{rockafellar1970convex} tells us this pair has z
 
 Since $\hat{x}$ is optimal for P-ineq, $x_\star = \hat{x}$ is our desired primal solution.  By strong Lagrange duality $\nu_{LD} = \kappa(x_\star)$,  and by weak gauge duality (Proposition \ref{Prop:weak_duality}) this value is strictly greater than zero.  Let $\{ y_i \}$ be a LD-ineq feasible sequence such that $\langle b, y_i \rangle - \epsilon \rho^\circ(y_i) \rightarrow \nu_{LD} > 0$.  Since $\rho^\circ$ is continuous, there exists a subsequence $\{ y_{i_j} \}$ such that $\langle b, y_{i_j} \rangle - \epsilon \rho^\circ(y_{i_j}) $ is bounded above zero for all $j$.  Rescaling this sequence such that
 \begin{equation*}
-\bar{y}_j = \frac{y_{i_j}}{\langle b, y_{i_j} \rangle - \epsilon \rho^\circ(y_{i_j})},
+\mathbf{y}_j = \frac{y_{i_j}}{\langle b, y_{i_j} \rangle - \epsilon \rho^\circ(y_{i_j})},
 \end{equation*}
-we have $\langle b, \bar{y}_j \rangle - \epsilon \rho^\circ(\bar{y}_j) = 1$ for all $j$, and thus $\{ \bar{y}_j \}$ is a GD-ineq feasible sequence.  Then we have
+we have $\langle b, \mathbf{y}_j \rangle - \epsilon \rho^\circ(\mathbf{y}_j) = 1$ for all $j$, and thus $\{ \mathbf{y}_j \}$ is a GD-ineq feasible sequence.  Then we have
 \begin{equation*}
 \begin{array}{rcl}
-\nu_{GD} &	\leq & \lim\limits_{\substack{j \rightarrow \infty}} \kappa^\circ(A^* \bar{y}_j)	\\
+\nu_{GD} &	\leq & \lim\limits_{\substack{j \rightarrow \infty}} \kappa^\circ(A^* \mathbf{y}_j)	\\
 	&	=	&	\lim\limits_{\substack{j \rightarrow \infty}}  \frac{1}{ \langle b, y_{i_j} \rangle - \epsilon \rho^\circ(y_{i_j})} \kappa^\circ(A^*y_{i_j}) \\
 	&	=	&	\frac{1}{\kappa(x_\star)} \cdot \lim\limits_{\substack{j \rightarrow \infty}}  \kappa^\circ(A^*y_{i_j}) \leq \frac{1}{\kappa(x_\star)},
 \end{array}
@@ -733,7 +738,7 @@ which can be simplified by considering two cases. If $\lambda_1(Z)$ is positive 
 	\end{cases}
 \end{equation}
 
-Next we set $\rho(y) := ||y||= ||y||_2$, which has the polar (or dual norm) $\rho^\circ(y) = ||y||_* = ||y||_2$.  Thus PLP has the form of P-ineq (\ref{Eqn:PhaseLift_P_GD_inequality_form})
+Next we set $\rho(y) := ||y||_2$, which has the polar (or dual norm) $\rho^\circ(y) = ||y||_* = ||y||_2$.  Thus PLP has the form of P-ineq (\ref{Eqn:PhaseLift_P_GD_inequality_form})
 \begin{equation*} 			
 \begin{array}{ll}
 		\min\limits_{\substack{X \in \caH^n}}
@@ -741,10 +746,10 @@ Next we set $\rho(y) := ||y||= ||y||_2$, which has the polar (or dual norm) $\rh
 						\\
 
 		\st
-		& 	\rho(\caA(X)-b) = ||\caA(X) - b|| \leq \epsilon.
+		& 	\rho(\caA(X)-b) = ||\caA(X) - b||_2 \leq \epsilon.
 \end{array}
 \end{equation*}
-Then by Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, the GD-ineq model has the objective $\kappa^\circ(\caA^*y)$ and constraint $\langle b, y \rangle - \epsilon ||y|| \geq 1$.  We may further simplify $\kappa^\circ$ by noting that $\kappa(X)$ is strictly positive and finite for all feasible $X \in \caH^n$.  Then by weak duality (Proposition \ref{Prop:weak_duality}) $\kappa^\circ(\caA^*y)$ is likewise strictly positive and finite for all feasible $y$.  Thus $\kappa^\circ(\caA^*y) = \lambda_1(\caA^*y)$ and we recover the PLGD model from the GD-ineq model.
+Then by Theorem \ref{Thm:P-GD-inequality_pair_are_duals}, the GD-ineq model has the objective $\kappa^\circ(\caA^*y)$ and constraint $\langle b, y \rangle - \epsilon ||y||_2 \geq 1$.  We may further simplify $\kappa^\circ$ by noting that $\kappa(X)$ is strictly positive and finite for all feasible $X \in \caH^n$.  Then by weak duality (Proposition \ref{Prop:weak_duality}) $\kappa^\circ(\caA^*y)$ is likewise strictly positive and finite for all feasible $y$.  Thus $\kappa^\circ(\caA^*y) = \lambda_1(\caA^*y)$ and we recover the PLGD model from the GD-ineq model.
 
 
 
@@ -759,16 +764,16 @@ and equality holds if and only if $A$ and $B$ are simultaneously diagonalizable 
 
 \begin{cor} 		\label{Cor:PLGD-optimality}
 \emph{(PLP-PLGD optimality conditions)}
-If PLP in (\ref{Eqn:PhaseLift-P-GD}) is feasible and $0 \leq \epsilon < ||b||$, then $(X, y) \in \caH^n \times \bbR^m$ is primal-dual optimal if and only if the following conditions hold
+If PLP in (\ref{Eqn:PhaseLift-P-GD}) is feasible and $0 \leq \epsilon < ||b||_2$, then $(X, y) \in \caH^n \times \bbR^m$ is primal-dual optimal if and only if the following conditions hold
 \begin{enumerate}[(a)]
 \item
-$X \succeq 0$ and $||\caA(X) -b||=\epsilon$,
+$X \succeq 0$ and $||\caA(X) -b||_2=\epsilon$,
 
 \item
-$\langle b, y \rangle - \epsilon ||y|| = 1$,
+$\langle b, y \rangle - \epsilon ||y||_2 = 1$,
 
 \item
-$\langle b - \caA(X), y \rangle = ||\caA(X)-b|| \cdot ||y||$,
+$\langle b - \caA(X), y \rangle = ||\caA(X)-b||_2 \cdot ||y||_2$,
 
 \item
 $\langle X, \caA^*y \rangle = ||X||_1 \cdot \lambda_1(\caA^*y) = 1$,
@@ -781,7 +786,7 @@ $X$ and $\caA^*y$ are simultaneously diagonalizable.
 \end{enumerate}
 \end{cor}
 \begin{proof}
-Since $\rho^\circ(\cdot) = ||\cdot||$ is continuous, we may invoke Proposition \ref{Prop:opt_conds}. The first four conditions are identical to those discussed in Proposition \ref{Prop:opt_conds} for the more general model (\ref{Eqn:PhaseLift_P_GD_inequality_form}).  Thus these conditions holding is equivalent to $(X,y)$ being primal-dual optimal.
+Since $\rho^\circ(\cdot) = ||\cdot||_2$ is continuous, we may invoke Proposition \ref{Prop:opt_conds}. The first four conditions are identical to those discussed in Proposition \ref{Prop:opt_conds} for the more general model (\ref{Eqn:PhaseLift_P_GD_inequality_form}).  Thus these conditions holding is equivalent to $(X,y)$ being primal-dual optimal.
 
 Then we must simply show the first four conditions imply the last two.    Applying the von Neumann trace inequality to the matrices $X$ and $\caA^*y$, we have
 \begin{equation}		\label{Eqn:von_Neumann_in_proof}
@@ -795,7 +800,7 @@ Replacing the two inequalities in (\ref{Eqn:von_Neumann_in_proof}) with equaliti
 
 In addition to Corollary \ref{Cor:PLGD-optimality}, we now establish a more general first-order optimality condition for convex optimization which applies to the PLGD model (\ref{Eqn:PhaseLift-P-GD}).  
 Recall that convex optimization is the minimization of any convex function $f$ over a convex set $\caC$, and a first-order method is any iteration $y_+ = \Pi_\caC(y - \alpha g)$, where $g$ is some descent direction in $\partial f(y)$ and $\alpha > 0$ is a steplength chosen with some linesearch policy.
-In Chapter \ref{Sec:PLGD_algo} we will develop a first-order method for optimizing (\ref{Eqn:PhaseLift-P-GD}), but for now consider any first-order PLGD method for $f(y) = \lambda_1(\caA^*y)$ and $\caC = \{ y \in \R^m \ | \ \langle b, y \rangle - \epsilon ||y|| \geq 1 \}$.
+In Chapter \ref{Sec:PLGD_algo} we will develop a first-order method for optimizing (\ref{Eqn:PhaseLift-P-GD}), but for now consider any first-order PLGD method for $f(y) = \lambda_1(\caA^*y)$ and $\caC = \{ y \in \R^m \ | \ \langle b, y \rangle - \epsilon ||y||_2 \geq 1 \}$.
 
 
 
@@ -845,13 +850,13 @@ Then $X_\star \in \bbC^{n \times n}$ is a solution to (\ref{Eqn:PhaseLift-P-GD})
 \item
 $X_\star = USU^*,$
 \item
-$b - \caA(X_\star) \in \epsilon \partial ||\cdot||(y_\star).$
+$b - \caA(X_\star) \in \epsilon \partial ||\cdot||_2(y_\star).$
 \end{enumerate}
 \end{cor}
 \begin{proof}
 If $X_\star$ is a solution to (\ref{Eqn:PhaseLift-P-GD}), then (e) of Corollary \ref{Cor:PLGD-optimality} implies that rank of $X_\star$ is no larger than the multiplicity $r$ of $\lambda_1(\caA^*y_\star)$, and (f) implies that $X_\star$ has the form $X_\star = USU^*$ for an $r \times r$ matrix $S \succeq 0$.  Also, the dual subdifferential condition of Proposition \ref{Prop:opt_conds} implies that (b) holds.
 
-Conversely, if (a) and (b) hold then it can be shown that the optimality conditions (a)-(d) of Corollary \ref{Cor:PLGD-optimality} also hold.  The optimality of $y_\star$ gives $\langle b, y_\star \rangle - \epsilon ||y_\star|| = 1$.  
+Conversely, if (a) and (b) hold then it can be shown that the optimality conditions (a)-(d) of Corollary \ref{Cor:PLGD-optimality} also hold.  The optimality of $y_\star$ gives $\langle b, y_\star \rangle - \epsilon ||y_\star||_2 = 1$.  
 Conditions (a) and (c) may be derived from definitions of the dual norm $\rho^\circ(\cdot) = ||\cdot||$, which we temporarily denote as $||\cdot||_*$ for clarity. 
 The subdifferential of the dual norm (\ref{Def:dual_norm}) is the set of maximizers which attain the dual norm value, that is $\partial || \cdot ||_* (y) = \{ x \ | \ ||y||_* = \langle x,y \rangle \}$.  
 Then we have
@@ -878,16 +883,16 @@ Thus optimality conditions (a)-(d) hold, and  $X_\star$ is a solution to (\ref{E
 
 \end{proof}
 
-Corollary \ref{Cor:PLGD-primal_recovery_refinement} allows us to recover a signal $x$ by using the dual variable $y$ to denoise the noisy observation $b = \bar{b} + \eta$.
+Corollary \ref{Cor:PLGD-primal_recovery_refinement} allows us to recover a signal $x$ by using the dual variable $y$ to denoise the noisy observation $b = \mathbf{b} + \eta$.
 Assuming $y \neq 0$, the $2$-norm used in the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}) gives $\partial ||\cdot||(y) = \nabla ||\cdot||_2(y) = y / ||y||$.  
-If the lifted true signal $X_\star = \bar{x}\bar{x}^*$ is in the set of optimal matrices, then $\caA(X_\star) = \bar{b}$ and Corollary \ref{Cor:PLGD-primal_recovery_refinement} indicates that the corresponding dual optimal variable $y_\star$ will have the relation 
+If the lifted true signal $X_\star = \mathbf{x}\mathbf{x}^*$ is in the set of optimal matrices, then $\caA(X_\star) = \mathbf{b}$ and Corollary \ref{Cor:PLGD-primal_recovery_refinement} indicates that the corresponding dual optimal variable $y_\star$ will have the relation 
 \begin{equation} 			\label{Eqn:PLGD-noise_is_dual_variable}
-\eta = (\bar{b} + \eta) - \bar{b} = b - \caA(X_\star)  = \epsilon \nabla ||\cdot||_2(y_\star) = \epsilon \frac{y_\star}{||y_\star||}.
+\eta = (\mathbf{b} + \eta) - \mathbf{b} = b - \caA(X_\star)  = \epsilon \nabla ||\cdot||_2(y_\star) = \epsilon \frac{y_\star}{||y_\star||}.
 \end{equation}
 Thus the noise term $\eta$ is proportional to one of the optimal dual variables.  
 
 
-Unfortunately, in the case of noisy phase retrieval there is no guarantee that the lifted true signal $X = \bar{x}\bar{x}^*$ will be an optimal matrix for the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}).  
+Unfortunately, in the case of noisy phase retrieval there is no guarantee that the lifted true signal $X = \mathbf{x}\mathbf{x}^*$ will be an optimal matrix for the PLP-PLGD pair (\ref{Eqn:PhaseLift-P-GD}).  
 Instead, the gauge dual variable $y$ can be viewed as a parameter which learns the noise term $\eta$ with some degree of inaccuracy.  
 As we will see in Section \ref{Subsec:PLGD_term_crit-stagnation}, the tendency of $y$ to learn the noise term persists even when the rank of an optimal PLP-PLGD matrix $X_\star$ is greater than one and a given first-order method is unable to converge to $y_\star$.
 
