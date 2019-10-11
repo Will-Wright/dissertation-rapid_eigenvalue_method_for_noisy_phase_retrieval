@@ -2,31 +2,89 @@
 % commands that will be used in the dissertation.
 %
 
-\usepackage{graphicx}
-\usepackage{caption} %%% optional but probably necessary
-\usepackage{subcaption} %%% optional but probably necessary
-\usepackage{algorithm}
-%\usepackage{algorithmic}
+\usepackage{url,graphicx,tabularx,array,geometry,amsmath,amssymb}
 \usepackage{amsthm}
-\usepackage{algpseudocode}
+\usepackage{enumerate}
+%\usepackage{enumitem}
 \usepackage{float}
-\usepackage{url,tabularx,array,geometry,amsmath,amssymb}
-
+\usepackage{dsfont}   % doublestroke package for unit indicator $\mathds{1}$
+\usepackage{multirow}
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows, positioning}
+\usetikzlibrary{trees,shapes,arrows, positioning}
+
+\usepackage{hyperref}
+\usepackage{makecell}
+
+\usepackage{algorithm}
+%\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\usepackage{subcaption}
+\usepackage{epsfig}  		% For postscript
+\usepackage{epic,eepic}       % For epic and eepic output from xfig
+
+\usepackage[nocompress]{cite} %%% optional
+
+
+
+
+\makeatletter
+\renewcommand\section{%
+  \@startsection{section}{1}
+    \z@
+    {.3\linespacing\@plus\linespacing}
+    {1sp}
+    {\large\bfseries\centering}%
+}
+
+\renewcommand\subsection{%
+  \@startsection{subsection}{1}
+    \z@
+    {.3\linespacing\@plus\linespacing}
+    {1sp}
+    {\normalfont\bfseries\centering}%
+}
+
+\makeatother
+
+
+
+
+%\usepackage{titlesec}
+%\titlespacing{\section}{0pc}{10pc}{3pc}
+
+%\usepackage{titlesec}
+%\titlespacing*{\section}{0pt}{1.1\baselineskip}{\baselineskip}
+
+
 
 \newtheorem{thm}{Theorem}[section]
- \newtheorem{cor}[thm]{Corollary}
- \newtheorem{prop}[thm]{Proposition}
- \newtheorem{conj}[thm]{Conjecture}
- \theoremstyle{definition}
- \newtheorem{defn}[thm]{Definition}
- \theoremstyle{remark}
- \newtheorem{rem}[thm]{Remark}
- \newtheorem*{ex}{Example}
- \newtheorem{assumption}[thm]{Assumption}
- 
- \newcommand{\const}{\mathrm{const}}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{note}[thm]{Note}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+
+
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+
+\numberwithin{equation}{section}
+
+
+	%%%	NEW COMMANDS	%%%
+
+\newcommand{\const}{\mathrm{const}}
 \newcommand{\bR}{{\mathbb R}}
 \newcommand{\bC}{{\mathbb C}}
 \newcommand{\bN}{{\mathbb N}}
@@ -105,6 +163,8 @@
 
 \newcommand{\Ran}[1]{\mathrm{Ran}\, #1 }
 \newcommand{\Ker}[1]{\mathrm{Ker}\, #1 }
+\newcommand{\rel}{\textnormal{rel}}
+\newcommand{\tol}{\textnormal{tol}}
 
 \newcommand{\eps}{\epsilon}
 \newcommand{\iu}{\mathrm{i}}
@@ -126,28 +186,39 @@
 %
 \newcommand{\teop}{\hfill$\square$}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-
-\newcommand{\argmin}{\text{argmin}}
-\newcommand{\argmax}{\text{argmax}}
-\newcommand{\epi}{\text{epi}}
-\newcommand{\nul}{\text{null}}
-\newcommand{\prox}{\text{prox}}
-\newcommand{\ran}{\text{ran}}
-\newcommand{\rank}{\text{rank}}
-\newcommand{\st}{\text{s.t.}}
-\newcommand{\wh}{\widehat}
-\newcommand{\Awh}{\widehat{A}}
-\newcommand{\yh}{\hat{y}}
+\newcommand{\prox}{\textnormal{prox}}
+\newcommand{\argmin}{\textnormal{argmin}}
+\newcommand{\argmax}{\textnormal{argmax}}
+\newcommand{\epi}{\textnormal{epi}}
+\newcommand{\ran}{\textnormal{ran}}
 
 %Bruno's macros
 %
 \newcommand{\ketbra}[1]{\vert #1\rangle\langle #1\vert}
 \newcommand{\kettbra}[2]{\vert #1\rangle\langle #2\vert}
-\newcommand{\bra}[1]{\langle #1 \vert} 
+\newcommand{\bra}[1]{\langle #1 \vert}
 \newcommand{\Ket}[1]{\big\vert #1 \big\rangle}
 \newcommand{\ket}[1]{\vert #1 \rangle}
-\newcommand{\sign}{\text{sign}}
+\newcommand{\sign}{\textnormal{sign}}
 
 
+% Will's macros
+\newcommand{\saga}{\texttt{saga\_sd}}
+\newcommand{\sagafeas}{\texttt{saga\_sd-feas}}
+\newcommand{\eigs}{\texttt{eigs}}
+\newcommand{\eigifp}{\texttt{eigifp}}
+\newcommand{\LOPCG}{\texttt{LOPCG}}
+\newcommand{\wflow}{\texttt{wflow}}
+
+\newcommand{\nul}{\textnormal{null}}
+\newcommand{\st}{\textnormal{s.t.}}
+\newcommand{\wh}{\widehat}
+\newcommand{\Awh}{\widehat{A}}
+\newcommand{\yh}{\hat{y}}
+\newcommand{\halfspace}{\hspace{0.05cm}}
+\newcommand{\emep}{EMEP (\ref{Eqn:EMEP_PLGD})}
+\newcommand{\emeps}{EMEPs (\ref{Eqn:EMEP_PLGD})}
+\newcommand{\plgdgaussian}{PLGD model with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise})}
+
+\DeclareMathOperator{\dist}{dist} % The distance.
 

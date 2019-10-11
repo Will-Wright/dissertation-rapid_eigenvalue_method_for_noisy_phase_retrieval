@@ -4,8 +4,7 @@
 In this chapter, we introduce the phase retrieval problem and summarize the goals of this dissertation.
 Section \ref{Subsec:phase_retrieval-math_model} defines the phase retrieval problem.
 Section \ref{Subsec:phase_retrieval-applications} describes a common phase retrieval application and presents the experimental model which we use throughout this dissertation for numerical testing.
-Section \ref{Subsec:Intro-contributions} defines the phase retrieval model studied in this dissertation: the gauge dual of the PhaseLift model.
-We then describe the two main contributions and the layout of this dissertation.
+Section \ref{Subsec:Intro-contributions} describes the contributions and layout of this dissertation.
 Finally, Section \ref{Subsec:Intro-notation} defines the notation used in this dissertation.
 
 
@@ -15,14 +14,16 @@ Finally, Section \ref{Subsec:Intro-notation} defines the notation used in this d
 
 
 Phase retrieval is the problem of recovering a signal from magnitude-only observations with little or no knowledge of the signal phase.  
-Let $\mathbf{x}$ be a desired signal (or \textit{true signal}) in $\bbR^n$ or $\bbC^n$ which as been observed with sensing (or sampling) vectors $a_i \in \bbC^n$, resulting in squared measurements $|\langle a_i, \mathbf{x} \rangle |^2 = \mathbf{b}_i \in \bbR$ for $i = 1, \ldots, m$.  
+Let $\mathbf{x}$ be a desired signal (or \textit{true signal}) in $\bbR^n$ or $\bbC^n$ which as been observed with sensing (or sampling) vectors $a_i \in \bbC^n$, resulting in squared measurements $|\langle a_i, \mathbf{x} \rangle |^2 = \mathbf{b}_i \in \bbR$ for $i = 1, \ldots, m$.
 Also assume the \textit{true observation} vector $\mathbf{b} = [\mathbf{b}_1, \ldots, \mathbf{b}_m]^T \in \bbR^m$ has been contaminated by possibly nontrivial noise $\eta = [\eta_1, \ldots, \eta_m]^T \in \bbR^m$, giving the observation vector $b = \mathbf{b} + \eta \in \bbR^m$.  Then we define the \textit{phase retrieval problem} as
 \begin{equation} \label{Eqn:phase_retrieval}
 \begin{array}{lll}
 \textnormal{find}		&	x		\\
-\st				&	|\langle a_i, x \rangle|^2 = b_i = \mathbf{b}_i + \eta_i	&	1 \leq i \leq m.
+\st				&	|\langle a_i, x \rangle|^2 = b_i = \mathbf{b}_i + \eta_i	&	1 \leq i \leq m,
 \end{array}
 \end{equation}
+where $x$ is an approximation of the desired signal $\textbf{x}$.  
+Note that if $b$ is not identically zero then the solution $\textbf{x}$ will not be unique since we may change the sign or phase of $\textbf{x}$ to generate additional solutions.
 If $\eta_i = 0$ for all $i$, then (\ref{Eqn:phase_retrieval}) is the noiseless phase retrieval problem (from \cite{Fienup82} and  \cite{DBLP:journals/tit/CandesLS15} among many others).  In this dissertation however, we are primarily concerned with nontrivial noise and will refer to (\ref{Eqn:phase_retrieval}) with $||\eta||_2 > 0$ as \textit{noisy phase retrieval}.  Additionally, we are concerned with noise $\eta$ which has a Gaussian distribution, as discussed in \cite{DBLP:journals/siamis/CandesESV13} and \cite{DBLP:journals/siamsc/FriedlanderM16}.
 
 
@@ -90,13 +91,13 @@ We then compute the product (\ref{Eqn:FCx}) to obtain the true observation vecto
 For noiseless phase retrieval, we set the observation vector to $b = \mathbf{b}$.
 If the phase retrieval problem requires a nonzero noise term $\eta$, we add $\eta$ to the true observation to obtain the observation vector $b = \mathbf{b} + \eta$.
 Figure \ref{Fig:parrot_signal_iterates} below depicts the primary test image used in this dissertation.
-Here, an original image of size $128 \times 128$ is used to generate a noisy phase retrieval problem, and we see a few particular iterates returned by the algorithm considered in this dissertation (Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}).  
+Here, an original image of size $128 \times 128$ is used to generate a noisy phase retrieval problem, and we see a few particular iterates returned by the Gauge Dual Descent (GDD) algorithm, the primary algorithm considered in this dissertation (Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}).  
 For a complete explanation of our method for creating noisy phase retrieval problems, see Section \ref{Subsec:PLGD_term_crit-NOISY_MODELS_AND_RESIDUALS}.
 
 \begin{figure}[H]
 \centering
 \hbox{\hspace{-2.55cm} \includegraphics[scale=0.6]{parrot_signal_iterates} }
-\caption{Results from a first-order algorithm (Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}) applied to a noisy phase retrieval problem (\ref{Eqn:phase_retrieval}) with oversampling rate $L = m/n=8$ and noise ratio $\epsilon_\text{rel} = ||\eta||_2 / ||b||_2 = 0.30$.}
+\caption{Results from the Gauge Dual Descent algorithm (Algorithm \ref{Alg:PGD} in Section \ref{Subsec:PLGD_algo-algo}) applied to a noisy phase retrieval problem (\ref{Eqn:phase_retrieval}) with oversampling rate $L = m/n=8$ and noise ratio $\epsilon_\text{rel} = ||\eta||_2 / ||b||_2 = 0.30$.}
 \label{Fig:parrot_signal_iterates}
 \end{figure}
 % experiments.figure.noisyimage_signal_relerr_various_saga_iterates
@@ -109,61 +110,52 @@ For a complete explanation of our method for creating noisy phase retrieval prob
 \section{Contributions}		\label{Subsec:Intro-contributions}
 
 
-We now present the phase retrieval model studied in this dissertation and summarize the contributions and layout of this dissertation.
+We now summarize the contributions and layout of this dissertation.
 As we will see in Chapter \ref{Sec:phase_retrieval}, a wide range of mathematical models and solution methods have been developed for phase retrieval.
 Yet few models exist for noisy phase retrieval without imposing additional restrictions such as signal sparsity.  
-One recent noisy phase retrieval model which requires no underlying assumptions is the gauge dual of the PhaseLift model (PLGD)
-\begin{equation} \label{Eqn:PhaseLift-GD}
-\begin{array}{lll}
-	&	\min\limits_{\substack{y}}
-		&	\lambda_1(\caA^* y)
-		\\
-\textnormal{(PLGD)}
-	&	\st
-		&	\langle b, y \rangle - \epsilon ||y||_2 \geq 1,
-\end{array}
-\end{equation}
-where  $\caA^* y := \sum_{i=1}^m y_i A_i$ is a weighted sum of rank-one observation matrices $A_i = a_ia_i^*$, 
-and $\lambda_1(\caA^* y)$ is a function of $y \in \bbR^m$ which returns the algebraically largest eigenvalue of $\caA^*y$.
-Note that the gauge dual variable $y$ may be used to recover the approximate signal $x$, as discussed in Section \ref{Subsec:PLGD-opt_conds_primal_recovery}.
-
-The PLGD model (\ref{Eqn:PhaseLift-GD}) was first introduced and analyzed in \cite{DBLP:journals/siamsc/FriedlanderM16}, and is based on the PhaseLift model \cite{DBLP:journals/siamis/CandesESV13} in which a desired signal of $n$ elements (e.g., pixels) is lifted into the space of $n \times n$ positive semidefinite matrices, creating a convex, large-scale recovery problem (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details).  
-The PLGD model (\ref{Eqn:PhaseLift-GD}) maintains the convergence guarantees of the convex PhaseLift model, yet also allows for efficient first-order methods.
-To optimize the PLGD model (\ref{Eqn:PhaseLift-GD}) we use the first-order method and the resulting algorithm proposed by \cite{DBLP:journals/siamsc/FriedlanderM16}, which we restate in Section \ref{Subsec:PLGD_algo-algo} as Algorithm \ref{Alg:PGD}.
-The authors of \cite{DBLP:journals/siamsc/FriedlanderM16} demonstrate that Algorithm \ref{Alg:PGD} is far more efficient than a previous method for optimizing the PhaseLift model and returns signals with greater accuracy than the wflow algorithm \cite{DBLP:journals/tit/CandesLS15} (see Section \ref{Subsubsec:phase_retrieval-unstructured} for wflow details).  
-
-
-Yet the PLGD model (\ref{Eqn:PhaseLift-GD}) faces two significant challenges for noisy phase retrieval.  
-Computationally, each evaluation of the objective function $\lambda_1(\caA^*y)$ involves a large-scale eigenvalue problem which may require significant computational costs for large signals.  
-Additionally, when the phase retrieval problem has nontrivial noise, first-order algorithms for the PLGD model (\ref{Eqn:PhaseLift-GD}) such as Algorithm \ref{Alg:PGD} typically fail to converge.
+One recent noisy phase retrieval model which requires no underlying assumptions is the gauge dual of the PhaseLift model (PLGD), which we define in Section \ref{Subsec:PLGD-models_intro}.
 
 
 
-This dissertation offers two main contributions.  
-First, we address the convergence challenges of Algorithm \ref{Alg:PGD} for noisy phase retrieval and establish new termination conditions which indicate that signal recovery progress has stagnated.  
-Second, we develop a new strategy for handling the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD}.
-Applying these two modifications to Algorithm \ref{Alg:PGD} decreases the computational costs of Algorithm \ref{Alg:PGD} by $50-90\%$ for problems with minimal oversampling.
+The PLGD model was first introduced and analyzed in \cite{DBLP:journals/siamsc/FriedlanderM16}, and is based on the PhaseLift model \cite{DBLP:journals/siamis/CandesESV13} in which a desired signal of $n$ elements (e.g., pixels) is lifted into the space of $n \times n$ positive semidefinite matrices, creating a convex, large-scale recovery problem (see Section \ref{Subsubsec:phase_retrieval-unstructured} for details).  
+The PLGD model maintains the convergence guarantees of the convex PhaseLift model, yet also allows for the development of efficient first-order (i.e., gradient-based) methods.
+To optimize the PLGD model we use the first-order method and the resulting algorithm proposed by \cite{DBLP:journals/siamsc/FriedlanderM16}, which we restate in Section \ref{Subsec:PLGD_algo-algo} as the Gauge Dual Descent (GDD) algorithm.
+For noiseless phase retrieval, the authors of \cite{DBLP:journals/siamsc/FriedlanderM16} demonstrate that the GDD algorithm is far more efficient than a previous algorithm for optimizing the PhaseLift model and returns signals with greater accuracy than the wflow algorithm \cite{DBLP:journals/tit/CandesLS15} (see Section \ref{Subsubsec:phase_retrieval-unstructured} for wflow details).  
+
+
+Yet in the case of noisy phase retrieval, PLGD models with Guassian noise (which we define in Section  \ref{Subsec:PLGD_term_crit-NOISY_MODELS_AND_RESIDUALS}) face two significant challenges.  
+Computationally, each evaluation of the PLGD objective function involves a large-scale eigenvalue problem which may require significant computational costs for large signals.  
+Additionally, since PLGD models with Gaussian noise typically do not have a unique solution (see Section \ref{Subsec:PLGD_term_crit-stagnation}), first-order algorithms such as the GDD algorithm typically fail to converge.
+
+
+This dissertation offers two main contributions for PLGD models with Gaussian noise.  
+First, we address the convergence challenges of the GDD algorithm and establish new termination conditions which indicate that signal recovery progress has stagnated.  
+Second, we develop a new strategy for handling the sequence of eigenvalue problems in the GDD algorithm.
+Applying these two modifications to the GDD algorithm decreases the computational costs of the GDD algorithm by $50-90\%$ for problems with minimal oversampling.
 
 
 This dissertation is organized in the following manner.  
 Chapter \ref{Sec:phase_retrieval} provides a survey of phase retrieval methods.  
-We close Chapter \ref{Sec:phase_retrieval} by demonstrating that Algorithm \ref{Alg:PGD} is generally more accurate for noisy phase retrieval than the wflow algorithm.
-Chapter \ref{Sec:PLGD} presents the gauge duality theory necessary for developing, analyzing, and optimizing the PLGD model (\ref{Eqn:PhaseLift-GD}).
-Chapter \ref{Sec:PLGD_algo} then presents Algorithm \ref{Alg:PGD}, a first-order algorithm for the PLGD model (\ref{Eqn:PhaseLift-GD}), and examines the effectiveness of this algorithm for noiseless phase retrieval.
+Chapter \ref{Sec:PLGD} presents the gauge duality theory necessary for developing, analyzing, and optimizing the PLGD model.
+Chapter \ref{Sec:PLGD_algo} then presents the Gauge Dual Descent (GDD) algorithm, a first-order algorithm for the PLGD model, and examines the effectiveness of the GDD algorithm for noiseless phase retrieval.
 
-Chapter \ref{Sec:PLGD_term_crit} demonstrates that Algorithm \ref{Alg:PGD} typically fails to converge for noisy phase retrieval problems. 
-We then identify the cause of this behavior and establish new termination conditions for Algorithm \ref{Alg:PGD}.
-Chapter \ref{Sec:evol_mats} develops a new, efficient strategy for solving the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD} which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
-We first show that the EMEP is the computational bottleneck of Algorithm \ref{Alg:PGD}.
+
+Chapter \ref{Sec:PLGD_term_crit} demonstrates that the GDD algorithm typically fails to converge for PLGD models with Gaussian noise.
+We then identify the cause of this behavior and establish new termination conditions for the GDD algorithm.
+Note that Appendix \ref{Sec:Appx-Comparison} demonstrates that the GDD algorithm is generally more accurate for PLGD models with Gaussian noise than the wflow algorithm of Section \ref{Subsubsec:phase_retrieval-unstructured}.
+
+
+Chapter \ref{Sec:evol_mats} develops a new, efficient strategy for solving the sequence of eigenvalue problems in the GDD algorithm which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
+We first show that the EMEP is the computational bottleneck of the GDD algorithm.
 We see that the spectrum of these eigenvalue problems evolves in a predictable way, with the algebraically largest eigenvalues clustering for later EMEP iterates.
 This clustering causes later EMEP iterates to have more difficult eigenvalue problems.
-Next, we review the \textit{implicitly restarted Arnoldi method} (IRAM), a common large-scale eigenvalue method and develop an efficient, adaptive strategy (Algorithm \ref{Alg:adaptive_IRAM}) for choosing IRAM parameters to handle the EMEP.
+Next, we review the \textit{implicitly restarted Arnoldi method} (IRAM), a common large-scale eigenvalue method and develop an efficient, adaptive strategy (Algorithm \ref{Alg:adaptive_IRAM} in Section \ref{Subsec:evol_mats-adaptive_IRAM}) for choosing IRAM parameters to handle the EMEP.
 We close Chapter \ref{Sec:evol_mats} by demonstrating that Algorithm \ref{Alg:adaptive_IRAM} effectively tracks the clustering of the algebraically largest eigenvalues from earlier to later EMEP iterates, thus selecting more desirable parameters for the IRAM.
 
 
-Chapter \ref{Sec:Numerics} presents an improved version of Algorithm \ref{Alg:PGD} which uses the new termination conditions of Chapter \ref{Sec:PLGD_term_crit} and new eigenvalue strategy (Algorithm \ref{Alg:adaptive_IRAM}) of Chapter \ref{Sec:evol_mats}.
-Chapter \ref{Sec:Numerics} then provides performance results for this improved algorithm.
-We see that this improved algorithm reduces computational costs for a variety of noisy phase retrieval problems.
+Chapter \ref{Sec:Numerics} presents the Improved Gauge Dual Descent (IGDD) algorithm which applies the new termination conditions of Chapter \ref{Sec:PLGD_term_crit} and new eigenvalue strategy (Algorithm \ref{Alg:adaptive_IRAM}) of Chapter \ref{Sec:evol_mats} to the GDD algorithm.
+Chapter \ref{Sec:Numerics} then provides performance results for the IGDD algorithm.
+We see that the IGDD algorithm reduces computational costs for a variety of noisy phase retrieval problems.
 Chapter \ref{Sec:Conclusion} concludes this dissertation with a summary of our contributions and suggestions for future work.
 
 
@@ -186,7 +178,7 @@ The special case of $p = 2$ gives the Frobenius norm
 \begin{equation} 	\label{Def:Frobenius_norm}
 ||A||_F = \left(   \sum_{\substack{i = 1}}^{\substack{\min\{m, n \}}} \sigma_i^2(A)  \right)^{1/2}.
 \end{equation}
-Gauge duality is a duality based on multiplicative relations, and thus Schatten norms are essential to gauge duality and developing the PLGD model (\ref{Eqn:PhaseLift-GD}).  In contrast, the EMEP requires measurements with the vector-induced $2$-norm.  Thus we define the \textit{matrix norm} as
+Gauge duality is a duality based on multiplicative relations, and thus Schatten norms are essential to gauge duality and developing the PLGD model.  In contrast, the EMEP requires measurements with the vector-induced $2$-norm.  Thus we define the generic \textit{matrix norm} (without a numeric label) as
 \begin{equation} 		\label{Def:matrix_norm}
 ||A|| = \sigma_{\max}(A) = \sup_{\substack{||v||_2 = 1}} ||Av||_2.
 \end{equation}
@@ -248,18 +240,16 @@ For a pair of matrices $A, B \in \bbC^{n \times n}$, their inner product is indu
 \begin{equation}			\label{Def:trace_inner_product}
 \langle A, B \rangle := \tr(A^*B) = \sum_{i=1}^n \sigma_i(A^*B).
 \end{equation}
-Given $\caC$, a convex subset of a finite-dimensional Euclidean space $\caX$, we define projection of $x \in \caX$ onto $\caC$ as $\Pi_\caC(x)$.  Since the PLGD (\ref{Eqn:PhaseLift-GD}) objective function $f(y) = \lambda_1(\caA^*y)$ is generally nondifferentiable, we consider the subdifferential of $f$.  Given a convex function $f : \caU \rightarrow \bbR$ defined on an open, convex subset $\caU$ of a finite-dimensional Euclidean space $\caX$, the \textit{subdifferential} of $f$ at $y_0$ is defined as
-\begin{equation}
-	\label{Def:subdifferential}
-	\partial f(y_0) = \left\{  g \in \caX \ | \ f(y) \geq f(y_0) + \langle g, y - y_0 \rangle \ \ \forall y \in \caU	\right\},
-\end{equation}
-and each element of $\partial f(y_0)$ is a \textit{subgradient} of $f$.
+Given $\caC$, a convex subset of a finite-dimensional Euclidean space $\caX$, we define projection of $x \in \caX$ onto $\caC$ as $\Pi_\caC(x)$.  
+
+
 
 Given a linear operator $\caA : \caX \rightarrow \caY$ over finite-dimensional Euclidean spaces $\caX$ and $\caY$, its \textit{adjoint} $\caA^* : \caY \rightarrow \caX$ is defined as the operator which satisfies 
 \begin{equation}			\label{Def:adjoint_operator}
 \langle \caA x, y \rangle = \langle x, \caA^* y \rangle \hspace{5pt} \text{for all } x \in \caX, y \in \caY. 
 \end{equation} 
-Since $\caX$ and $\caY$ are finite and $\caA$ is linear, $\caA$ is also continuous.  Thus the Riesz representation theorem guarantees that there will exist a unique linear operator $\caA^*$ \cite[Section 6.2]{reed1980functional}.  In this dissertation, we will be concerned specifically with linear operators $\caA: \caH^n \rightarrow \bbR^m$, where $\caH^n$ is the set of $n \times n$ Hermitian matrices.  It is easily shown that all such linear operators $\caA$ will have the form
+Since $\caX$ and $\caY$ are finite and $\caA$ is linear, $\caA$ is also continuous.  Thus the Riesz representation theorem guarantees that there will exist a unique linear operator $\caA^*$ \cite[Section 6.2]{reed1980functional}.  
+In this dissertation, we will be concerned specifically with linear operators $\caA: \caH^n \rightarrow \bbR^m$, where $\caH^n$ is the set of $n \times n$ Hermitian matrices.  It is easily shown that all such linear operators $\caA$ will have the form
 \begin{equation}
 \caA(X) = \begin{bmatrix}
 \langle A_1, X \rangle	\\
@@ -273,6 +263,19 @@ where each $A_i$ is some matrix in $\caH^n$.  In this case, the adjoint of $\caA
 \end{equation}
 where $X \in \caH^n$ and $y \in \bbR^m$.
 Thus we have $\caA^*y = \sum_{i=1}^m  y_iA_i$.
+
+
+Note that the PLGD objective function (defined in Section \ref{Subsec:PLGD-models_intro}) is convex and generally nondifferentiable, and thus we consider the subdifferential.  
+Given a convex function $f : \caU \rightarrow \bbR$ defined on an open, convex subset $\caU$ of a finite-dimensional Euclidean space $\caX$, the \textit{subdifferential} of $f$ at $y_0$ is defined as
+\begin{equation}
+	\label{Def:subdifferential}
+	\partial f(y_0) = \left\{  g \in \caX \ | \ f(y) \geq f(y_0) + \langle g, y - y_0 \rangle \ \ \forall y \in \caU	\right\},
+\end{equation}
+and each element of $\partial f(y_0)$ is a \textit{subgradient} of $f$.
+
+
+
+
 
 
 The \textit{Gaussian distribution} (or \textit{normal distribution}) $\caN(\mu, \sigma^2)$ is the distribution defined by the probability density function

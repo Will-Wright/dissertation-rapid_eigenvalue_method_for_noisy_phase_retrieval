@@ -1,11 +1,11 @@
-\chapter{Further Justification of New Termination Conditions in Section \ref{Subsec:PLGD_term_crit-new_term_crit}}      		\label{Sec:Appx-further_reasons_for_new_term_crit}
+\chapter{Further Justification of New Termination Conditions in Section~\ref{Subsec:PLGD_term_crit-new_term_crit}}      		\label{Sec:Appx-further_reasons_for_new_term_crit}
 
 
 
-Section \ref{Subsec:PLGD_term_crit-new_term_crit} demonstrated that the primal difference (\ref{Eqn:term_crit-candidate_residuals}e) and dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) effectively identify the point at which Algorithm \ref{Alg:PGD} stagnates for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  
+Section \ref{Subsec:PLGD_term_crit-new_term_crit} demonstrated that the primal difference (\ref{Eqn:term_crit-candidate_residuals}e) and dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) effectively identify the point at which the GDD algorithm (Algorithm \ref{Alg:PGD}) stagnates for PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  
 This appendix demonstrates that all of the remaining residuals from  (\ref{Eqn:term_crit-candidate_residuals}) are either unreliable or effectively a duplicate of another computationally cheaper residual.  
 
-One residual that may be eliminated is the primal relative error (\ref{Eqn:term_crit-candidate_residuals}d).  The original termination conditions for Algorithm \ref{Alg:PGD} include the feasibility requirement (\ref{Eqn:saga_conv_crit_primal}) 
+One residual that may be eliminated is the primal relative error (\ref{Eqn:term_crit-candidate_residuals}d).  The original termination conditions for the GDD algorithm include the feasibility requirement (\ref{Eqn:saga_conv_crit_primal}) 
 \begin{equation*}
 || \caA(xx^*) - b ||_2 \leq \epsilon + \textnormal{tol}_\textnormal{feas} (1 + ||b||_2),
 \end{equation*}
@@ -14,7 +14,7 @@ which is equivalent to the primal relative error (\ref{Eqn:term_crit-candidate_r
 	\label{Eqn:GD_new_termination_conds-primal_feas}
 \frac{||\caA(xx^*) - b||_2}{||b||_2}  \leq \epsilon_\rel + \textnormal{tol}_\textnormal{feas} \left(\frac{1 + ||b||_2}{||b||_2}\right).
 \end{equation}
-As indicated in Table \ref{Tab:term_crit-pr_feas_faster_for_big_L_noise}, Algorithm \ref{Alg:PGD} typically requires only a few iterations before a primal feasible signal $x$ is found.  Yet in certain cases this algorithm may never identify a feasible signal.  Figure \ref{Fig:term_crit-pr_err_fails} demonstrates plots the primal relative error (\ref{Eqn:term_crit-candidate_residuals}d) for the particular model from Figure \ref{Fig:term_crit-signal_err} which never attained primal feasibility.
+As indicated in Table \ref{Tab:term_crit-pr_feas_faster_for_big_L_noise}, the GDD algorithm typically requires only a few iterations before a primal feasible signal $x$ is found.  Yet in certain cases the GDD algorithm may never identify a feasible signal.  Figure \ref{Fig:term_crit-pr_err_fails} demonstrates plots the primal relative error (\ref{Eqn:term_crit-candidate_residuals}d) for the particular model from Figure \ref{Fig:term_crit-signal_err} which never attained primal feasibility.
 
 \begin{figure}[H]
 \centering
@@ -25,7 +25,7 @@ As indicated in Table \ref{Tab:term_crit-pr_feas_faster_for_big_L_noise}, Algori
 
 % experiments.figure.noisyimage_new_termination_criteria
 
-The experiment in Figure \ref{Fig:term_crit-pr_err_fails} demonstrates a model where both the exact tolerance $\epsilon_\rel = 0.15$ and the relaxed tolerance $ \epsilon_\rel + \textnormal{tol}_\textnormal{feas} \left(\frac{1 + ||b||_2}{||b||_2}\right) =0.1502$ as suggested in (\ref{Eqn:saga_conv_crit_primal}) are unattainable by Algorithm \ref{Alg:PGD}.  Nevertheless, this algorithm makes significant progress in recovering an approximate signal.  Notably, wflow applied to the same model recovers a signal with a primal relative error (\ref{Eqn:term_crit-candidate_residuals}d) of $0.3165$.  Thus we ignore the primal feasibility condition (\ref{Eqn:saga_conv_crit_primal}).
+The experiment in Figure \ref{Fig:term_crit-pr_err_fails} demonstrates a model where both the exact tolerance $\epsilon_\rel = 0.15$ and the relaxed tolerance $ \epsilon_\rel + \textnormal{tol}_\textnormal{feas} \left(\frac{1 + ||b||_2}{||b||_2}\right) =0.1502$ as suggested in (\ref{Eqn:saga_conv_crit_primal}) are unattainable by the GDD algorithm.  Nevertheless, the GDD algorithm makes significant progress in recovering an approximate signal.  Notably, wflow applied to the same model recovers a signal with a primal relative error (\ref{Eqn:term_crit-candidate_residuals}d) of $0.3165$.  Thus we ignore the primal feasibility condition (\ref{Eqn:saga_conv_crit_primal}).
 
 
 We may also disregard the duality gap (\ref{Eqn:term_crit-candidate_residuals}f) as a termination condition.  The experiments in Table \ref{Tab:average_rank_soln_matrix_with_gaussian_dual_variable} demonstrate that the duality gap tends to stagnate at different values for differing noise level and oversampling rate.  Table \ref{Tab:term_crit-duality_gap_stagnates} indicates the final duality gap value for each experiment from Figure \ref{Fig:term_crit-signal_err}, further demonstrating this residual is not a reliable indicator of stagnation.
@@ -71,11 +71,11 @@ Thus the duality gap difference (\ref{Eqn:term_crit-candidate_residuals}g) behav
 
 Finally, the dual matrix difference (\ref{Eqn:term_crit-candidate_residuals}j) is also a redundant measurement which may be disregarded.  Note that the norm difference of dual matrices is bounded above by the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i), since
 \[
-||A - \hat{A}||_F = ||\caA^*(y - \hat{y})||_F \leq ||\caA^*|| \ ||y - \hat{y}||_2,
+||A - \hat{A}|| = ||\caA^*(y - \hat{y})|| \leq ||\caA^*|| \ ||y - \hat{y}||_2,
 \]
-where we have the induced norm
+where we have the induced norm of $\caA^*$
 \[
-||\caA^*|| = \sup_{\substack{||w||_2=1}}||\caA^*w||_F.
+||\caA^*|| = \sup_{\substack{||w||_2=1}}||\caA^*w||.
 \]
 And computationally, the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i) is computed with a vector norm, where as the dual matrix difference (\ref{Eqn:term_crit-candidate_residuals}j) requires an additional eigenvalue computation (in this case the largest magnitude eigenvalue).  Thus the dual matrix difference (\ref{Eqn:term_crit-candidate_residuals}j) can be ignored due to its excessive computational cost and close relationship to the dual variable difference (\ref{Eqn:term_crit-candidate_residuals}i).
 

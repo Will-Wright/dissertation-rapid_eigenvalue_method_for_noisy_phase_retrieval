@@ -1,16 +1,19 @@
-\chapter{Eigenvalue Computation}		\label{Sec:evol_mats}
+\chapter{Evolving Matrix Eigenvalue Computation}		\label{Sec:evol_mats}
 
 
 
 \section{Introduction}   \label{Subsec:evol_mats-intro}
 
 
-In this chapter we examine the \textit{evolving matrix eigenvalue problem} (EMEP) in Algorithm \ref{Alg:PGD} and develop a new strategy for solving this problem.
+In this chapter we examine the \textit{evolving matrix eigenvalue problem} (EMEP) in the GDD algorithm (Algorithm \ref{Alg:PGD}) and develop a new strategy for solving this problem.
+
 
 
 Section \ref{Subsec:evol_mats-spectral_props} defines the EMEP and examines its computational costs and evolving spectrum across matrix iterates $A_k$.  
 In particular, we observe that the algebraically largest eigenvalues tend to cluster as the algorithm proceeds, leading to more difficult eigenvalue problems for later matrix iterates.  
-To handle these eigenvalue problems, Section \ref{Subsec:evol_mats-IRAM} reviews the \textit{implicitly restarted Arnoldi method} (IRAM) \cite{sorensen1992implicit}, a modern Krylov subspace method. 
+To handle these eigenvalue problems, Section \ref{Subsec:evol_mats-IRAM} reviews the \textit{implicitly restarted Arnoldi method} (IRAM), a modern Krylov subspace method
+established in \cite{sorensen1992implicit}
+and examined thoroughly in \cite[Chapter 5]{bai2000eigenvaluetemplates}.
 The convergence behavior of the IRAM is based on the spectrum of the given eigenvalue problem as well as the IRAM parameters chosen by the user.
 To understand and exploit the convergence behavior of the IRAM, Section \ref{Subsec:evol_mats-IRAM} reviews the subroutines of the IRAM and summarizes relevant convergence results.
 
@@ -20,7 +23,7 @@ the number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}).
 Section \ref{Subsec:evol_mats-correl_btwn_EMEP_and_IRAM} closely examines the EMEP for two PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) to demonstrate an observed correlation between the clustering of the algebraically largest eigenvalues in the EMEP and an increase in the \textit{empirically optimal} value $\bar{r}$ in the IRAM, which we define as the parameter $r_{min} \leq \bar{r} \leq r_{max}$ corresponding to the fewest matrix-vector products required for the IRAM to converge for a given EMEP iterate.
 We see that the IRAM with adaptive parameter selection properly tracks the empirically optimal value $\bar{r}$ for these models.
 Performance results for the IRAM with adaptive parameter selection are presented in  Chapter \ref{Sec:Numerics}.
-Also note that all \emep \ experiments in this chapter are performed with Algorithm \ref{Alg:PGD} using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit} and are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
+Also note that all \emep \ experiments in this chapter are performed with the GDD algorithm using the new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) established in Chapter \ref{Sec:PLGD_term_crit} and are available for reproduction.\footnote{\url{https://github.com/Will-Wright/low-rank-opt-rapid-eig}}
 
 
 
@@ -28,8 +31,8 @@ Also note that all \emep \ experiments in this chapter are performed with Algori
 \section{The Evolving Matrix Eigenvalue Problem}		\label{Subsec:evol_mats-spectral_props}
 
 
-In this section we examine the sequence of eigenvalue problems in Algorithm \ref{Alg:PGD}, which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
-We will see that the EMEP is the most computationally expensive subroutine in Algorithm \ref{Alg:PGD}.  
+In this section we examine the sequence of eigenvalue problems in the GDD algorithm (Algorithm \ref{Alg:PGD}), which we define as the \textit{evolving matrix eigenvalue problem} (EMEP).
+We will see that the EMEP is the most computationally expensive subroutine in the GDD algorithm.  
 We also observe that the EMEP matrix iterates have a spectrum which evolves in a predictable way from early to later iterates.
 
 
@@ -39,35 +42,26 @@ We also observe that the EMEP matrix iterates have a spectrum which evolves in a
 
 
 We begin by formally defining the EMEP.
-Generally speaking, we are concerned with a sequence of eigenvalue problems in which each eigenvalue problem is dependent on the results of the previous problem.  
-For each iterate $k$ in this sequence of problems, we have some Hermitian matrix iterate $A_k \in \caH^n$ and seek its $j$ algebraically largest eigenvalues $\Lambda^{(k)}_j$ and the corresponding eigenvectors $V^{(k)}_j$.  
-%Next, the previous set of basis matrices $\caV_{k} = \{ V^{(i)}_j \}_{i=0}^{k}$ are used to find the next matrix iterate $A_{k+1}$.  
-%More specifically, we are concerned with problems of the form
-%\begin{equation} 		\label{Eqn:EMEP_general}
-%\begin{array}{ll}
-%\textnormal{for}
-%	&	k = 1, 2, \ldots, K		\\
-%\textnormal{find}	
-%	&	\left( \Lambda^{(k)}_j, \ V^{(k)}_j \right) \textnormal{ of } A_k
-%\end{array}
-%\end{equation}
-%where $\Lambda^{(k)}$ are the $j$ algebraically largest eigenvalues of $A_k$, $V_k$ is the matrix of corresponding eigenvectors, $A_k \in \caH^n$ is dependent on $\caV_{k} = \{ V^{(i)}_j \}_{i=0}^{k}$, and $V_0 \in \bbC^{n \times j}$ is an initial basis matrix.
+Generally speaking, we are concerned with a sequence of eigenvalue problems in which each matrix is dependent on the results of the previous problem.
+For each iterate $k$ in this sequence of problems, we have some Hermitian matrix iterate $A_k \in \caH^n$ and seek its $j$ algebraically largest eigenvalues $\Lambda^{(k)}_j$ and the corresponding eigenvectors $V^{(k)}_j$.
+The topic of eigenvalue problems with evolving matrices was recently studied in \cite{saad2016analysis}.
 Some examples of this problem include subspace tracking in signal processing (see, e.g., \cite{comon1990tracking}, \cite{stewart1992updating}, \cite{yang1995projection}, \cite{doukopoulos2008fast}), matrix completion (e.g., \cite{ngo2012scaled}), and the Kohn-Sham equation in density functional theory (e.g., \cite{saad2010numerical}).
 
 
 
-%To see that each eigenvalue problem in Algorithm \ref{Alg:PGD} is dependent on the results of the previous eigenvalue problems, 
 
-%(Also note that the iterate $k$ does not correspond to the iterate number in Algorithm \ref{Alg:PGD} because step 6 involves a linesearch which may involve more than one eigenvalue problem.)  
+%To see that each eigenvalue problem in the GDD algorithm is dependent on the results of the previous eigenvalue problems, 
 
-%We will show that each matrix iterate $A_k = \caA^*y_k$ in Algorithm \ref{Alg:PGD} is computed using a variable $y_k$ which is dependent on the previous set of basis vectors $\caV_{k-1} = \{ v_1^{(i)} \}_{i=0}^{k-1}$.  
+%(Also note that the iterate $k$ does not correspond to the iterate number in the GDD algorithm because step 6 involves a linesearch which may involve more than one eigenvalue problem.)  
 
-%It can be shown inductively that $y_k$ is a function of $\caV_{k-1}$.  The initial iterate $k = 0$ corresponds to the first eigenvalue problem in Algorithm \ref{Alg:PGD}, where $y_0 = \Pi_\caC(b)$ is initialized using the observation vector $b$ and is independent of any eigenvector.  
+%We will show that each matrix iterate $A_k = \caA^*y_k$ in the GDD algorithm is computed using a variable $y_k$ which is dependent on the previous set of basis vectors $\caV_{k-1} = \{ v_1^{(i)} \}_{i=0}^{k-1}$.  
+
+%It can be shown inductively that $y_k$ is a function of $\caV_{k-1}$.  The initial iterate $k = 0$ corresponds to the first eigenvalue problem in the GDD algorithm, where $y_0 = \Pi_\caC(b)$ is initialized using the observation vector $b$ and is independent of any eigenvector.  
 
 
 
-To define the EMEP, first note that each eigenvalue problem in Algorithm \ref{Alg:PGD} (steps 2, 6, and 14) requires the two algebraically largest eigenvalues of the matrix iterate $A_k = \caA^*y_k$, where $\caA^*$ is defined as (\ref{Eqn:A_definition_with_masks}).
-In Algorithm \ref{Alg:PGD}, the matrix $A_0$ is initialized as $A_0 = \caA^*b$, where $b$ is the observation vector in the PLGD model (\ref{Eqn:PhaseLift-P-GD}).
+To define the EMEP, first note that each eigenvalue problem in the GDD algorithm (steps 2, 6, and 14) requires the two algebraically largest eigenvalues of the matrix iterate $A_k = \caA^*y_k$, where $\caA^*$ is defined as (\ref{Eqn:A_definition_with_masks}).
+In the GDD algorithm, the matrix $A_0$ is initialized as $A_0 = \caA^*b$, where $b$ is the observation vector in the PLGD model (\ref{Eqn:PhaseLift-P-GD}).
 For each iterate $k >0$, the update matrix $A_k = \caA^*y_k$ is computed with $y_k = \Pi_{\caC}(y_{k-1}- \alpha_{k-1}  g_{k-1})$, where the gradient $g_{k-1} = \caA(v_1 v_1^*)$ is a function of the eigenvector $v_1$ corresponding to the algebraically largest eigenvalue of $A_k$, and the steplength $\alpha_{k-1}$ is determined using a linesearch on the minimization problem
 \begin{equation}			\label{Eqn:EMEP_linesearch_prob_in_evol_mats_chapter}
 \begin{array}{ll}
@@ -75,7 +69,7 @@ For each iterate $k >0$, the update matrix $A_k = \caA^*y_k$ is computed with $y
 	&	\lambda_1 \left( \caA^* ( \Pi_\caC ( y_{k-1} - \alpha g_{k-1} ) )  \right).
 \end{array}
 \end{equation}
-Thus we define the sequence of eigenvalue problems generated by Algorithm \ref{Alg:PGD} as the \textit{evolving matrix eigenvalue problem} (EMEP)
+Thus we define the sequence of eigenvalue problems generated by the GDD algorithm as the \textit{evolving matrix eigenvalue problem} (EMEP)
 \begin{equation}		\label{Eqn:EMEP_PLGD}
 \begin{array}{ll}
 \textnormal{for}
@@ -84,8 +78,8 @@ Thus we define the sequence of eigenvalue problems generated by Algorithm \ref{A
 	&	\left( \lambda^{(k)}_1, \ v^{(k)}_1 \right) \textnormal{ and } \left( \lambda^{(k)}_2, \ v^{(k)}_2 \right) \textnormal{ of } A_k,
 \end{array}
 \end{equation}
-where $\lambda^{(k)}_1$ and $\lambda^{(k)}_2$ are the two algebraically largest eigenvalues of the \textit{matrix iterate} $A_k = \caA^*y_k$, and $y_k$ is the previous dual variable generated by Algorithm \ref{Alg:PGD} (from step 2, 6, or 14).
-Note that $y_k$ is dependent on $v_1^{(k-1)}$ and $y_{k-1}$, and thus each eigenvalue problem in Algorithm \ref{Alg:PGD} is dependent on the previous matrix iterate $A_{k-1}$.
+where $\lambda^{(k)}_1$ and $\lambda^{(k)}_2$ are the two algebraically largest eigenvalues of the \textit{matrix iterate} $A_k = \caA^*y_k$, and $y_k$ is the previous dual variable generated by the GDD algorithm (from step 2, 6, or 14).
+Note that $y_k$ is dependent on $v_1^{(k-1)}$ and $y_{k-1}$, and thus each eigenvalue problem in the GDD algorithm is dependent on the previous matrix iterate $A_{k-1}$.
 Also note that the steplength $\alpha_{k-1}$ returned by the linesearch problem (\ref{Eqn:EMEP_linesearch_prob_in_evol_mats_chapter}) influences the rate at which the sequence of matrices $A_0, A_1, \ldots$ evolves, since
 \begin{equation}
 \begin{split}
@@ -94,10 +88,13 @@ Also note that the steplength $\alpha_{k-1}$ returned by the linesearch problem 
 	& = ||\caA^* ( \Pi_\caC ( y_{k-1} - \alpha_{k-1} g_{k-1}) - y_{k-1}) ||		\\
 	& \leq ||\caA^*|| \cdot || \Pi_\caC ( y_{k-1} - \alpha_{k-1} g_{k-1}) - y_{k-1} ||_2	 	\\
 	& \leq ||\caA^*|| \cdot || y_{k-1} - \alpha_{k-1} g_{k-1} - y_{k-1} ||_2 
-		= ||\caA^*|| \cdot |\alpha_{k-1}| \cdot	||g_{k-1}||_2.	\\
+		= ||\caA^*|| \cdot |\alpha_{k-1}| \cdot	||g_{k-1}||_2,	\\
 \end{split}
 \end{equation}
-
+where we have the induced norm of $\caA^*$
+\[
+||\caA^*|| = \sup_{\substack{||w||_2=1}}||\caA^*w||.
+\]
 
 
 
@@ -105,14 +102,14 @@ Also note that the steplength $\alpha_{k-1}$ returned by the linesearch problem 
 
 
 Next, we examine the overall computational costs of the \emep.
-As discussed in Section \ref{Subsec:PLGD_algo-algo}, the main computational costs in Algorithm \ref{Alg:PGD} are the EMEP (step 2, 6, and 14), the primal refinement (step 11), and the dual refinement (step 13).  
-Since we are focused on PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), the dual refinement step of Algorithm \ref{Alg:PGD} is skipped (see the end of Section \ref{Subsec:PLGD_term_crit-stagnation} for an explanation).
+As discussed in Section \ref{Subsec:PLGD_algo-algo}, the main computational costs in the GDD algorithm (Algorithm \ref{Alg:PGD}) are the EMEP (step 2, 6, and 14), the primal refinement (step 11), and the dual refinement (step 13).  
+Since we are focused on PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}), the dual refinement step of the GDD algorithm is skipped (see the end of Section \ref{Subsec:PLGD_term_crit-stagnation} for an explanation).
 In both the \emep \ and the primal refinement step, the primary computational cost comes from $\caA$-products (\ref{Eqn:A_definition_with_masks}), where each $\caA(xx^*)$ product requires $L$ DFTs and each $[\caA^*y]x$ product requires $2L$ DFTs.  
 Thus we measure computational costs in terms of the number of DFTs, following the convention of \cite{DBLP:journals/tit/CandesLS15} and \cite{DBLP:journals/siamsc/FriedlanderM16}.
-Also note that the computation of the eigenpair $(\lambda_1, v_1)$ in the \emep \ must be very accurate in order to determine an accurate descent step $g = \caA(v_1v_1^*)$ in Algorithm \ref{Alg:PGD}.
-Table \ref{Tab:EMEP_costs} depicts the number of DFTs in Algorithm \ref{Alg:PGD} for a variety of noisy problems.
+Also note that the computation of the eigenpair $(\lambda_1, v_1)$ in the \emep \ must be very accurate in order to determine an accurate descent step $g = \caA(v_1v_1^*)$ in the GDD algorithm.
+Table \ref{Tab:EMEP_costs} depicts the number of DFTs in the GDD algorithm for a variety of noisy problems.
 \begin{table}[H]
-\centering
+\begin{center}
 \begin{footnotesize}
 \hbox{
 
@@ -142,12 +139,14 @@ $n$ & $L$ & $\epsilon_\text{rel}$ 	& \texttt{eigs} calls  & Minutes & DFTs & Min
 
 }
 \end{footnotesize}
-\caption{Algorithm \ref{Alg:PGD} runtime and number of DFTs (with percentage of the total in parentheses) for the \emep, primal refinement (solving (\ref{Eqn:GD-PFD}) in step 11) and all other operations. Here $n$ is signal size (i.e., number of pixels squared in the image from Figure \ref{Fig:parrot_signal_iterates}), $L$ is number of observations, and $\epsilon_\textnormal{rel}$ is the noise ratio.} \label{Tab:EMEP_costs}
+\vspace{0.5cm}
+\caption{The GDD algorithm (Algorithm \ref{Alg:PGD}) runtime and number of DFTs (with percentage of the total in parentheses) for the \emep, primal refinement (solving (\ref{Eqn:GD-PFD}) in step 11) and all other operations. Here $n$ is signal size (i.e., number of pixels squared in the image from Figure \ref{Fig:parrot_signal_iterates}), $L$ is number of observations, and $\epsilon_\textnormal{rel}$ is the noise ratio.} \label{Tab:EMEP_costs}
+\end{center}
 \end{table}
 % experiments.figure.noisyimage_costs
 
 
-The results in Table \ref{Tab:EMEP_costs} demonstrate the essential computational challenges of Algorithm \ref{Alg:PGD}.  First, the EMEP is the dominant computational cost in the algorithm, and its proportion to other costs (in both runtime and number of DFTs) increases as the size of the model increases.  Additionally, the primal refinement step requires a small but nontrivial amount of computation.  All other operations accounted for $0.00\%$ of the overall runtime. 
+The results in Table \ref{Tab:EMEP_costs} demonstrate the essential computational challenges of the GDD algorithm.  First, the EMEP is the dominant computational cost in the algorithm, and its proportion to other costs (in both runtime and number of DFTs) increases as the size of the model increases.  Additionally, the primal refinement step requires a small but nontrivial amount of computation.  All other operations accounted for $0.00\%$ of the overall runtime. 
 
 
 
@@ -187,14 +186,14 @@ First, we examine the full spectrum of a few EMEP matrix iterates in Figure \ref
 \end{figure}
 % experiments.figure.noisyimage_spectrumdist
 
-As we see in Figure \ref{Fig:EMEP_full_spectrum}, the spectrum of the matrix iterates $A_k$ in the \emep \ shifts from completely positive for $A_1$ to mostly negative for later iterates.  This shift in spectrum is a consequence of optimizing the PLGD model (\ref{Eqn:PhaseLift-P-GD}).  The first matrix iterate $A_1 = \caA^*b$ will always be positive-semidefinite because the components of the observation $b=[b_1; b_2; \ldots; b_L]$ are all nonnegative and thus for all $x$ we have 
+As we see in Figure \ref{Fig:EMEP_full_spectrum}, the spectrum of the matrix iterates $A_k$ in the \emep \ shifts from completely positive for $A_1$ to mostly negative for later iterates.  This shift in spectrum is a consequence of optimizing the PLGD model with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  The first matrix iterate $A_1 = \caA^*b$ will always be positive-semidefinite because the components of the observation $b=[b_1; b_2; \ldots; b_L]$ are all nonnegative and thus for all $x$ we have 
 \[
 x^*[\caA^*b]x 
 	= \sum\limits_{\substack{j=1}}^{\substack{L}}
 		[FC_jx]^* \textnormal{Diag}(b_j) F C_jx
 	\geq 0.
 \]
-Since Algorithm \ref{Alg:PGD} minimizes the objective function $\lambda_1(\caA^*y_k)$, the algebraically largest eigenvalue $\lambda_1^{(k)}$ of $\caA^*y_k$ can be expected to decrease for later iterates $k$.  
+Since the GDD algorithm minimizes the objective function $\lambda_1(\caA^*y_k)$, the algebraically largest eigenvalue $\lambda_1^{(k)}$ of $\caA^*y_k$ can be expected to decrease for later iterates $k$.  
 
 
 As we will see in Section \ref{Subsec:evol_mats-IRAM}, the convergence rate of eigenvalue methods often depends on the distance between the desired eigenvalue $\lambda_j$ and the next algebraically largest eigenvalue $\lambda_{j+1}$.  Figure \ref{Fig:EMEP_largest_eigvals} depicts the 20 algebraically largest eigenvalues of the \emep \ iterates from Figure \ref{Fig:EMEP_full_spectrum}.
@@ -458,6 +457,7 @@ $1.01$
 		&	$6.9 \times 10^{-1}$ & $2.0 \times 10^{-3}$	\\
  \hline
 \end{tabular}
+\vspace{0.5cm}
 \caption{Lower bound terms (\ref{Eqn:power_method_lower_bound}) and (\ref{Eqn:Lanczos_lower_bound}) for Ritz values generated by Algorithms \ref{Alg:power_method} and \ref{Alg:Arnoldi_iteration} } \label{Tab:Lanczos_vs_power_method}
 \end{table}
 
@@ -640,11 +640,14 @@ In this section we develop a new strategy which uses the IRAM (Algorithm \ref{Al
 As discussed in Section \ref{Subsec:evol_mats-IRAM}, the IRAM has only two key parameters: the number of requested eigenvalues $r$ and the Arnoldi decomposition (\ref{Eqn:Arnoldi_decomp}) size $m$.
 By fixing $m$ at an appropriate size and employing an adaptive strategy for choosing $r$, we may greatly reduce the number of matrix-vector products required for the EMEP.
 %As we will see, the proper choice of these parameters can greatly reduce the number of matrix-vector products required for the EMEP.
-To compare various choices of $r$, we define the \textit{empirically optimal} value $\bar{r}$ as the parameter $r_{min} \leq \bar{r} \leq r_{max}$ corresponding to the fewest matrix-vector products required for the IRAM to converge for a given EMEP iterate and fixed parameter $m$.
+To compare various choices of $r$, we define the \textit{empirically optimal} parameter $\bar{r}$ as follows.
+\begin{definition}		\label{Def:emp_opt}
+The \textit{empirically optimal} parameter $\bar{r}$ is the integer $r_{min} \leq \bar{r} \leq r_{max}$ corresponding to the fewest matrix-vector products required for the IRAM to converge for a given EMEP iterate and fixed parameter $m$.
+\end{definition}
 
 
 We begin by examining the change in computational costs  (as measured by matrix-vector products) with respect to various \emep \ iterates $k$ and IRAM parameters $r$ in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params}.
-In the original implementation of Algorithm \ref{Alg:PGD}, all EMEP iterates were handled using the IRAM with $r=2$ requested eigenvalues and Arnoldi decomposition size $m = \min \{  \max \{ 2r, 20 \}, n \}$, where $n$ is the size of the desired signal $x$.  
+In the original implementation of the GDD algorithm (Algorithm \ref{Alg:PGD}), all EMEP iterates were handled using the IRAM with $r=2$ requested eigenvalues and Arnoldi decomposition size $m = \min \{  \max \{ 2r, 20 \}, n \}$, where $n$ is the size of the desired signal $x$.  
 This choice of $m$ is equivalent to the default parameter setting in the IRAM solver \texttt{eigs} for MATLAB and evaluates to $m=20$ for $n \geq 20$.
 Yet the plots in Figure \ref{Fig:Numerics-num_matvecs_orig_vs_optimal_params} demonstrate that choosing a fixed parameter $r=2$ can result in far more matrix-vector products than if we chose the empirically optimal values.
 
@@ -890,7 +893,7 @@ Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_e
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-0.2cm} \includegraphics[scale=0.65]{Numerics-surf_num_mvs_and_eig_diffs_1} }\vspace{0.0cm}
+\hbox{\hspace{-0.3cm} \includegraphics[scale=0.66666]{Numerics-surf_num_mvs_and_eig_diffs_1} }\vspace{0.0cm}
 	\caption{Behavior of Algorithm \ref{Alg:adaptive_IRAM} for the experiment from Figure \ref{Fig:Numerics-num_req_eigs_2_exps} with $L=5$, $\epsilon_\text{rel}=0.15$.  Top: Number of matrix-vector products (capped at 2,000 for better viewing) for each \emep \ iterate $k$ and number of requested eigenvalues $r$. Bottom: eigenvalue differences $\lambda_r - \lambda_{r+1}$ for each \emep \ iterate $k$ and number of requested eigenvalues $r$.  Black dots in both plots indicate the value $r_k$ chosen by Algorithm \ref{Alg:adaptive_IRAM}.}
 \label{Fig:Numerics-surf_mvs_eig_diffs_1}
 \end{figure}
@@ -900,14 +903,14 @@ Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_e
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-0.2cm} \includegraphics[scale=0.65]{Numerics-surf_num_mvs_and_eig_diffs_2} }\vspace{0.0cm}
+\hbox{\hspace{-0.3cm} \includegraphics[scale=0.66666]{Numerics-surf_num_mvs_and_eig_diffs_2} }\vspace{0.0cm}
 	\caption{Behavior of Algorithm \ref{Alg:adaptive_IRAM} for the experiment from Figure \ref{Fig:Numerics-num_req_eigs_2_exps} with $L=5$, $\epsilon_\text{rel}=0.30$.  Top: Number of matrix-vector products (capped at 2,000 for better viewing) for each \emep \ iterate $k$ and number of requested eigenvalues $r$. Bottom: eigenvalue differences $\lambda_r - \lambda_{r+1}$ for each \emep \ iterate $k$ and number of requested eigenvalues $r$.  Black dots in both plots indicate the value $r_k$ chosen by Algorithm \ref{Alg:adaptive_IRAM}.}
 \label{Fig:Numerics-surf_mvs_eig_diffs_2}
 \end{figure}
 % experiments.figure.noisyimage_adaptive_eig_full_exp
 
 
-
+\newpage
 
 
 In Figures \ref{Fig:Numerics-surf_mvs_eig_diffs_1} and \ref{Fig:Numerics-surf_mvs_eig_diffs_2} we see that the clustering of the algebraically largest eigenvalues corresponds to an increase in the empirically optimal value $\bar{r}_k$ for later \emep \ iterates $k$.

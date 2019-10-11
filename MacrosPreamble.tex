@@ -25,6 +25,41 @@
 \usepackage{epsfig}  		% For postscript
 \usepackage{epic,eepic}       % For epic and eepic output from xfig
 
+\usepackage[nocompress]{cite} %%% optional
+
+
+
+
+\makeatletter
+\renewcommand\section{%
+  \@startsection{section}{1}
+    \z@
+    {.3\linespacing\@plus\linespacing}
+    {1sp}
+    {\large\bfseries\centering}%
+}
+
+\renewcommand\subsection{%
+  \@startsection{subsection}{1}
+    \z@
+    {.3\linespacing\@plus\linespacing}
+    {1sp}
+    {\normalfont\bfseries\centering}%
+}
+
+\makeatother
+
+
+
+
+%\usepackage{titlesec}
+%\titlespacing{\section}{0pc}{10pc}{3pc}
+
+%\usepackage{titlesec}
+%\titlespacing*{\section}{0pt}{1.1\baselineskip}{\baselineskip}
+
+
+
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{lem}[thm]{Lemma}
@@ -39,6 +74,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}[thm]{Definition}
 \newtheorem{example}[thm]{Example}
+
 
 \theoremstyle{remark}
 \newtheorem{remark}[thm]{Remark}

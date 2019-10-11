@@ -1,40 +1,51 @@
 \chapter{Conclusion}			\label{Sec:Conclusion}
 
 
-In this dissertation we examined noisy phase retrieval, focusing on the PLGD model (\ref{Eqn:PhaseLift-P-GD}) which we chose to optimize with Algorithm \ref{Alg:PGD} from Chapter \ref{Sec:PLGD_algo}.
-Our work offers two primary contributions.
+In this dissertation we examined noisy phase retrieval, focusing on the PLGD model (\ref{Eqn:PhaseLift-P-GD}) which we chose to optimize with the Gauge Dual Descent (GDD) algorithm (Algorithm \ref{Alg:PGD} from Chapter \ref{Sec:PLGD_algo}).
+Section \ref{Subsec:Conclusion-contrib} summarizes our contributions and Section \ref{Subsec:Conclusion-future} discusses some theoretical and computational questions which remain for future work.
 
 
-First, we established new termination conditions for Algorithm \ref{Alg:PGD}.
-Chapter \ref{Sec:PLGD_term_crit} showed that PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) cause Algorithm \ref{Alg:PGD} to stagnate prior to satisfying the original termination conditions (\ref{Eqn:saga_conv_crit_primal}) and (\ref{Eqn:saga_conv_crit_gap}).  
+
+
+\section{Contributions}		\label{Subsec:Conclusion-contrib}
+
+
+Our work provides two main contributions which lead to the development of the Improved Gauge Dual Descent (IGDD) algorithm (Algorithm \ref{Alg:PGD-improved}).
+
+
+The first main contribution was to establish new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) for the GDD algorithm.
+Chapter \ref{Sec:PLGD_term_crit} showed that PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}) cause the GDD algorithm to stagnate prior to satisfying the original termination conditions (\ref{Eqn:saga_conv_crit_primal}) and (\ref{Eqn:saga_conv_crit_gap}).  
 We saw that this stagnation was likely the result of the optimal PLGD matrix $\caA^*y_\star$ having an algebraically largest eigenvalue with multiplicity greater than one.
-Thus the objective function $\lambda_1(\caA^*y)$ will be nondifferentiable in the neighborhood of $y_\star$ and we may expect first-order methods like Algorithm \ref{Alg:PGD} to stagnate in this neighborhood.
+Thus the objective function $\lambda_1(\caA^*y)$ will be nondifferentiable in the neighborhood of $y_\star$ and we may expect first-order methods like the GDD algorithm to stagnate in this neighborhood.
 As a result, we established new termination conditions (\ref{Eqn:term_crit_new-primal_difference}) and (\ref{Eqn:term_crit_new-dual_difference}) based on empirical evidence of algorithmic stagnation.
 
 
-Second, we developed a new strategy for handling the \emep \ in Algorithm \ref{Alg:PGD}.
-In Chapter \ref{Sec:evol_mats} we defined the EMEP in Algorithm \ref{Alg:PGD} and examined the evolving spectrum of the EMEP.
+The second main contribution was to develop a new strategy for handling the \emep \ in the GDD algorithm.
+In Chapter \ref{Sec:evol_mats} we defined the EMEP in the GDD algorithm and examined the evolving spectrum of the EMEP.
 We observed that the algebraically largest eigenvalues of the EMEP tend to cluster for later iterates, making these eigenvalue problems more difficult for methods like the IRAM (Algorithm \ref{Alg:IRAM}).
-We also showed that the EMEP is the computational bottleneck of Algorithm \ref{Alg:PGD}, requiring about $95$\% of the matrix-vector products in Algorithm \ref{Alg:PGD}.
+We also showed that the EMEP is the computational bottleneck of the GDD algorithm, requiring about $95$\% of the matrix-vector products in the GDD algorithm.
 Section \ref{Subsec:evol_mats-IRAM} then reviewed the IRAM and its component algorithms, providing insight for how we may better select the IRAM parameters.
 In Section \ref{Subsec:evol_mats-adaptive_IRAM} we developed Algorithm \ref{Alg:adaptive_IRAM}, a new strategy for solving the EMEP by selecting the number of requested eigenvalues in the IRAM based on empirical observations of IRAM behavior.
 Section \ref{Subsec:evol_mats-correl_btwn_EMEP_and_IRAM} showed that changes in the number of requested eigenvalues, as chosen by Algorithm \ref{Alg:adaptive_IRAM}, correspond to clustering of the algebraically largest eigenvalues in the EMEP.
 
 
-In Chapter \ref{Sec:Numerics} we presented Algorithm \ref{Alg:PGD-improved}, an improved version of Algorithm \ref{Alg:PGD} which incorporated the new termination conditions of Chapter \ref{Sec:PLGD_term_crit} and the new strategy for the EMEP from Chapter \ref{Sec:evol_mats}.
-Performance results demonstrated that Algorithm \ref{Alg:PGD-improved} is more efficient than Algorithm \ref{Alg:PGD} for a variety of noisy phase retrieval problems.
-In particular, Algorithm \ref{Alg:PGD-improved} typically reduced the number of matrix-vector products by $50$-$80\%$ for problems with a low oversampling rate.
+In Chapter \ref{Sec:Numerics} we presented the IGDD algorithm which incorporates the new termination conditions of Chapter \ref{Sec:PLGD_term_crit} and the new strategy for the EMEP from Chapter \ref{Sec:evol_mats}.
+Performance results demonstrated that the IGDD algorithm is more efficient than the GDD algorithm for a variety of noisy phase retrieval problems.
+In particular, the IGDD algorithm typically reduced the number of matrix-vector products by $50$-$80\%$ for problems with a low oversampling rate.
 
 
-In addition to these contributions, Chapter \ref{Sec:PLGD} presented a self-contained, comprehensive treatment of gauge duality theory for establishing and analyzing the PLP-PLGD pair.
-Also, Section \ref{Subsec:phase_retrieval-why_optimize_PLGD_model} examined some of the benefits of choosing the PLGD model (\ref{Eqn:PhaseLift-P-GD}) for noisy phase retrieval.
-We saw that the PLGD model is well-suited for developing a first-order method, and that the resulting algorithm (Algorithm \ref{Alg:PGD}) typically solves noisy phase retrieval problems with greater accuracy than the wflow algorithm (Algorithm \ref{Alg:wflow}).
+In addition to these main contributions, Chapter \ref{Sec:PLGD} presented a self-contained, comprehensive treatment of gauge duality theory for establishing and analyzing the PLP-PLGD pair.
+Also, Appendix \ref{Sec:Appx-Comparison} examined some of the benefits of choosing the PLGD model (\ref{Eqn:PhaseLift-P-GD}) for noisy phase retrieval.
+We saw that the PLGD model is well-suited for developing a first-order method, and that the GDD algorithm typically solves noisy phase retrieval problems with greater accuracy than the wflow algorithm (Algorithm \ref{Alg:wflow}).
 
+
+
+\section{Future Work}		\label{Subsec:Conclusion-future}
 
 Several theoretical and computational questions still remain for future work.  
 In terms of theory, it would be beneficial to determine the expected rank of the optimal PLGD matrix $\caA^*y_\star$ for a given noisy phase retrieval problem. 
 As shown in Chapter \ref{Sec:PLGD_term_crit}, PLGD models with Gaussian noise typically have optimal matrices $\caA^*y_\star$ with rank $\rho$ greater than one (see Table \ref{Tab:average_rank_soln_matrix_with_gaussian_dual_variable}).
-Thus, as Algorithm \ref{Alg:PGD} progresses we may expect the $\rho$ algebraically largest eigenvalues of $\caA^*y$ to cluster.
+Thus, as the GDD algorithm progresses we may expect the $\rho$ algebraically largest eigenvalues of $\caA^*y$ to cluster.
 Algorithm \ref{Alg:adaptive_IRAM} changes the number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}) as the spectrum of $\caA^*y$ evolves.
 As we saw in Section \ref{Subsec:evol_mats-correl_btwn_EMEP_and_IRAM}, changes in the choice of $r$ appear to correlate with clustering of the algebraically largest eigenvalues of $\caA^*y$.
 In this sense, the value $r$ selected by Algorithm \ref{Alg:adaptive_IRAM} may be a proxy for determining the rank $\rho$ of $\caA^*y_\star$.
@@ -45,13 +56,13 @@ Many computational questions also remain for future work.
 In terms of solving the \emep, we did not examine parallel methods for solving this sequence of problems.\footnote{
 Note that we did consider the \textit{inverse free preconditioned Krylov subspace method} (EIGIFP) \cite{golub2002inverse}, which was comparable to or slightly slower than IRAM.  EIGIFP is implemented in MATLAB and this code had some numerical issues for larger PLGD models.
 }
-We also did not discuss optimizing the method for handling the primal recovery problem (\ref{Eqn:GD-PFD}) in Algorithm \ref{Alg:PGD}.
+We also did not discuss optimizing the method for handling the primal recovery problem (\ref{Eqn:GD-PFD}) in the GDD algorithm.
 Recall that the primal recovery problem requires $2$-$5\%$ of the total DFTs in a given PLGD model (see Table \ref{Tab:EMEP_costs}).
 The current method used is \textit{minFunc} \cite{schmidt2005minFunc}, which is a quasi-Newton method based only on gradient information.
 However, a recent paper \cite{sun2016geometric} indicates that the objective function in (\ref{Eqn:GD-PFD}) has no spurious local minima and negative directional curvature at all saddle points.
 Thus the Hessian of this function may also be used to solve (\ref{Eqn:GD-PFD}).
-Finally, we did not discuss alternative methods to Algorithm \ref{Alg:PGD} for optimizing the PLGD model itself.\footnote{
-Note that we did consider \textit{minConf} \cite{schmidt2008minConf}, a descent method for problems like the PLGD model with an expensive objective function and cheap projection operator.  This method appeared comparable to Algorithm \ref{Alg:PGD} and in some cases faster.
+Finally, we did not discuss alternative methods to the GDD algorithm for optimizing the PLGD model itself.\footnote{
+Note that we did consider \textit{minConf} \cite{schmidt2008minConf}, a descent method for problems like the PLGD model with an expensive objective function and cheap projection operator.  This method appeared comparable to the GDD algorithm and in some cases faster.
 }
 
 

@@ -1,60 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: will_wright_dissertation.aux
-The style file: amsalpha-fi-arxlast.bst
+The style file: siam.bst
 Database file #1: DissertationBibliography.bib.bib
 Warning--entry type for "Guizar-Sicairos" isn't style-file defined
---line 435 of file DissertationBibliography.bib.bib
-Warning--missing pages in aravkin2017foundations
-Warning--missing pages in bahmani2016phase
-Warning--missing pages in elser2017benchmark
-Warning--missing pages in DBLP:journals/corr/abs-1211-0872
-Warning--missing pages in DBLP:journals/siamsc/FriedlanderM16
-Warning--missing journal name in grigorieff1991note
-Warning--missing pages in grigorieff1991note
-Warning--missing pages in goldstein2018phasemax
-Warning--missing pages in jiang2017robust
-Warning--missing pages in katkovnik2017phase
-Warning--missing journal name in sorensen1997implicitly
-You've used 68 entries,
-            2674 wiz_defined-function locations,
-            987 strings with 16712 characters,
-and the built_in function-call counts, 27486 in all, are:
-= -- 2561
-> -- 1425
-< -- 22
-+ -- 500
-- -- 491
-* -- 2457
-:= -- 4496
-add.period$ -- 68
-call.type$ -- 68
-change.case$ -- 450
-chr.to.int$ -- 67
-cite$ -- 79
-duplicate$ -- 979
-empty$ -- 2119
-format.name$ -- 568
-if$ -- 5514
-int.to.chr$ -- 2
-int.to.str$ -- 0
-missing$ -- 75
+--line 449 of file DissertationBibliography.bib.bib
+You've used 70 entries,
+            2030 wiz_defined-function locations,
+            916 strings with 15889 characters,
+and the built_in function-call counts, 26028 in all, are:
+= -- 2556
+> -- 1102
+< -- 0
++ -- 443
+- -- 365
+* -- 1966
+:= -- 3909
+add.period$ -- 72
+call.type$ -- 70
+change.case$ -- 384
+chr.to.int$ -- 0
+cite$ -- 70
+duplicate$ -- 1216
+empty$ -- 1927
+format.name$ -- 365
+if$ -- 5637
+int.to.chr$ -- 0
+int.to.str$ -- 70
+missing$ -- 78
 newline$ -- 215
-num.names$ -- 202
-pop$ -- 418
+num.names$ -- 137
+pop$ -- 376
 preamble$ -- 1
-purify$ -- 515
+purify$ -- 321
 quote$ -- 0
-skip$ -- 798
+skip$ -- 1083
 stack$ -- 0
-substring$ -- 1636
-swap$ -- 127
-text.length$ -- 22
-text.prefix$ -- 17
+substring$ -- 1897
+swap$ -- 545
+text.length$ -- 0
+text.prefix$ -- 0
 top$ -- 0
-type$ -- 504
-warning$ -- 11
-while$ -- 273
-width$ -- 74
-write$ -- 732
-(There were 12 warnings)
+type$ -- 258
+warning$ -- 0
+while$ -- 270
+width$ -- 72
+write$ -- 623
+(There was 1 warning)

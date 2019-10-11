@@ -1,328 +1,333 @@
-\newcommand{\etalchar}[1]{$^{#1}$}
-\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
-\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
-% \MRhref is called by the amsart/book/proc definition of \MR.
-\providecommand{\MRhref}[2]{%
-  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
-}
-\providecommand{\href}[2]{#2}
-\begin{thebibliography}{DMM{\etalchar{+}}11}
+\begin{thebibliography}{10}
 
-\bibitem[ABD{\etalchar{+}}17]{aravkin2017foundations}
-A.~Y. Aravkin, J.~V. Burke, D.~Drusvyatskiy, M.~P. Friedlander, and K.~MacPhee,
-  \emph{Foundations of gauge and perspective duality}, arXiv preprint
-  arXiv:1702.08649 (2017).
+\bibitem{aravkin2017foundations}
+{\sc A.~Y. Aravkin, J.~V. Burke, D.~Drusvyatskiy, M.~P. Friedlander, and K.~J.
+  MacPhee}, {\em Foundations of gauge and perspective duality}, SIAM Journal on
+  Optimization, 28 (2018), pp.~2406--2434.
 
-\bibitem[BB86]{bracewell1986fourier}
-R.~N. Bracewell and R.~N. Bracewell, \emph{The fourier transform and its
-  applications}, third ed., vol. 31999, McGraw-Hill New York, 1986.
+\bibitem{bahmani2016phase}
+{\sc S.~Bahmani and J.~Romberg}, {\em Phase retrieval meets statistical
+  learning theory: {A} flexible convex relaxation}, arXiv preprint
+  arXiv:1610.04210,  (2016).
 
-\bibitem[BB88]{barzilai1988twopoint}
-J.~Barzilai and J.~M. Borwein, \emph{Two-point step size gradient methods}, IMA
-  Journal of Numerical Analysis \textbf{8} (1988), no.~1, 141--148.
+\bibitem{bai2000eigenvaluetemplates}
+{\sc Z.~Bai, J.~Demmel, J.~Dongarra, A.~Ruhe, and H.~van~der Vorst}, {\em
+  Templates for the Solution of Algebraic Eigenvalue Problems: A Practical
+  Guide}, vol.~1, SIAM, 2000.
 
-\bibitem[BCG11]{becker2011templates}
-S.~R. Becker, E.~J. Cand{\`e}s, and M.~C. Grant, \emph{Templates for convex
-  cone problems with applications to sparse signal recovery}, Mathematical
-  programming computation \textbf{3} (2011), no.~3, 165.
+\bibitem{barzilai1988twopoint}
+{\sc J.~Barzilai and J.~M. Borwein}, {\em Two-point step size gradient
+  methods}, IMA Journal of Numerical Analysis, 8 (1988), pp.~141--148.
 
-\bibitem[BDP{\etalchar{+}}07]{bunk2007diffractive}
-O.~Bunk, A.~Diaz, F.~Pfeiffer, C.~David, B.~Schmitt, D.~K. Satapathy, and J.~F.
-  van~der Veen, \emph{Diffractive imaging for periodic samples: retrieving
-  one-dimensional concentration profiles across microfluidic channels}, Acta
-  Crystallographica Section A: Foundations of Crystallography \textbf{63}
-  (2007), no.~4, 306--314.
+\bibitem{becker2011templates}
+{\sc S.~R. Becker, E.~J. Cand{\`e}s, and M.~C. Grant}, {\em Templates for
+  convex cone problems with applications to sparse signal recovery},
+  Mathematical Programming Computation, 3 (2011), p.~165.
 
-\bibitem[Ber16]{bertsekas2016nonlinear}
-D.~P. Bertsekas, \emph{Nonlinear programming}, third ed., Athena Scientific,
-  2016.
+\bibitem{ben2001lectures}
+{\sc A.~Ben-Tal and A.~Nemirovski}, {\em Lectures on Modern Convex
+  Optimization: Analysis, Algorithms, and Engineering Applications}, vol.~2,
+  SIAM, 2001.
 
-\bibitem[BR16]{bahmani2016phase}
-S.~Bahmani and J.~Romberg, \emph{Phase retrieval meets statistical learning
-  theory: A flexible convex relaxation}, arXiv preprint arXiv:1610.04210
-  (2016).
+\bibitem{bertsekas2016nonlinear}
+{\sc D.~P. Bertsekas}, {\em Nonlinear Programming}, Athena Scientific,
+  third~ed., 2016.
 
-\bibitem[BTN01]{ben2001lectures}
-A.~Ben-Tal and A.~Nemirovski, \emph{Lectures on modern convex optimization:
-  analysis, algorithms, and engineering applications}, vol.~2, Siam, 2001.
+\bibitem{boyd2004convex}
+{\sc S.~Boyd and L.~Vandenberghe}, {\em Convex Optimization}, Cambridge
+  University Press, 2004.
 
-\bibitem[BV04]{boyd2004convex}
-S.~Boyd and L.~Vandenberghe, \emph{Convex optimization}, Cambridge university
-  press, 2004.
+\bibitem{bracewell1986fourier}
+{\sc R.~N. Bracewell and R.~N. Bracewell}, {\em The Fourier Transform and Its
+  Applications}, vol.~31999, McGraw-Hill New York, third~ed., 1986.
 
-\bibitem[CDS01]{chen2001atomic}
-S.~S. Chen, D.~L. Donoho, and M.~A. Saunders, \emph{Atomic decomposition by
-  basis pursuit}, SIAM review \textbf{43} (2001), no.~1, 129--159.
+\bibitem{bunk2007diffractive}
+{\sc O.~Bunk, A.~Diaz, F.~Pfeiffer, C.~David, B.~Schmitt, D.~K. Satapathy, and
+  J.~F. van~der Veen}, {\em Diffractive imaging for periodic samples:
+  {R}etrieving one-dimensional concentration profiles across microfluidic
+  channels}, Acta Crystallographica Section A: Foundations of Crystallography,
+  63 (2007), pp.~306--314.
 
-\bibitem[CESV13]{DBLP:journals/siamis/CandesESV13}
-E.~J. Cand{\`{e}}s, Y.~C. Eldar, T.~Strohmer, and V.~Voroninski, \emph{Phase
-  retrieval via matrix completion}, {SIAM} J. Imaging Sciences \textbf{6}
-  (2013), no.~1, 199--225.
+\bibitem{cai2016optimal}
+{\sc T.~T. Cai, X.~Li, Z.~Ma, et~al.}, {\em Optimal rates of convergence for
+  noisy sparse phase retrieval via thresholded {W}irtinger flow}, The Annals of
+  Statistics, 44 (2016), pp.~2221--2251.
 
-\bibitem[CG90]{comon1990tracking}
-P.~Comon and G.~H. Golub, \emph{Tracking a few extreme singular values and
-  vectors in signal processing}, Proceedings of the IEEE \textbf{78} (1990),
-  no.~8, 1327--1343.
+\bibitem{DBLP:journals/siamis/CandesESV13}
+{\sc E.~J. Cand{\`{e}}s, Y.~C. Eldar, T.~Strohmer, and V.~Voroninski}, {\em
+  Phase retrieval via matrix completion}, {SIAM} Journal on Imaging Sciences, 6
+  (2013), pp.~199--225.
 
-\bibitem[CL14]{candes2014solving}
-E.~J. Cand{\`e}s and X.~Li, \emph{Solving quadratic equations via phaselift
-  when there are about as many equations as unknowns}, Foundations of
-  Computational Mathematics \textbf{14} (2014), no.~5, 1017--1026.
+\bibitem{candes2014solving}
+{\sc E.~J. Cand{\`e}s and X.~Li}, {\em Solving quadratic equations via
+  phaselift when there are about as many equations as unknowns}, Foundations of
+  Computational Mathematics, 14 (2014), pp.~1017--1026.
 
-\bibitem[CLM{\etalchar{+}}16]{cai2016optimal}
-T.~T. Cai, X.~Li, Z.~Ma, et~al., \emph{Optimal rates of convergence for noisy
-  sparse phase retrieval via thresholded wirtinger flow}, The Annals of
-  Statistics \textbf{44} (2016), no.~5, 2221--2251.
+\bibitem{DBLP:journals/tit/CandesLS15}
+{\sc E.~J. Cand{\`{e}}s, X.~Li, and M.~Soltanolkotabi}, {\em Phase retrieval
+  via {W}irtinger flow: {T}heory and algorithms}, {IEEE} Transactions on
+  Information Theory, 61 (2015), pp.~1985--2007.
 
-\bibitem[CLS15]{DBLP:journals/tit/CandesLS15}
-E.~J. Cand{\`{e}}s, X.~Li, and M.~Soltanolkotabi, \emph{Phase retrieval via
-  wirtinger flow: Theory and algorithms}, {IEEE} Trans. Information Theory
-  \textbf{61} (2015), no.~4, 1985--2007.
+\bibitem{candes2006stable}
+{\sc E.~J. Candes, J.~K. Romberg, and T.~Tao}, {\em Stable signal recovery from
+  incomplete and inaccurate measurements}, Communications on Pure and Applied
+  Mathematics, 59 (2006), pp.~1207--1223.
 
-\bibitem[CMP10]{chai2010array}
-A.~Chai, M.~Moscoso, and G.~Papanicolaou, \emph{Array imaging using
-  intensity-only measurements}, Inverse Problems \textbf{27} (2010), no.~1,
-  015005.
+\bibitem{candes2013phaselift}
+{\sc E.~J. Candes, T.~Strohmer, and V.~Voroninski}, {\em Phaselift: {E}xact and
+  stable signal recovery from magnitude measurements via convex programming},
+  Communications on Pure and Applied Mathematics, 66 (2013), pp.~1241--1274.
 
-\bibitem[CRT06]{candes2006stable}
-E.~J. Candes, J.~K. Romberg, and T.~Tao, \emph{Stable signal recovery from
-  incomplete and inaccurate measurements}, Communications on pure and applied
-  mathematics \textbf{59} (2006), no.~8, 1207--1223.
+\bibitem{chai2010array}
+{\sc A.~Chai, M.~Moscoso, and G.~Papanicolaou}, {\em Array imaging using
+  intensity-only measurements}, Inverse Problems, 27 (2010), p.~015005.
 
-\bibitem[CSV13]{candes2013phaselift}
-E.~J. Candes, T.~Strohmer, and V.~Voroninski, \emph{Phaselift: Exact and stable
-  signal recovery from magnitude measurements via convex programming},
-  Communications on Pure and Applied Mathematics \textbf{66} (2013), no.~8,
-  1241--1274.
+\bibitem{chen2001atomic}
+{\sc S.~S. Chen, D.~L. Donoho, and M.~A. Saunders}, {\em Atomic decomposition
+  by basis pursuit}, SIAM Review, 43 (2001), pp.~129--159.
 
-\bibitem[DM08]{doukopoulos2008fast}
-X.~G. Doukopoulos and G.~V. Moustakides, \emph{Fast and stable subspace
-  tracking}, IEEE Transactions on Signal Processing \textbf{56} (2008), no.~4,
-  1452--1465.
+\bibitem{comon1990tracking}
+{\sc P.~Comon and G.~H. Golub}, {\em Tracking a few extreme singular values and
+  vectors in signal processing}, Proceedings of the IEEE, 78 (1990),
+  pp.~1327--1343.
 
-\bibitem[DMM{\etalchar{+}}11]{duadi2011digital}
-H.~Duadi, O.~Margalit, V.~Mico, J.~A. Rodrigo, T.~Alieva, J.~Garcia, and
-  Z.~Zalevsky, \emph{Digital holography and phase retrieval}, Holography,
+\bibitem{doukopoulos2008fast}
+{\sc X.~G. Doukopoulos and G.~V. Moustakides}, {\em Fast and stable subspace
+  tracking}, IEEE Transactions on Signal Processing, 56 (2008), pp.~1452--1465.
+
+\bibitem{duadi2011digital}
+{\sc H.~Duadi, O.~Margalit, V.~Mico, J.~A. Rodrigo, T.~Alieva, J.~Garcia, and
+  Z.~Zalevsky}, {\em Digital holography and phase retrieval}, in Holography,
   Research and Technologies, InTech, 2011.
 
-\bibitem[ELB17]{elser2017benchmark}
-V.~Elser, T.-Y. Lan, and T.~Bendory, \emph{Benchmark problems for phase
-  retrieval}, arXiv preprint arXiv:1706.00399 (2017).
+\bibitem{DBLP:journals/corr/abs-1211-0872}
+{\sc Y.~C. Eldar and S.~Mendelson}, {\em Phase retrieval: {S}tability and
+  recovery guarantees}, Applied and Computational Harmonic Analysis, 36 (2014),
+  pp.~473--494.
 
-\bibitem[EM12]{DBLP:journals/corr/abs-1211-0872}
-Y.~C. Eldar and S.~Mendelson, \emph{Phase retrieval: Stability and recovery
-  guarantees}, CoRR \textbf{abs/1211.0872} (2012), \mbox{1211.0872}.
+\bibitem{elser2017benchmark}
+{\sc V.~Elser, T.-Y. Lan, and T.~Bendory}, {\em Benchmark problems for phase
+  retrieval}, arXiv preprint arXiv:1706.00399,  (2017).
 
-\bibitem[FD87]{fienup1987phase}
-C.~Fienup and J.~Dainty, \emph{Phase retrieval and image reconstruction for
-  astronomy}, Image Recovery: Theory and Application \textbf{231} (1987), 275.
+\bibitem{Fienup82}
+{\sc J.~R. Fienup}, {\em Phase retrieval algorithms: {A} comparison}, Applied
+  Optics, 21 (1982), pp.~2758--2769.
 
-\bibitem[Fie82]{Fienup82}
-J.~R. Fienup, \emph{Phase retrieval algorithms: a comparison}, Appl. Opt.
-  \textbf{21} (1982), no.~15, 2758--2769.
+\bibitem{fienup1987phase}
+{\sc J.~R. Fienup and J.~C. Dainty}, {\em Phase retrieval and image
+  reconstruction for astronomy}, Image Recovery: {T}heory and Application, 231
+  (1987), p.~275.
 
-\bibitem[FM16]{DBLP:journals/siamsc/FriedlanderM16}
-M.~P. Friedlander and I.~Macedo, \emph{Low-rank spectral optimization via gauge
-  duality}, {SIAM} J. Scientific Computing \textbf{38} (2016), no.~3.
+\bibitem{DBLP:journals/mp/Freund87}
+{\sc R.~M. Freund}, {\em Dual gauge programs, with applications to quadratic
+  programming and the minimum-norm problem}, Mathematical Programming, 38
+  (1987), pp.~47--67.
 
-\bibitem[FMP14]{DBLP:journals/siamjo/FriedlanderMP14}
-M.~P. Friedlander, I.~Macedo, and T.~K. Pong, \emph{Gauge optimization and
-  duality}, {SIAM} Journal on Optimization \textbf{24} (2014), no.~4,
-  1999--2022.
+\bibitem{DBLP:journals/siamsc/FriedlanderM16}
+{\sc M.~P. Friedlander and I.~Macedo}, {\em Low-rank spectral optimization via
+  gauge duality}, {SIAM} Journal on Scientific Computing, 38 (2016).
 
-\bibitem[Fre87]{DBLP:journals/mp/Freund87}
-R.~M. Freund, \emph{Dual gauge programs, with applications to quadratic
-  programming and the minimum-norm problem}, Math. Program. \textbf{38} (1987),
-  no.~1, 47--67.
+\bibitem{DBLP:journals/siamjo/FriedlanderMP14}
+{\sc M.~P. Friedlander, I.~Macedo, and T.~K. Pong}, {\em Gauge optimization and
+  duality}, {SIAM} Journal on Optimization, 24 (2014), pp.~1999--2022.
 
-\bibitem[Gri91]{grigorieff1991note}
-R.~D. Grigorieff, \emph{A note on von neumann's trace inequalitv},  (1991).
+\bibitem{GS72}
+{\sc R.~W. Gerchberg and W.~O. Saxton}, {\em A practical algorithm for the
+  determination of phase from image and diffraction plane pictures}, Optik, 35
+  (1972), pp.~237--250.
 
-\bibitem[GS72]{GS72}
-R.~W. Gerchberg and W.~O. Saxton, \emph{A practical algorithm for the
-  determination of phase from image and diffraction plane pictures}, Optik
-  \textbf{35} (1972), 237--250.
+\bibitem{goldstein2018phasemax}
+{\sc T.~Goldstein and C.~Studer}, {\em Phasemax: {C}onvex phase retrieval via
+  basis pursuit}, IEEE Transactions on Information Theory,  (2018).
 
-\bibitem[GS18a]{goldstein2018phasemax}
-T.~Goldstein and C.~Studer, \emph{Phasemax: Convex phase retrieval via basis
-  pursuit}, IEEE Transactions on Information Theory (2018).
+\bibitem{golub2012matrix}
+{\sc G.~H. Golub and C.~F. Van~Loan}, {\em Matrix Computations}, JHU Press,
+  fourth~ed., 2013.
 
-\bibitem[GS18b]{Guizar-Sicairos}
-M.~Guizar-Sicairos, \emph{Phase retrieval for x-ray coherent lensless imaging},
-  2018.
+\bibitem{golub2002inverse}
+{\sc G.~H. Golub and Q.~Ye}, {\em An inverse free preconditioned {K}rylov
+  subspace method for symmetric generalized eigenvalue problems}, SIAM Journal
+  on Scientific Computing, 24 (2002), pp.~312--334.
 
-\bibitem[GVL13]{golub2012matrix}
-G.~H. Golub and C.~F. Van~Loan, \emph{Matrix Computations}, 4 ed., JHU Press,
-  2012.
+\bibitem{grigorieff1991note}
+{\sc R.~D. Grigorieff}, {\em A note on von {N}eumann's trace inequality},
+  Mathematical News, 151 (1991), pp.~327--328.
 
-\bibitem[GY02]{golub2002inverse}
-G.~H. Golub and Q.~Ye, \emph{An inverse free preconditioned krylov subspace
-  method for symmetric generalized eigenvalue problems}, SIAM Journal on
-  Scientific Computing \textbf{24} (2002), no.~1, 312--334.
+\bibitem{Guizar-Sicairos}
+{\sc M.~Guizar-Sicairos}, {\em Phase retrieval for x-ray coherent lensless
+  imaging}, 2018.
 
-\bibitem[Har93]{harrison1993phase}
-R.~W. Harrison, \emph{Phase problem in crystallography}, JOSA a \textbf{10}
-  (1993), no.~5, 1046--1055.
+\bibitem{harrison1993phase}
+{\sc R.~W. Harrison}, {\em Phase problem in crystallography}, Journal of the
+  Optical Society of America A, 10 (1993), pp.~1046--1055.
 
-\bibitem[JEH15]{DBLP:journals/corr/JaganathanEH15a}
-K.~Jaganathan, Y.~C. Eldar, and B.~Hassibi, \emph{Phase retrieval: An overview
-  of recent developments}, CoRR \textbf{abs/1510.07713} (2015), 1--24,
-  \mbox{1510.07713}.
+\bibitem{DBLP:journals/corr/JaganathanEH15a}
+{\sc K.~Jaganathan, Y.~C. Eldar, and B.~Hassibi}, {\em Phase retrieval: {A}n
+  overview of recent developments}, arXiv preprint arXiv:1510.07713,  (2015).
 
-\bibitem[JSL17]{jiang2017robust}
-X.~Jiang, H.-C. So, and X.~Liu, \emph{Robust phase retrieval via admm with
-  outliers}, arXiv preprint arXiv:1702.06157 (2017).
+\bibitem{jiang2017robust}
+{\sc X.~Jiang, H.-C. So, and X.~Liu}, {\em Robust phase retrieval via {ADMM}
+  with outliers}, arXiv preprint arXiv:1702.06157,  (2017).
 
-\bibitem[Kat17]{katkovnik2017phase}
-V.~Katkovnik, \emph{Phase retrieval from noisy data based on sparse
-  approximation of object phase and amplitude}, arXiv preprint arXiv:1709.01071
-  (2017).
+\bibitem{katkovnik2017phase}
+{\sc V.~Katkovnik}, {\em Phase retrieval from noisy data based on sparse
+  approximation of object phase and amplitude}, arXiv preprint
+  arXiv:1709.01071,  (2017).
 
-\bibitem[LS84]{LeviS84}
-A.~Levi and H.~Stark, \emph{Image restoration by the method of generalized
-  projections with application to restoration from magnitude}, {IEEE}
+\bibitem{lehoucq1998arpack}
+{\sc R.~B. Lehoucq, D.~C. Sorensen, and C.~Yang}, {\em ARPACK Users' Guide:
+  {S}olution of Large-Scale Eigenvalue Problems with Implicitly Restarted
+  {A}rnoldi Methods}, vol.~6, SIAM, 1998.
+
+\bibitem{LeviS84}
+{\sc A.~Levi and H.~Stark}, {\em Image restoration by the method of generalized
+  projections with application to restoration from magnitude}, in {IEEE}
   International Conference on Acoustics, Speech, and Signal Processing,
   {ICASSP} '84, San Diego, California, USA, March 19-21, 1984, 1984,
   pp.~88--91.
 
-\bibitem[LSY98]{lehoucq1998arpack}
-R.~B. Lehoucq, D.~C. Sorensen, and C.~Yang, \emph{Arpack users' guide: solution
-  of large-scale eigenvalue problems with implicitly restarted arnoldi
-  methods}, vol.~6, Siam, 1998.
+\bibitem{martin2012noise}
+{\sc A.~V. Martin, F.~Wang, N.~Loh, T.~Ekeberg, F.~R. Maia, M.~Hantke,
+  G.~van~der Schot, C.~Y. Hampton, R.~G. Sierra, A.~Aquila, et~al.}, {\em
+  Noise-robust coherent diffractive imaging with a single diffraction pattern},
+  Optics Express, 20 (2012), pp.~16650--16661.
 
-\bibitem[MCKS99]{miao1999extending}
-J.~Miao, P.~Charalambous, J.~Kirz, and D.~Sayre, \emph{Extending the
+\bibitem{miao1999extending}
+{\sc J.~Miao, P.~Charalambous, J.~Kirz, and D.~Sayre}, {\em Extending the
   methodology of x-ray crystallography to allow imaging of micrometre-sized
-  non-crystalline specimens}, Nature \textbf{400} (1999), no.~6742, 342.
+  non-crystalline specimens}, Nature, 400 (1999), p.~342.
 
-\bibitem[Mil90]{millane1990phase}
-R.~P. Millane, \emph{Phase retrieval in crystallography and optics}, JOSA A
-  \textbf{7} (1990), no.~3, 394--411.
-
-\bibitem[MISE08]{miao2008extending}
-J.~Miao, T.~Ishikawa, Q.~Shen, and T.~Earnest, \emph{Extending x-ray
+\bibitem{miao2008extending}
+{\sc J.~Miao, T.~Ishikawa, Q.~Shen, and T.~Earnest}, {\em Extending x-ray
   crystallography to allow the imaging of noncrystalline materials, cells, and
-  single protein complexes}, Annu. Rev. Phys. Chem. \textbf{59} (2008),
-  387--410.
+  single protein complexes}, Annual Review of Physical Chemistry, 59 (2008),
+  pp.~387--410.
 
-\bibitem[MWL{\etalchar{+}}12]{martin2012noise}
-A.~V. Martin, F.~Wang, N.~Loh, T.~Ekeberg, F.~R. Maia, M.~Hantke, G.~van~der
-  Schot, C.~Y. Hampton, R.~G. Sierra, A.~Aquila, et~al., \emph{Noise-robust
-  coherent diffractive imaging with a single diffraction pattern}, Optics
-  Express \textbf{20} (2012), no.~15, 16650--16661.
+\bibitem{millane1990phase}
+{\sc R.~P. Millane}, {\em Phase retrieval in crystallography and optics},
+  Journal of the Optical Society of America A, 7 (1990), pp.~394--411.
 
-\bibitem[Nat95]{natarajan1995sparse}
-B.~K. Natarajan, \emph{Sparse approximate solutions to linear systems}, SIAM
-  journal on computing \textbf{24} (1995), no.~2, 227--234.
+\bibitem{natarajan1995sparse}
+{\sc B.~K. Natarajan}, {\em Sparse approximate solutions to linear systems},
+  SIAM Journal on Computing, 24 (1995), pp.~227--234.
 
-\bibitem[NS12]{ngo2012scaled}
-T.~Ngo and Y.~Saad, \emph{Scaled gradients on grassmann manifolds for matrix
-  completion}, Advances in Neural Information Processing Systems, 2012,
-  pp.~1412--1420.
+\bibitem{ngo2012scaled}
+{\sc T.~Ngo and Y.~Saad}, {\em Scaled gradients on grassmann manifolds for
+  matrix completion}, in Advances in Neural Information Processing Systems,
+  2012, pp.~1412--1420.
 
-\bibitem[NW06]{nocedal2006numerical}
-J.~Nocedal and S.~J. Wright, \emph{Numerical optimization 2nd}, Springer, 2006.
+\bibitem{nocedal2006numerical}
+{\sc J.~Nocedal and S.~J. Wright}, {\em Numerical Optimization}, Springer,
+  second~ed., 2006.
 
-\bibitem[PB{\etalchar{+}}14]{parikh2014proximal}
-N.~Parikh, S.~Boyd, et~al., \emph{Proximal algorithms}, Foundations and
-  Trends{\textregistered} in Optimization \textbf{1} (2014), no.~3, 127--239.
+\bibitem{parikh2014proximal}
+{\sc N.~Parikh, S.~Boyd, et~al.}, {\em Proximal algorithms}, Foundations and
+  Trends in Optimization, 1 (2014), pp.~127--239.
 
-\bibitem[RFP10]{recht2010guaranteed}
-B.~Recht, M.~Fazel, and P.~A. Parrilo, \emph{Guaranteed minimum-rank solutions
-  of linear matrix equations via nuclear norm minimization}, SIAM review
-  \textbf{52} (2010), no.~3, 471--501.
+\bibitem{recht2010guaranteed}
+{\sc B.~Recht, M.~Fazel, and P.~A. Parrilo}, {\em Guaranteed minimum-rank
+  solutions of linear matrix equations via nuclear norm minimization}, SIAM
+  Review, 52 (2010), pp.~471--501.
 
-\bibitem[Roc70]{rockafellar1970convex}
-R.~T. Rockafellar, \emph{Convex analysis}, Princeton university press, 1970.
+\bibitem{reed1980functional}
+{\sc M.~Reed and B.~Simon}, {\em Functional Analysis, Vol. I}, Academic Press,
+  San Diego, 1980.
 
-\bibitem[RS80]{reed1980functional}
-M.~Reed and B.~Simon, \emph{Functional analysis, vol. i}, Academic Press, San
-  Diego, 1980.
+\bibitem{rockafellar1970convex}
+{\sc R.~T. Rockafellar}, {\em Convex Analysis}, Princeton University Press,
+  1970.
 
-\bibitem[RXC{\etalchar{+}}13]{rodriguez2013oversampling}
-J.~A. Rodriguez, R.~Xu, C.-C. Chen, Y.~Zou, and J.~Miao, \emph{Oversampling
-  smoothness: an effective algorithm for phase retrieval of noisy diffraction
-  intensities}, Journal of applied crystallography \textbf{46} (2013), no.~2,
-  312--318.
+\bibitem{rodriguez2013oversampling}
+{\sc J.~A. Rodriguez, R.~Xu, C.-C. Chen, Y.~Zou, and J.~Miao}, {\em
+  Oversampling smoothness: {A}n effective algorithm for phase retrieval of
+  noisy diffraction intensities}, Journal of Applied Crystallography, 46
+  (2013), pp.~312--318.
 
-\bibitem[Saa11]{saad2011numerical}
-Y.~Saad, \emph{Numerical methods for large eigenvalue problems: revised
-  edition}, vol.~66, Siam, 2011.
+\bibitem{saad2011numerical}
+{\sc Y.~Saad}, {\em Numerical Methods for Large Eigenvalue Problems: {R}evised
+  Edition}, vol.~66, SIAM, 2011.
 
-\bibitem[SBE14]{shechtman2014gespar}
-Y.~Shechtman, A.~Beck, and Y.~C. Eldar, \emph{Gespar: Efficient phase retrieval
-  of sparse signals}, IEEE transactions on signal processing \textbf{62}
-  (2014), no.~4, 928--938.
+\bibitem{saad2016analysis}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Analysis of subspace
+  iteration for eigenvalue problems with evolving matrices}, SIAM Journal on
+  Matrix Analysis and Applications, 37 (2016), pp.~103--122.
 
-\bibitem[SBFM09]{schmidt2009optimizing}
-M.~Schmidt, E.~Berg, M.~Friedlander, and K.~Murphy, \emph{Optimizing costly
-  functions with simple constraints: A limited-memory projected quasi-newton
-  algorithm}, Artificial Intelligence and Statistics, 2009, pp.~456--463.
+\bibitem{saad2010numerical}
+{\sc Y.~Saad, J.~R. Chelikowsky, and S.~M. Shontz}, {\em Numerical methods for
+  electronic structure calculations of materials}, SIAM Review, 52 (2010),
+  pp.~3--54.
 
-\bibitem[Sch05]{schmidt2005minFunc}
-M.~Schmidt, \emph{minfunc: unconstrained differentiable multivariate
-  optimization in matlab},
-  \url{http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html}, 2005.
+\bibitem{schmidt2005minFunc}
+{\sc M.~Schmidt}, {\em minfunc: {U}nconstrained differentiable multivariate
+  optimization in {MATLAB}}.
+\newblock \url{http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html}, 2005.
 
-\bibitem[Sch08]{schmidt2008minConf}
-\bysame, \emph{minconf: projection methods for optimization with simple
-  constraints in matlab},
-  \url{http://www.cs.ubc.ca/~schmidtm/Software/minConf.html}, 2008.
+\bibitem{schmidt2008minConf}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em minconf:
+  {P}rojection methods for optimization with simple constraints in {MATLAB}}.
+\newblock \url{http://www.cs.ubc.ca/~schmidtm/Software/minConf.html}, 2008.
 
-\bibitem[SCS10]{saad2010numerical}
-Y.~Saad, J.~R. Chelikowsky, and S.~M. Shontz, \emph{Numerical methods for
-  electronic structure calculations of materials}, SIAM review \textbf{52}
-  (2010), no.~1, 3--54.
+\bibitem{schmidt2009optimizing}
+{\sc M.~Schmidt, E.~Berg, M.~Friedlander, and K.~Murphy}, {\em Optimizing
+  costly functions with simple constraints: {A} limited-memory projected
+  quasi-{N}ewton algorithm}, in Artificial Intelligence and Statistics, 2009,
+  pp.~456--463.
 
-\bibitem[SEC{\etalchar{+}}15]{DBLP:journals/spm/ShechtmanECCMS15}
-Y.~Shechtman, Y.~C. Eldar, O.~Cohen, H.~N. Chapman, J.~Miao, and M.~Segev,
-  \emph{Phase retrieval with application to optical imaging: {A} contemporary
-  overview}, {IEEE} Signal Process. Mag. \textbf{32} (2015), no.~3, 87--109.
+\bibitem{shechtman2014gespar}
+{\sc Y.~Shechtman, A.~Beck, and Y.~C. Eldar}, {\em {GESPAR}: {E}fficient phase
+  retrieval of sparse signals}, IEEE Transactions on Signal Processing, 62
+  (2014), pp.~928--938.
 
-\bibitem[SESS11]{DBLP:journals/corr/abs-1104-4406}
-Y.~Shechtman, Y.~C. Eldar, A.~Szameit, and M.~Segev, \emph{Sparsity based
+\bibitem{DBLP:journals/spm/ShechtmanECCMS15}
+{\sc Y.~Shechtman, Y.~C. Eldar, O.~Cohen, H.~N. Chapman, J.~Miao, and
+  M.~Segev}, {\em Phase retrieval with application to optical imaging: {A}
+  contemporary overview}, IEEE Signal Processing Magazine, 32 (2015),
+  pp.~87--109.
+
+\bibitem{DBLP:journals/corr/abs-1104-4406}
+{\sc Y.~Shechtman, Y.~C. Eldar, A.~Szameit, and M.~Segev}, {\em Sparsity based
   sub-wavelength imaging with partially incoherent light via quadratic
-  compressed sensing}, CoRR \textbf{abs/1104.4406} (2011), 1--16,
-  \mbox{1104.4406}.
+  compressed sensing}, Optics Express, 19 (2011), pp.~14807--14822.
 
-\bibitem[Sor92]{sorensen1992implicit}
-D.~C. Sorensen, \emph{Implicit application of polynomial filters in ak-step
-  arnoldi method}, Siam journal on matrix analysis and applications \textbf{13}
-  (1992), no.~1, 357--385.
+\bibitem{sorensen1992implicit}
+{\sc D.~C. Sorensen}, {\em Implicit application of polynomial filters in a
+  k-step {A}rnoldi method}, SIAM Journal on Matrix Analysis and Applications,
+  13 (1992), pp.~357--385.
 
-\bibitem[Sor97]{sorensen1997implicitly}
-\bysame, \emph{Implicitly restarted arnoldi/lanczos methods for large scale
-  eigenvalue calculations},  (1997), 119--165.
+\bibitem{sorensen1997implicitly}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Implicitly restarted
+  {A}rnoldi/{L}anczos methods for large scale eigenvalue calculations}, in
+  Parallel Numerical Algorithms, Springer, 1997, pp.~119--165.
 
-\bibitem[SQW16]{sun2016geometric}
-J.~Sun, Q.~Qu, and J.~Wright, \emph{A geometric analysis of phase retrieval},
-  Information Theory (ISIT), 2016 IEEE International Symposium on, IEEE, 2016,
-  pp.~2379--2383.
+\bibitem{stewart1992updating}
+{\sc G.~W. Stewart}, {\em An updating algorithm for subspace tracking}, IEEE
+  Transactions on Signal Processing, 40 (1992), pp.~1535--1541.
 
-\bibitem[Ste92]{stewart1992updating}
-G.~W. Stewart, \emph{An updating algorithm for subspace tracking}, IEEE
-  Transactions on Signal Processing \textbf{40} (1992), no.~6, 1535--1541.
+\bibitem{sun2016geometric}
+{\sc J.~Sun, Q.~Qu, and J.~Wright}, {\em A geometric analysis of phase
+  retrieval}, in Information Theory (ISIT), 2016 IEEE International Symposium
+  on, IEEE, 2016, pp.~2379--2383.
 
-\bibitem[TTT99]{toh1999sdpt3}
-K.-C. Toh, M.~J. Todd, and R.~H. T{\"u}t{\"u}nc{\"u}, \emph{Sdpt3—a matlab
-  software package for semidefinite programming, version 1.3}, Optimization
-  methods and software \textbf{11} (1999), no.~1-4, 545--581.
+\bibitem{toh1999sdpt3}
+{\sc K.-C. Toh, M.~J. Todd, and R.~H. T{\"u}t{\"u}nc{\"u}}, {\em {SDPT}3 - {A}
+  {MATLAB} software package for semidefinite programming, version 1.3},
+  Optimization Methods and Software, 11 (1999), pp.~545--581.
 
-\bibitem[Wal63]{walther1963question}
-A.~Walther, \emph{The question of phase retrieval in optics}, Optica Acta:
-  International Journal of Optics \textbf{10} (1963), no.~1, 41--49.
+\bibitem{walther1963question}
+{\sc A.~Walther}, {\em The question of phase retrieval in optics}, Optica Acta:
+  International Journal of Optics, 10 (1963), pp.~41--49.
 
-\bibitem[Yan95]{yang1995projection}
-B.~Yang, \emph{Projection approximation subspace tracking}, IEEE Transactions
-  on Signal processing \textbf{43} (1995), no.~1, 95--107.
+\bibitem{yang1995projection}
+{\sc B.~Yang}, {\em Projection approximation subspace tracking}, IEEE
+  Transactions on Signal Processing, 43 (1995), pp.~95--107.
 
-\bibitem[ZH04]{zhang2004nonmonotone}
-H.~Zhang and W.~W. Hager, \emph{A nonmonotone line search technique and its
-  application to unconstrained optimization}, SIAM journal on Optimization
-  \textbf{14} (2004), no.~4, 1043--1056.
+\bibitem{zhang2004nonmonotone}
+{\sc H.~Zhang and W.~W. Hager}, {\em A nonmonotone line search technique and
+  its application to unconstrained optimization}, SIAM Journal on Optimization,
+  14 (2004), pp.~1043--1056.
 
-\bibitem[ZYLX17]{zhang2017fast}
-H.~Zhang, S.~You, Z.~Lin, and C.~Xu, \emph{Fast compressive phase retrieval
-  under bounded noise.}, AAAI, 2017, pp.~2884--2890.
+\bibitem{zhang2017fast}
+{\sc H.~Zhang, S.~You, Z.~Lin, and C.~Xu}, {\em Fast compressive phase
+  retrieval under bounded noise}, in AAAI, 2017, pp.~2884--2890.
 
 \end{thebibliography}
