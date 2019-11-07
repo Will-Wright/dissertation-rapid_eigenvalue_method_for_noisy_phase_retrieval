@@ -4,7 +4,7 @@
 
 \section{Introduction} 		\label{Subsec:Numerics-intro}
 
-In this chapter we present the improved gauge dual descent (IGDD) algorithm and examine the performance of the IGDD algorithm.
+In this chapter we present the Improved Gauge Dual Descent (IGDD) algorithm and examine the performance of the IGDD algorithm.
 Section \ref{Subsec:Numerics-improved_PGD} states the IGDD algorithm, which applies the new termination conditions of Chapter \ref{Sec:PLGD_term_crit} and \textit{the IRAM with adaptive parameter selection} of Chapter \ref{Sec:evol_mats} to the GDD algorithm (Algorithm \ref{Alg:PGD}).
 Next, Section \ref{Subsec:Numerics-perf_results} examines the performance of the IGDD algorithm.
 We demonstrate that the IGDD algorithm is more efficient than the GDD algorithm for a variety of PLGD models with Gaussian noise (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).
@@ -54,7 +54,7 @@ The input now includes additional parameters ($r_{min}$, $r_{max}$, $m$, $\text{
 Step 1 of Algorithm \ref{Alg:PGD} is modified to include the new termination conditions  (\ref{Eqn:term_crit_new-primal_difference2}) and (\ref{Eqn:term_crit_new-dual_difference2}).
 Step 2 of Algorithm \ref{Alg:PGD} is modified to perform the eigenvalue computation by passing the necessary parameters to Algorithm \ref{Alg:adaptive_IRAM}.
 Finally, step 16 updates the termination parameter $\rho = ||\caA(xx^*) - b||_2$ and the sets $T$ and $R$.
-Altogether, these changes result in the improved gauge dual descent (IGDD) algorithm for optimizing the PLGD model (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  
+Altogether, these changes result in the Improved Gauge Dual Descent (IGDD) algorithm for optimizing the PLGD model (\ref{Eqn:PhaseLift-GD_Gaussian_noise}).  
 
 \begin{algorithm}[H]
 \caption{Improved Gauge Dual Descent (IGDD) algorithm} 	\label{Alg:PGD-improved}
@@ -252,8 +252,8 @@ To further explore this performance behavior, Figure \ref{Fig:Numerics-num_eigs_
 
 \begin{figure}[H]
 \centering
-\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_1} }\vspace{0.6cm}
-\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_2} }
+\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_1_IGDD} }\vspace{0.6cm}
+\hbox{\hspace{-1.0cm} \includegraphics[scale=0.6]{Numerics-num_eigs_ada_vs_opt_2_IGDD} }
 \vspace{0.2cm}
 	\caption{
 	Number of requested eigenvalues $r$ in the IRAM (Algorithm \ref{Alg:IRAM}) for two PLGD models from Table \ref{Tab:Numerics-num_matvecs_opt_vs_ada}.

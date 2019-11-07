@@ -8,7 +8,6 @@ Section \ref{Subsec:Intro-contributions} describes the contributions and layout 
 Finally, Section \ref{Subsec:Intro-notation} defines the notation used in this dissertation.
 
 
-
 \section{Phase Retrieval}	\label{Subsec:phase_retrieval-math_model}
 
 
@@ -47,10 +46,10 @@ For a comprehensive introduction to optical phase retrieval and an overview of r
 
 CDI is a method for reconstructing $2$- or $3$-dimensional nano-structures (e.g., nanotubes, nanocrystals, proteins).  In this process, highly coherent waves (e.g., x-rays, electrons, photons) are projected at a given object.  The resulting diffraction creates a pattern of intensities which are measured with a detector, resulting in magnitude-only measurements.  Figure \ref{Fig:CDI} below depicts the CDI observation process.
 
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=0.75\textwidth]{phase_retrieval_depiction_mod.jpg}
-   \caption{Depiction of coherent diffractive imaging.  Coherent waves (left) are projected at an image (center) which causes a diffraction pattern that is measured by a detector (right). Image from \cite{Guizar-Sicairos}.}
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth]{phase_retrieval_depiction_mod.jpg}
+   \caption{Depiction of coherent diffractive imaging.  Coherent waves (left) are projected at an image (center) which causes a diffraction pattern that is measured by a detector (right). Image from \cite{Guizar-Sicairos}.} 
    \label{Fig:CDI}
 \end{figure}
 
@@ -157,8 +156,6 @@ Chapter \ref{Sec:Numerics} presents the Improved Gauge Dual Descent (IGDD) algor
 Chapter \ref{Sec:Numerics} then provides performance results for the IGDD algorithm.
 We see that the IGDD algorithm reduces computational costs for a variety of noisy phase retrieval problems.
 Chapter \ref{Sec:Conclusion} concludes this dissertation with a summary of our contributions and suggestions for future work.
-
-
 
 
 

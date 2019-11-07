@@ -1,4 +1,9 @@
-{\singlespacing
+\documentclass{amsart}
+\usepackage{setspace}
+
+\begin{document}
+
+{
    \begin{flushright}
       William E. Wright \\
       November 2019 \\
@@ -14,6 +19,8 @@
 
 \section*{Abstract}
 
+\onehalfspacing
+
 Phase retrieval is a common problem in signal processing, with applications in astronomy, x-ray imaging, electron microscopy, and coherent diffraction imaging (CDI).
 Many models and algorithms exist for phase retrieval,
 yet few are designed to handle noise without imposing additional assumptions like signal sparsity.  
@@ -27,3 +34,5 @@ First, we establish empirical termination conditions which suggest signal denois
 Next, we develop an adaptive strategy for handling the sequence of eigenvalue problems in the GDD algorithm.
 These contributions lead to the Improved Gauge Dual Descent (IGDD) algorithm.
 Numerical examples demonstrate that the IGDD algorithm requires $50-80\%$ fewer matrix-vector products than the GDD algorithm for a variety of problems with low-oversampling.
+
+\end{document}

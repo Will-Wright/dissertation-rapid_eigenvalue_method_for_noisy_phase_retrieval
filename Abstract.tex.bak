@@ -1,7 +1,7 @@
 {\singlespacing
    \begin{flushright}
       William E. Wright \\
-      April 2018 \\
+      November 2019 \\
       Mathematics \\
    \end{flushright}
 }
@@ -9,9 +9,21 @@
 \bigskip
 
 \begin{center}
-   Title Here \\
+   An Improved Gauge Dual Descent Algorithm for Noisy Phase Retrieval \\
 \end{center}
 
 \section*{Abstract}
 
-Insert abstract here.
+Phase retrieval is a common problem in signal processing, with applications in astronomy, x-ray imaging, electron microscopy, and coherent diffraction imaging (CDI).
+Many models and algorithms exist for phase retrieval,
+yet few are designed to handle noise without imposing additional assumptions like signal sparsity.  
+One recent algorithm for noisy phase retrieval which requires no underlying assumptions is the Gauge Dual Descent (GDD) algorithm, which iteratively denoises the desired signal.
+
+The GDD algorithm involves a sequence of eigenvalue problems which can be computationally expensive for large-scale signal recovery, requiring many matrix-vector products.
+Additionally, signal denoising progress tends to stall in the GDD algorithm prior to satisfying optimality-based termination conditions.
+%Additionally, the GDD algorithm typically fails to meet previously proposed termination conditions based on gauge dual optimality.
+To address these challenges, this dissertation provides the following contributions.
+First, we establish new termination conditions based on empirical indicators which suggest signal denoising progress has stalled.
+Next, we develop an adaptive strategy for handling the sequence of eigenvalue problems in the GDD algorithm.
+These contributions lead to the Improved Gauge Dual Descent (IGDD) algorithm.
+Numerical examples demonstrate that the IGDD algorithm reduces the number of matrix-vector products by $50-80\%$ for problems with low-oversampling.
