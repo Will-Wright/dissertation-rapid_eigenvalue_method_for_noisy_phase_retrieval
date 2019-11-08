@@ -22,14 +22,15 @@
 \usepackage{fancyhdr}
 \usepackage{setspace}
 \usepackage{calc}
+\usepackage[nocompress]{cite} %%% optional
 \usepackage[pdfborder={0 0 0}, pdfpagemode=UseNone, pdfstartview=FitH]{hyperref} %%% optional
 
 % Set \headheight and \headsep so that \headheight + \headsep =
 % 0.5in.  Thus, the top of the text will be one inch from the top
 % of the page.
-%
-\setlength{\headheight}{\pointsize + 2pt}
-\setlength{\headsep}{0.5in - \headheight} 
+% 2019 EDIT: Removes headers and restores top margin to 1 in. 2015 settings are commented out, just delete {0in} to restore.
+\setlength{\headheight}{0in} %{\pointsize + 2pt}
+\setlength{\headsep}{0in} %{0.5in - \headheight} 
 
 % Protrude page number half-inch into right margin so that it is a
 % half-inch from the page's edge.
@@ -59,17 +60,18 @@
 %   section to be indicated in the upper left of the page.  See 
 %   documentation for the fancyhdr to control this display.
 %
+%2019 EDIT: Removes headers and headrule. 2015 settings are commented out, just delete {0pt} to restore.
 \fancypagestyle{maintext}{%
-   \renewcommand{\headrulewidth}{0.4pt}
+   \renewcommand{\headrulewidth}{0pt} %{0.4pt}
    \pagenumbering{arabic}
    \fancyhf{}
-   \fancyhead[L]{\rightmark}
+   %\fancyhead[L]{\rightmark}
    \cfoot{\thepage}%%%
 }
 
 %%% for the first page of Abstract_Only.tex
 \fancypagestyle{abstract1}{%
-   \renewcommand{\headrulewidth}{0.4pt}
+   \renewcommand{\headrulewidth}{0pt} %{0.4pt}
 	 \fancyheadoffset[R]{0in}
    \pagenumbering{arabic}
    \fancyhf{}
@@ -77,7 +79,7 @@
 
 %%% for pages 2+ of Abstract_Only.tex
 \fancypagestyle{abstract2}{%
-   \renewcommand{\headrulewidth}{0.4pt}
+   \renewcommand{\headrulewidth}{0pt} %{0.4pt}
    \fancyheadoffset[R]{0in}
 	 \pagenumbering{arabic}
    \fancyhf{}

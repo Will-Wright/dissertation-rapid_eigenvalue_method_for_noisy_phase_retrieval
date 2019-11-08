@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  8 NOV 2019 13:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  8 NOV 2019 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**will_wright_dissertation.tex
-(./will_wright_dissertation.tex
+**Abstract_Only.tex
+(./Abstract_Only.tex
 LaTeX2e <2015/10/01> patch level 2
 Babel <3.9n> and hyphenation patterns for 79 languages loaded.
 (./LayoutPreamble.tex
@@ -812,29 +812,29 @@ Extension to Epic and LaTeX. Version 1.1e - Released Dec 21, 1999
 )
 \c@thm=\count160
 \c@theorem=\count161
-) (./will_wright_dissertation.aux)
-\openout1 = `will_wright_dissertation.aux'.
+)
+No file Abstract_Only.aux.
+\openout1 = `Abstract_Only.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Try loading font information for U+msa on input line 23.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Try loading font information for U+msa on input line 18.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 23.
+LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -874,7 +874,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box64
-Package hyperref Info: Link coloring OFF on input line 23.
+Package hyperref Info: Link coloring OFF on input line 18.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -883,13 +883,11 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count162
 )
-LaTeX Info: Redefining \ref on input line 23.
-LaTeX Info: Redefining \pageref on input line 23.
-LaTeX Info: Redefining \nameref on input line 23.
-
-(./will_wright_dissertation.out) (./will_wright_dissertation.out)
+LaTeX Info: Redefining \ref on input line 18.
+LaTeX Info: Redefining \pageref on input line 18.
+LaTeX Info: Redefining \nameref on input line 18.
 \@outlinefile=\write4
-\openout4 = `will_wright_dissertation.out'.
+\openout4 = `Abstract_Only.out'.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -923,688 +921,44 @@ e
 ABD: EveryShipout initializing macros
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (./TitlePage.tex) [1
+ (./Abstract.tex) [1
 
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
+ (./Abstract_Only.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
- [0
 
+Package rerunfilecheck Warning: File `Abstract_Only.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-] [2]
-Contents
-(./will_wright_dissertation.toc [3
+Package rerunfilecheck Info: Checksums for `Abstract_Only.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  ED3CDF9133C37D676C26CC0D4896F289;44.
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-])
-\tf@toc=\write5
-\openout5 = `will_wright_dissertation.toc'.
-
- [4] (./Abstract.tex) [5]
-(./Acknowledgments.tex) [6] (./Introduction.tex
-Chapter 1
-[1
-
-
-
-
-]
-Overfull \hbox (9.72601pt too wide) in paragraph at lines 47--48
-[]\OT1/cmr/m/n/10.95 CDI is a method for re-con-struct-ing $2$- or $3$-dimensio
-nal nano-structures (e.g., nan-otubes, nanocrys-
- []
-
-<phase_retrieval_depiction_mod.jpg, id=296, 526.96875pt x 333.245pt>
-File: phase_retrieval_depiction_mod.jpg Graphic file (type jpg)
-
-<use phase_retrieval_depiction_mod.jpg>
-Package pdftex.def Info: phase_retrieval_depiction_mod.jpg used on input line 5
-1.
-(pdftex.def)             Requested size: 352.31625pt x 222.81026pt.
- [2]
-Underfull \vbox (badness 3769) has occurred while \output is active []
-
- [3 <./phase_retrieval_depiction_mod.jpg>]
-<parrot_signal_iterates.png, id=342, 978.65625pt x 173.64874pt>
-File: parrot_signal_iterates.png Graphic file (type png)
-
-<use parrot_signal_iterates.png>
-Package pdftex.def Info: parrot_signal_iterates.png used on input line 98.
-(pdftex.def)             Requested size: 587.19829pt x 104.19005pt.
- [4 <./parrot_signal_iterates.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-Underfull \vbox (badness 5036) has occurred while \output is active []
-
- [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9])
-(./ch2_noisy_phase_retrieval.tex [10]
-Chapter 2
-[11
-
-
-]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 60.
- [12]
-Overfull \hbox (4.39432pt too wide) in paragraph at lines 108--109
- [][] 
- []
-
-[13] [14] [15]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16]
-[17]
-Underfull \vbox (badness 4981) has occurred while \output is active []
-
- [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19]
-[20] [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22]
-[23] [24]) (./ch3_gauge_duality.tex [25]
-Chapter 3
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26
-
-
-]
-[27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [28]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-[32] [33]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [34]
-Overfull \hbox (4.62978pt too wide) in paragraph at lines 398--399
-[][][]\OT1/cmr/m/sc/10.95 Proposition \OT1/cmr/m/n/10.95 3.3.4\OT1/cmr/m/sc/10.
-95 . []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 ^^T[]$ \OT1/cmr/m/it/10.95 
-and $\OML/cmm/m/it/10.95 ^^T[]$ \OT1/cmr/m/it/10.95 be gauges. Let $\OML/cmm/m/
-it/10.95 ^^T\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]; x[]\OT1/cmr/m/n/10.95 
-) = \OML/cmm/m/it/10.95 ^^T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cm
-r/m/n/10.95 ) + \OML/cmm/m/it/10.95 ^^T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
-5 x[]\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 , $\OMS/cmsy/m/n/10.95 C[] \OT1/c
-mr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 z[] \OMS/cmsy/m/n/10.95
- j \OML/cmm/m/it/10.95 ^^T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 z[]\OT1/cmr
-/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^T
- []
-
-[35]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36]
-Underfull \vbox (badness 3449) has occurred while \output is active []
-
- [37]
-Underfull \vbox (badness 4205) has occurred while \output is active []
-
- [38]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [39]
-[40]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [41]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [43]
-[44]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45]
-Underfull \vbox (badness 2103) has occurred while \output is active []
-
- [46]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [47])
-(./ch4_PLGD_algorithm.tex [48]
-Chapter 4
-
-Underfull \vbox (badness 2409) has occurred while \output is active []
-
- [49
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [50]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [53]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [54]
-[55]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [56]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57]
-[58]) (./ch5_new_term_conds.tex [59]
-Chapter 5
-[60
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [61]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [62]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [63]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [64]
-[65]
-<noisy_random_signal_relative_errors_stagnate.png, id=1444, 869.2475pt x 182.68
-25pt>
-File: noisy_random_signal_relative_errors_stagnate.png Graphic file (type png)
- <use noisy_random_signal_relative_errors_stagnate.png>
-Package pdftex.def Info: noisy_random_signal_relative_errors_stagnate.png used 
-on input line 270.
-(pdftex.def)             Requested size: 521.55252pt x 109.61034pt.
-
-Overfull \hbox (51.7975pt too wide) in paragraph at lines 270--271
- [] 
- []
-
-
-Underfull \vbox (badness 1281) has occurred while \output is active []
-
- [66 <./noisy_random_signal_relative_errors_stagnate.png (PNG copy)>] [67]
-<noisy_random_signal_DFP_vs_no_DFP.png, id=1512, 866.23625pt x 187.70125pt>
-File: noisy_random_signal_DFP_vs_no_DFP.png Graphic file (type png)
-
-<use noisy_random_signal_DFP_vs_no_DFP.png>
-Package pdftex.def Info: noisy_random_signal_DFP_vs_no_DFP.png used on input li
-ne 342.
-(pdftex.def)             Requested size: 519.74577pt x 112.62161pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [68 <./noisy_random_signal_DFP_vs_no_DFP.png (PNG copy)>] [69]
-<term_crit-signal_err.png, id=1553, 884.30376pt x 504.88625pt>
-File: term_crit-signal_err.png Graphic file (type png)
-
-<use term_crit-signal_err.png>
-Package pdftex.def Info: term_crit-signal_err.png used on input line 397.
-(pdftex.def)             Requested size: 530.58635pt x 302.93407pt.
-
-Underfull \vbox (badness 1430) has occurred while \output is active []
-
- [70 <./term_crit-signal_err.png (PNG copy)>]
-<term_crit-pr_and_dual.png, id=1591, 884.30376pt x 754.82pt>
-File: term_crit-pr_and_dual.png Graphic file (type png)
-
-<use term_crit-pr_and_dual.png>
-Package pdftex.def Info: term_crit-pr_and_dual.png used on input line 471.
-(pdftex.def)             Requested size: 530.58635pt x 452.89551pt.
- [71] [72 <./term_crit-pr_and_dual.png (PNG copy)>] <term_crit-duality_gap.png,
- id=1629, 860.21375pt x 432.61626pt>
-File: term_crit-duality_gap.png Graphic file (type png)
-
-<use term_crit-duality_gap.png>
-Package pdftex.def Info: term_crit-duality_gap.png used on input line 498.
-(pdftex.def)             Requested size: 516.13223pt x 259.57176pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [73]
-<term_crit-model_term_for_tols.png, id=1648, 884.30376pt x 505.89pt>
-File: term_crit-model_term_for_tols.png Graphic file (type png)
-
-<use term_crit-model_term_for_tols.png>
-Package pdftex.def Info: term_crit-model_term_for_tols.png used on input line 5
-20.
-(pdftex.def)             Requested size: 530.58635pt x 303.53633pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [74 <./term_crit-duality_gap.png (PNG copy)>]) (./ch6_eig_methods.tex [75 <./t
-erm_crit-model_term_for_tols.png (PNG copy)>]
-Chapter 6
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [76
-
-
-]
-[77]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [78]
-<EMEP_costs_num_mat_vecs.png, id=1748, 884.30376pt x 400.49625pt>
-File: EMEP_costs_num_mat_vecs.png Graphic file (type png)
-
-<use EMEP_costs_num_mat_vecs.png>
-Package pdftex.def Info: EMEP_costs_num_mat_vecs.png used on input line 158.
-(pdftex.def)             Requested size: 530.58635pt x 240.29959pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [79]
-<EMEP_full_spectrum.png, id=1765, 874.26625pt x 483.8075pt>
-File: EMEP_full_spectrum.png Graphic file (type png)
-
-<use EMEP_full_spectrum.png>
-Package pdftex.def Info: EMEP_full_spectrum.png used on input line 183.
-(pdftex.def)             Requested size: 524.5638pt x 290.28674pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [80 <./EMEP_costs_num_mat_vecs.png (PNG copy)>]
-<EMEP_largest_eigvals.png, id=1783, 873.2625pt x 440.64626pt>
-File: EMEP_largest_eigvals.png Graphic file (type png)
-
-<use EMEP_largest_eigvals.png>
-Package pdftex.def Info: EMEP_largest_eigvals.png used on input line 204.
-(pdftex.def)             Requested size: 523.96153pt x 264.38979pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [81 <./EMEP_full_spectrum.png (PNG copy)>]
-Underfull \vbox (badness 1997) has occurred while \output is active []
-
- [82 <./EMEP_largest_eigvals.png (PNG copy)>] [83] [84]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [85]
-[86] [87] [88]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [89]
-[90]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [91]
-Underfull \vbox (badness 1442) has occurred while \output is active []
-
- [92]
-<Numerics-num_matvecs_orig_vs_optimal_params_1.png, id=1999, 746.79pt x 422.578
-75pt>
-File: Numerics-num_matvecs_orig_vs_optimal_params_1.png Graphic file (type png)
-
- <use Numerics-num_matvecs_orig_vs_optimal_params_1.png>
-Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_1.png used
- on input line 657.
-(pdftex.def)             Requested size: 448.07745pt x 253.5492pt.
-
-<Numerics-num_matvecs_orig_vs_optimal_params_2.png, id=2000, 825.0825pt x 198.7
-425pt>
-File: Numerics-num_matvecs_orig_vs_optimal_params_2.png Graphic file (type png)
-
- <use Numerics-num_matvecs_orig_vs_optimal_params_2.png>
-Package pdftex.def Info: Numerics-num_matvecs_orig_vs_optimal_params_2.png used
- on input line 658.
-(pdftex.def)             Requested size: 495.05333pt x 119.24641pt.
- [93]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [94 <./Numerics-num_matvecs_orig_vs_optimal_params_1.png (PNG copy)> <./Numeri
-cs-num_matvecs_orig_vs_optimal_params_2.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [95]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [96]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [97]
-<Numerics-num_eigs_ada_vs_opt_1.png, id=2061, 861.2175pt x 312.16624pt>
-File: Numerics-num_eigs_ada_vs_opt_1.png Graphic file (type png)
-
-<use Numerics-num_eigs_ada_vs_opt_1.png>
-Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_1.png used on input line 
-819.
-(pdftex.def)             Requested size: 516.73448pt x 187.3012pt.
-
-Underfull \vbox (badness 2057) has occurred while \output is active []
-
- [98 <./Numerics-num_eigs_ada_vs_opt_1.png (PNG copy)>]
-<Numerics-num_eigs_req_ada_2_exps.png, id=2091, 865.2325pt x 246.9225pt>
-File: Numerics-num_eigs_req_ada_2_exps.png Graphic file (type png)
-
-<use Numerics-num_eigs_req_ada_2_exps.png>
-Package pdftex.def Info: Numerics-num_eigs_req_ada_2_exps.png used on input lin
-e 860.
-(pdftex.def)             Requested size: 519.14351pt x 148.15462pt.
- [99 <./Numerics-num_eigs_req_ada_2_exps.png (PNG copy)>]
-<Numerics-surf_num_mvs_and_eig_diffs_1.png, id=2119, 678.535pt x 705.63625pt>
-File: Numerics-surf_num_mvs_and_eig_diffs_1.png Graphic file (type png)
-
-<use Numerics-surf_num_mvs_and_eig_diffs_1.png>
-Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_1.png used on inpu
-t line 896.
-(pdftex.def)             Requested size: 452.34865pt x 470.41583pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [100]
-<Numerics-surf_num_mvs_and_eig_diffs_2.png, id=2136, 677.53125pt x 707.64375pt>
-File: Numerics-surf_num_mvs_and_eig_diffs_2.png Graphic file (type png)
-<use Numerics-surf_num_mvs_and_eig_diffs_2.png>
-Package pdftex.def Info: Numerics-surf_num_mvs_and_eig_diffs_2.png used on inpu
-t line 906.
-(pdftex.def)             Requested size: 451.67949pt x 471.75415pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [101 <./Numerics-surf_num_mvs_and_eig_diffs_1.png (PNG copy)>] [102 <./Numeric
-s-surf_num_mvs_and_eig_diffs_2.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [103]
-<Numerics-surf_mvs_for_m_vs_j_1.png, id=2189, 350.30875pt x 356.33125pt>
-File: Numerics-surf_mvs_for_m_vs_j_1.png Graphic file (type png)
-
-<use Numerics-surf_mvs_for_m_vs_j_1.png>
-Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_1.png used on input line 
-961.
-(pdftex.def)             Requested size: 210.18686pt x 213.80038pt.
-
-<Numerics-surf_mvs_for_m_vs_j_2.png, id=2190, 351.3125pt x 355.3275pt>
-File: Numerics-surf_mvs_for_m_vs_j_2.png Graphic file (type png)
-
-<use Numerics-surf_mvs_for_m_vs_j_2.png>
-Package pdftex.def Info: Numerics-surf_mvs_for_m_vs_j_2.png used on input line 
-963.
-(pdftex.def)             Requested size: 210.78911pt x 213.19814pt.
- [104 <./Numerics-surf_mvs_for_m_vs_j_1.png (PNG copy)> <./Numerics-surf_mvs_fo
-r_m_vs_j_2.png (PNG copy)>])
-(./ch7_numerics.tex [105]
-Chapter 7
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 1.
-
-[106
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [107]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [108]
-<Numerics-ada_vs_orig_various_params.png, id=2287, 860.21375pt x 238.8925pt>
-File: Numerics-ada_vs_orig_various_params.png Graphic file (type png)
-
-<use Numerics-ada_vs_orig_various_params.png>
-Package pdftex.def Info: Numerics-ada_vs_orig_various_params.png used on input 
-line 122.
-(pdftex.def)             Requested size: 516.13223pt x 143.3366pt.
- [109 <./Numerics-ada_vs_orig_various_params.png (PNG copy)>] <jul_and_me_orig.
-png, id=2322, 240.9pt x 240.9pt>
-File: jul_and_me_orig.png Graphic file (type png)
-
-<use jul_and_me_orig.png>
-Package pdftex.def Info: jul_and_me_orig.png used on input line 183.
-(pdftex.def)             Requested size: 112.92159pt x 112.92159pt.
- <UCD_orig.png, id=2323, 602.25pt x 200.75pt>
-File: UCD_orig.png Graphic file (type png)
-
-<use UCD_orig.png>
-Package pdftex.def Info: UCD_orig.png used on input line 185.
-(pdftex.def)             Requested size: 338.76479pt x 112.92159pt.
- <jul_and_me_L_15_ada40.png, id=2324, 240.9pt x 240.9pt>
-File: jul_and_me_L_15_ada40.png Graphic file (type png)
-
-<use jul_and_me_L_15_ada40.png>
-Package pdftex.def Info: jul_and_me_L_15_ada40.png used on input line 188.
-(pdftex.def)             Requested size: 112.92159pt x 112.92159pt.
-
-<UCD_L_15_ada40.png, id=2325, 602.25pt x 200.75pt>
-File: UCD_L_15_ada40.png Graphic file (type png)
- <use UCD_L_15_ada40.png>
-Package pdftex.def Info: UCD_L_15_ada40.png used on input line 190.
-(pdftex.def)             Requested size: 338.76479pt x 112.92159pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [110]
-Underfull \vbox (badness 1902) has occurred while \output is active []
-
- [111 <./jul_and_me_orig.png (PNG copy)> <./UCD_orig.png (PNG copy)> <./jul_and
-_me_L_15_ada40.png (PNG copy)> <./UCD_L_15_ada40.png (PNG copy)>]
-<Numerics-num_eigs_ada_vs_opt_1_IGDD.png, id=2356, 863.225pt x 329.23pt>
-File: Numerics-num_eigs_ada_vs_opt_1_IGDD.png Graphic file (type png)
-
-<use Numerics-num_eigs_ada_vs_opt_1_IGDD.png>
-Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_1_IGDD.png used on input 
-line 255.
-(pdftex.def)             Requested size: 517.939pt x 197.53952pt.
-
-<Numerics-num_eigs_ada_vs_opt_2_IGDD.png, id=2357, 861.2175pt x 203.76125pt>
-File: Numerics-num_eigs_ada_vs_opt_2_IGDD.png Graphic file (type png)
-
-<use Numerics-num_eigs_ada_vs_opt_2_IGDD.png>
-Package pdftex.def Info: Numerics-num_eigs_ada_vs_opt_2_IGDD.png used on input 
-line 256.
-(pdftex.def)             Requested size: 516.73448pt x 122.25768pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [112]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [113 <./Numerics-num_eigs_ada_vs_opt_1_IGDD.png (PNG copy)> <./Numerics-num_ei
-gs_ada_vs_opt_2_IGDD.png (PNG copy)>]
-<Numerics-num_matvecs_ada_for_m_vals.png, id=2394, 855.195pt x 563.10374pt>
-File: Numerics-num_matvecs_ada_for_m_vals.png Graphic file (type png)
-
-<use Numerics-num_matvecs_ada_for_m_vals.png>
-Package pdftex.def Info: Numerics-num_matvecs_ada_for_m_vals.png used on input 
-line 313.
-(pdftex.def)             Requested size: 513.12097pt x 337.86485pt.
-
-Underfull \vbox (badness 1577) has occurred while \output is active []
-
- [114])
-(./ch8_conclusion.tex [115 <./Numerics-num_matvecs_ada_for_m_vals.png (PNG copy
-)>]
-Chapter 8
-[116
-
-
-]
-Underfull \vbox (badness 5036) has occurred while \output is active []
-
- [117])
-(./Appx-A_proof_of_PL1_gauge_duality.tex [118]
-Appendix A
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 1.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [119
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [120]
-Underfull \vbox (badness 3769) has occurred while \output is active []
-
- [121]
-Underfull \vbox (badness 2762) has occurred while \output is active []
-
- [122]
-[123]
-File: parrot_signal_iterates.png Graphic file (type png)
- <use parrot_signal_iterates.png>
-Package pdftex.def Info: parrot_signal_iterates.png used on input line 209.
-(pdftex.def)             Requested size: 538.2626pt x 95.5071pt.
-
-<parrot_signal_relative_error_2.png, id=2577, 925.4575pt x 206.7725pt>
-File: parrot_signal_relative_error_2.png Graphic file (type png)
-
-<use parrot_signal_relative_error_2.png>
-Package pdftex.def Info: parrot_signal_relative_error_2.png used on input line 
-210.
-(pdftex.def)             Requested size: 555.2788pt x 124.06445pt.
-) (./Appx-B_further_justification.tex
-[124 <./parrot_signal_relative_error_2.png (PNG copy)>]
-Appendix B
-<term_crit-pr_err_fails.png, id=2605, 854.19125pt x 200.75pt>
-File: term_crit-pr_err_fails.png Graphic file (type png)
-
-<use term_crit-pr_err_fails.png>
-Package pdftex.def Info: term_crit-pr_err_fails.png used on input line 21.
-(pdftex.def)             Requested size: 512.5187pt x 120.45091pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [125
-
-
-]
-[126 <./term_crit-pr_err_fails.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [127]
-<term_crit-dual_obj.png, id=2654, 890.32625pt x 392.46625pt>
-File: term_crit-dual_obj.png Graphic file (type png)
-
-<use term_crit-dual_obj.png>
-Package pdftex.def Info: term_crit-dual_obj.png used on input line 90.
-(pdftex.def)             Requested size: 534.19987pt x 235.48155pt.
-) [128 <./term_crit-dual_obj.png (PNG copy)>]
-(./will_wright_dissertation.bbl
-Bibliography
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [129
-
-
-
-
-]
-Underfull \hbox (badness 1454) in paragraph at lines 109--111
-[]\OT1/cmr/m/sc/9 V. Elser, T.-Y. Lan, and T. Ben-dory\OT1/cmr/m/n/9 , \OT1/cmr
-/m/it/9 Bench-mark prob-lems for phase re-trieval\OT1/cmr/m/n/9 , arXiv preprin
-t
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [130]
-Underfull \hbox (badness 1062) in paragraph at lines 169--171
-[]\OT1/cmr/m/sc/9 X. Jiang, H.-C. So, and X. Liu\OT1/cmr/m/n/9 , \OT1/cmr/m/it/
-9 Ro-bust phase re-trieval via ADMM with out-liers\OT1/cmr/m/n/9 , arXiv prepri
-nt
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [131]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [132])
-
-Package caption Warning: Unused \captionsetup[subfigure] on input line 20.
-See the caption package documentation for explanation.
-
-[133]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
- (./will_wright_dissertation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
-Package rerunfilecheck Info: File `will_wright_dissertation.out' has not change
-d.
-(rerunfilecheck)             Checksum: 023919312947C3967989928643D124E1;3241.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
- 22927 strings out of 493054
- 442679 string characters out of 6134760
- 553795 words of memory out of 5000000
- 25271 multiletter control sequences out of 15000+600000
- 15265 words of font info for 57 fonts, out of 8000000 for 9000
+ 21596 strings out of 493054
+ 416046 string characters out of 6134760
+ 510880 words of memory out of 5000000
+ 24567 multiletter control sequences out of 15000+600000
+ 11083 words of font info for 43 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 57i,21n,67p,1358b,888s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on will_wright_dissertation.pdf (140 pages, 2651067 bytes).
+ 57i,11n,67p,470b,339s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Abstract_Only.pdf (1 page, 37723 bytes).
 PDF statistics:
- 2885 PDF objects out of 2984 (max. 8388607)
- 2540 compressed objects within 26 object streams
- 535 named destinations out of 1000 (max. 500000)
- 499 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 29 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
