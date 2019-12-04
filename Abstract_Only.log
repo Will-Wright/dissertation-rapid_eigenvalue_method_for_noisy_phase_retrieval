@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  8 NOV 2019 13:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.22)  4 DEC 2019 13:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -812,8 +812,7 @@ Extension to Epic and LaTeX. Version 1.1e - Released Dec 21, 1999
 )
 \c@thm=\count160
 \c@theorem=\count161
-)
-No file Abstract_Only.aux.
+) (./Abstract_Only.aux)
 \openout1 = `Abstract_Only.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
@@ -831,6 +830,7 @@ LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Try loading font information for U+msa on input line 18.
+
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -886,6 +886,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 18.
 LaTeX Info: Redefining \pageref on input line 18.
 LaTeX Info: Redefining \nameref on input line 18.
+
+(./Abstract_Only.out) (./Abstract_Only.out)
 \@outlinefile=\write4
 \openout4 = `Abstract_Only.out'.
 
@@ -930,35 +932,25 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
  (./Abstract_Only.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
-
-
-Package rerunfilecheck Warning: File `Abstract_Only.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Abstract_Only.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  ED3CDF9133C37D676C26CC0D4896F289;44.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `Abstract_Only.out' has not changed.
+(rerunfilecheck)             Checksum: ED3CDF9133C37D676C26CC0D4896F289;44.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
- 21596 strings out of 493054
- 416046 string characters out of 6134760
- 510880 words of memory out of 5000000
- 24567 multiletter control sequences out of 15000+600000
+ 21604 strings out of 493054
+ 416168 string characters out of 6134760
+ 511063 words of memory out of 5000000
+ 24569 multiletter control sequences out of 15000+600000
  11083 words of font info for 43 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  57i,11n,67p,470b,339s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Abstract_Only.pdf (1 page, 37723 bytes).
+Output written on Abstract_Only.pdf (1 page, 37806 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+ 33 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -370,7 +370,9 @@ The resulting rank minimization problem at right of (\ref{Eqn:PhaseLift_rank_mod
 
 \end{array}
 \end{equation}
-Here the objective function $||X||_1$ refers to the Schatten $p$-norm (which is expressed as $\sum_{i=1}^n \sigma_i(X)$, $\tr(X)$, or $\langle I, X \rangle$ in various literature).  Also, the term $\epsilon = ||\eta||_2$ measures the total noise, whereas $\epsilon_\rel = ||\eta||_2 / ||b||_2$ discussed in Section \ref{Subsec:phase_retrieval-applications} measures the noise ratio (or relative noise).  We choose the Schatten $p$-norm to highlight the fact that (\ref{Eqn:PhaseLift}) is the semidefinite analog to the celebrated  basis pursuit denoising problem \cite{chen2001atomic}, \cite{candes2006stable},
+Here the objective function $||X||_1$ refers to the Schatten $p$-norm (which is expressed as $\sum_{i=1}^n \sigma_i(X)$, $\tr(X)$, or $\langle I, X \rangle$ in various literature).
+While we can evaluate the function $||X||_1$ by computing the trace of $X$, evaluating the subdifferential of this function requires a (partial) SVD.
+Also note that the term $\epsilon = ||\eta||_2$ measures the total noise, whereas $\epsilon_\rel = ||\eta||_2 / ||b||_2$ discussed in Section \ref{Subsec:phase_retrieval-applications} measures the noise ratio (or relative noise).  We choose the Schatten $p$-norm to highlight the fact that (\ref{Eqn:PhaseLift}) is the semidefinite analog to the celebrated  basis pursuit denoising problem \cite{chen2001atomic}, \cite{candes2006stable},
 
 \begin{equation}  			\label{Eqn:basis_pursuit}
 \begin{array}{lll}
@@ -429,7 +431,8 @@ See \cite[Section 6]{candes2013phaselift}.
 \end{proof}
 
 
-The strength of the PhaseLift model lies in its convexity and generality (no signal or observation assumptions are necessary).  Yet the weakness is the difficulty in optimizing the objective function $||X||_1$, as its evaluation requires a partial SVD.
+The strength of the PhaseLift model lies in its convexity and generality (no signal or observation assumptions are necessary).  
+However, in practice the objective function $||X||_1$ is difficult to optimize, as evaluation of the subdifferential $\nabla ||X||_1$ requires a (partial) SVD of $X$.
 
 
 

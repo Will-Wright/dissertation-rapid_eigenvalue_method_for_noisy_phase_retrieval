@@ -13,7 +13,7 @@ Finally, Section \ref{Subsec:Intro-notation} defines the notation used in this d
 
 
 Phase retrieval is the problem of recovering a signal from magnitude-only observations with little or no knowledge of the signal phase.  
-Let $\mathbf{x}$ be a desired signal (or \textit{true signal}) in $\bbR^n$ or $\bbC^n$ which as been observed with sensing (or sampling) vectors $a_i \in \bbC^n$, resulting in squared measurements $|\langle a_i, \mathbf{x} \rangle |^2 = \mathbf{b}_i \in \bbR$ for $i = 1, \ldots, m$.
+Let $\mathbf{x}$ be a desired signal (or \textit{true signal}) in $\bbR^n$ or $\bbC^n$ which has been observed with sensing (or sampling) vectors $a_i \in \bbC^n$, resulting in squared measurements $|\langle a_i, \mathbf{x} \rangle |^2 = \mathbf{b}_i \in \bbR$ for $i = 1, \ldots, m$.
 Also assume the \textit{true observation} vector $\mathbf{b} = [\mathbf{b}_1, \ldots, \mathbf{b}_m]^T \in \bbR^m$ has been contaminated by possibly nontrivial noise $\eta = [\eta_1, \ldots, \eta_m]^T \in \bbR^m$, giving the observation vector $b = \mathbf{b} + \eta \in \bbR^m$.  Then we define the \textit{phase retrieval problem} as
 \begin{equation} \label{Eqn:phase_retrieval}
 \begin{array}{lll}
@@ -83,7 +83,7 @@ In certain cases only a limited number of observations can be collected.  For in
 
 
 
-In this dissertation, our experimental phase retrieval models are generating using the method established in \cite{DBLP:journals/tit/CandesLS15} and extended in \cite{DBLP:journals/siamsc/FriedlanderM16}.  
+In this dissertation, our experimental phase retrieval models are generated using the method established in \cite{DBLP:journals/tit/CandesLS15} and extended in \cite{DBLP:journals/siamsc/FriedlanderM16}.  
 We begin with a true signal $\mathbf{x}$ which is either a vectorized image or a randomly generated vector with coordinates having complex standard Gaussian distribution $\mathbf{x}_i \sim \caN(0, 1)$.
 Next, we generate $j = 1, \ldots,  L$ diagonal mask matrices $C_j \in \mathbb{C}^{n \times n}$ with diagonal entries $C_j(i,i) \sim \caN(0, 1)$.
 We then compute the product (\ref{Eqn:FCx}) to obtain the true observation vector $\mathbf{b}$.
@@ -130,7 +130,7 @@ Additionally, since PLGD models with Gaussian noise typically do not have a uniq
 This dissertation offers two main contributions for PLGD models with Gaussian noise.  
 First, we address the convergence challenges of the GDD algorithm and establish new termination conditions which indicate that signal recovery progress has stagnated.  
 Second, we develop a new strategy for handling the sequence of eigenvalue problems in the GDD algorithm.
-Applying these two modifications to the GDD algorithm decreases the computational costs of the GDD algorithm by $50-90\%$ for problems with minimal oversampling.
+Applying these two modifications to the GDD algorithm decreases the computational costs of the GDD algorithm by $50-80\%$ for problems with minimal oversampling.
 
 
 This dissertation is organized in the following manner.  
