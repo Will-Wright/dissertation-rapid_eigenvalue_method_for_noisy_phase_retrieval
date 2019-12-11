@@ -1,67 +1,61 @@
 \contentsline {section}{\tocsection {}{}{Abstract}}{v}{section*.1}
 \contentsline {section}{\tocsection {}{}{Acknowledgments}}{vi}{section*.2}
 \contentsline {chapter}{\tocchapter {Chapter}{1}{Introduction}}{1}{chapter.1}
-\contentsline {section}{\tocsection {}{1.1}{Phase Retrieval}}{1}{section.1.1}
-\contentsline {section}{\tocsection {}{1.2}{Applications and Experimental Models}}{2}{section.1.2}
-\contentsline {section}{\tocsection {}{1.3}{Contributions}}{4}{section.1.3}
-\contentsline {section}{\tocsection {}{1.4}{Notation}}{6}{section.1.4}
-\contentsline {chapter}{\tocchapter {Chapter}{2}{Noisy Phase Retrieval}}{11}{chapter.2}
-\contentsline {section}{\tocsection {}{2.1}{Introduction}}{11}{section.2.1}
-\contentsline {section}{\tocsection {}{2.2}{Alternating Projection Methods}}{11}{section.2.2}
-\contentsline {subsection}{\tocsubsection {}{2.2.1}{Gershberg-Saxton Algorithm}}{12}{subsection.2.2.1}
-\contentsline {subsection}{\tocsubsection {}{2.2.2}{Hybrid Input-Output Algorithm}}{13}{subsection.2.2.2}
-\contentsline {subsection}{\tocsubsection {}{2.2.3}{HIO-Type Methods}}{14}{subsection.2.2.3}
-\contentsline {section}{\tocsection {}{2.3}{Structured Optimization Methods}}{15}{section.2.3}
-\contentsline {subsection}{\tocsubsection {}{2.3.1}{Compressive Phase Retrieval Methods}}{15}{subsection.2.3.1}
-\contentsline {subsection}{\tocsubsection {}{2.3.2}{Robust Phase Retrieval Methods}}{17}{subsection.2.3.2}
-\contentsline {subsection}{\tocsubsection {}{2.3.3}{Supervised Phase Retrieval Methods}}{17}{subsection.2.3.3}
-\contentsline {section}{\tocsection {}{2.4}{Unstructured Optimization Methods}}{18}{section.2.4}
-\contentsline {subsection}{\tocsubsection {}{2.4.1}{PhaseLift}}{18}{subsection.2.4.1}
-\contentsline {subsection}{\tocsubsection {}{2.4.2}{Wflow}}{21}{subsection.2.4.2}
-\contentsline {chapter}{\tocchapter {Chapter}{3}{Gauge Duality Theory}}{26}{chapter.3}
-\contentsline {section}{\tocsection {}{3.1}{Introduction}}{26}{section.3.1}
-\contentsline {section}{\tocsection {}{3.2}{Primal-Gauge Dual Models and Background}}{27}{section.3.2}
-\contentsline {subsection}{\tocsubsection {}{3.2.1}{Models and Definitions}}{27}{subsection.3.2.1}
-\contentsline {subsection}{\tocsubsection {}{3.2.2}{Development of Gauge Duality and Relation to Lagrange Duality}}{30}{subsection.3.2.2}
-\contentsline {section}{\tocsection {}{3.3}{The Gauge Duality Theorem and Optimality Conditions}}{32}{section.3.3}
-\contentsline {subsection}{\tocsubsection {}{3.3.1}{Supporting Propositions}}{33}{subsection.3.3.1}
-\contentsline {subsection}{\tocsubsection {}{3.3.2}{Gauge Duality Theorem}}{37}{subsection.3.3.2}
-\contentsline {subsection}{\tocsubsection {}{3.3.3}{Weak Duality, Strong Duality, and Optimality Conditions}}{39}{subsection.3.3.3}
-\contentsline {section}{\tocsection {}{3.4}{Theory Applied to the PLGD Model}}{43}{section.3.4}
-\contentsline {chapter}{\tocchapter {Chapter}{4}{The Gauge Dual Descent Algorithm for the PLGD Model}}{49}{chapter.4}
-\contentsline {section}{\tocsection {}{4.1}{Introduction}}{49}{section.4.1}
-\contentsline {section}{\tocsection {}{4.2}{The Gauge Dual Descent Algorithm}}{49}{section.4.2}
-\contentsline {section}{\tocsection {}{4.3}{Noiseless Phase Retrieval}}{57}{section.4.3}
-\contentsline {chapter}{\tocchapter {Chapter}{5}{Algorithm Stagnation for Noisy Phase Retrieval}}{60}{chapter.5}
-\contentsline {section}{\tocsection {}{5.1}{Introduction}}{60}{section.5.1}
-\contentsline {section}{\tocsection {}{5.2}{Experimental Models and Residuals}}{60}{section.5.2}
-\contentsline {section}{\tocsection {}{5.3}{Algorithm Stagnation}}{64}{section.5.3}
-\contentsline {section}{\tocsection {}{5.4}{New Termination Conditions}}{69}{section.5.4}
-\contentsline {chapter}{\tocchapter {Chapter}{6}{Evolving Matrix Eigenvalue Computation}}{76}{chapter.6}
-\contentsline {section}{\tocsection {}{6.1}{Introduction}}{76}{section.6.1}
-\contentsline {section}{\tocsection {}{6.2}{The Evolving Matrix Eigenvalue Problem}}{77}{section.6.2}
-\contentsline {subsection}{\tocsubsection {}{6.2.1}{EMEP Definition}}{77}{subsection.6.2.1}
-\contentsline {subsection}{\tocsubsection {}{6.2.2}{Computational Costs}}{78}{subsection.6.2.2}
-\contentsline {subsection}{\tocsubsection {}{6.2.3}{Evolving Spectrum Distribution}}{80}{subsection.6.2.3}
-\contentsline {section}{\tocsection {}{6.3}{The Implicitly Restarted Arnoldi Method}}{83}{section.6.3}
-\contentsline {subsection}{\tocsubsection {}{6.3.1}{The Power Method}}{83}{subsection.6.3.1}
-\contentsline {subsection}{\tocsubsection {}{6.3.2}{The $m$-Step Arnoldi Iteration}}{85}{subsection.6.3.2}
-\contentsline {subsection}{\tocsubsection {}{6.3.3}{The $p$-Step Shifted QR Iteration}}{89}{subsection.6.3.3}
-\contentsline {subsection}{\tocsubsection {}{6.3.4}{The Implicitly Restarted Arnoldi Method}}{91}{subsection.6.3.4}
-\contentsline {section}{\tocsection {}{6.4}{A New Strategy for the EMEP}}{93}{section.6.4}
-\contentsline {section}{\tocsection {}{6.5}{Spectrum Distribution and IRAM Behavior}}{99}{section.6.5}
-\contentsline {subsection}{\tocsubsection {}{6.5.1}{Eigenvalue Clustering and IRAM Parameter Choice}}{100}{subsection.6.5.1}
-\contentsline {subsection}{\tocsubsection {}{6.5.2}{Selecting the Arnoldi Decomposition Size}}{104}{subsection.6.5.2}
-\contentsline {chapter}{\tocchapter {Chapter}{7}{The Improved Gauge Dual Descent Algorithm \\and Performance Results}}{106}{chapter.7}
-\contentsline {section}{\tocsection {}{7.1}{Introduction}}{106}{section.7.1}
-\contentsline {section}{\tocsection {}{7.2}{The Improved Gauge Dual Descent Algorithm}}{106}{section.7.2}
-\contentsline {section}{\tocsection {}{7.3}{Performance Results}}{109}{section.7.3}
-\contentsline {subsection}{\tocsubsection {}{7.3.1}{Random Gaussian Signals and Large-Scale Images}}{109}{subsection.7.3.1}
-\contentsline {subsection}{\tocsubsection {}{7.3.2}{IGDD vs Empirically Optimal Parameter Selection}}{111}{subsection.7.3.2}
-\contentsline {subsection}{\tocsubsection {}{7.3.3}{Selection of Arnoldi Decomposition Parameter}}{114}{subsection.7.3.3}
-\contentsline {chapter}{\tocchapter {Chapter}{8}{Conclusion}}{116}{chapter.8}
-\contentsline {section}{\tocsection {}{8.1}{Contributions}}{116}{section.8.1}
-\contentsline {section}{\tocsection {}{8.2}{Future Work}}{117}{section.8.2}
-\contentsline {chapter}{\tocappendix {Appendix}{A}{A Comparison of PhaseLift-type Models \\and Phase Retrieval Algorithms}}{119}{appendix.A}
-\contentsline {chapter}{\tocappendix {Appendix}{B}{Further Justification of New Termination Conditions in Section\nonbreakingspace \ref {Subsec:PLGD_term_crit-new_term_crit}}}{125}{appendix.B}
-\contentsline {chapter}{\tocchapter {\chaptername }{}{Bibliography}}{129}{appendix*.43}
+\contentsline {chapter}{\tocchapter {Chapter}{2}{Noisy Phase Retrieval}}{10}{chapter.2}
+\contentsline {section}{\tocsection {}{2.1}{Introduction}}{10}{section.2.1}
+\contentsline {section}{\tocsection {}{2.2}{Alternating Projection Methods}}{10}{section.2.2}
+\contentsline {subsection}{\tocsubsection {}{2.2.1}{Gershberg-Saxton Algorithm}}{11}{subsection.2.2.1}
+\contentsline {subsection}{\tocsubsection {}{2.2.2}{Hybrid Input-Output Algorithm}}{12}{subsection.2.2.2}
+\contentsline {subsection}{\tocsubsection {}{2.2.3}{HIO-Type Methods}}{13}{subsection.2.2.3}
+\contentsline {section}{\tocsection {}{2.3}{Structured Optimization Methods}}{14}{section.2.3}
+\contentsline {subsection}{\tocsubsection {}{2.3.1}{Compressive Phase Retrieval Methods}}{14}{subsection.2.3.1}
+\contentsline {subsection}{\tocsubsection {}{2.3.2}{Robust Phase Retrieval Methods}}{16}{subsection.2.3.2}
+\contentsline {subsection}{\tocsubsection {}{2.3.3}{Supervised Phase Retrieval Methods}}{16}{subsection.2.3.3}
+\contentsline {section}{\tocsection {}{2.4}{Unstructured Optimization Methods}}{17}{section.2.4}
+\contentsline {subsection}{\tocsubsection {}{2.4.1}{PhaseLift}}{17}{subsection.2.4.1}
+\contentsline {subsection}{\tocsubsection {}{2.4.2}{Wflow}}{20}{subsection.2.4.2}
+\contentsline {chapter}{\tocchapter {Chapter}{3}{Gauge Duality Theory}}{25}{chapter.3}
+\contentsline {section}{\tocsection {}{3.1}{Introduction}}{25}{section.3.1}
+\contentsline {section}{\tocsection {}{3.2}{Primal-Gauge Dual Models and Background}}{26}{section.3.2}
+\contentsline {subsection}{\tocsubsection {}{3.2.1}{Models and Definitions}}{26}{subsection.3.2.1}
+\contentsline {subsection}{\tocsubsection {}{3.2.2}{Development of Gauge Duality and Relation to Lagrange Duality}}{29}{subsection.3.2.2}
+\contentsline {section}{\tocsection {}{3.3}{The Gauge Duality Theorem and Optimality Conditions}}{31}{section.3.3}
+\contentsline {subsection}{\tocsubsection {}{3.3.1}{Supporting Propositions}}{32}{subsection.3.3.1}
+\contentsline {subsection}{\tocsubsection {}{3.3.2}{Gauge Duality Theorem}}{36}{subsection.3.3.2}
+\contentsline {subsection}{\tocsubsection {}{3.3.3}{Weak Duality, Strong Duality, and Optimality Conditions}}{38}{subsection.3.3.3}
+\contentsline {section}{\tocsection {}{3.4}{Theory Applied to the PLGD Model}}{42}{section.3.4}
+\contentsline {chapter}{\tocchapter {Chapter}{4}{The Gauge Dual Descent Algorithm for the PLGD Model}}{48}{chapter.4}
+\contentsline {section}{\tocsection {}{4.1}{Introduction}}{48}{section.4.1}
+\contentsline {section}{\tocsection {}{4.2}{The Gauge Dual Descent Algorithm}}{48}{section.4.2}
+\contentsline {section}{\tocsection {}{4.3}{Noiseless Phase Retrieval}}{56}{section.4.3}
+\contentsline {chapter}{\tocchapter {Chapter}{5}{Algorithm Stagnation for Noisy Phase Retrieval}}{59}{chapter.5}
+\contentsline {section}{\tocsection {}{5.1}{Introduction}}{59}{section.5.1}
+\contentsline {section}{\tocsection {}{5.2}{Experimental Models and Residuals}}{59}{section.5.2}
+\contentsline {section}{\tocsection {}{5.3}{Algorithm Stagnation}}{63}{section.5.3}
+\contentsline {section}{\tocsection {}{5.4}{New Termination Conditions}}{68}{section.5.4}
+\contentsline {chapter}{\tocchapter {Chapter}{6}{Evolving Matrix Eigenvalue Computation}}{75}{chapter.6}
+\contentsline {section}{\tocsection {}{6.1}{Introduction}}{75}{section.6.1}
+\contentsline {section}{\tocsection {}{6.2}{The Evolving Matrix Eigenvalue Problem}}{76}{section.6.2}
+\contentsline {subsection}{\tocsubsection {}{6.2.1}{EMEP Definition}}{76}{subsection.6.2.1}
+\contentsline {subsection}{\tocsubsection {}{6.2.2}{Computational Costs}}{77}{subsection.6.2.2}
+\contentsline {subsection}{\tocsubsection {}{6.2.3}{Evolving Spectrum Distribution}}{79}{subsection.6.2.3}
+\contentsline {section}{\tocsection {}{6.3}{The Implicitly Restarted Arnoldi Method}}{82}{section.6.3}
+\contentsline {subsection}{\tocsubsection {}{6.3.1}{The Power Method}}{82}{subsection.6.3.1}
+\contentsline {subsection}{\tocsubsection {}{6.3.2}{The $m$-Step Arnoldi Iteration}}{84}{subsection.6.3.2}
+\contentsline {subsection}{\tocsubsection {}{6.3.3}{The $p$-Step Shifted QR Iteration}}{88}{subsection.6.3.3}
+\contentsline {subsection}{\tocsubsection {}{6.3.4}{The Implicitly Restarted Arnoldi Method}}{90}{subsection.6.3.4}
+\contentsline {section}{\tocsection {}{6.4}{A New Strategy for the EMEP}}{92}{section.6.4}
+\contentsline {section}{\tocsection {}{6.5}{Spectrum Distribution and IRAM Behavior}}{98}{section.6.5}
+\contentsline {subsection}{\tocsubsection {}{6.5.1}{Eigenvalue Clustering and IRAM Parameter Choice}}{99}{subsection.6.5.1}
+\contentsline {subsection}{\tocsubsection {}{6.5.2}{Selecting the Arnoldi Decomposition Size}}{103}{subsection.6.5.2}
+\contentsline {chapter}{\tocchapter {Chapter}{7}{The Improved Gauge Dual Descent Algorithm \\and Performance Results}}{105}{chapter.7}
+\contentsline {section}{\tocsection {}{7.1}{Introduction}}{105}{section.7.1}
+\contentsline {section}{\tocsection {}{7.2}{The Improved Gauge Dual Descent Algorithm}}{105}{section.7.2}
+\contentsline {section}{\tocsection {}{7.3}{Performance Results}}{108}{section.7.3}
+\contentsline {subsection}{\tocsubsection {}{7.3.1}{Random Gaussian Signals and Large-Scale Images}}{108}{subsection.7.3.1}
+\contentsline {subsection}{\tocsubsection {}{7.3.2}{IGDD vs Empirically Optimal Parameter Selection}}{110}{subsection.7.3.2}
+\contentsline {subsection}{\tocsubsection {}{7.3.3}{Selection of Arnoldi Decomposition Parameter}}{113}{subsection.7.3.3}
+\contentsline {chapter}{\tocchapter {Chapter}{8}{Conclusion}}{115}{chapter.8}
+\contentsline {chapter}{\tocappendix {Appendix}{A}{A Comparison of PhaseLift-type Models \\and Phase Retrieval Algorithms}}{118}{appendix.A}
+\contentsline {chapter}{\tocappendix {Appendix}{B}{Further Justification of New Termination Conditions in Section\nonbreakingspace \ref {Subsec:PLGD_term_crit-new_term_crit}}}{124}{appendix.B}
+\contentsline {chapter}{\tocchapter {\chaptername }{}{Bibliography}}{128}{appendix*.43}

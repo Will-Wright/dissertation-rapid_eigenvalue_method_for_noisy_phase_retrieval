@@ -23,7 +23,7 @@ The GDD algorithm involves a sequence of eigenvalue problems which can be comput
 Additionally, signal denoising progress tends to stall in the GDD algorithm prior to satisfying optimality-based termination conditions.
 %Additionally, the GDD algorithm typically fails to meet previously proposed termination conditions based on gauge dual optimality.
 To address these challenges, this dissertation provides the following contributions.
-First, we establish empirical termination conditions for the GDD algorithm which suggest signal denoising progress has stalled.
+First, we establish empirical termination conditions for the GDD algorithm based on primal and dual variable relative errors which suggest signal denoising progress has stalled.
 Next, we develop an adaptive strategy for handling the sequence of eigenvalue problems in the GDD algorithm.
 These contributions lead to the Improved Gauge Dual Descent (IGDD) algorithm.
 Numerical examples demonstrate that the IGDD algorithm requires $50-80\%$ fewer matrix-vector products than the GDD algorithm for a variety of problems with low-oversampling.

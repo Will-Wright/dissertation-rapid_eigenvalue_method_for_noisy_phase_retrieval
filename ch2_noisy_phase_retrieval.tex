@@ -287,7 +287,7 @@ The PhaseLift model was first introduced in \cite{DBLP:journals/siamis/CandesESV
 			  := \sum\limits_{\substack{i = 1}}^{\substack{m}} y_ia_ia_i^*.
 \end{array}
 \end{equation}
-In particular, if the experimental model is the one discussed in Section \ref{Subsec:phase_retrieval-applications} then we have
+In particular, if the experimental model is the one discussed in Chapter \ref{Sec:Intro} then we have
 \begin{equation} 			\label{Eqn:A_definition_with_masks}
 \begin{array}{l}
 \caA(xx^*)
@@ -372,7 +372,7 @@ The resulting rank minimization problem at right of (\ref{Eqn:PhaseLift_rank_mod
 \end{equation}
 Here the objective function $||X||_1$ refers to the Schatten $p$-norm (which is expressed as $\sum_{i=1}^n \sigma_i(X)$, $\tr(X)$, or $\langle I, X \rangle$ in various literature).
 While we can evaluate the function $||X||_1$ by computing the trace of $X$, evaluating the subdifferential of this function requires a (partial) SVD.
-Also note that the term $\epsilon = ||\eta||_2$ measures the total noise, whereas $\epsilon_\rel = ||\eta||_2 / ||b||_2$ discussed in Section \ref{Subsec:phase_retrieval-applications} measures the noise ratio (or relative noise).  We choose the Schatten $p$-norm to highlight the fact that (\ref{Eqn:PhaseLift}) is the semidefinite analog to the celebrated  basis pursuit denoising problem \cite{chen2001atomic}, \cite{candes2006stable},
+Also note that the term $\epsilon = ||\eta||_2$ measures the total noise, whereas $\epsilon_\rel = ||\eta||_2 / ||b||_2$ discussed in Chapter \ref{Sec:Intro} measures the noise ratio (or relative noise).  We choose the Schatten $p$-norm to highlight the fact that (\ref{Eqn:PhaseLift}) is the semidefinite analog to the celebrated  basis pursuit denoising problem \cite{chen2001atomic}, \cite{candes2006stable},
 
 \begin{equation}  			\label{Eqn:basis_pursuit}
 \begin{array}{lll}
@@ -404,7 +404,7 @@ See \cite[Section 2]{candes2014solving}.
 
 
 
-The assumptions of Theorem \ref{Thm:PhaseLift_exact} are met by the experimental models used in \cite{DBLP:journals/siamis/CandesESV13}, \cite{candes2013phaselift}, \cite{DBLP:journals/siamsc/FriedlanderM16}, and this dissertation (see Section \ref{Subsec:phase_retrieval-applications}, where the masks $C_i \in \bbC^{n \times n}$ from (\ref{Eqn:FCx}) have diagonal entries chosen with Gaussian distribution).  Thus, if $L$ is the oversampling rate (i.e., $m = nL$) then Theorem \ref{Thm:PhaseLift_exact} shows that only $L = \caO(1)$ masks are required to guarantee exact signal recover (up to global phase) with high probability.
+The assumptions of Theorem \ref{Thm:PhaseLift_exact} are met by the experimental models used in \cite{DBLP:journals/siamis/CandesESV13}, \cite{candes2013phaselift}, \cite{DBLP:journals/siamsc/FriedlanderM16}, and this dissertation (see Chapter \ref{Sec:Intro}, where the masks $C_i \in \bbC^{n \times n}$ from (\ref{Eqn:FCx}) have diagonal entries chosen with Gaussian distribution).  Thus, if $L$ is the oversampling rate (i.e., $m = nL$) then Theorem \ref{Thm:PhaseLift_exact} shows that only $L = \caO(1)$ masks are required to guarantee exact signal recover (up to global phase) with high probability.
 
 
 

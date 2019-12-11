@@ -1,16 +1,6 @@
 \chapter{Introduction}  \label{Sec:Intro}
 
 
-In this chapter, we introduce the phase retrieval problem and summarize the goals of this dissertation.
-Section \ref{Subsec:phase_retrieval-math_model} defines the phase retrieval problem.
-Section \ref{Subsec:phase_retrieval-applications} describes a common phase retrieval application and presents the experimental model which we use throughout this dissertation for numerical testing.
-Section \ref{Subsec:Intro-contributions} describes the contributions and layout of this dissertation.
-Finally, Section \ref{Subsec:Intro-notation} defines the notation used in this dissertation.
-
-
-\section{Phase Retrieval}	\label{Subsec:phase_retrieval-math_model}
-
-
 
 Phase retrieval is the problem of recovering a signal from magnitude-only observations with little or no knowledge of the signal phase.  
 Let $\mathbf{x}$ be a desired signal (or \textit{true signal}) in $\bbR^n$ or $\bbC^n$ which has been observed with sensing (or sampling) vectors $a_i \in \bbC^n$, resulting in squared measurements $|\langle a_i, \mathbf{x} \rangle |^2 = \mathbf{b}_i \in \bbR$ for $i = 1, \ldots, m$.
@@ -35,7 +25,6 @@ The domain of the constraint in (\ref{Eqn:phase_retrieval}) is a high-dimensiona
 
 
 
-\section{Applications and Experimental Models} 			\label{Subsec:phase_retrieval-applications}
 
 
 Phase retrieval has a broad range of applications across the sciences, many of which fall into the general category of coherent diffraction imaging (CDI) \cite{miao1999extending}.  
@@ -106,7 +95,6 @@ For a complete explanation of our method for creating noisy phase retrieval prob
 
 
 
-\section{Contributions}		\label{Subsec:Intro-contributions}
 
 
 We now summarize the contributions and layout of this dissertation.
@@ -162,7 +150,6 @@ Chapter \ref{Sec:Conclusion} concludes this dissertation with a summary of our c
 
 
 
-\section{Notation}		\label{Subsec:Intro-notation}
 
 
 This dissertation uses the following notation.  Additional notation and definitions specific to gauge duality are stated in Section \ref{Subsec:PLGD-models_intro}.  

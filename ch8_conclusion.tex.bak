@@ -7,7 +7,6 @@ Section \ref{Subsec:Conclusion-contrib} summarizes our contributions and Section
 
 
 
-\section{Contributions}		\label{Subsec:Conclusion-contrib}
 
 
 Our work provides two main contributions which lead to the development of the Improved Gauge Dual Descent (IGDD) algorithm (Algorithm \ref{Alg:PGD-improved}).
@@ -40,7 +39,6 @@ We saw that the PLGD model is well-suited for developing a first-order method, a
 
 
 
-\section{Future Work}		\label{Subsec:Conclusion-future}
 
 Several theoretical and computational questions still remain for future work.  
 In terms of theory, it would be beneficial to determine the expected rank of the optimal PLGD matrix $\caA^*y_\star$ for a given noisy phase retrieval problem. 
